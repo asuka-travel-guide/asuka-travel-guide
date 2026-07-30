@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asuka-travel-guide.github.io/asuka-travel-guide/sitemap.xml
