@@ -1,116 +1,141 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    const slider = document.querySelector(".related-slider");
-    const scroll = document.querySelector(".related-scroll");
+const scroll=document.querySelector(".related-scroll");
+const slider=document.querySelector(".related-slider");
 
-    if (!slider || !scroll) return;
+if(!scroll||!slider)return;
 
-    /*==========================================
-        カード複製（HTMLはそのまま）
-    ==========================================*/
 
-    [...slider.children].forEach(card => {
-        slider.appendChild(card.cloneNode(true));
-    });
+/*----------------------------------
+複製
+----------------------------------*/
 
-    /*==========================================
-        自動スクロール
-    ==========================================*/
+[...slider.children].forEach(card=>{
+    slider.appendChild(card.cloneNode(true));
+});
 
-    let auto = true;
-    const speed = 0.4;
 
-    function animate() {
+let x=0;
+let auto=true;
+const speed=.4;
 
-        if (auto) {
+let startX=0;
+let startPos=0;
+let dragging=false;
 
-            scroll.scrollLeft += speed;
+function loop(){
 
-            if (scroll.scrollLeft >= slider.scrollWidth / 2) {
-                scroll.scrollLeft = 0;
-            }
+    if(auto){
+
+        x-=speed;
+
+        const limit=slider.scrollWidth/2;
+
+        if(-x>=limit){
+
+            x+=limit;
 
         }
 
-        requestAnimationFrame(animate);
+        slider.style.transform=`translateX(${x}px)`;
 
     }
 
-    animate();
+    requestAnimationFrame(loop);
 
-    /*==========================================
-        PC ドラッグ
-    ==========================================*/
+}
 
-    let isDown = false;
-    let startX;
-    let startScrollLeft;
+loop();
 
-    scroll.addEventListener("mousedown", (e) => {
 
-        auto = false;
-        isDown = true;
+/*----------------------------------
+PC
+----------------------------------*/
 
-        startX = e.pageX;
-        startScrollLeft = scroll.scrollLeft;
+scroll.addEventListener("mousedown",e=>{
 
-        scroll.style.cursor = "grabbing";
+    dragging=true;
+    auto=false;
 
-    });
+    startX=e.clientX;
+    startPos=x;
 
-    window.addEventListener("mousemove", (e) => {
+    scroll.classList.add("dragging");
 
-        if (!isDown) return;
+});
 
-        const walk = e.pageX - startX;
+window.addEventListener("mousemove",e=>{
 
-        scroll.scrollLeft = startScrollLeft - walk;
+    if(!dragging)return;
 
-    });
+    x=startPos+(e.clientX-startX);
 
-    window.addEventListener("mouseup", () => {
+    slider.style.transform=`translateX(${x}px)`;
 
-        if (!isDown) return;
+});
 
-        isDown = false;
-        scroll.style.cursor = "";
+window.addEventListener("mouseup",()=>{
 
-        setTimeout(() => {
-            auto = true;
-        }, 1000);
+    if(!dragging)return;
 
-    });
+    dragging=false;
 
-    /*==========================================
-        スマホ スワイプ
-    ==========================================*/
+    scroll.classList.remove("dragging");
 
-    let touchStartX = 0;
-    let touchStartScroll = 0;
+    setTimeout(()=>{
 
-    scroll.addEventListener("touchstart", (e) => {
+        auto=true;
 
-        auto = false;
+    },1000);
 
-        touchStartX = e.touches[0].clientX;
-        touchStartScroll = scroll.scrollLeft;
+});
 
-    }, { passive: true });
 
-    scroll.addEventListener("touchmove", (e) => {
+/*----------------------------------
+スマホ
+----------------------------------*/
 
-        const move = e.touches[0].clientX - touchStartX;
+scroll.addEventListener("touchstart",e=>{
 
-        scroll.scrollLeft = touchStartScroll - move;
+    auto=false;
 
-    }, { passive: true });
+    startX=e.touches[0].clientX;
+    startPos=x;
 
-    scroll.addEventListener("touchend", () => {
+},{passive:true});
 
-        setTimeout(() => {
-            auto = true;
-        }, 1000);
 
-    });
+scroll.addEventListener("touchmove",e=>{
+
+    x=startPos+(e.touches[0].clientX-startX);
+
+    slider.style.transform=`translateX(${x}px)`;
+
+},{passive:true});
+
+
+scroll.addEventListener("touchend",()=>{
+
+    const limit=slider.scrollWidth/2;
+
+    while(x>0){
+
+        x-=limit;
+
+    }
+
+    while(-x>=limit){
+
+        x+=limit;
+
+    }
+
+    setTimeout(()=>{
+
+        auto=true;
+
+    },1000);
+
+});
 
 });
