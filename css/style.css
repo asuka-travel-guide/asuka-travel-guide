@@ -470,8 +470,8 @@ nav a{
 
 
 
-.catch h1{
-    font-size:22px;
+.catch p{
+    font-size:20px;
     letter-spacing:.08em;
 }
 
@@ -553,7 +553,7 @@ footer nav a{
 ------------------------------------------*/
 
 
-.spot-category h2{
+.spot-category h1{
     font-size:30px;
     font-weight:500;
     color:#333;
@@ -1071,7 +1071,7 @@ margin-bottom:18px;
 }
 
 
-.spot-title h2{
+.spot-title h1{
     color:#fff;
     font-size:38px;
     font-weight:500;
@@ -1281,6 +1281,7 @@ margin-bottom:18px;
     flex:0 0 300px;
 }
 
+
 .related-scroll.dragging{
     cursor:grabbing;
 }
@@ -1354,18 +1355,20 @@ margin-bottom:18px;
 
 
 
-.spot-title h2{
-
+.spot-title h1{
     font-size:24px;
+}
 
+.spot-title h2{
+    font-size:24px;
 }
 
 
 
+
+
 .spot-intro{
-
     font-size:16px;
-
 }
 
 
