@@ -1,120 +1,116 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
+    const slider = document.querySelector(".related-slider");
+    const scroll = document.querySelector(".related-scroll");
 
-const slider = document.querySelector(".related-slider");
-const scroll = document.querySelector(".related-scroll");
+    if (!slider || !scroll) return;
 
+    /*==========================================
+        カード複製（HTMLはそのまま）
+    ==========================================*/
 
-if(!slider || !scroll) return;
+    [...slider.children].forEach(card => {
+        slider.appendChild(card.cloneNode(true));
+    });
 
+    /*==========================================
+        自動スクロール
+    ==========================================*/
 
+    let auto = true;
+    const speed = 0.4;
 
-/*==========================================
-    カード複製
-==========================================*/
+    function animate() {
 
-const cards = [...slider.children];
+        if (auto) {
 
+            scroll.scrollLeft += speed;
 
-cards.forEach(card=>{
-
-    const clone = card.cloneNode(true);
-
-    slider.appendChild(clone);
-
-});
-
-
-
-/*==========================================
-    自動スクロール
-==========================================*/
-
-let auto = true;
-
-const speed = 0.4;
-
-
-
-function autoSlide(){
-
-    if(auto){
-
-        scroll.scrollLeft += speed;
-
-
-        /*
-          半分進んだら最初へ戻す
-          複製済みなので見た目は自然
-        */
-
-        if(
-            scroll.scrollLeft >=
-            slider.scrollWidth / 2
-        ){
-
-            scroll.scrollLeft = 0;
+            if (scroll.scrollLeft >= slider.scrollWidth / 2) {
+                scroll.scrollLeft = 0;
+            }
 
         }
 
+        requestAnimationFrame(animate);
+
     }
 
+    animate();
 
-    requestAnimationFrame(autoSlide);
+    /*==========================================
+        PC ドラッグ
+    ==========================================*/
 
-}
+    let isDown = false;
+    let startX;
+    let startScrollLeft;
 
+    scroll.addEventListener("mousedown", (e) => {
 
-autoSlide();
+        auto = false;
+        isDown = true;
 
+        startX = e.pageX;
+        startScrollLeft = scroll.scrollLeft;
 
+        scroll.style.cursor = "grabbing";
 
+    });
 
+    window.addEventListener("mousemove", (e) => {
 
-/*==========================================
-    マウス操作
-==========================================*/
+        if (!isDown) return;
 
+        const walk = e.pageX - startX;
 
-scroll.addEventListener("mouseenter",()=>{
+        scroll.scrollLeft = startScrollLeft - walk;
 
-    auto=false;
+    });
 
-});
+    window.addEventListener("mouseup", () => {
 
+        if (!isDown) return;
 
-scroll.addEventListener("mouseleave",()=>{
+        isDown = false;
+        scroll.style.cursor = "";
 
-    auto=true;
+        setTimeout(() => {
+            auto = true;
+        }, 1000);
 
-});
+    });
 
+    /*==========================================
+        スマホ スワイプ
+    ==========================================*/
 
+    let touchStartX = 0;
+    let touchStartScroll = 0;
 
+    scroll.addEventListener("touchstart", (e) => {
 
+        auto = false;
 
-/*==========================================
-    スマホ操作
-==========================================*/
+        touchStartX = e.touches[0].clientX;
+        touchStartScroll = scroll.scrollLeft;
 
+    }, { passive: true });
 
-scroll.addEventListener("touchstart",()=>{
+    scroll.addEventListener("touchmove", (e) => {
 
-    auto=false;
+        const move = e.touches[0].clientX - touchStartX;
 
-});
+        scroll.scrollLeft = touchStartScroll - move;
 
+    }, { passive: true });
 
-scroll.addEventListener("touchend",()=>{
+    scroll.addEventListener("touchend", () => {
 
-    setTimeout(()=>{
+        setTimeout(() => {
+            auto = true;
+        }, 1000);
 
-        auto=true;
-
-    },1500);
-
-});
-
-
+    });
 
 });
