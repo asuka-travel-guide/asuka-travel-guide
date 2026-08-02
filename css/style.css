@@ -1248,14 +1248,27 @@ margin-bottom:18px;
 ==========================================*/
 
 .related{
-    overflow:hidden;
+     overflow:visible;
 }
 
 .related-scroll{
     overflow:hidden;
     touch-action:pan-y;
     cursor:grab;
+
+/* ▼ ホバーでカードが上に浮く分の余白（10px〜15px程度）を確保 */
+  padding-top: 15px;
+  margin-top: -15px;
+  padding-bottom: 15px;
+  margin-bottom: -15px;
+
+/* ドラッグ中のテキスト・画像選択を防止 */
+    user-select: none;
+    -webkit-user-select: none;
+
 }
+
+
 
 .related-slider{
     display:flex;
@@ -1271,6 +1284,7 @@ margin-bottom:18px;
 .related-scroll.dragging{
     cursor:grabbing;
 }
+
 
 @media(max-width:600px){
 
