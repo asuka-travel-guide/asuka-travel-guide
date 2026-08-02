@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastX = 0,
     lastT = 0,
     inertia = false,
-    isMoved = false; // ドラッグとクリックの判別用
+    isMoved = false; // ドラッグ操作が行われたかの判定フラグ
 
   let timerId = null;
 
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (inertia) {
       x += v;
-      v *= 0.95; // 減衰率
+      v *= 0.95; // 慣性減衰率
       if (Math.abs(v) < 0.1) {
         inertia = false;
       }
@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
     drag = true;
     auto = false;
     inertia = false;
-    isMoved = false;
+    isMoved = false; // 操作開始時にリセット
     startX = px;
     startPos = x;
     lastX = px;
     lastT = performance.now();
     scroll.classList.add("dragging");
-    clearTimeout(timerId); // 自動再生再開タイマーをリセット
+    clearTimeout(timerId);
   }
 
   function move(px) {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const now = performance.now();
     const diff = px - startX;
 
-    // 5px以上動いたら「ドラッグ操作」とみなす
+    // 遊び（閾値）として 5px 以上動いた場合にドラッグとみなす
     if (Math.abs(diff) > 5) {
       isMoved = true;
     }
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inertia = true;
     scroll.classList.remove("dragging");
 
-    // 2.5秒後に自動再生を再開（連続操作してもタイマーが重複しないように管理）
+    // 操作終了2.5秒後に自動再生を再開
     timerId = setTimeout(() => {
       auto = true;
     }, 2500);
@@ -90,35 +90,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- イベント登録 ---
 
-
-  // ブラウザ標準のドラッグ動作を抑止
+  // ブラウザデフォルトの画像・テキストドラッグをキャンセル
   scroll.addEventListener("dragstart", (e) => e.preventDefault());
 
-  // マウスイベント
+  // マウスイベント (PC)
   scroll.addEventListener("mousedown", (e) => down(e.clientX));
   window.addEventListener("mousemove", (e) => move(e.clientX));
   window.addEventListener("mouseup", up);
 
-  // タッチイベント（window全体で移動・終了を拾う）
+  // タッチイベント (スマホ)
   scroll.addEventListener("touchstart", (e) => down(e.touches[0].clientX), {
     passive: true,
   });
+
+  // { passive: false } で縦スクロールとのバッティングを阻止
   window.addEventListener(
     "touchmove",
     (e) => {
-      if (drag) move(e.touches[0].clientX);
+      if (drag) {
+        e.preventDefault();
+        move(e.touches[0].clientX);
+      }
     },
-    { passive: true }
+    { passive: false }
   );
+
   window.addEventListener("touchend", up);
 
-  // ドラッグ中の誤タップ防止（クリックイベントのキャンセル）
+  // 【案B】ドラッグ操作直後の誤タップ防止 & フラグの即時クリア
   scroll.addEventListener(
     "click",
     (e) => {
       if (isMoved) {
         e.preventDefault();
         e.stopPropagation();
+        isMoved = false; // キャンセル処理を行った直後に次回のためにフラグをリセット！
       }
     },
     true
