@@ -1048,7 +1048,8 @@ margin-bottom:18px;
 
 .spot-hero{
     position:relative;
-    margin-bottom:50px;
+    max-width:720px;
+    margin:0 auto 50px;
 }
 
 
@@ -1246,40 +1247,38 @@ margin-bottom:18px;
  Related Slider
 ==========================================*/
 
+.related{
+    overflow:hidden;
+}
+
 .related-scroll{
     overflow:hidden;
-    padding-top:4px;
+    touch-action:pan-y;
+    cursor:grab;
 }
 
 .related-slider{
     display:flex;
     gap:35px;
     width:max-content;
-    animation:related-slide 20s linear infinite;
-}
-
-.related-slider:hover{
-    animation-play-state:paused;
+    will-change:transform;
 }
 
 .related-slider .spot-card{
     flex:0 0 300px;
 }
 
-@keyframes related-slide{
-
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(calc(-50% - 17.5px));
-    }
-
+.related-scroll.dragging{
+    cursor:grabbing;
 }
 
+@media(max-width:600px){
 
+.related-slider .spot-card{
+    flex:0 0 240px;
+}
 
+}
 
 
 /*==========================================
