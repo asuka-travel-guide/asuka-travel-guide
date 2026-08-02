@@ -1,141 +1,42 @@
+// related-slider.js
 document.addEventListener("DOMContentLoaded",()=>{
-
 const scroll=document.querySelector(".related-scroll");
 const slider=document.querySelector(".related-slider");
-
 if(!scroll||!slider)return;
-
-
-/*----------------------------------
-複製
-----------------------------------*/
-
-[...slider.children].forEach(card=>{
-    slider.appendChild(card.cloneNode(true));
-});
-
-
-let x=0;
-let auto=true;
-const speed=.4;
-
-let startX=0;
-let startPos=0;
-let dragging=false;
-
-function loop(){
-
-    if(auto){
-
-        x-=speed;
-
-        const limit=slider.scrollWidth/2;
-
-        if(-x>=limit){
-
-            x+=limit;
-
-        }
-
-        slider.style.transform=`translateX(${x}px)`;
-
-    }
-
-    requestAnimationFrame(loop);
-
+[...slider.children].forEach(c=>slider.appendChild(c.cloneNode(true)));
+let x=0,auto=true,speed=.4,drag=false,startX=0,startPos=0,v=0,lastX=0,lastT=0,inertia=false;
+const limit=()=>slider.scrollWidth/2;
+function norm(){const l=limit();while(x>0)x-=l;while(-x>=l)x+=l;}
+function frame(){
+ if(auto&&!drag&&!inertia){x-=speed;norm();}
+ if(inertia){
+   x+=v; v*=0.95;
+   if(Math.abs(v)<0.1){inertia=false}
+ }
+ norm();
+ slider.style.transform=`translateX(${x}px)`;
+ requestAnimationFrame(frame);
 }
-
-loop();
-
-
-/*----------------------------------
-PC
-----------------------------------*/
-
-scroll.addEventListener("mousedown",e=>{
-
-    dragging=true;
-    auto=false;
-
-    startX=e.clientX;
-    startPos=x;
-
-    scroll.classList.add("dragging");
-
-});
-
-window.addEventListener("mousemove",e=>{
-
-    if(!dragging)return;
-
-    x=startPos+(e.clientX-startX);
-
-    slider.style.transform=`translateX(${x}px)`;
-
-});
-
-window.addEventListener("mouseup",()=>{
-
-    if(!dragging)return;
-
-    dragging=false;
-
-    scroll.classList.remove("dragging");
-
-    setTimeout(()=>{
-
-        auto=true;
-
-    },1000);
-
-});
-
-
-/*----------------------------------
-スマホ
-----------------------------------*/
-
-scroll.addEventListener("touchstart",e=>{
-
-    auto=false;
-
-    startX=e.touches[0].clientX;
-    startPos=x;
-
-},{passive:true});
-
-
-scroll.addEventListener("touchmove",e=>{
-
-    x=startPos+(e.touches[0].clientX-startX);
-
-    slider.style.transform=`translateX(${x}px)`;
-
-},{passive:true});
-
-
-scroll.addEventListener("touchend",()=>{
-
-    const limit=slider.scrollWidth/2;
-
-    while(x>0){
-
-        x-=limit;
-
-    }
-
-    while(-x>=limit){
-
-        x+=limit;
-
-    }
-
-    setTimeout(()=>{
-
-        auto=true;
-
-    },1000);
-
-});
-
+requestAnimationFrame(frame);
+function down(px){
+ drag=true;auto=false;inertia=false;startX=px;startPos=x;lastX=px;lastT=performance.now();
+}
+function move(px){
+ if(!drag)return;
+ const now=performance.now();
+ x=startPos+(px-startX);
+ v=(px-lastX)/Math.max(1,(now-lastT))*16;
+ lastX=px;lastT=now;
+}
+function up(){
+ if(!drag)return;
+ drag=false;inertia=true;
+ setTimeout(()=>auto=true,2500);
+}
+scroll.addEventListener("mousedown",e=>down(e.clientX));
+window.addEventListener("mousemove",e=>move(e.clientX));
+window.addEventListener("mouseup",up);
+scroll.addEventListener("touchstart",e=>down(e.touches[0].clientX),{passive:true});
+scroll.addEventListener("touchmove",e=>move(e.touches[0].clientX),{passive:true});
+scroll.addEventListener("touchend",up);
 });
