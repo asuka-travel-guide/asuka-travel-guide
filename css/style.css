@@ -1,1420 +1,910 @@
 /*==================================================
- 明日香村観光ガイド
- style.css Ver2.3
-==================================================*/
-
-
-/*==========================================
- Reset
+  明日香村観光ガイド
+  style.css Complete Edition (全コード)
 ==========================================*/
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-
-html{
-    scroll-behavior:smooth;
-}
-
-
-body{
-    font-family:"Noto Sans JP",sans-serif;
-    color:#333;
-    background:#fff;
-    line-height:1.7;
-}
-
-
-
-img{
-    width:100%;
-    display:block;
-}
-
-
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-
-
-ul{
-    list-style:none;
-}
-
-
-
-
-
 /*==========================================
- Visually Hidden
+  Reset & Base
 ==========================================*/
-.visually-hidden{
-    position:absolute;
-    width:1px;
-    height:1px;
-    padding:0;
-    margin:-1px;
-    overflow:hidden;
-    clip:rect(0,0,0,0);
-    white-space:nowrap;
-    border:0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 1.7;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* アクセシビリティ（フォーカス時） */
+a:focus-visible {
+  outline: 2px solid #2d8a55;
+  outline-offset: 4px;
+}
+
+/* 隠し要素用クラス（h1非表示対応） */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 共通コンテナ */
+.container {
+  width: 92%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 
 /*==========================================
- Container
+  Header & Navigation
 ==========================================*/
-.container{
-    width:92%;
-    max-width:1400px;
-    margin:0 auto;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ececec;
+  z-index: 999;
 }
 
-
-
-/*==========================================
- Header
-==========================================*/
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:64px;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #ececec;
-    z-index:999;
-}
-
-
-
-
-header .container{
-    height:64px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-
-
-
-
-/*==========================================
- Logo
-==========================================*/
-
-.logo{
-    font-size:30px;
-    font-weight:600;
-    color:#2d8a55;
-    letter-spacing:.02em;
-}
-
-
-
-
-
-/*==========================================
- Navigation
-==========================================*/
-
-
-/* 親メニューだけ横並び */
-
-nav > ul{
-    display:flex;
-    gap:42px;
-}
-
-
-
-nav li{
-    position:relative;
-}
-
-
-
-nav a{
-    font-size:16px;
-    font-weight:500;
-    transition:.25s;
-}
-
-
-
-nav a:hover{
-    color:#2d8a55;
-}
-
-
-
-
-
-/*==========================================
- Dropdown Menu
-==========================================*/
-.dropdown-menu{
-    display:block;
-    position:absolute;
-    top:35px;
-    left:50%;
-    transform:translateX(-50%);
-    width:190px;
-    background:#fff;
-    border:1px solid #eee;
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.08);
-    padding:10px 0;
-    opacity:0;
-    visibility:hidden;
-    transition:.25s ease;
-}
-
-
-
-
-
-/* hover表示 */
-
-.dropdown:hover .dropdown-menu{
-    opacity:1;
-    visibility:visible;
-}
-
-
-
-
-
-/* 縦並び */
-
-.dropdown-menu li{
-    display:block;
-    width:100%;
-}
-
-
-
-.dropdown-menu a{
-    display:block;
-    width:100%;
-    padding:10px 20px;
-    font-size:14px;
-    font-weight:400;
-    white-space:nowrap;
-}
-
-
-
-.dropdown-menu a:hover{
-    background:#e8eee9;
-}
-
-
-
-
-
-/*==========================================
- Hero
-==========================================*/
-
-
-.hero{
-    margin-top:64px;
-    height:72vh;
-    position:relative;
-    overflow:hidden;
-}
-
-
-
-.hero a{
-    display:block;
-    width:100%;
-    height:100%;
-}
-
-
-
-
-
-#hero-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transform:scale(1);
-    transition:
-        opacity .8s ease,
-        transform 10s ease-out;
-}
-
-
-
-
-/* 暗幕 */
-
-.hero::before{
-
-
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.08);
-    z-index:1;
-    pointer-events:none;
-}
-
-
-
-
-
-/*==========================================
- Hero Title
-==========================================*/
-
-
-.hero-overlay{
-    position:absolute;
-    right:40px;
-    bottom:35px;
-    z-index:2;
-}
-
-
-
-#hero-title{
-    color:#fff;
-    font-size:20px;
-    font-weight:500;
-    text-shadow:
-        0 2px 8px rgba(0,0,0,.65);
-}
-
-
-
-
-
-/*==========================================
- Catch Copy
-==========================================*/
-
-
-.catch{
-    text-align:center;
-    padding:
-       24px 20px 35px;
-}
-
-
-.catch p{
-    font-size:30px;
-    font-weight:300;
-    letter-spacing:.15em;
-    color:#555;
-}
-
-
-
-/*==========================================
- Footer
-==========================================*/
-
-
-footer{
-    border-top:1px solid #ececec;
-    background:#fff;
-    text-align:center;
-    padding:24px 0;
-}
-
-
-
-footer nav{
-    margin-bottom:8px;
-}
-
-
-
-footer nav a{
-    font-size:13px;
-    color:#999;
-    transition:.25s;
-}
-
-
-
-footer nav a:hover{
-    color:#20593c;
-}
-
-
-.separator{
-    color:#ddd;
-}
-
-
-
-footer p{
-    font-size:12px;
-    color:#999;
-}
-
-
-
-
-
-/*==========================================
- Focus
-==========================================*/
-
-
-a:focus-visible{
-    outline:2px solid #2d8a55;
-    outline-offset:4px;
-}
-
-
-
-
-
-/*==========================================
- Responsive
-==========================================*/
-
-
-@media(max-width:768px){
-
-
-header{
-    height:auto;
-}
-
-
-
-
-header .container{
-    flex-direction:column;
-    justify-content:center;
-    padding:16px 0;
-    height:auto;
-}
-
-
-
-
-.logo{
-    font-size:24px;
-    margin-bottom:14px;
-}
-
-
-
-
-
-nav > ul{
-    gap:14px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-
-
-
-
-nav a{
-    font-size:14px;
-}
-
-
-
-
-/* スマホではプルダウン位置調整 */
-.dropdown-menu{
-    left:0;
-    transform:none;
-}
-
-
-
-.hero{
-    margin-top:100px;
-    height:58vh;
-}
-
-
-
-.hero-overlay{
-    right:20px;
-    bottom:20px;
-}
-
-
-
-#hero-title{
-    font-size:17px;
-}
-
-
-
-.catch{
-    padding:
-        50px 20px 40px;
-}
-
-
-
-.catch p{
-    font-size:20px;
-    letter-spacing:.08em;
-}
-
-
-
-footer{
-    padding:20px 0;
-}
-
-
-
-footer nav a{
-    font-size:12px;
-}
-
-
-
-}
-
-
-
-/*==========================================
- Spots Page
- 観光一覧ページ
-==========================================*/
-
-
-/*------------------------------------------
- Main
-------------------------------------------*/
-
-.spots-main{
-    padding-top:64px;
-}
-
-
-
-
-
-
-/*------------------------------------------
- Ad Space
-------------------------------------------*/
-
-.ad-space{
-    width:90%;
-    max-width:900px;
-    height:120px;
-    margin:50px auto;
-    border:1px dashed #ccc;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#999;
-    font-size:14px;
-}
-
-
-
-
-
-/*==========================================
- Category Section
-==========================================*/
-
-
-.spot-category{
-    max-width:1200px;
-    margin:0 auto;
-    padding:80px 20px 90px;
-}
-
-
-
-
-
-/*------------------------------------------
- Category Title
-------------------------------------------*/
-
-
-.spot-category h1{
-    font-size:30px;
-    font-weight:500;
-    color:#333;
-    margin-bottom:45px;
-    padding-bottom:15px;
-    border-bottom:1px solid #d8d8d8;
-}
-
-
-
-
-
-/*==========================================
- Spot Grid
-==========================================*/
-
-
-.spot-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:35px;
-}
-
-
-
-
-/*==========================================
- Spot Card
-==========================================*/
-
-
-.spot-card{
-    display:block;
-    background:#fff;
-    border:1px solid #d5d5d5;
-    border-radius:6px;
-    overflow:hidden;
-    transition:.3s;
-
- width:100%;
-}
-
-
-
-
-
-.spot-card:hover{
-    transform:translateY(-4px);
-    box-shadow:
-        0 8px 18px rgba(0,0,0,.08);
-}
-
-
-
-
-
-/*------------------------------------------
- Image
-------------------------------------------*/
-
-
-.spot-card img{
-    display:block;
-    width:100%;
-height:220px;
-
-
-    aspect-ratio:16 / 9;
-    object-fit:cover;
-}
-
-
-
-
-/*------------------------------------------
- Text
-------------------------------------------*/
-
-
-.spot-card h3{
-    font-size:20px;
-    font-weight:500;
-    padding:20px 20px 10px;
-    color:#333;
-}
-
-
-
-
-
-.spot-card p{
-    font-size:14px;
-    color:#666;
-    line-height:1.8;
-    padding:0 20px 22px;
-}
-
-
-
-
-
-
-/*==========================================
- Mobile
-==========================================*/
-
-
-@media(max-width:768px){
-
-
-.spots-main{
-    padding-top:100px;
-}
-
-
-
-.spot-category{
-    padding:60px 20px 70px;
-}
-
-
-
-.spot-category h2{
-    font-size:25px;
-    margin-bottom:35px;
-}
-
-
-
-.spot-grid{
-    grid-template-columns:1fr;
-    gap:25px;
-}
-
-
-
-.spot-card h3{
-    font-size:18px;
-}
-
-
-}
-
-
-/*==================================================
- Parking Page
-駐車場ページ
-==================================================*/
-
-/*==========================================
- Main
-==========================================*/
-
-.parking-main{
-    max-width:1200px;
-    margin:100px auto 80px;
-    padding:0 20px;
-}
-
-
-
-
-/*==========================================
- Google My Maps
-==========================================*/
-
-.parking-map{
-
-    margin-bottom:50px;
-
-}
-
-.map iframe{
-    width:100%;
-    height:72vh;
-    min-height:520px;
-    max-height:850px;
-    border:1px solid #d8d8d8;
-    border-radius:6px;
-    display:block;
+header .container {
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-
 
-/*==========================================
- Notice
-==========================================*/
-
-.parking-notice{
-    background:#fffdf6;
-    border-left:5px solid #d6b347;
-    border-radius:10px;
-    padding:6px 28px;
-    margin-bottom:50px;
+/* ロゴ：落ち着いた深緑・20px */
+.logo {
+  font-size: 20px;
+  font-weight: 500;
+  color: #20593c;
+  letter-spacing: 0.02em;
 }
 
-.parking-notice p{
-    line-height:1.9;
-    color:#555;
-    margin-bottom:8px;
+nav > ul {
+  display: flex;
+  gap: 42px;
 }
 
-.parking-notice p:last-child{
-    margin-bottom:0;
+nav li {
+  position: relative;
 }
-
-
 
-
-/*==========================================
- Section Title
-==========================================*/
-
-.section-title{
-    font-size:30px;
-    font-weight:500;
-    color:#333;
-    margin:0 0 35px;
-    padding-bottom:15px;
-    border-bottom:1px solid #d8d8d8;
+nav a {
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.25s;
 }
-
-
-
-
-/*==========================================
- Parking List
-==========================================*/
-
-.parking-list{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:30px;
-
-margin-bottom:70px;
 
+nav a:hover {
+  color: #2d8a55;
 }
 
 
 /*==========================================
- Parking Card
+  Dropdown Menu
 ==========================================*/
-
-.parking-card{
-background:#fff;
-border:1px solid #ddd;
-border-radius:6px;
-padding:22px;
-transition:.3s;
-scroll-margin-top:90px;
+.dropdown {
+  position: relative;
 }
 
-.parking-card:hover{
-    border-color:#b9b9b9;
-    box-shadow:0 8px 20px rgba(0,0,0,.07);
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translateX(-50%);
+  width: 190px;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding-top: 8px; /* カーソル移動時のホバー外れ防止 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-
-.parking-card:target{
-    border:2px solid #d6b347;
-    background:#fffdf3;
-    transition:.3s;
+.dropdown-menu ul {
+  background: #fff;
+  padding: 8px 0;
+  border-radius: 4px;
 }
 
-
-
-
-
-/*==========================================
- Parking Title
-==========================================*/
-
-.parking-card h3{
-
-font-size:22px;
-
-font-weight:500;
-
-color:#333;
-
-margin-bottom:18px;
-
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
 }
 
-
-/*==========================================
- Number
-==========================================*/
-
-.number{
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    font-size:16px;
-    font-weight:700;
-    line-height:1;
-    color:#fff;
-    margin-right:10px;
+.dropdown-menu li {
+  display: block;
+  width: 100%;
 }
 
-
-/* 有料駐車場 */
-
-.number.paid{
-    background:#c27b00;
+.dropdown-menu a {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
-
-
-/* 無料駐車場 */
-.number.free{
-    background:#2d8a55;
-}
-
-
-
-/*==========================================
- Table
-==========================================*/
-
-.parking-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    margin-bottom:18px;
-
-}
-
-.parking-table th{
-
-    width:140px;
-
-    text-align:left;
-
-    padding:10px 0;
-
-    color:#666;
-
-    font-weight:500;
-
-    border-bottom:1px solid #eeeeee;
-
-}
-
-.parking-table td{
-
-    padding:10px 0;
-
-    border-bottom:1px solid #eeeeee;
-
+.dropdown-menu a:hover {
+  background: #e8eee9;
 }
 
 
 /*==========================================
- Comment
+  Top Page - Hero（1画面収め対応）
 ==========================================*/
+.hero {
+  margin-top: 64px;
+  height: calc(100vh - 64px - 160px);
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+}
 
-.parking-comment{
+.hero a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
-    margin-top:18px;
+#hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: opacity 0.8s ease, transform 10s ease-out;
+}
 
-    line-height:1.9;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  pointer-events: none;
+}
 
-    color:#555;
+.hero-overlay {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+}
 
+#hero-title {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
 }
 
 
 /*==========================================
- Adsense
+  Top Page - Catch Copy
 ==========================================*/
-
-
-.ad-space{
-    margin:60px auto 0;
-    padding:40px;
-    text-align:center;
-    border:2px dashed #d8d8d8;
-    border-radius:6px;
-    background:#fafafa;
-    color:#999;
+.catch {
+  text-align: center;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
 }
 
-
+.catch p {
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: #555;
+  margin: 0;
+}
 
 
 /*==========================================
- Responsive
+  Footer
 ==========================================*/
-
-@media(max-width:900px){
-
-.parking-main{
-
-    margin-top:130px;
-
+footer {
+  border-top: 1px solid #ececec;
+  background: #fff;
+  text-align: center;
+  padding: 24px 0;
 }
 
-.map iframe{
-
-    height:60vh;
-
-    min-height:420px;
-
+footer nav {
+  margin-bottom: 8px;
 }
 
-.parking-card{
-
-    padding:22px;
-
+footer nav a {
+  font-size: 13px;
+  color: #999;
+  transition: 0.25s;
 }
 
-.parking-card h3{
-
-    font-size:22px;
-
+footer nav a:hover {
+  color: #20593c;
 }
 
+.separator {
+  color: #ddd;
 }
 
-@media(max-width:600px){
-
-.map iframe{
-
-    height:50vh;
-
-    min-height:320px;
-
+footer p {
+  font-size: 12px;
+  color: #999;
 }
-
-.parking-notice{
-
-    padding:18px;
-
-}
-
-.parking-table th{
-
-    width:100px;
-
-}
-
-.parking-card h3{
-
-    font-size:20px;
-
-}
-
-}
-
-
-
-
-
-
-
-
-
-
-/*==================================================
- Spot Detail Page
-詳細ページ
-==================================================*/
 
 
 /*==========================================
- Main
+  Spots Page（一覧ページ）
 ==========================================*/
-
-.spot-detail{
-    width:92%;
-    max-width:1020px;
-    margin:100px auto 80px;
-    padding:0;
+.spots-main {
+  padding-top: 64px;
 }
 
+/* 一覧ページ用 共通広告枠 */
+.ad-space {
+  width: 90%;
+  max-width: 900px;
+  height: 120px;
+  margin: 50px auto;
+  border: 1px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  font-size: 14px;
+}
 
+.spot-category {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 90px;
+}
+
+.spot-category h1 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 45px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.spot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+}
+
+.spot-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.spot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.spot-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.spot-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px 20px 10px;
+  color: #333;
+}
+
+.spot-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+  padding: 0 20px 22px;
+}
 
 
 /*==========================================
- Hero Image
+  Parking Page 駐車場ページ
 ==========================================*/
+.parking-main {
+  max-width: 1200px;
+  margin: 100px auto 80px;
+  padding: 0 20px;
+}
 
-.spot-hero{
-    position:relative;
-    max-width:720px;
-    margin:0 auto 50px;
+.parking-map {
+  margin-bottom: 50px;
+  scroll-margin-top: 80px;
+}
+
+.map {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.map iframe {
+  width: 100%;
+  height: 72vh;
+  min-height: 520px;
+  max-height: 850px;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  display: block;
+}
+
+/* 1. 注意文：サイトテーマの緑系に統一 */
+.parking-notice {
+  background: #f2f7f4; /* 優しい薄緑背景 */
+  border-left: 5px solid #20593c; /* ブランドカラーの深緑ライン */
+  border-radius: 6px;
+  padding: 18px 28px;
+  margin-bottom: 50px;
+}
+
+.parking-notice p {
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.parking-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 35px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.parking-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  margin-bottom: 70px;
+}
+
+/* ★ 他ページと統一したフローティング（浮き上がり）カード */
+.parking-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 24px;
+  overflow: hidden;
+  scroll-margin-top: 90px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+
+  /* フローティング用のアニメーション設定 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ホバー時の浮き上がり（フローティング）演出 */
+.parking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  border-color: #2d8a55;
 }
 
 
-.spot-hero img{
-    width:100%;
-    max-width:720px;
-    height: clamp(280px, 45vh, 360px);
-    object-fit:cover;
-    border-radius:6px;
-    display:block;
+/* 3. ターゲット着地時：薄い緑系の強調表示 */
+.parking-card:target {
+  border: 2px solid #2d8a55;
+  background: #f0f7f2;
+  box-shadow: 0 8px 20px rgba(45, 138, 85, 0.18);
+  transform: translateY(-3px);
+  /* ターゲット時もフォーカスリングを出さない */
+  outline: none;
 }
 
 
 
-.spot-title{
-    position:absolute;
-    left:30px;
-    bottom:25px;
+/* ★ 4. ターゲット状態でマウスを乗せた時（より強調して浮き上がる） */
+.parking-card:target:hover {
+  transform: translateY(-6px); /* ターゲット時でもしっかり上に浮く */
+  box-shadow: 0 14px 28px rgba(45, 138, 85, 0.25);
 }
 
 
-.spot-title h1{
-    color:#fff;
-    font-size:38px;
-    font-weight:500;
-    text-shadow:0 2px 8px rgba(0,0,0,.45);
+
+
+
+
+
+
+.parking-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 18px;
 }
 
+/* 2. Googleマイマップと完全統一した番号カラー */
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  margin-right: 10px;
+}
 
+/* マイマップの有料（オレンジ） */
+.number.paid {
+  background: #e66a00;
+}
+
+/* マイマップの無料（グリーン） */
+.number.free {
+  background: #0f9d58;
+}
+
+.parking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+.parking-table th {
+  width: 110px;
+  text-align: left;
+  padding: 10px 0;
+  color: #666;
+  font-weight: 500;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.parking-table td {
+  padding: 10px 0;
+  color: #555;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.parking-comment {
+  margin-top: 18px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: #555;
+}
+
+@media(max-width:900px) {
+  .parking-main {
+    margin-top: 130px;
+  }
+
+  .map iframe {
+    height: 60vh;
+    min-height: 420px;
+  }
+
+  .parking-card {
+    padding: 20px;
+  }
+
+  .parking-card h3 {
+    font-size: 18px;
+  }
+}
+
+@media(max-width:600px) {
+  .map iframe {
+    height: 50vh;
+    min-height: 320px;
+  }
+
+  .parking-notice {
+    padding: 18px;
+  }
+
+  .parking-table th {
+    width: 90px;
+  }
+}
 
 
 /*==========================================
- Intro
+  Spot Detail Page（詳細ページ）
 ==========================================*/
-
-.spot-intro{
-    font-size:18px;
-    line-height:2;
-    color:#555;
-    margin-bottom:50px;
+.spot-detail {
+  width: 92%;
+  max-width: 1020px;
+  margin: 100px auto 80px;
+  padding: 0;
 }
 
+.spot-hero {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto 50px;
+}
 
+.spot-hero img {
+  width: 100%;
+  max-width: 720px;
+  height: clamp(280px, 45vh, 360px);
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
 
+.spot-title {
+  position: absolute;
+  left: 30px;
+  bottom: 25px;
+}
 
+.spot-title h1,
+.spot-title h2 {
+  color: #fff;
+  font-size: 38px;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
 
-/*==========================================
- Section
-==========================================*/
+.spot-intro {
+  font-size: 18px;
+  line-height: 2;
+  color: #555;
+  margin-bottom: 50px;
+}
 
 .spot-section,
-.spot-map{
-    margin-bottom:70px;
+.spot-map {
+  margin-bottom: 70px;
 }
 
 .spot-info h2,
 .spot-section h2,
-.spot-map h2{
-    font-size:30px;
-    font-weight:500;
-    color:#333;
-    padding-bottom:15px;
-    margin-bottom:30px;
-    border-bottom:1px solid #ddd;
+.spot-map h2 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
 }
 
-
-
-
-
-
-/*==========================================
- Basic Information
-==========================================*/
-
-.spot-info{
-    max-width:720px;
-    margin:0 auto 70px;
-    background:#fff;
-    border:1px solid #ddd;
-    border-radius:6px;
-    padding:30px;
-    box-shadow:0 4px 12px rgba(0,0,0,.05);
+.spot-info {
+  max-width: 720px;
+  margin: 0 auto 70px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-
-
-.spot-info h2{
-    font-size:28px;
-    font-weight:500;
-    color:#333;
-    margin-bottom:25px;
-    padding-bottom:15px;
-    border-bottom:1px solid #ddd;
+.spot-info h2 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
 }
 
-
-
-.spot-info table{
-    width:100%;
-    border-collapse:collapse;
+.spot-info table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-
-.spot-info th{
-
-    width:120px;
-
-    padding:14px 10px;
-
-    text-align:left;
-
-    vertical-align:top;
-
-    color:#666;
-
-    font-weight:500;
-
-    border-bottom:1px solid #eee;
-
+.spot-info th {
+  width: 120px;
+  padding: 14px 10px;
+  text-align: left;
+  vertical-align: top;
+  color: #666;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
 }
 
-.spot-info td{
-
-    padding:14px 10px;
-
-    line-height:1.9;
-
-    color:#555;
-
-    border-bottom:1px solid #eee;
-
+.spot-info td {
+  padding: 14px 10px;
+  line-height: 1.9;
+  color: #555;
+  border-bottom: 1px solid #eee;
 }
 
 .spot-info tr:last-child th,
-.spot-info tr:last-child td{
-
-    border-bottom:none;
-
+.spot-info tr:last-child td {
+  border-bottom: none;
 }
 
-.spot-info a{
-
-    color:#20593c;
-
-    font-weight:500;
-
-    text-decoration:none;
-
-    transition:.2s;
-
+.spot-info a {
+  color: #20593c;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
-.spot-info a:hover{
-
-    text-decoration:underline;
-
+.spot-info a:hover {
+  text-decoration: underline;
 }
 
-
-/*==========================================
- 見どころ
-==========================================*/
-.spot-grid article:hover{
-    transform: none;
-    box-shadow: none;
-    cursor: default;
+.spot-grid article:hover {
+  transform: none;
+  box-shadow: none;
+  cursor: default;
 }
 
-
-
-
-
-
-/*==========================================
- Spot Adsense
-==========================================*/
-
-.spot-adspace{
-    max-width:720px;
-    margin:80px auto;
-    padding:40px;
-    text-align:center;
-    border:2px dashed #d8d8d8;
-    border-radius:6px;
-    background:#fafafa;
-    color:#999;
+/* 詳細ページ専用 広告枠設定 */
+.spot-adspace {
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 40px;
+  text-align: center;
+  border: 2px dashed #d8d8d8;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #999;
 }
 
-
-
-
-
-/*==========================================
- Related Slider
-==========================================*/
-
-.related{
-     overflow:visible;
+.related {
+  overflow: visible;
 }
 
-.related-scroll{
-    overflow:hidden;
-    touch-action:pan-y;
-    cursor:grab;
-
-/* ▼ ホバーでカードが上に浮く分の余白（10px〜15px程度）を確保 */
+.related-scroll {
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
   padding-top: 15px;
   margin-top: -15px;
   padding-bottom: 15px;
   margin-bottom: -15px;
-
-/* ドラッグ中のテキスト・画像選択を防止 */
-    user-select: none;
-    -webkit-user-select: none;
-
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-
-
-.related-slider{
-    display:flex;
-    gap:35px;
-    width:max-content;
-    will-change:transform;
+.related-slider {
+  display: flex;
+  gap: 35px;
+  width: max-content;
+  will-change: transform;
 }
 
-.related-slider .spot-card{
-    flex:0 0 300px;
+.related-slider .spot-card {
+  flex: 0 0 300px;
 }
 
-
-.related-scroll.dragging{
-    cursor:grabbing;
+.related-scroll.dragging {
+  cursor: grabbing;
 }
 
-
-@media(max-width:600px){
-
-.related-slider .spot-card{
-    flex:0 0 240px;
-}
-
+.spot-map iframe {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  display: block;
 }
 
 
 /*==========================================
- Map
+  Responsive (Media Queries)
 ==========================================*/
+@media (max-width: 900px) {
+  .parking-main,
+  .spot-detail {
+    margin-top: 130px;
+  }
 
-.spot-map iframe{
-    width:100%;
-    height:500px;
-    border:1px solid #ddd;
-    border-radius:6px;
-    display:block;
+  .map iframe {
+    height: 60vh;
+    min-height: 420px;
+  }
+
+  .parking-card {
+    padding: 20px;
+  }
+
+  .parking-card h3 {
+    font-size: 18px;
+  }
+
+  .spot-title h2 {
+    font-size: 30px;
+  }
 }
 
+@media (max-width: 768px) {
+  header {
+    height: auto;
+  }
 
+  header .container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 0;
+    height: auto;
+  }
 
+  .logo {
+    margin-bottom: 8px;
+  }
 
-/*==========================================
- Responsive
-==========================================*/
+  nav > ul {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
+  nav a {
+    font-size: 14px;
+  }
 
-@media(max-width:900px){
+  .dropdown-menu {
+    left: 0;
+    transform: none;
+  }
 
+  .hero {
+    margin-top: 100px;
+    height: 52vh;
+  }
 
-.spot-detail{
-    margin-top:130px;
+  .hero-overlay {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  #hero-title {
+    font-size: 12px;
+  }
+
+  .catch {
+    padding: 50px 20px 40px;
+    height: auto;
+  }
+
+  .catch p {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+  }
+
+  footer {
+    padding: 20px 0;
+  }
+
+  footer nav a {
+    font-size: 12px;
+  }
+
+  .spots-main {
+    padding-top: 100px;
+  }
+
+  .spot-category {
+    padding: 60px 20px 70px;
+  }
+
+  .spot-category h2 {
+    font-size: 25px;
+    margin-bottom: 35px;
+  }
+
+  .spot-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .spot-card h3 {
+    font-size: 18px;
+  }
 }
 
+@media (max-width: 600px) {
+  .map iframe {
+    height: 50vh;
+    min-height: 320px;
+  }
 
-.spot-title h2{
-    font-size:30px;
+  .parking-notice {
+    padding: 18px;
+  }
 
+  .parking-table th {
+    width: 90px;
+  }
+
+  .spot-hero img {
+    height: 240px;
+  }
+
+  .spot-title {
+    left: 20px;
+    bottom: 15px;
+  }
+
+  .spot-title h1,
+  .spot-title h2 {
+    font-size: 24px;
+  }
+
+  .spot-intro {
+    font-size: 16px;
+  }
+
+  .spot-info th {
+    width: 100px;
+  }
+
+  .spot-info th,
+  .spot-info td {
+    padding: 12px 5px;
+  }
+
+  .spot-info h2,
+  .spot-section h2,
+  .spot-map h2 {
+    font-size: 24px;
+  }
+
+  .related-slider .spot-card {
+    flex: 0 0 240px;
+  }
+
+  .spot-map iframe {
+    height: 350px;
+  }
 }
-
-
-
-}
-
-
-
-
-
-@media(max-width:600px){
-
-
-.spot-hero img{
-    height:240px;
-}
-
-
-
-.spot-title{
-    left:20px;
-
-    bottom:15px;
-
-}
-
-
-
-.spot-title h1{
-    font-size:24px;
-}
-
-.spot-title h2{
-    font-size:24px;
-}
-
-
-
-
-
-.spot-intro{
-    font-size:16px;
-}
-
-
-
-.spot-info th{
-
-    width:100px;
-
-}
-
-
-
-.spot-info th,
-.spot-info td{
-
-    padding:12px 5px;
-
-}
-
-
-
-.spot-info h2,
-.spot-section h2,
-.spot-map h2{
-
-    font-size:24px;
-
-}
-
-
-
-.related-card{
-
-    flex-basis:240px;
-
-}
-
-
-
-.spot-map iframe{
-
-    height:350px;
-
-}
-
-
-}
-
-
