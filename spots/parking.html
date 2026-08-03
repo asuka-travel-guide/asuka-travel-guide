@@ -289,36 +289,32 @@
 </header>
 <main class="parking-main">
 
-    <!-- SEO・構造用H1（画面非表示） -->
+    <!-- H1（画面非表示） -->
     <h1 class="visually-hidden">明日香村駐車場案内</h1>
 
     <!-- Google My Maps -->
-    <section class="parking-map">
-
+    <section class="parking-map"id="parking-map">
         <div class="map">
-
             <!-- Googleマイマップ埋め込み -->
-            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1LRJYOfk6b3uGNWFHI4uM47NkHOV3Iqo&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+           <iframe id="main-map" src="https://www.google.com/maps/d/embed?mid=1LRJYOfk6b3uGNWFHI4uM47NkHOV3Iqo&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
 
         </div>
-
     </section>
 
+
+
     <!-- ご利用案内 -->
-
     <section class="parking-notice">
-
         <h2>無料駐車場をご利用の方へ</h2>
-
         <p>
             無料駐車場は各施設をご利用の方のための駐車場です。
         </p>
-
         <p>
             明日香村内を周遊される場合は、有料駐車場をご利用くださいますようお願いいたします。
         </p>
-
     </section>
+
+
 
     <!-- 有料駐車場 -->
 
@@ -328,8 +324,10 @@
 
         <div class="parking-list">
 
+
+
             <!-- ① -->
-            <article class="parking-card" id="noguchi-parking">
+           <a href="#parking-map" class="parking-card" id="noguchi-parking" data-lat="34.47106" data-lng="135.80909">
 
                 <h3><span class="number paid">1</span> 野口駐車場</h3>
 
@@ -343,11 +341,12 @@
                     明日香村中心部を散策される方に便利な駐車場です。<br>
                    🚲 レンタサイクル　🚻 トイレ
                 </p>
+            </a>
 
-            </article>
+
 
             <!-- ② -->
-            <article class="parking-card" id="donomae-parking">
+            <a href="#parking-map" class="parking-card" id="donomae-parking" data-lat="34.471700" data-lng="135.816335">
 
                 <h3><span class="number paid">2</span> 堂の前駐車場</h3>
 
@@ -361,10 +360,14 @@
                     川原寺や飛鳥宮跡を散策される方に便利
                 </p>
 
-            </article>
+            </a>
+
+
+
 
             <!-- ③ -->
-            <article class="parking-card" id="ishibutai-parking">
+            <a href="#parking-map" class="parking-card" id="ishibutai-parking" data-lat="34.46700" data-lng="135.82413">
+
 
                 <h3><span class="number paid">3</span> 石舞台駐車場</h3>
 
@@ -379,10 +382,12 @@
                     🚲 レンタサイクル　🚻 トイレ
                 </p>
 
-            </article>
+            </a>
+
+
 
             <!-- ④ -->
-            <article class="parking-card" id="okadera-parking">
+            <a href="#parking-map" class="parking-card" id="okadera-parking" data-lat="34.47240" data-lng="135.82591">
 
                 <h3><span class="number paid">4</span> 岡寺門前駐車場</h3>
 
@@ -390,15 +395,17 @@
                     <tr><th>料金</th><td>普通:500円</td></tr>
                     <tr><th>収容台数</th><td>大型7台・普通70台</td></tr>
                 </table>
-
                 <p class="parking-comment">
                     岡寺をご利用の方に便利な駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
 
             <!-- ⑤ -->
-            <article class="parking-card" id="asukadera-parking">
+            <a href="#parking-map" class="parking-card" id="asukadera-parking" data-lat="34.478749" data-lng="135.82086">
+
 
                 <h3><span class="number paid">5</span> 飛鳥寺前有料駐車場</h3>
 
@@ -411,12 +418,15 @@
                     飛鳥寺周辺をご利用の方に便利な駐車場です。（飛鳥寺には無料の駐車場があります）
                 </p>
 
-            </article>
+            </a>
+
+
 
 
 
             <!--⑥ -->
-            <article class="parking-card" id="amakashi1-parking">
+            <a href="#parking-map" class="parking-card" id="amakashi1-parking" data-lat="34.481628" data-lng="135.81626">
+
 
                 <h3><span class="number paid">6</span> 甘樫丘第1駐車場</h3>
 
@@ -429,10 +439,13 @@
                     甘樫丘をご利用の方に便利な駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
 
             <!-- ⑦ -->
-            <article class="parking-card" id="amakashi2-parking">
+            <a href="#parking-map" class="parking-card" id="amakashi2-parking" data-lat="34.481425" data-lng="135.81532">
+
 
                 <h3><span class="number paid">7</span> 甘樫丘第2駐車場</h3>
 
@@ -446,10 +459,15 @@
                     甘樫丘をご利用の方に便利な駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
+
+
 
             <!-- ⑧ -->
-            <article class="parking-card" id="toyoura-parking">
+           <a href="#parking-map" class="parking-card" id="toyoura-parking" data-lat="34.48340" data-lng="135.81132">
+
 
                 <h3><span class="number paid">8</span> 豊浦駐車場</h3>
 
@@ -463,15 +481,21 @@
                     飛鳥宮跡周辺を散策される方に便利な駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
+
+
 
             <!-- ⑨ -->
-            <article class="parking-card" id="manyo-parking">
+            <a href="#parking-map" class="parking-card" id="manyo-parking" data-lat="34.476513" data-lng="135.82309">
+
 
                 <h3><span class="number paid">9</span> 万葉文化館駐車場</h3>
 
                 <table class="parking-table">
                     <tr><th>料金</th><td>普通車 500円</td></tr>
+                    <tr><th>営業時間</th><td>9:00～18:00</td></tr>
                     <tr><th>収容台数</th><td>大型7台・普通110台</td></tr>
                 </table>
 
@@ -480,7 +504,7 @@
                     🚻 トイレ
                 </p>
 
-            </article>
+            </a>
 
 
 
@@ -497,8 +521,11 @@
 
         <div class="parking-list">
 
+
+
+
             <!-- 1 -->
-            <article class="parking-card" id="takamatsuzuka-parking">
+            <a href="#parking-map" class="parking-card" id="takamatsuzuka-parking" data-lat="34.46535" data-lng="135.80434">
 
                 <h3><span class="number free">1</span> 高松塚周辺地区第1駐車場</h3>
 
@@ -510,12 +537,15 @@
                 <p class="parking-comment">
                     高松塚古墳をご利用の方の駐車場です。
                 </p>
+            </a>
 
-            </article>
+
+
 
 
             <!-- 2 -->
-            <article class="parking-card" id="asuka-museum-parking">
+            <a href="#parking-map" class="parking-card" id="asuka-museum-parking" data-lat="34.48360" data-lng="135.82592">
+
 
                 <h3><span class="number free">2</span> 飛鳥資料館駐車場</h3>
 
@@ -528,11 +558,16 @@
                     飛鳥資料館をご利用の方の駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
+
+
 
 
             <!-- 3 -->
-            <article class="parking-card" id="okadera-free-parking">
+            <a href="#parking-map" class="parking-card" id="okadera-free-parking" data-lat="34.47141" data-lng="135.82710">
+
 
                 <h3><span class="number free">3</span> 岡寺無料駐車場</h3>
 
@@ -544,10 +579,15 @@
                 <p class="parking-comment">
                     岡寺をご利用の方の駐車場です。駐車場に至る参道が非常に狭いので注意が必要です。
                 </p>
-            </article>
+            </a>
+
+
+
+
 
             <!-- 4 -->
-            <article class="parking-card" id="ishibutai-free-parking">
+            <a href="#parking-map" class="parking-card"id="ishibutai-free-parking" data-lat="34.46766" data-lng="135.82516">
+
 
                 <h3><span class="number free">4</span> 国営飛鳥歴史公園 石舞台地区駐車場</h3>
 
@@ -559,11 +599,15 @@
                 <p class="parking-comment">
                     国営飛鳥歴史公園をご利用の方の駐車場です。
                 </p>
-            </article>
+            </a>
+
+
+
 
 
             <!-- 5 -->
-            <article class="parking-card" id="tachibanadera-parking">
+            <a href="#parking-map" class="parking-card"id="tachibanadera-parking" data-lat="34.47009" data-lng="135.817137">
+
 
                 <h3><span class="number free">5</span> 橘寺参拝者駐車場</h3>
 
@@ -576,10 +620,15 @@
                     橘寺をご利用の方の駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
+
+
 
             <!-- 6 -->
-            <article class="parking-card" id="amakashi-kawahara-parking">
+            <a href="#parking-map" class="parking-card" id="amakashi-kawahara-parking" data-lat="34.47568" data-lng="135.81430">
+
 
                 <h3><span class="number free">6</span> 甘樫丘地区川原駐車場</h3>
 
@@ -592,10 +641,14 @@
                     甘樫丘をご利用の方の駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
+
 
             <!-- 7 -->
-            <article class="parking-card" id="kitora1-parking">
+            <a href="#parking-map" class="parking-card" id="kitora1-parking" data-lat="34.45170" data-lng="135.80380">
+
 
                 <h3><span class="number free">7</span> キトラ古墳周辺地区 第1駐車場</h3>
 
@@ -608,10 +661,15 @@
                     キトラ古墳・四神の館をご利用の方の駐車場です。
                 </p>
 
-            </article>
+            </a>
+
+
+
+
 
             <!-- 8 -->
-            <article class="parking-card" id="kitora2-parking">
+            <a href="#parking-map" class="parking-card" id="kitora2-parking" data-lat="34.45763" data-lng="135.80215">
+
 
                 <h3><span class="number free">8</span> キトラ古墳周辺地区 第2駐車場</h3>
 
@@ -624,11 +682,13 @@
                     キトラ古墳・四神の館をご利用の方の駐車場です。
                 </p>
 
-            </article>
+           </a>
+
+
 
 
             <!-- 9 -->
-            <article class="parking-card" id="asukadera-free-parking">
+           <a href="#parking-map" class="parking-card" id="asukadera-free-parking" data-lat="34.47852" data-lng="135.82055">
 
                 <h3><span class="number free">9</span> 飛鳥寺無料駐車場</h3>
 
@@ -641,7 +701,7 @@
                     飛鳥寺をご利用の方の駐車場です。
                 </p>
 
-            </article>
+            </a>
 
 
 
@@ -695,6 +755,32 @@
 </p>
 
 </footer>
+
+
+
+<!-- マップ連動用スクリプト -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const mapIframe = document.getElementById('main-map');
+
+  document.querySelectorAll('.parking-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      const lat = this.getAttribute('data-lat');
+      const lng = this.getAttribute('data-lng');
+
+      if (lat && lng && mapIframe) {
+        // 切り替え時も &ehbc=2E312F&noprof=1 を維持して拡大(z=18)表示
+        mapIframe.src = `https://www.google.com/maps/d/embed?mid=1LRJYOfk6b3uGNWFHI4uM47NkHOV3Iqo&ehbc=2E312F&noprof=1&ll=${lat}%2C${lng}&z=18`;
+      }
+    });
+  });
+});
+</script>
+
+
+
+
+
 
 </body>
 
