@@ -2,406 +2,234 @@
 <html lang="ja">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 1. SEO基本設定 -->
+  <title>明日香村観光ガイド｜観光・グルメ・駐車場情報</title>
+  <meta name="description" content="明日香村観光ガイドは、石舞台古墳や飛鳥寺、岡寺、高松塚古墳、キトラ古墳など、明日香村の観光スポットを紹介する観光情報サイトです。観光・食事・体験・駐車場情報まで旅行に役立つ情報を掲載しています。">
+  <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/">
 
+  <!-- 2. OGP設定 -->
+  <meta property="og:title" content="明日香村観光ガイド｜観光・グルメ・駐車場情報">
+  <meta property="og:description" content="明日香村の歴史ある観光スポットや食事、体験、駐車場情報を紹介する観光ガイドです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/">
+  <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.jpg">
+  <meta property="og:site_name" content="明日香村観光ガイド">
+  <meta property="og:locale" content="ja_JP">
 
-<!-- 1. SEO基本設定 -->
-    <title>明日香村観光ガイド｜観光・グルメ・駐車場情報</title>
-    <meta name="description" content="明日香村観光ガイドは、石舞台古墳や飛鳥寺、岡寺、高松塚古墳、キトラ古墳など、明日香村の観光スポットを紹介する観光情報サイトです。観光・食事・体験・駐車場情報まで旅行に役立つ情報を掲載しています。">
-    <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/">
-
-
-
-<!-- 2. OGP設定 ラインとかで送ったとき、説明と画像がつく-->
-<meta property="og:title" content="明日香村観光ガイド｜観光・グルメ・駐車場情報">
-<meta property="og:description" content="明日香村の歴史ある観光スポットや食事、体験、駐車場情報を紹介する観光ガイドです。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/">
-<meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.jpg">
-<meta property="og:site_name" content="明日香村観光ガイド">
-
-<meta property="og:locale" content="ja_JP">
-
-
-
-<!-- 3,構造化データ 検索エンジンに「どういうサイトか」を伝える-->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "明日香村観光ガイド",
-  "alternateName": "Asuka Travel Guide",
-  "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
-  "description": "石舞台古墳や飛鳥寺、岡寺など明日香村の観光スポットや駐車場情報を紹介する観光情報サイト。",
-  "inLanguage": "ja",
-  "publisher": {
-    "@type": "Organization",
-    "name": "明日香村観光ガイド"
+  <!-- 3. 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "明日香村観光ガイド",
+    "alternateName": "Asuka Travel Guide",
+    "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
+    "description": "石舞台古墳や飛鳥寺、岡寺など明日香村の観光スポットや駐車場情報を紹介する観光情報サイト。",
+    "inLanguage": "ja",
+    "publisher": {
+      "@type": "Organization",
+      "name": "明日香村観光ガイド"
+    }
   }
-}
-</script>
+  </script>
 
+  <!-- favicon -->
+  <link rel="icon" href="./images/favicon.ico" sizes="any">
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-
-<!-- favicon -->
-<link rel="icon" href="./images/favicon.ico" sizes="any">
-<link rel="icon" href="./images/favicon.svg" type="image/svg+xml"> 
-<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
-
-
-
-
-
-<!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-
-<!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-
-
-
-
-
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-
-
-<!-- ==================================================
-     Header
-=================================================== -->
-
-<header>
-
-<div class="container">
-
-
-<!-- Logo -->
-
-<h1 class="logo">
-<a href="index.html">明日香村観光ガイド</a>
-</h1>
-
-<!-- Navigation -->
-
-<nav>
-
-<ul>
-
-
-<!-- 観光する -->
-
-<li class="dropdown">
-
-
-<a href="spots/index.html">
-
-観光する
-
-</a>
-
-
-
-<ul class="dropdown-menu">
-
-
-<li>
-<a href="spots/index.html#ruins">
-古墳・遺跡
-</a>
-</li>
-
-
-<li>
-<a href="spots/index.html#temple">
-神社・寺院
-</a>
-</li>
-
-
-<li>
-<a href="spots/index.html#nature">
-自然・風景
-</a>
-</li>
-
-
-<li>
-<a href="spots/index.html#museum">
-博物館
-</a>
-</li>
-
-
-
-
-<!-- =====================
-     公開まで非表示
-======================
-
-<li>
-<a href="spots/index.html#course">
-モデルコース
-</a>
-</li>
-==============
-公開まで非表示
-====================== -->
-
-
-<li>
-<a href="spots/index.html#souvenir">
-おみやげ
-</a>
-</li>
-
-
-<li>
-<a href="spots/parking.html#parking">
-駐車場
-</a>
-</li>
-
-
-</ul>
-
-
-</li>
-
-
-
-
-<!-- 食べる -->
-
-<!-- =====================
-     公開まで非表示
-======================
-
-
-
-
-<li class="dropdown">
-<a href="gourmet/index.html">
-食べる
-</a>
-
-
-<ul class="dropdown-menu">
-
-<li>
-<a href="gourmet/index.html#lunch">
-ランチ・ディナー
-</a>
-</li>
-
-
-<li>
-<a href="gourmet/index.html#cafe">
-カフェ・スイーツ
-</a>
-</li>
-
-
-</ul>
-
-
-</li>
-
-==============
-公開まで非表示
-====================== -->
-
-
-
-
-<!-- 泊まる -->
-
-<!-- =====================
-     公開まで非表示
-======================
-
-
-
-<li class="dropdown">
-
-
-<a href="stay/index.html">
-
-泊まる
-
-</a>
-
-
-
-<ul class="dropdown-menu">
-
-
-<li>
-<a href="stay/index.html#inn">
-民宿
-</a>
-</li>
-
-
-<li>
-<a href="stay/index.html#bath">
-お風呂
-</a>
-</li>
-
-
-</ul>
-
-
-</li>
-==============
-公開まで非表示
-====================== -->
-
-
-
-
-
-<!-- 体験する -->
-
-<!-- =====================
-     公開まで非表示
-======================
-
-
-<li class="dropdown">
-
-
-<a href="activity/index.html">
-
-体験する
-
-</a>
-
-
-
-<ul class="dropdown-menu">
-
-<li>
-<a href="activity/index.html#cycling">
-レンタサイクル
-</a>
-</li>
-
-<li>
-<a href="activity/index.html#other">
-祭り
-</a>
-</li>
-
-</ul>
-
-
-</li>
-==============
-公開まで非表示
-====================== -->
-
-
-
-</ul>
-
-</nav>
-
-</div>
-
-</header>
-
-
-<!-- ==================================================
-     Main
-=================================================== -->
-
-<main>
-
-    <!-- ===========================================
-         Hero Slideshow
-    ============================================ -->
-
+  <!-- ==================================================
+       Header
+  =================================================== -->
+  <header>
+    <div class="container">
+      <!-- Logo -->
+      <h1 class="logo">
+        <a href="index.html">明日香村観光ガイド</a>
+      </h1>
+
+      <!-- Navigation -->
+      <nav>
+        <ul>
+          <!-- 観光する -->
+          <li class="dropdown">
+            <a href="spots/index.html">観光する</a>
+            <ul class="dropdown-menu">
+              <li><a href="spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="spots/index.html#nature">自然・風景</a></li>
+              <li><a href="spots/index.html#museum">博物館</a></li>
+
+              <!-- =====================
+                   公開まで非表示
+              <li><a href="spots/index.html#course">モデルコース</a></li>
+              ====================== -->
+
+              <li><a href="spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="spots/parking.html#parking">駐車場</a></li>
+            </ul>
+          </li>
+
+          <!-- 食べる -->
+          <!-- =====================
+               公開まで非表示
+          <li class="dropdown">
+            <a href="gourmet/index.html">食べる</a>
+            <ul class="dropdown-menu">
+              <li><a href="gourmet/index.html#lunch">ランチ・ディナー</a></li>
+              <li><a href="gourmet/index.html#cafe">カフェ・スイーツ</a></li>
+            </ul>
+          </li>
+          ====================== -->
+
+          <!-- 泊まる -->
+          <!-- =====================
+               公開まで非表示
+          <li class="dropdown">
+            <a href="stay/index.html">泊まる</a>
+            <ul class="dropdown-menu">
+              <li><a href="stay/index.html#inn">民宿</a></li>
+              <li><a href="stay/index.html#bath">お風呂</a></li>
+            </ul>
+          </li>
+          ====================== -->
+
+          <!-- 体験する -->
+          <!-- =====================
+               公開まで非表示
+          <li class="dropdown">
+            <a href="activity/index.html">体験する</a>
+            <ul class="dropdown-menu">
+              <li><a href="activity/index.html#cycling">レンタサイクル</a></li>
+              <li><a href="activity/index.html#other">祭り</a></li>
+            </ul>
+          </li>
+          ====================== -->
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================================================
+       Main
+  =================================================== -->
+  <main>
+
+    <!-- Hero Slideshow -->
     <section class="hero">
-
-        <a id="hero-link"
-           href="spots/ishibutai.html">
-
-            <img
-
-                id="hero-image"
-
-                src="images/hero/ishibutai.jpg"
-
-                alt="石舞台古墳">
-
-            <!-- Hero Overlay -->
-
-            <div class="hero-overlay">
-
-                <p id="hero-title">
-
-                    石舞台古墳
-
-                </p>
-
-            </div>
-
-        </a>
-
+      <a id="hero-link" href="spots/ishibutai.html">
+        <img id="hero-image" src="images/hero/ishibutai.jpg" alt="石舞台古墳">
+        <div class="hero-overlay">
+          <p id="hero-title">石舞台古墳</p>
+        </div>
+      </a>
     </section>
 
-
-
-    <!-- ===========================================
-         Catch Copy
-    ============================================ -->
-
+    <!-- Catch Copy -->
     <section class="catch">
-　　　　<p>
-        日本のはじまりを歩く。
-        </p>
+      <p>日本のはじまりを歩く。</p>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+      <div class="container intro">
+       
+          <p>
+            明日香村は奈良県の中央に位置し、古代国家形成の舞台となった歴史ある村です。
+            石舞台古墳や飛鳥寺、高松塚古墳、キトラ古墳など、日本を代表する史跡が数多く残され、
+            四季折々の自然とともに歴史散策を楽しめます。
+          </p>
+          <p>
+            教科書で見た史跡を実際に歩いて巡る楽しさ、田園風景の中をゆっくり散策する心地よさ、
+            四季折々の花々や夕景を写真に収めるひととき、古民家カフェで地元の味を楽しむ時間など、
+            明日香村には人それぞれの楽しみ方があります。
+          </p>
+          <p>
+            歴史を目的に訪れた人が自然の美しさに魅了されたり、景色を楽しみに訪れた人が古代ロマンに引き込まれたり。
+            そんな思いがけない出会いがあるのも、明日香村ならではの魅力です。
+          </p>
+       
+      </div>
+    </section>
+
+    <!-- Top Map -->
+    <section class="top-map">
+      <div class="container">
+        <h2>観光に便利なマップ</h2>
+ 
+       <div class="map-grid">
+
+
+<!-- ==========公開まで非表示==
+          <a class="map-card" href="#"><span>📍 </span><h3>観光スポット</h3></a>
+========= -->
+          <a class="map-card" href="spots/parking.html"><span>🚗</span><h3>駐車場</h3></a>
+          <a class="map-card" href="toilet-map.html"><span>🚻</span><h3>公衆トイレ</h3></a>
+<!-- ==========公開まで非表示==
+          <a class="map-card" href="#"><span>🍴</span><h3>食べる</h3></a>
+          <a class="map-card" href="#"><span>🎁</span><h3>買い物</h3></a>
+========= -->
+        </div>
+        <p class="section-text">目的別のマップから必要な情報をすぐ確認</p>
+      </div>
     </section>
 
 
 
-    <!-- ===========================================
-         Footer
-    ============================================ -->
 
-<footer>
+    <!-- News -->
+    <section class="news">
+      <div class="container">
+        <h2>新着情報</h2>
+        <ul>
+          <li><time datetime="2026-08-07">2026.08.07</time> トップページをリニューアルしました。</li>
+          <li><time datetime="2026-08-05">2026.08.05</time> 駐車場情報を更新しました。</li>
+          <li><time datetime="2026-07-26">2026.08.01</time> サイトを公開しました。</li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- Site About -->
+    <section class="site-about">
+      <div class="container">
+        <h2>明日香村観光ガイドについて</h2>
+        <p>「明日香村観光で迷わない」をコンセプトに、観光スポットだけでなく、駐車場、公衆トイレ、グルメ、おみやげ、宿泊施設など、現地で本当に役立つ情報を分かりやすく掲載しています。旅行前の計画から現地での散策まで、快適な旅をサポートをいたします。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================
+       Footer
+  =================================================== -->
+  <footer>
     <nav>
-        <a href="sitemap.html">サイトマップ</a>
-        <span class="separator">｜</span>
-        <a href="privacy.html">プライバシーポリシー</a>
-        <span class="separator">｜</span>
-        <a href="contact.html">お問い合わせ</a>
+      <a href="sitemap.html">サイトマップ</a>
+      <span class="separator">｜</span>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <span class="separator">｜</span>
+      <a href="contact.html">お問い合わせ</a>
     </nav>
+    <p>&copy; 2026 Asuka Travel Guide. All Rights Reserved.</p>
+  </footer>
 
-    <p>&copy; 2026 Asuka Travel Guide. All Rights Reserved.    </p>
-
-</footer>
-
-</main>
-
-
-
-<!-- ===========================================
-     JavaScript
-=========================================== -->
-
-<script src="js/script.js"></script>
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 
 </body>
 
