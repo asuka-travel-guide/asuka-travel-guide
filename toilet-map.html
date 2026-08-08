@@ -175,7 +175,7 @@
     <!-- Google My Maps -->
     <section class="parking-map" id="parking-map">
       <div class="map">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1K6uQnyY4clm16jLgEbc5Sbao5OF1r7w&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+        <iframe id="main-map" src="https://www.google.com/maps/d/u/0/embed?mid=1K6uQnyY4clm16jLgEbc5Sbao5OF1r7w&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
       </div>
     </section>
 
@@ -412,9 +412,13 @@
   </footer>
 
   <!-- マップ連動用スクリプト -->
+ <!-- マップ連動用スクリプト -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     const mapIframe = document.getElementById('main-map');
+
+    // 新しいマイマップの ID（mid）
+    const NEW_MID = '1K6uQnyY4clm16jLgEbc5Sbao5OF1r7w';
 
     document.querySelectorAll('.parking-card').forEach(card => {
       card.addEventListener('click', function(e) {
@@ -422,7 +426,7 @@
         const lng = this.getAttribute('data-lng');
 
         if (lat && lng && mapIframe) {
-          mapIframe.src = `https://www.google.com/maps/d/embed?mid=1LRJYOfk6b3uGNWFHI4uM47NkHOV3Iqo&ehbc=2E312F&noprof=1&ll=${lat}%2C${lng}&z=18`;
+          mapIframe.src = `https://www.google.com/maps/d/embed?mid=${NEW_MID}&ehbc=2E312F&noprof=1&ll=${lat}%2C${lng}&z=18`;
         }
       });
     });
