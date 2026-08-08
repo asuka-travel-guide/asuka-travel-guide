@@ -1,10 +1,44 @@
 /*==================================================
   明日香村観光ガイド
-  style.css Complete Edition (全コード)
-==========================================*/
+  style.css Clean & Optimized Edition
+==================================================*/
 
 /*==========================================
-  Reset & Base
+  0. Design Variables (共通変数)
+==========================================*/
+:root {
+  /* Brand Colors */
+  --primary-color: #20593c;       /* 深緑（ロゴ・メイン） */
+  --primary-hover: #2d8a55;       /* ホバー・アクセント緑 */
+  --bg-light-green: #f2f7f4;      /* 薄緑背景（通知・ターゲット） */
+
+  /* Text Colors */
+  --text-main: #444444;           /* メイン文字 */
+  --text-sub: #555555;            /* 本文・説明 */
+  --text-muted: #666666;          /* 補足文字 */
+  --text-light: #999999;          /* フッター等薄い文字 */
+
+  /* Border Colors */
+  --border-light: #eeeeee;        /* 薄い区切り線 */
+  --border-main: #dddddd;         /* 標準枠線・下線 */
+  --border-dark: #d8d8d8;         /* 濃いめ枠線 */
+
+  /* Radius & Shadows */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+  /* Transition */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+
+/*==========================================
+  1. Reset & Base
 ==========================================*/
 * {
   margin: 0;
@@ -18,7 +52,7 @@ html {
 
 body {
   font-family: "Noto Sans JP", sans-serif;
-  color: #333;
+  color: var(--text-main);
   background: #fff;
   line-height: 1.7;
 }
@@ -37,25 +71,21 @@ ul {
   list-style: none;
 }
 
-/* アクセシビリティ（フォーカス時） */
+/* ヘッダー固定による高さ調整 */
+.padding-main {
+  padding-top: 64px;
+}
+
+/* フォーカスリング統一 */
 a:focus-visible {
-  outline: 2px solid #2d8a55;
+  outline: 2px solid var(--primary-hover);
   outline-offset: 4px;
 }
 
-/* 隠し要素用クラス（h1非表示対応） */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 
+/*==========================================
+  2. Common Typography & Layout Components
+==========================================*/
 /* 共通コンテナ */
 .container {
   width: 92%;
@@ -63,9 +93,134 @@ a:focus-visible {
   margin: 0 auto;
 }
 
+/* 共通見出し設定 */
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+h2,
+.section-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  margin-bottom: 30px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border-main);
+}
+
+/* 共通テキストスタイル */
+.section-text {
+  color: var(--text-muted);
+  margin-bottom: 35px;
+}
+
+.intro p {
+  text-indent: 1em;
+  line-height: 2.1;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* 共通カード（フローティング効果） */
+.card-hover {
+  background: #fff;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 汎用：フローティング・アニメーション解除用クラス */
+.card-static,
+.card-static:hover,
+.card-static:target,
+.card-static:target:hover {
+  transform: none !important;
+  transition: none !important;
+  box-shadow: var(--shadow-sm) !important;
+  cursor: default;
+}
+
+/* 共通リスト（カード内のスポット一覧表示用） */
+.spot-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.spot-link-list li a {
+  color: var(--text-main);
+  text-decoration: none; /* 下線を削除 */
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+}
+
+.spot-link-list li a:hover {
+  color: var(--primary-hover);
+}
+
+/* 共通テーブルスタイル */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-styled th {
+  text-align: left;
+  vertical-align: top;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 10px;
+}
+
+.table-styled td {
+  line-height: 1.8;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 10px;
+}
+
+.table-styled tr:last-child th,
+.table-styled tr:last-child td {
+  border-bottom: none;
+}
+
+/* 共通広告枠 */
+.ad-space,
+.spot-adspace {
+  width: 90%;
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 30px;
+  border: 2px dashed var(--border-dark);
+  border-radius: var(--radius-md);
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
 
 /*==========================================
-  Header & Navigation
+  3. Header & Navigation
 ==========================================*/
 header {
   position: fixed;
@@ -75,7 +230,7 @@ header {
   height: 64px;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--border-light);
   z-index: 999;
 }
 
@@ -86,11 +241,10 @@ header .container {
   align-items: center;
 }
 
-/* ロゴ：落ち着いた深緑・20px */
 .logo {
   font-size: 20px;
   font-weight: 500;
-  color: #20593c;
+  color: var(--primary-color);
   letter-spacing: 0.02em;
 }
 
@@ -106,17 +260,14 @@ nav li {
 nav a {
   font-size: 16px;
   font-weight: 500;
-  transition: 0.25s;
+  transition: var(--transition-fast);
 }
 
 nav a:hover {
-  color: #2d8a55;
+  color: var(--primary-hover);
 }
 
-
-/*==========================================
-  Dropdown Menu
-==========================================*/
+/* Dropdown Menu */
 .dropdown {
   position: relative;
 }
@@ -125,13 +276,13 @@ nav a:hover {
   display: block;
   position: absolute;
   top: 100%;
-  left: 0%;
+  left: 0;
   transform: translateX(-50%);
   width: 190px;
   background: #fff;
-  border: 1px solid #eee;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  padding-top: 8px; /* カーソル移動時のホバー外れ防止 */
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  padding-top: 8px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
@@ -140,7 +291,7 @@ nav a:hover {
 .dropdown-menu ul {
   background: #fff;
   padding: 8px 0;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -163,13 +314,14 @@ nav a:hover {
 }
 
 .dropdown-menu a:hover {
-  background: #e8eee9;
+  background: var(--bg-light-green);
 }
 
 
 /*==========================================
-  Top Page - Hero（1画面収め対応）
+  4. Top Page
 ==========================================*/
+/* Hero Section */
 .hero {
   margin-top: 64px;
   height: calc(100vh - 64px - 160px);
@@ -215,10 +367,7 @@ nav a:hover {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
 }
 
-
-/*==========================================
-  Top Page - Catch Copy
-==========================================*/
+/* Catch Copy */
 .catch {
   text-align: center;
   height: 160px;
@@ -232,66 +381,110 @@ nav a:hover {
   font-size: 30px;
   font-weight: 300;
   letter-spacing: 0.2em;
-  color: #555;
+  color: var(--text-sub);
   margin: 0;
 }
 
-
-/*==========================================
-  Footer
-==========================================*/
-footer {
-  border-top: 1px solid #ececec;
-  background: #fff;
-  text-align: center;
-  padding: 24px 0;
+/* Top Sections */
+.about,
+.top-map,
+.news,
+.site-about {
+  padding: 90px 20px;
 }
 
-footer nav {
-  margin-bottom: 8px;
+.about .container,
+.top-map .container,
+.news .container,
+.site-about .container {
+  max-width: 1000px;
 }
 
-footer nav a {
-  font-size: 13px;
-  color: #999;
-  transition: 0.25s;
+.about p,
+.site-about p {
+  font-size: 17px;
+  line-height: 2.1;
+  color: var(--text-sub);
 }
 
-footer nav a:hover {
-  color: #20593c;
+/* Map Grid */
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 140px);
+  gap: 20px;
 }
 
-.separator {
-  color: #ddd;
-}
-
-footer p {
-  font-size: 12px;
-  color: #999;
-}
-
-
-/*==========================================
-  Spots Page（一覧ページ）
-==========================================*/
-.spots-main {
-  padding-top: 64px;
-}
-
-/* 一覧ページ用 共通広告枠 */
-.ad-space {
-  width: 90%;
-  max-width: 900px;
-  height: 120px;
-  margin: 50px auto;
-  border: 1px dashed #ccc;
+.map-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #999;
-  font-size: 14px;
+  
+  width: 140px;
+  aspect-ratio: 1 / 1; /* 正方形に固定 */
+  padding: 16px;
+  text-align: center;
+
+  /* 共通カード定義 */
+  background: #fff;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: var(--shadow-sm);
 }
 
+.map-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.map-card span {
+  display: block;
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.map-card h3 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* 説明文（p）を入れる場合は小さめに配置 */
+.map-card p {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+
+/* News List */
+.news ul {
+  border-top: 1px solid var(--border-main);
+}
+
+.news li {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-sub);
+}
+
+.news time {
+  flex: 0 0 110px;
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+
+
+/*==========================================
+  5. Spots Page（一覧ページ）
+==========================================*/
 .spot-category {
   max-width: 1200px;
   margin: 0 auto;
@@ -299,12 +492,9 @@ footer p {
 }
 
 .spot-category h1 {
-  font-size: 30px;
-  font-weight: 500;
-  color: #333;
   margin-bottom: 45px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .spot-grid {
@@ -316,16 +506,16 @@ footer p {
 .spot-card {
   display: block;
   background: #fff;
-  border: 1px solid #d5d5d5;
-  border-radius: 6px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  transition: 0.3s;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   width: 100%;
 }
 
 .spot-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
 }
 
 .spot-card img {
@@ -340,19 +530,19 @@ footer p {
   font-size: 20px;
   font-weight: 500;
   padding: 20px 20px 10px;
-  color: #333;
+  color: var(--text-main);
 }
 
 .spot-card p {
   font-size: 14px;
-  color: #666;
+  color: var(--text-muted);
   line-height: 1.8;
   padding: 0 20px 22px;
 }
 
 
 /*==========================================
-  Parking Page 駐車場ページ
+  6. Parking Page 駐車場ページ
 ==========================================*/
 .parking-main {
   max-width: 1200px;
@@ -367,7 +557,7 @@ footer p {
 
 .map {
   width: 100%;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 
@@ -376,16 +566,15 @@ footer p {
   height: 72vh;
   min-height: 520px;
   max-height: 850px;
-  border: 1px solid #d8d8d8;
-  border-radius: 6px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
   display: block;
 }
 
-/* 1. 注意文：サイトテーマの緑系に統一 */
 .parking-notice {
-  background: #f2f7f4; /* 優しい薄緑背景 */
-  border-left: 5px solid #20593c; /* ブランドカラーの深緑ライン */
-  border-radius: 6px;
+  background: var(--bg-light-green);
+  border-left: 5px solid var(--primary-color);
+  border-radius: var(--radius-md);
   padding: 18px 28px;
   margin-bottom: 50px;
 }
@@ -400,15 +589,6 @@ footer p {
   margin-bottom: 0;
 }
 
-.section-title {
-  font-size: 30px;
-  font-weight: 500;
-  color: #333;
-  margin: 0 0 35px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #d8d8d8;
-}
-
 .parking-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -416,12 +596,17 @@ footer p {
   margin-bottom: 70px;
 }
 
-/* ★ 他ページと統一したフローティング（浮き上がり）カード */
+/* 単列表示（全幅）用のグリッド調整 */
+.parking-list.single-column {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
 .parking-card {
   display: block;
   background: #fff;
-  border: 1px solid #e2e2e2;
-  border-radius: 8px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-lg);
   padding: 24px;
   overflow: hidden;
   scroll-margin-top: 90px;
@@ -429,53 +614,37 @@ footer p {
   text-decoration: none;
   color: inherit;
   outline: none;
-
-  /* フローティング用のアニメーション設定 */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: var(--shadow-sm);
 }
 
-/* ホバー時の浮き上がり（フローティング）演出 */
 .parking-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  border-color: #2d8a55;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-hover);
 }
 
-
-/* 3. ターゲット着地時：薄い緑系の強調表示 */
 .parking-card:target {
-  border: 2px solid #2d8a55;
-  background: #f0f7f2;
+  border: 2px solid var(--primary-hover);
+  background: var(--bg-light-green);
   box-shadow: 0 8px 20px rgba(45, 138, 85, 0.18);
   transform: translateY(-3px);
-  /* ターゲット時もフォーカスリングを出さない */
   outline: none;
 }
 
-
-
-/* ★ 4. ターゲット状態でマウスを乗せた時（より強調して浮き上がる） */
 .parking-card:target:hover {
-  transform: translateY(-6px); /* ターゲット時でもしっかり上に浮く */
+  transform: translateY(-6px);
   box-shadow: 0 14px 28px rgba(45, 138, 85, 0.25);
 }
-
-
-
-
-
-
-
 
 .parking-card h3 {
   font-size: 20px;
   font-weight: 500;
-  color: #333;
+  color: var(--text-main);
   margin-bottom: 18px;
 }
 
-/* 2. Googleマイマップと完全統一した番号カラー */
+/* 番号マーク（有料・無料） */
 .number {
   display: inline-flex;
   align-items: center;
@@ -490,17 +659,17 @@ footer p {
   margin-right: 10px;
 }
 
-/* マイマップの有料（オレンジ） */
 .number.paid {
-  background: #e66a00;
+  background: #e66a00; /* マイマップオレンジ */
 }
 
-/* マイマップの無料（グリーン） */
 .number.free {
-  background: #0f9d58;
+  background: #0f9d58; /* マイマップグリーン */
 }
 
 .parking-table {
+  /* 共通テーブル継承 */
+  composes: table-styled;
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 18px;
@@ -510,61 +679,27 @@ footer p {
   width: 110px;
   text-align: left;
   padding: 10px 0;
-  color: #666;
+  color: var(--text-muted);
   font-weight: 500;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .parking-table td {
   padding: 10px 0;
-  color: #555;
-  border-bottom: 1px solid #eeeeee;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .parking-comment {
   margin-top: 18px;
   line-height: 1.8;
   font-size: 14px;
-  color: #555;
-}
-
-@media(max-width:900px) {
-  .parking-main {
-    margin-top: 130px;
-  }
-
-  .map iframe {
-    height: 60vh;
-    min-height: 420px;
-  }
-
-  .parking-card {
-    padding: 20px;
-  }
-
-  .parking-card h3 {
-    font-size: 18px;
-  }
-}
-
-@media(max-width:600px) {
-  .map iframe {
-    height: 50vh;
-    min-height: 320px;
-  }
-
-  .parking-notice {
-    padding: 18px;
-  }
-
-  .parking-table th {
-    width: 90px;
-  }
+  color: var(--text-sub);
 }
 
 
 /*==========================================
-  Spot Detail Page（詳細ページ）
+  7. Spot Detail Page（詳細ページ）
 ==========================================*/
 .spot-detail {
   width: 92%;
@@ -584,7 +719,7 @@ footer p {
   max-width: 720px;
   height: clamp(280px, 45vh, 360px);
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   display: block;
 }
 
@@ -600,12 +735,15 @@ footer p {
   font-size: 38px;
   font-weight: 500;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .spot-intro {
   font-size: 18px;
   line-height: 2;
-  color: #555;
+  color: var(--text-sub);
   margin-bottom: 50px;
 }
 
@@ -614,34 +752,14 @@ footer p {
   margin-bottom: 70px;
 }
 
-.spot-info h2,
-.spot-section h2,
-.spot-map h2 {
-  font-size: 30px;
-  font-weight: 500;
-  color: #333;
-  padding-bottom: 15px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #ddd;
-}
-
 .spot-info {
   max-width: 720px;
   margin: 0 auto 70px;
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
   padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.spot-info h2 {
-  font-size: 28px;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #ddd;
+  box-shadow: var(--shadow-sm);
 }
 
 .spot-info table {
@@ -654,16 +772,16 @@ footer p {
   padding: 14px 10px;
   text-align: left;
   vertical-align: top;
-  color: #666;
+  color: var(--text-muted);
   font-weight: 500;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .spot-info td {
   padding: 14px 10px;
   line-height: 1.9;
-  color: #555;
-  border-bottom: 1px solid #eee;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .spot-info tr:last-child th,
@@ -672,34 +790,24 @@ footer p {
 }
 
 .spot-info a {
-  color: #20593c;
+  color: var(--primary-color);
   font-weight: 500;
-  text-decoration: none;
-  transition: 0.2s;
+  transition: var(--transition-fast);
 }
 
 .spot-info a:hover {
   text-decoration: underline;
 }
 
-.spot-grid article:hover {
-  transform: none;
-  box-shadow: none;
-  cursor: default;
+.spot-map iframe {
+  width: 100%;
+  height: 500px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  display: block;
 }
 
-/* 詳細ページ専用 広告枠設定 */
-.spot-adspace {
-  max-width: 720px;
-  margin: 80px auto;
-  padding: 40px;
-  text-align: center;
-  border: 2px dashed #d8d8d8;
-  border-radius: 6px;
-  background: #fafafa;
-  color: #999;
-}
-
+/* 横スライダー（関連記事） */
 .related {
   overflow: visible;
 }
@@ -731,18 +839,46 @@ footer p {
   cursor: grabbing;
 }
 
-.spot-map iframe {
-  width: 100%;
-  height: 500px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  display: block;
+
+/*==========================================
+  8. Footer
+==========================================*/
+footer {
+  border-top: 1px solid var(--border-light);
+  background: #fff;
+  text-align: center;
+  padding: 24px 0;
+}
+
+footer nav {
+  margin-bottom: 8px;
+}
+
+footer nav a {
+  font-size: 13px;
+  color: var(--text-light);
+  transition: var(--transition-fast);
+}
+
+footer nav a:hover {
+  color: var(--primary-color);
+}
+
+.separator {
+  color: var(--border-main);
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--text-light);
 }
 
 
 /*==========================================
-  Responsive (Media Queries)
+  9. Responsive (Media Queries 一元管理)
 ==========================================*/
+
+/* --- 900px 以下 (タブレット縦〜小画面PC) --- */
 @media (max-width: 900px) {
   .parking-main,
   .spot-detail {
@@ -767,6 +903,7 @@ footer p {
   }
 }
 
+/* --- 768px 以下 (スマホ〜タブレット) --- */
 @media (max-width: 768px) {
   header {
     height: auto;
@@ -822,25 +959,35 @@ footer p {
     letter-spacing: 0.08em;
   }
 
-  footer {
-    padding: 20px 0;
+  .about,
+  .top-map,
+  .news,
+  .site-about {
+    padding: 70px 20px;
   }
 
-  footer nav a {
-    font-size: 12px;
+  h2,
+  .section-title,
+  .spot-category h2 {
+    font-size: 25px;
   }
 
-  .spots-main {
-    padding-top: 100px;
+  .about p,
+  .site-about p {
+    font-size: 16px;
+  }
+
+  .news li {
+    display: block;
+  }
+
+  .news time {
+    display: block;
+    margin-bottom: 8px;
   }
 
   .spot-category {
     padding: 60px 20px 70px;
-  }
-
-  .spot-category h2 {
-    font-size: 25px;
-    margin-bottom: 35px;
   }
 
   .spot-grid {
@@ -851,8 +998,17 @@ footer p {
   .spot-card h3 {
     font-size: 18px;
   }
+
+  footer {
+    padding: 20px 0;
+  }
+
+  footer nav a {
+    font-size: 12px;
+  }
 }
 
+/* --- 600px 以下 (スマートフォン) --- */
 @media (max-width: 600px) {
   .map iframe {
     height: 50vh;
@@ -863,7 +1019,8 @@ footer p {
     padding: 18px;
   }
 
-  .parking-table th {
+  .parking-table th,
+  .spot-info th {
     width: 90px;
   }
 
@@ -883,10 +1040,6 @@ footer p {
 
   .spot-intro {
     font-size: 16px;
-  }
-
-  .spot-info th {
-    width: 100px;
   }
 
   .spot-info th,
