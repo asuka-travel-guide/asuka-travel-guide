@@ -1,0 +1,1087 @@
+/*==================================================
+  明日香村観光ガイド
+  style.css Clean & Optimized Edition
+==================================================*/
+
+/*==========================================
+  0. Design Variables (共通変数)
+==========================================*/
+:root {
+  /* Brand Colors */
+  --primary-color: #20593c;       /* 深緑（ロゴ・メイン） */
+  --primary-hover: #2d8a55;       /* ホバー・アクセント緑 */
+  --bg-light-green: #f2f7f4;      /* 薄緑背景（通知・ターゲット） */
+
+  /* Text Colors */
+  --text-main: #444444;           /* メイン文字 */
+  --text-sub: #555555;            /* 本文・説明 */
+  --text-muted: #666666;          /* 補足文字 */
+  --text-light: #999999;          /* フッター等薄い文字 */
+
+  /* Border Colors */
+  --border-light: #eeeeee;        /* 薄い区切り線 */
+  --border-main: #dddddd;         /* 標準枠線・下線 */
+  --border-dark: #d8d8d8;         /* 濃いめ枠線 */
+
+  /* Radius & Shadows */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 18px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+  /* Transition */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+
+/*==========================================
+  1. Reset & Base
+==========================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--text-main);
+  background: #fff;
+  line-height: 1.7;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ヘッダー固定による高さ調整 */
+.padding-main {
+  padding-top: 64px;
+}
+
+/* フォーカスリング統一 */
+a:focus-visible {
+  outline: 2px solid var(--primary-hover);
+  outline-offset: 4px;
+}
+
+
+/*==========================================
+  2. Common Typography & Layout Components
+==========================================*/
+/* 共通コンテナ */
+.container {
+  width: 92%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 共通見出し設定 */
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+h2,
+.section-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  margin-bottom: 30px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border-main);
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
+}
+
+/* 共通テキストスタイル */
+.section-text {
+  color: var(--text-muted);
+  margin-bottom: 35px;
+}
+
+.intro p {
+  text-indent: 1em;
+  line-height: 2.1;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* 共通カード（フローティング効果） */
+.card-hover {
+  background: #fff;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 汎用：フローティング・アニメーション解除用クラス */
+.card-static,
+.card-static:hover,
+.card-static:target,
+.card-static:target:hover {
+  transform: none !important;
+  transition: none !important;
+  box-shadow: var(--shadow-sm) !important;
+  cursor: default;
+}
+
+/* 共通リスト（カード内のスポット一覧表示用） */
+.spot-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.spot-link-list li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+}
+
+.spot-link-list li a:hover {
+  color: var(--primary-hover);
+}
+
+/* 共通テーブルスタイル */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-styled th {
+  text-align: left;
+  vertical-align: top;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 10px;
+}
+
+.table-styled td {
+  line-height: 1.8;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 10px;
+}
+
+.table-styled tr:last-child th,
+.table-styled tr:last-child td {
+  border-bottom: none;
+}
+
+/* 共通広告枠 */
+.ad-space,
+.spot-adspace {
+  width: 90%;
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 30px;
+  border: 2px dashed var(--border-dark);
+  border-radius: var(--radius-md);
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+
+/*==========================================
+  3. Header & Navigation
+==========================================*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 999;
+}
+
+header .container {
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary-color);
+  letter-spacing: 0.02em;
+}
+
+nav > ul {
+  display: flex;
+  gap: 42px;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+nav a:hover {
+  color: var(--primary-hover);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateX(-50%);
+  width: 190px;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  padding-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.dropdown-menu ul {
+  background: #fff;
+  padding: 8px 0;
+  border-radius: var(--radius-sm);
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu li {
+  display: block;
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: var(--bg-light-green);
+}
+
+
+/*==========================================
+  4. Top Page
+==========================================*/
+/* Hero Section */
+.hero {
+  margin-top: 64px;
+  height: calc(100vh - 64px - 160px);
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: opacity 0.8s ease, transform 10s ease-out;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+}
+
+#hero-title {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+/* Catch Copy */
+.catch {
+  text-align: center;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.catch p {
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+/* Top Sections */
+.about,
+.top-map,
+.news,
+.site-about {
+  padding: 90px 20px;
+}
+
+.about .container,
+.top-map .container,
+.news .container,
+.site-about .container {
+  max-width: 1000px;
+}
+
+.about p,
+.site-about p {
+  font-size: 17px;
+  line-height: 2.1;
+  color: var(--text-sub);
+}
+
+/* Map Grid */
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 140px);
+  gap: 20px;
+}
+
+.map-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  width: 140px;
+  aspect-ratio: 1 / 1;
+  padding: 16px;
+  text-align: center;
+
+  background: #fff;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.map-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.map-card span {
+  display: block;
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.map-card h3 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.map-card p {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* News List */
+.news ul {
+  border-top: 1px solid var(--border-main);
+}
+
+.news li {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-sub);
+}
+
+.news time {
+  flex: 0 0 110px;
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+
+
+/*==========================================
+  5. Spots Page（一覧ページ）
+==========================================*/
+.spot-category {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px 90px;
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
+}
+
+.spot-category h1 {
+  margin-bottom: 45px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.spot-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.spot-card {
+  display: block;
+  flex: 0 0 320px;
+  width: 320px;
+  background: #fff;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  box-sizing: border-box;
+}
+
+.spot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.spot-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.spot-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px 20px 10px;
+  color: var(--text-main);
+}
+
+.spot-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  padding: 0 20px 22px;
+}
+
+
+/*==========================================
+  6. Parking Page 駐車場ページ
+==========================================*/
+.parking-main {
+  max-width: 1200px;
+  margin: 100px auto 80px;
+  padding: 0 20px;
+}
+
+.parking-map {
+  margin-bottom: 50px;
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
+}
+
+.map {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.map iframe {
+  width: 100%;
+  height: 72vh;
+  min-height: 520px;
+  max-height: 850px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.parking-notice {
+  background: var(--bg-light-green);
+  border-left: 5px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  padding: 18px 28px;
+  margin-bottom: 50px;
+}
+
+.parking-notice p {
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.parking-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.parking-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  margin-bottom: 70px;
+}
+
+.parking-list.single-column {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.parking-card {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  overflow: hidden;
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.parking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-hover);
+}
+
+.parking-card:target {
+  border: 2px solid var(--primary-hover);
+  background: var(--bg-light-green);
+  box-shadow: 0 8px 20px rgba(45, 138, 85, 0.18);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.parking-card:target:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(45, 138, 85, 0.25);
+}
+
+.parking-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 18px;
+}
+
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.number.paid {
+  background: #e66a00;
+}
+
+.number.free {
+  background: #0f9d58;
+}
+
+.parking-table {
+  composes: table-styled;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+.parking-table th {
+  width: 110px;
+  text-align: left;
+  padding: 10px 0;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.parking-table td {
+  padding: 10px 0;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.parking-comment {
+  margin-top: 18px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+
+/*==========================================
+  7. Spot Detail Page（詳細ページ）
+==========================================*/
+.spot-detail {
+  width: 92%;
+  max-width: 1020px;
+  margin: 100px auto 80px;
+  padding: 0;
+}
+
+.spot-hero {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto 50px;
+}
+
+.spot-hero img {
+  width: 100%;
+  max-width: 720px;
+  height: clamp(280px, 45vh, 360px);
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.spot-title {
+  position: absolute;
+  left: 30px;
+  bottom: 25px;
+}
+
+.spot-title h1,
+.spot-title h2 {
+  color: #fff;
+  font-size: 38px;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.spot-intro {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--text-sub);
+  margin-bottom: 50px;
+}
+
+.spot-section,
+.spot-map {
+  margin-bottom: 70px;
+}
+
+.spot-info {
+  max-width: 720px;
+  margin: 0 auto 70px;
+  background: #fff;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.spot-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.spot-info th {
+  width: 120px;
+  padding: 14px 10px;
+  text-align: left;
+  vertical-align: top;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.spot-info td {
+  padding: 14px 10px;
+  line-height: 1.9;
+  color: var(--text-sub);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.spot-info tr:last-child th,
+.spot-info tr:last-child td {
+  border-bottom: none;
+}
+
+.spot-info a {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.spot-info a:hover {
+  text-decoration: underline;
+}
+
+.spot-map iframe {
+  width: 100%;
+  height: 500px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+/* 横スライダー（関連記事） */
+.related {
+  overflow: visible;
+}
+
+.related-scroll {
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  padding-top: 15px;
+  margin-top: -15px;
+  padding-bottom: 15px;
+  margin-bottom: -15px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.related-slider {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  will-change: transform;
+}
+
+.related-slider .spot-card {
+  flex: 0 0 320px !important;
+  width: 320px !important;
+  box-sizing: border-box;
+}
+
+.related-slider .spot-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.related-scroll.dragging {
+  cursor: grabbing;
+}
+
+
+/*==========================================
+  8. Footer
+==========================================*/
+footer {
+  border-top: 1px solid var(--border-light);
+  background: #fff;
+  text-align: center;
+  padding: 24px 0;
+}
+
+footer nav {
+  margin-bottom: 8px;
+}
+
+footer nav a {
+  font-size: 13px;
+  color: var(--text-light);
+  transition: var(--transition-fast);
+}
+
+footer nav a:hover {
+  color: var(--primary-color);
+}
+
+.separator {
+  color: var(--border-main);
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+
+/*==========================================
+  9. Responsive (Media Queries 一元管理)
+==========================================*/
+
+/* --- 900px 以下 (タブレット縦〜小画面PC) --- */
+@media (max-width: 900px) {
+  .parking-main,
+  .spot-detail {
+    margin-top: 130px;
+  }
+
+  .map iframe {
+    height: 60vh;
+    min-height: 420px;
+  }
+
+  .parking-card {
+    padding: 20px;
+  }
+
+  .parking-card h3 {
+    font-size: 18px;
+  }
+
+  .spot-title h2 {
+    font-size: 30px;
+  }
+}
+
+/* --- 768px 以下 (スマホ〜タブレット) --- */
+@media (max-width: 768px) {
+  /* スマホの2段ヘッダーに対応したスクロール位置の補正 */
+  h2,
+  .section-title,
+  .spot-category,
+  .parking-map,
+  .parking-card {
+    scroll-margin-top: 130px;
+  }
+
+  header {
+    height: auto;
+  }
+
+  header .container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 0;
+    height: auto;
+  }
+
+  .logo {
+    margin-bottom: 8px;
+  }
+
+  nav > ul {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .dropdown-menu {
+    left: 0;
+    transform: none;
+  }
+
+  .hero {
+    margin-top: 100px;
+    height: 52vh;
+  }
+
+  .hero-overlay {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  #hero-title {
+    font-size: 12px;
+  }
+
+  .catch {
+    padding: 50px 20px 40px;
+    height: auto;
+  }
+
+  .catch p {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+  }
+
+  .about,
+  .top-map,
+  .news,
+  .site-about {
+    padding: 70px 20px;
+  }
+
+  h2,
+  .section-title,
+  .spot-category h2 {
+    font-size: 25px;
+  }
+
+  .about p,
+  .site-about p {
+    font-size: 16px;
+  }
+
+  .news li {
+    display: block;
+  }
+
+  .news time {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .spot-category {
+    padding: 10px 20px 70px;
+  }
+
+  .spot-grid {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px;
+    gap: 20px;
+  }
+
+  .spot-card {
+    flex: 0 0 320px !important;
+    width: 320px !important;
+    scroll-snap-align: start;
+  }
+
+  .spot-card h3 {
+    font-size: 18px;
+  }
+
+  footer {
+    padding: 20px 0;
+  }
+
+  footer nav a {
+    font-size: 12px;
+  }
+}
+
+/* --- 600px 以下 (スマートフォン) --- */
+@media (max-width: 600px) {
+  .map iframe {
+    height: 50vh;
+    min-height: 320px;
+  }
+
+  .parking-notice {
+    padding: 18px;
+  }
+
+  .parking-table th,
+  .spot-info th {
+    width: 90px;
+  }
+
+  .spot-hero img {
+    height: 240px;
+  }
+
+  .spot-title {
+    left: 20px;
+    bottom: 15px;
+  }
+
+  .spot-title h1,
+  .spot-title h2 {
+    font-size: 24px;
+  }
+
+  .spot-intro {
+    font-size: 16px;
+  }
+
+  .spot-info th,
+  .spot-info td {
+    padding: 12px 5px;
+  }
+
+  .spot-info h2,
+  .spot-section h2,
+  .spot-map h2 {
+    font-size: 24px;
+  }
+
+  .spot-map iframe {
+    height: 350px;
+  }
+}
