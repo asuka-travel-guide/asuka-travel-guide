@@ -110,6 +110,7 @@ h2,
   margin-bottom: 30px;
   padding-bottom: 2px;
   border-bottom: 1px solid var(--border-main);
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
 
 /* 共通テキストスタイル */
@@ -165,7 +166,7 @@ h2,
 
 .spot-link-list li a {
   color: var(--text-main);
-  text-decoration: none; /* 下線を削除 */
+  text-decoration: none;
   font-size: 0.95rem;
   transition: color var(--transition-fast);
 }
@@ -421,11 +422,10 @@ nav a:hover {
   align-items: center;
   
   width: 140px;
-  aspect-ratio: 1 / 1; /* 正方形に固定 */
+  aspect-ratio: 1 / 1;
   padding: 16px;
   text-align: center;
 
-  /* 共通カード定義 */
   background: #fff;
   border: 1px solid var(--border-main);
   border-radius: var(--radius-md);
@@ -453,13 +453,11 @@ nav a:hover {
   color: var(--text-main);
 }
 
-/* 説明文（p）を入れる場合は小さめに配置 */
 .map-card p {
   font-size: 11px;
   color: var(--text-muted);
   margin-top: 4px;
 }
-
 
 /* News List */
 .news ul {
@@ -488,7 +486,8 @@ nav a:hover {
 .spot-category {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px 90px;
+  padding: 10px 20px 90px;
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
 
 .spot-category h1 {
@@ -498,19 +497,22 @@ nav a:hover {
 }
 
 .spot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 35px;
 }
 
 .spot-card {
   display: block;
+  flex: 0 0 320px;
+  width: 320px;
   background: #fff;
   border: 1px solid var(--border-dark);
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .spot-card:hover {
@@ -521,7 +523,6 @@ nav a:hover {
 .spot-card img {
   display: block;
   width: 100%;
-  height: 220px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
@@ -552,7 +553,7 @@ nav a:hover {
 
 .parking-map {
   margin-bottom: 50px;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
 
 .map {
@@ -596,7 +597,6 @@ nav a:hover {
   margin-bottom: 70px;
 }
 
-/* 単列表示（全幅）用のグリッド調整 */
 .parking-list.single-column {
   grid-template-columns: 1fr;
   gap: 20px;
@@ -609,7 +609,7 @@ nav a:hover {
   border-radius: var(--radius-lg);
   padding: 24px;
   overflow: hidden;
-  scroll-margin-top: 90px;
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
   cursor: pointer;
   text-decoration: none;
   color: inherit;
@@ -644,7 +644,6 @@ nav a:hover {
   margin-bottom: 18px;
 }
 
-/* 番号マーク（有料・無料） */
 .number {
   display: inline-flex;
   align-items: center;
@@ -660,15 +659,14 @@ nav a:hover {
 }
 
 .number.paid {
-  background: #e66a00; /* マイマップオレンジ */
+  background: #e66a00;
 }
 
 .number.free {
-  background: #0f9d58; /* マイマップグリーン */
+  background: #0f9d58;
 }
 
 .parking-table {
-  /* 共通テーブル継承 */
   composes: table-styled;
   width: 100%;
   border-collapse: collapse;
@@ -826,13 +824,23 @@ nav a:hover {
 
 .related-slider {
   display: flex;
-  gap: 35px;
+  gap: 24px;
   width: max-content;
   will-change: transform;
 }
 
 .related-slider .spot-card {
-  flex: 0 0 300px;
+  flex: 0 0 320px !important;
+  width: 320px !important;
+  box-sizing: border-box;
+}
+
+.related-slider .spot-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .related-scroll.dragging {
@@ -905,6 +913,15 @@ footer p {
 
 /* --- 768px 以下 (スマホ〜タブレット) --- */
 @media (max-width: 768px) {
+  /* スマホの2段ヘッダーに対応したスクロール位置の補正 */
+  h2,
+  .section-title,
+  .spot-category,
+  .parking-map,
+  .parking-card {
+    scroll-margin-top: 130px;
+  }
+
   header {
     height: auto;
   }
@@ -987,12 +1004,23 @@ footer p {
   }
 
   .spot-category {
-    padding: 60px 20px 70px;
+    padding: 10px 20px 70px;
   }
 
   .spot-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 15px;
+    gap: 20px;
+  }
+
+  .spot-card {
+    flex: 0 0 320px !important;
+    width: 320px !important;
+    scroll-snap-align: start;
   }
 
   .spot-card h3 {
@@ -1051,10 +1079,6 @@ footer p {
   .spot-section h2,
   .spot-map h2 {
     font-size: 24px;
-  }
-
-  .related-slider .spot-card {
-    flex: 0 0 240px;
   }
 
   .spot-map iframe {
