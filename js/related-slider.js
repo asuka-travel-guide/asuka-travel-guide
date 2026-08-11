@@ -1,132 +1,139 @@
-// related-slider.js
+// related-slider.js (複数スライダー共通対応版)
 document.addEventListener("DOMContentLoaded", () => {
-  const scroll = document.querySelector(".related-scroll");
-  const slider = document.querySelector(".related-slider");
-  if (!scroll || !slider) return;
+  const scrolls = document.querySelectorAll(".related-scroll");
+  if (!scrolls.length) return;
 
-  // 要素の複製（無限ループ用）
-  [...slider.children].forEach((c) => slider.appendChild(c.cloneNode(true)));
+  scrolls.forEach((scroll) => {
+    const slider = scroll.querySelector(".related-slider");
+    if (!slider) return;
 
-  let x = 0,
-    auto = true,
-    speed = 0.4,
-    drag = false,
-    startX = 0,
-    startPos = 0,
-    v = 0,
-    lastX = 0,
-    lastT = 0,
-    inertia = false,
-    isMoved = false; // ドラッグ操作が行われたかの判定フラグ
-
-  let timerId = null;
-
-  const limit = () => slider.scrollWidth / 2;
-
-  function norm() {
-    const l = limit();
-    while (x > 0) x -= l;
-    while (-x >= l) x += l;
-  }
-
-  function frame() {
-    if (auto && !drag && !inertia) {
-      x -= speed;
-      norm();
+    // 要素の二重複製を防止しつつ無限ループ用にクローン追加
+    if (!slider.dataset.cloned) {
+      const children = Array.from(slider.children);
+      children.forEach((child) => slider.appendChild(child.cloneNode(true)));
+      slider.dataset.cloned = "true";
     }
-    if (inertia) {
-      x += v;
-      v *= 0.95; // 慣性減衰率
-      if (Math.abs(v) < 0.1) {
-        inertia = false;
+
+    let x = 0;
+    let auto = true;
+    const speed = 0.4;
+    let drag = false;
+    let startX = 0;
+    let startPos = 0;
+    let v = 0;
+    let lastX = 0;
+    let lastT = 0;
+    let inertia = false;
+    let isMoved = false;
+
+    let timerId = null;
+
+    const getLimit = () => slider.scrollWidth / 2;
+
+    function norm() {
+      const limit = getLimit();
+      if (limit <= 0) return;
+      while (x > 0) x -= limit;
+      while (-x >= limit) x += limit;
+    }
+
+    function frame() {
+      if (auto && !drag && !inertia) {
+        x -= speed;
+        norm();
       }
+      if (inertia) {
+        x += v;
+        v *= 0.95;
+        if (Math.abs(v) < 0.1) {
+          inertia = false;
+        }
+        norm();
+      }
+
+      slider.style.transform = `translateX(${x}px)`;
+      requestAnimationFrame(frame);
     }
-    norm();
-    slider.style.transform = `translateX(${x}px)`;
     requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
 
-  function down(px) {
-    drag = true;
-    auto = false;
-    inertia = false;
-    isMoved = false; // 操作開始時にリセット
-    startX = px;
-    startPos = x;
-    lastX = px;
-    lastT = performance.now();
-    scroll.classList.add("dragging");
-    clearTimeout(timerId);
-  }
-
-  function move(px) {
-    if (!drag) return;
-    const now = performance.now();
-    const diff = px - startX;
-
-    // 遊び（閾値）として 5px 以上動いた場合にドラッグとみなす
-    if (Math.abs(diff) > 5) {
-      isMoved = true;
+    function down(px) {
+      drag = true;
+      auto = false;
+      inertia = false;
+      isMoved = false;
+      startX = px;
+      startPos = x;
+      lastX = px;
+      lastT = performance.now();
+      scroll.classList.add("dragging");
+      clearTimeout(timerId);
     }
 
-    x = startPos + diff;
-    v = ((px - lastX) / Math.max(1, now - lastT)) * 16;
-    lastX = px;
-    lastT = now;
-  }
+    function move(px) {
+      if (!drag) return;
+      const now = performance.now();
+      const diff = px - startX;
 
-  function up() {
-    if (!drag) return;
-    drag = false;
-    inertia = true;
-    scroll.classList.remove("dragging");
+      if (Math.abs(diff) > 5) {
+        isMoved = true;
+      }
 
-    // 操作終了2.5秒後に自動再生を再開
-    timerId = setTimeout(() => {
-      auto = true;
-    }, 2500);
-  }
+      x = startPos + diff;
+      v = ((px - lastX) / Math.max(1, now - lastT)) * 16;
+      lastX = px;
+      lastT = now;
+    }
 
-  // --- イベント登録 ---
+    function up() {
+      if (!drag) return;
+      drag = false;
+      inertia = true;
+      scroll.classList.remove("dragging");
 
-  // ブラウザデフォルトの画像・テキストドラッグをキャンセル
-  scroll.addEventListener("dragstart", (e) => e.preventDefault());
+      timerId = setTimeout(() => {
+        auto = true;
+      }, 2500);
+    }
 
-  // マウスイベント (PC)
-  scroll.addEventListener("mousedown", (e) => down(e.clientX));
-  window.addEventListener("mousemove", (e) => move(e.clientX));
-  window.addEventListener("mouseup", up);
+    // --- 各スライダーごとのイベント登録 ---
+    scroll.addEventListener("dragstart", (e) => e.preventDefault());
 
-  // タッチイベント (スマホ)
-  scroll.addEventListener("touchstart", (e) => down(e.touches[0].clientX), {
-    passive: true,
+    // マウス操作 (PC)
+    scroll.addEventListener("mousedown", (e) => down(e.clientX));
+    window.addEventListener("mousemove", (e) => {
+      if (drag) move(e.clientX);
+    });
+    window.addEventListener("mouseup", up);
+
+    // タッチ操作 (モバイル)
+    scroll.addEventListener("touchstart", (e) => down(e.touches[0].clientX), {
+      passive: true,
+    });
+
+    window.addEventListener(
+      "touchmove",
+      (e) => {
+        if (drag) {
+          e.preventDefault();
+          move(e.touches[0].clientX);
+        }
+      },
+      { passive: false }
+    );
+
+    window.addEventListener("touchend", up);
+
+    // ドラッグ操作時の誤タップ防止
+    scroll.addEventListener(
+      "click",
+      (e) => {
+        if (isMoved) {
+          e.preventDefault();
+          e.stopPropagation();
+          isMoved = false;
+        }
+      },
+      true
+    );
   });
-
-  // { passive: false } で縦スクロールとのバッティングを阻止
-  window.addEventListener(
-    "touchmove",
-    (e) => {
-      if (drag) {
-        e.preventDefault();
-        move(e.touches[0].clientX);
-      }
-    },
-    { passive: false }
-  );
-
-  window.addEventListener("touchend", up);
-
-  // 【案B】ドラッグ操作直後の誤タップ防止 & フラグの即時クリア
-  scroll.addEventListener(
-    "click",
-    (e) => {
-      if (isMoved) {
-        e.preventDefault();
-        e.stopPropagation();
-        isMoved = false; // キャンセル処理を行った直後に次回のためにフラグをリセット！
-      }
-    },
-    true
-  );
 });
