@@ -481,7 +481,7 @@ nav a:hover {
 
 
 /*==========================================
-  5. Spots Page（一覧ページ）
+  5. Spots Page & カード共通設定（トップ以外320px固定）
 ==========================================*/
 .spot-category {
   max-width: 1200px;
@@ -500,9 +500,10 @@ nav a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 35px;
+  gap: 24px;
 }
 
+/* トップページ以外の標準カード基本指定 (幅320px固定) */
 .spot-card {
   display: block;
   flex: 0 0 320px;
@@ -520,6 +521,7 @@ nav a:hover {
   box-shadow: var(--shadow-md);
 }
 
+/* カード画像：16:9 統一 */
 .spot-card img {
   display: block;
   width: 100%;
@@ -539,6 +541,49 @@ nav a:hover {
   color: var(--text-muted);
   line-height: 1.8;
   padding: 0 20px 22px;
+}
+
+/* --- 見どころカード専用：マウスオン（フローティング）無効化 --- */
+.spot-section .spot-grid .spot-card {
+  transition: none;
+}
+
+.spot-section .spot-grid .spot-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* 周辺スライダー / 駐車場・トイレカードの幅維持 */
+.related-slider .spot-card,
+.info-block .spot-card {
+  flex: 0 0 320px !important;
+  width: 320px !important;
+}
+
+
+/*==========================================
+  5-1. Info Row Area (駐車場・トイレ並列レイアウト)
+==========================================*/
+.info-row-container {
+  display: flex;
+  flex-wrap: wrap;        /* 画面幅が狭まると自動で折り返して縦並びに */
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 90px;
+}
+
+/* 各ブロック（見出し＋カード）の設定 */
+.info-block {
+  flex: 0 0 320px;        /* 幅320px固定 */
+  width: 320px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.info-block .spot-grid {
+  justify-content: center;
 }
 
 
@@ -805,7 +850,7 @@ nav a:hover {
   display: block;
 }
 
-/* 横スライダー（関連記事） */
+/* 横スライダー（共通） */
 .related {
   overflow: visible;
 }
@@ -827,12 +872,6 @@ nav a:hover {
   gap: 24px;
   width: max-content;
   will-change: transform;
-}
-
-.related-slider .spot-card {
-  flex: 0 0 320px !important;
-  width: 320px !important;
-  box-sizing: border-box;
 }
 
 .related-slider .spot-card img {
@@ -1007,20 +1046,8 @@ footer p {
     padding: 10px 20px 70px;
   }
 
-  .spot-grid {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 15px;
-    gap: 20px;
-  }
-
-  .spot-card {
-    flex: 0 0 320px !important;
-    width: 320px !important;
-    scroll-snap-align: start;
+  .info-row-container {
+    padding-bottom: 70px;
   }
 
   .spot-card h3 {
