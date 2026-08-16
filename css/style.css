@@ -791,7 +791,7 @@ nav a:hover {
 .spot-title h1,
 .spot-title h2 {
   color: #fff;
-  font-size: 38px;
+  font-size: 24px;
   font-weight: 500;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   border: none;
@@ -959,12 +959,18 @@ footer p {
 }
 
 
+
+
+
 /*==========================================
   9. Responsive (Media Queries 一元管理)
 ==========================================*/
 
-/* --- 900px 以下 (タブレット縦〜小画面PC) --- */
-@media (max-width: 900px) {
+
+/* --- 768px 以下 (スマホ〜タブレット) --- */
+@media (max-width: 768px) {
+  
+
   .parking-main,
   .spot-detail {
     margin-top: 130px;
@@ -975,48 +981,16 @@ footer p {
     min-height: 420px;
   }
 
-  .spot-title h2 {
-    font-size: 30px;
-  }
-}
 
 
 
-/* --- 768px 以下 (スマホ〜タブレット) --- */
-@media (max-width: 768px) {
-  /* スマホの2段ヘッダーに対応したスクロール位置の補正 */
-  h2,
-  .section-title,
-  .spot-category,
-  .parking-map,
-  .parking-card {
-    scroll-margin-top: 130px;
-  }
 
-  header {
-    height: auto;
-  }
 
-  
 
-  .logo {
-    margin-bottom: 8px;
-  }
 
-  nav > ul {
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 
-  nav a {
-    font-size: 14px;
-  }
 
-  .dropdown-menu {
-    left: 0;
-    transform: none;
-  }
+
 
   .hero {
     margin-top: 100px;
@@ -1049,11 +1023,6 @@ footer p {
     padding: 70px 20px;
   }
 
-  h2,
-  .section-title,
-  .spot-category h2 {
-    font-size: 25px;
-  }
 
   .about p,
   .site-about p {
@@ -1090,8 +1059,9 @@ footer p {
   }
 }
 
-/* --- 600px 以下 (スマートフォン) --- */
-@media (max-width: 600px) {
+
+/* --- 400px 以下 (スマートフォン) --- */
+@media (max-width: 400px) {
   
 
 header .container {
@@ -1100,6 +1070,53 @@ header .container {
     padding: 16px 0;
     height: auto;
   }
+
+
+/* ドロップダウンリスト */
+ 
+  nav > ul {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .dropdown-menu {
+    left: 0;
+    transform: none;
+  }
+
+
+
+
+
+
+
+h2,
+  .section-title,
+  .spot-category,
+  .parking-map,
+  .parking-card {
+    scroll-margin-top: 130px;
+  }
+
+  header {
+    height: auto;
+  }
+
+  
+
+  .logo {
+    margin-bottom: 8px;
+  }
+
+
+
+
+
 
 
 
