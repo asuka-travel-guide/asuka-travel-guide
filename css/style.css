@@ -95,7 +95,7 @@ a:focus-visible {
 
 /* 共通見出し設定 */
 h1 {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.05em;
   color: var(--text-main);
@@ -208,7 +208,7 @@ h2,
 }
 
 .spot-card h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   padding: 20px 20px 10px;
   color: var(--text-main);
@@ -246,7 +246,7 @@ h2,
 }
 
 .parking-card h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--text-main);
   margin-bottom: 18px;
@@ -971,10 +971,7 @@ footer p {
 @media (max-width: 768px) {
   
 
-  .parking-main,
-  .spot-detail {
-    margin-top: 130px;
-  }
+  
 
   .map iframe {
     height: 60vh;
@@ -984,27 +981,9 @@ footer p {
 
 
 
+  
 
-
-
-
-
-
-
-
-  .hero {
-    margin-top: 100px;
-    height: 52vh;
-  }
-
-  .hero-overlay {
-    right: 20px;
-    bottom: 20px;
-  }
-
-  #hero-title {
-    font-size: 12px;
-  }
+ 
 
   .catch {
     padding: 50px 20px 40px;
@@ -1046,10 +1025,7 @@ footer p {
     padding-bottom: 70px;
   }
 
-  .spot-card h3 {
-    font-size: 18px;
-  }
-
+ 
   footer {
     padding: 20px 0;
   }
@@ -1091,8 +1067,24 @@ header .container {
 
 
 
+.hero {
+    margin-top: 100px;
+    height: 35vh;
+  }
+
+  .hero-overlay {
+    right: 20px;
+    bottom: 20px;
+  }
 
 
+
+
+
+  .parking-main,
+  .spot-detail {
+    margin-top: 130px;
+  }
 
 
 h2,
