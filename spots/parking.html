@@ -804,7 +804,7 @@
 
 
     <!-- Google My Maps -->
-    <section class="parking-map"id="parking">
+    <section class="parking-map"id="parking-map">
         <div class="map">
             <!-- Googleマイマップ埋め込み -->
            <iframe id="main-map" src="https://www.google.com/maps/d/embed?mid=1l3S9Q8xAbP6YNhzcldiT4uSQ2zRaU9o&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
@@ -1366,7 +1366,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // 切り替え時も &ehbc=2E312F&noprof=1 を維持して拡大(z=18)表示
         mapIframe.src = `https://www.google.com/maps/d/embed?mid=1l3S9Q8xAbP6YNhzcldiT4uSQ2zRaU9o&ehbc=2E312F&noprof=1&ll=${lat}%2C${lng}&z=18`;
       }
-    });
+
+      });
   });
 });
 </script>
