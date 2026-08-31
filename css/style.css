@@ -21,7 +21,7 @@
   /* Border Colors */
   --border-light: #eeeeee;        /* 薄い区切り線 */
   --border-main: #dddddd;         /* 標準枠線・下線 */
-  --border-dark: #d8d8d8;         /* 濃いめ枠線 */
+  --border-dark: #999999;         /* 濃いめd8d8d8枠線 */
 
   /* Radius & Shadows */
   --radius-sm: 5px;
@@ -76,7 +76,7 @@ ul {
   padding-top: 64px;
 }
 
-/* フォーカスリング統一 */
+/* キーボード操作でフォーカスが当たった際のアクセシビリティ */
 a:focus-visible {
   outline: 2px solid var(--primary-hover);
   outline-offset: 4px;
@@ -348,7 +348,7 @@ header .container {
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--primary-color);
   letter-spacing: 0.02em;
@@ -425,7 +425,7 @@ nav a:hover {
 
 
 /*==========================================
-  4. Top Page
+  4. トップページ
 ==========================================*/
 /* Hero Section */
 .hero {
@@ -588,6 +588,17 @@ nav a:hover {
 /*==========================================
   5. Spots Page & カード共通設定（トップ以外320px固定）
 ==========================================*/
+
+
+.read{
+  margin: 0 auto;
+  padding: 0px 20px 0px;
+}
+
+
+
+
+
 .spot-category {
   max-width: 1200px;
   margin: 0 auto;
@@ -658,11 +669,13 @@ nav a:hover {
 
 .parking-map {
   margin-bottom: 50px;
+  justify-content: center;
   scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
 
 .map {
-  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   border-radius: var(--radius-md);
   overflow: hidden;
 }
@@ -677,12 +690,13 @@ nav a:hover {
   display: block;
 }
 
-.parking-notice {
-  background: var(--bg-light-green);
+.notice {
+  max-width: 1000px;
+  border: 1px solid var(--border-dark);
   border-left: 5px solid var(--primary-color);
   border-radius: var(--radius-md);
   padding: 18px 28px;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
 }
 
 .parking-notice p {
@@ -788,8 +802,7 @@ nav a:hover {
   bottom: 25px;
 }
 
-.spot-title h1,
-.spot-title h2 {
+.spot-title h1 {
   color: #fff;
   font-size: 24px;
   font-weight: 500;
@@ -985,15 +998,7 @@ footer p {
 
  
 
-  .catch {
-    padding: 50px 20px 40px;
-    height: auto;
-  }
-
-  .catch p {
-    font-size: 20px;
-    letter-spacing: 0.08em;
-  }
+  
 
   .about,
   .top-map,
@@ -1078,7 +1083,15 @@ header .container {
   }
 
 
+  .catch {
+    padding: 50px 20px 40px;
+    height: auto;
+  }
 
+  .catch p {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+  }
 
 
   .parking-main,
@@ -1136,8 +1149,7 @@ h2,
     bottom: 15px;
   }
 
-  .spot-title h1,
-  .spot-title h2 {
+  .spot-title h1 {
     font-size: 24px;
   }
 
