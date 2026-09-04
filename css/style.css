@@ -10,7 +10,7 @@
   /* Brand Colors */
   --primary-color: #20593c;       /* 深緑（ロゴ・メイン） */
   --primary-hover: #2d8a55;       /* ホバー・アクセント緑 */
-  --bg-light-green: #d4f2e2;      /* 薄緑背景（通知・ターゲット） */
+  --bg-light-green: #d3f7e0;      /* 薄緑背景（通知・ターゲット） */
 
   /* Text Colors */
   --text-main: #444444;           /* メイン文字 */
@@ -107,11 +107,17 @@ h2,
   font-weight: 400;
   letter-spacing: 0.05em;
   color: var(--text-main);
-  margin-bottom: 30px;
-  padding-bottom: 2px;
-  border-bottom: 1px solid var(--border-main);
-  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
+  margin-bottom: 5px;
 }
+
+.lead{
+  margin: 0 auto  20px;
+  padding: 0px 20px 0px;
+  border-bottom: 1px solid var(--border-main);
+}
+
+
+
 
 /* 共通テキストスタイル */
 .section-text {
@@ -167,8 +173,7 @@ h2,
 
 
 
-.spot-card,
-.parking-card {
+.spot-card{
   flex: 0 0 320px;
   width: 320px;
   display: block;
@@ -182,18 +187,12 @@ h2,
 }
 
 
-.link-card,
-.parking-card {
-  padding: 24px;
-  cursor: pointer; /* 指マークに変える */
- }
 
 
 /* カード：フローティング*/
 .link-photo-card:hover,
 .link-card:hover,
-.spot-card:hover,
-.parking-card:hover{
+.spot-card:hover{
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--primary-hover);
@@ -204,8 +203,7 @@ h2,
 
 
 /* 周辺スライダー / スポット一覧の駐車場・トイレカードの幅「枠」としての役割 */
-.related-slider
-.info-block {
+.related-slider .info-block {
   flex: 0 0 320px !important;
   width: 320px !important;
 }
@@ -238,8 +236,7 @@ h2,
 }
 
 
-.link-card h3,
-.parking-card h3 {
+.link-card h3 {
   font-size: 18px;
   font-weight: 500;
   color: var(--text-main);
@@ -262,8 +259,7 @@ h2,
 
 
 
-.link-card:target,
-.parking-card:target {
+.link-card:target {
   border: 2px solid var(--primary-hover);
   background: var(--bg-light-green);
   box-shadow: 0 8px 20px rgba(45, 138, 85, 0.18);
@@ -272,8 +268,7 @@ h2,
 }
 
 
-.link-card:target:hover,
-.parking-card:target:hover {
+.link-card:target:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 28px rgba(45, 138, 85, 0.25);
 }
@@ -283,7 +278,7 @@ h2,
 
 
 
-/* 共通リスト（カード内のスポット一覧表示用） */
+/* 共通リスト（観光マップカード内のスポット一覧表示用） */
 .spot-link-list {
   list-style: none;
   padding: 0;
@@ -543,6 +538,9 @@ nav a:hover {
   color: var(--text-sub);
 }
 
+
+
+
 /* Map Grid */
 .map-grid {
   display: grid;
@@ -615,15 +613,13 @@ nav a:hover {
 }
 
 
+
+
+
 /*==========================================
-  5. Spots詳細 & カード共通設定（トップ以外320px固定）
+  5. Spots一覧
 ==========================================*/
 
-
-.read{
-  margin: 0 auto;
-  padding: 0px 20px 0px;
-}
 
 
 
@@ -650,15 +646,8 @@ nav a:hover {
 }
 
 
-/* --- 見どころカード専用：マウスオン（フローティング）無効化 --- */
-.spot-section .spot-grid .spot-card {
-  transition: none;
-}
 
-.spot-section .spot-grid .spot-card:hover {
-  transform: none;
-  box-shadow: none;
-}
+
 
 
 
@@ -672,7 +661,7 @@ nav a:hover {
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px 90px;
+  padding: 0 20px 50px;
 }
 
 /* 各ブロック（見出し＋カード）の設定 */
@@ -686,6 +675,30 @@ nav a:hover {
 .info-block .spot-grid {
   justify-content: center;
 }
+
+
+
+
+/*==========================================
+  6. Spots詳細 & カード設定
+==========================================*/
+
+
+
+
+/* --- 見どころカード専用：マウスオン（フローティング）無効化 --- */
+.spot-section .spot-grid .spot-card {
+  transition: none;
+}
+
+.spot-section .spot-grid .spot-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+
+
+
 
 
 /*==========================================
@@ -704,7 +717,7 @@ nav a:hover {
 }
 
 .map {
-  max-width: 1000px;
+  max-width: 1020px;
   margin: 0 auto;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -720,8 +733,9 @@ nav a:hover {
   display: block;
 }
 
+
 .notice {
-  max-width: 1000px;
+  max-width: 1020px;
   border: 1px solid var(--border-dark);
   border-left: 5px solid var(--primary-color);
   border-radius: var(--radius-md);
@@ -772,7 +786,6 @@ nav a:hover {
 }
 
 .parking-table {
-  composes: table-styled;
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 18px;
@@ -909,6 +922,7 @@ nav a:hover {
   display: block;
 }
 
+
 /* 横スライダー（共通） */
 .related {
   overflow: visible;
@@ -951,6 +965,18 @@ nav a:hover {
   8. 食べるマップ
 ==========================================*/
 
+.number.lunch {
+  background: #f57c00;
+}
+
+.number.cafe {
+  background: #795548;
+}
+
+
+
+
+
 /* リンク文字列の見た目を調整 */
     .gourmet-link {
       margin-top: 0px;
@@ -969,7 +995,7 @@ nav a:hover {
 
 
 /*==========================================
-  8. Footer
+  9. Footer
 ==========================================*/
 footer {
   border-top: 1px solid var(--border-light);
@@ -1006,11 +1032,11 @@ footer p {
 
 
 /*==========================================
-  9. Responsive (Media Queries 一元管理)
+  10. Responsive (Media Queries 一元管理)
 ==========================================*/
 
 
-/* --- 768px 以下 (スマホ〜タブレット) --- */
+/* --- 768px 以下 (ipad縦画面) --- */
 @media (max-width: 768px) {
   
 
@@ -1056,24 +1082,20 @@ footer p {
     padding: 10px 20px 70px;
   }
 
-  .info-row-container {
-    padding-bottom: 70px;
-  }
+ 
 
  
-  footer {
-    padding: 20px 0;
-  }
-
-  footer nav a {
-    font-size: 12px;
-  }
 }
 
 
 /* --- 400px 以下 (スマートフォン) --- */
 @media (max-width: 400px) {
   
+
+ header {
+    height: auto;
+  }
+
 
 header .container {
     flex-direction: column;
@@ -1130,18 +1152,15 @@ header .container {
   }
 
 
-h2,
-  .section-title,
+
   .spot-category,
   .parking-map,
-  .link-card,
-  .parking-card {
+  .link-card {
     scroll-margin-top: 130px;
   }
 
-  header {
-    height: auto;
-  }
+
+ 
 
   
 
@@ -1202,4 +1221,17 @@ h2,
   .spot-map iframe {
     height: 350px;
   }
+
+
+
+  footer {
+    padding: 20px 0;
+  }
+
+  footer nav a {
+    font-size: 12px;
+  }
+
+
+
 }
