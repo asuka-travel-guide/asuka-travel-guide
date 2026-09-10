@@ -702,10 +702,11 @@ nav a:hover {
 
 
 /*==========================================
-  6. Parking Page 駐車場ページ
+  6. 駐車場・トイレ　ページ
 ==========================================*/
+.toilet-main,
 .parking-main {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 100px auto 80px;
   padding: 0 20px;
 }
@@ -784,6 +785,12 @@ nav a:hover {
 .number.free {
   background: #0f9d58;
 }
+
+.number.toilet {
+  background: #0288D1;
+}
+
+
 
 .parking-table {
   width: 100%;
@@ -1146,6 +1153,8 @@ header .container {
   }
 
 
+
+  .toilet-main,
   .parking-main,
   .spot-detail {
     margin-top: 130px;
