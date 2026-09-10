@@ -790,7 +790,13 @@ nav a:hover {
   background: #0288D1;
 }
 
+.number.stay {
+  background: #C2185B;
+}
 
+.number.bath {
+  background: #0097A7;
+}
 
 .parking-table {
   width: 100%;
