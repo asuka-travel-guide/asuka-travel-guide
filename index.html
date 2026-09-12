@@ -10,29 +10,72 @@
   <meta name="description" content="明日香村観光ガイドは、石舞台古墳や飛鳥寺、岡寺、高松塚古墳、キトラ古墳など、明日香村の観光スポットを紹介する観光情報サイトです。観光・食事・体験・駐車場情報まで旅行に役立つ情報を掲載しています。">
   <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/">
 
-  <!-- 2. OGP設定 -->
-  <meta property="og:title" content="明日香村観光ガイド｜観光・グルメ・駐車場情報">
-  <meta property="og:description" content="明日香村の歴史ある観光スポットや食事、体験、駐車場情報を紹介する観光ガイドです。">
+  <!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+  <meta property="og:title" content="明日香村観光ガイド｜おすすめスポット・ランチ・駐車場情報">
+  <meta property="og:description" content="石舞台古墳や飛鳥寺、岡寺など明日香村の観光史跡をはじめ、ランチ・カフェ、駐車場・トイレ情報まで網羅した観光情報ガイドです。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/">
-  <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.jpg">
+  <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="明日香村観光ガイド">
   <meta property="og:site_name" content="明日香村観光ガイド">
   <meta property="og:locale" content="ja_JP">
+
+  <!-- X (旧Twitter) Card 設定 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="明日香村観光ガイド｜おすすめスポット・ランチ・駐車場情報">
+  <meta name="twitter:description" content="石舞台古墳や飛鳥寺、岡寺など明日香村の観光史跡をはじめ、ランチ・カフェ、駐車場・トイレ情報まで網羅した観光情報ガイドです。">
+  <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.jpg">
+
+
 
   <!-- 3. 構造化データ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "明日香村観光ガイド",
-    "alternateName": "Asuka Travel Guide",
-    "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
-    "description": "石舞台古墳や飛鳥寺、岡寺など明日香村の観光スポットや駐車場情報を紹介する観光情報サイト。",
-    "inLanguage": "ja",
-    "publisher": {
-      "@type": "Organization",
-      "name": "明日香村観光ガイド"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#website",
+        "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
+        "name": "明日香村観光ガイド",
+        "alternateName": "Asuka Travel Guide",
+        "description": "石舞台古墳や飛鳥寺、岡寺、高松塚古墳、キトラ古墳など明日香村の観光スポットや駐車場・グルメ情報を紹介する観光情報サイト。",
+        "inLanguage": "ja",
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#organization",
+          "name": "明日香村観光ガイド",
+          "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/apple-touch-icon.png"
+          }
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#webpage",
+        "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
+        "name": "明日香村観光ガイド｜おすすめスポット・ランチ・駐車場情報",
+        "description": "明日香村の歴史ある観光スポットや食事、体験、駐車場情報を紹介する観光ガイドです。",
+        "isPartOf": {
+          "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#website"
+        },
+        "about": {
+          "@type": "TouristDestination",
+          "name": "明日香村",
+          "description": "奈良県高市郡明日香村。石舞台古墳や高松塚古墳、キトラ古墳など飛鳥時代の史跡が数多く残る歴史豊かな観光地。",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "奈良県",
+            "addressLocality": "高市郡明日香村",
+            "addressCountry": "JP"
+          }
+        }
+      }
+    ]
   }
   </script>
 
@@ -74,7 +117,7 @@
               <li><a href="spots/index.html#course">モデルコース</a></li>
  -->
               <li><a href="spots/index.html#souvenir">おみやげ</a></li>
-              <li><a href="spots/parking.html">駐車場</a></li>
+              <li><a href="spots/parking.html#parking-map">駐車場</a></li>
               <li><a href="toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -95,9 +138,7 @@
             <a href="stay/index.html">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
               <li><a href="stay/index.html#bath">お風呂</a></li>
- -->
             </ul>
           </li>
 
