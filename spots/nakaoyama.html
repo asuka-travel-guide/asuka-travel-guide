@@ -18,14 +18,88 @@
 <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+
+
+<!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+<meta property="og:title" content="中尾山古墳｜明日香村観光ガイド">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/nakaoyama.html">
+<meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/nakaoyama/nakaoyama.jpg">
+<meta property="og:description" content="中尾山古墳の歴史や八角形墳の特徴、文武天皇との関係、見どころ、アクセス、駐車場情報を紹介します。">
+<meta property="og:site_name" content="明日香村観光ガイド">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="中尾山古墳｜明日香村観光ガイド">
+<meta name="twitter:description" content="中尾山古墳の歴史や八角形墳の特徴、文武天皇との関係、見どころ、アクセス、駐車場情報を紹介します。">
+<meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/nakaoyama/nakaoyama.jpg">
+
+
+<!-- favicon -->
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+
+
+
+
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/nakaoyama.html#spot",
+      "name": "中尾山古墳",
+      "description": "中尾山古墳の歴史や八角形墳の特徴、文武天皇との関係、見どころ、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/nakaoyama.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/nakaoyama/nakaoyama.jpg",
+      "isAccessibleForFree": true,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村",
+        "streetAddress": "平田"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/nakaoyama.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "中尾山古墳",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/nakaoyama.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <!-- CSS -->
  <link rel="stylesheet" href="../css/style.css">
 
-<!-- Java script -->
+<!-- JavaScript -->
  <script src="../js/related-slider.js"></script>
 
 </head>
@@ -53,7 +127,7 @@
               <li><a href="index.html#nature">自然・風景</a></li>
               <li><a href="index.html#museum">博物館</a></li>
               <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -72,9 +146,7 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
 
@@ -97,7 +169,7 @@
 
 <section class="spot-hero">
 
-    <img src="../images/spots/nakaoyama/nakaoyama.jpg" alt="中尾山古墳">
+    <img src="../images/spots/nakaoyama/nakaoyama.jpg" alt="中尾山古墳" decoding="async">
 
     <div class="spot-title">
         <h1>中尾山古墳</h1>
@@ -160,7 +232,7 @@
 <tr>
 <th>所要時間</th>
 <td>
-約20分
+約10分
 </td>
 </tr>
 
@@ -172,10 +244,23 @@
 
 <td>
 
-<a href="parking.html#takamatsuzuka-parking">
+<a href="parking.html#takamatsuzuka1-parking">
 高松塚周辺地区第1駐車場
-</a>
-（無料・徒歩約10分）
+</a>（徒歩約4分・無料）<br>
+<a href="parking.html#takamatsuzuka2-parking">
+高松塚周辺地区第2駐車場
+</a>（徒歩約3分・無料）<br>
+<a href="parking.html#takamatsuzuka-parking">
+高松塚駐車場
+</a>（徒歩約4分・普通車 500円）<br>
+<a href="parking.html#kofunmae-parking">
+古墳前駐車場
+</a>（徒歩約8分・普通車 100円）<br>
+<a href="parking.html#takamatsuzuka-east-parking">
+高松塚古墳東駐車場
+</a>（徒歩約9分・普通車 100円）
+
+
 
 </td>
 
@@ -189,7 +274,7 @@
 
 <td>
 
-近鉄飛鳥駅から徒歩約20分。<br>
+近鉄飛鳥駅から徒歩約11分。<br>
 周辺は坂道がありますので、歩きやすい靴がおすすめです。
 
 </td>
@@ -293,54 +378,65 @@ alt="中尾山古墳">
 
 <div class="related-scroll">
 
-
 <div class="related-slider">
 
 
 
 <a href="takamatsuzuka.html" class="spot-card">
-
-<img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg"
-alt="高松塚古墳">
-
-<h3>
-高松塚古墳
-</h3>
-
+<img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg" alt="高松塚古墳">
+<h3>高松塚古墳</h3>
 </a>
 
 
+<a href="takamatsuzuka-wall.html" class="spot-card">
+<img src="../images/spots/takamatsuzuka-wall/takamatsuzuka-wall.jpg" alt="高松塚壁画館">
+<h3>高松塚壁画館</h3>
+</a>
+
+
+<a href="asuka-historic-park.html" class="spot-card">
+<img src="../images/spots/asuka-historic-park/asuka-historic-park.jpg" alt="国営飛鳥歴史公園">
+<h3>国営飛鳥歴史公園</h3>
+</a>
+
+
+<a href="kitora.html" class="spot-card">
+<img src="../images/spots/kitora/kitora.jpg" alt="キトラ古墳">
+<h3>キトラ古墳</h3>
+</a>
 
 
 <a href="kengoshizuka.html" class="spot-card">
-
-<img src="../images/spots/kengoshizuka/kengoshizuka.jpg"
-alt="牽牛子塚古墳">
-
-<h3>
-牽牛子塚古墳
-</h3>
-
+<img src="../images/spots/kengoshizuka/kengoshizuka.jpg" alt="牽牛子塚古墳">
+<h3>牽牛子塚古墳</h3>
 </a>
 
 
-
-
-<a href="marukoyama.html" class="spot-card">
-
-<img src="../images/spots/marukoyama/marukoyama.jpg"
-alt="マルコ山古墳">
-
-<h3>
-マルコ山古墳
-</h3>
-
+<a href="tenmu.html" class="spot-card">
+<img src="../images/spots/tenmu/tenmu.jpg" alt="天武・持統天皇陵" loading="lazy" decoding="async">
+<h3>天武・持統天皇陵</h3>
 </a>
 
+
+<a href="asuka-yumehanbai.html" class="spot-card">
+<img src="../images/spots/asuka-yumehanbai/asuka-yumehanbai.jpg" alt="あすか夢販売所" width="320" height="180" loading="lazy" decoding="async">
+<h3>あすか夢販売所</h3>
+</a>
+
+
+<a href="../gourmet/index.html#misono" class="spot-card">
+<img src="../images/gourmet/misono.jpg" alt="珈琲の館 御園" width="320" height="180" loading="lazy">
+<h3>珈琲の館 御園</h3>
+</a>
+
+
+<a href="../gourmet/index.html#buta-to-espresso" class="spot-card">
+<img src="../images/gourmet/buta-to-espresso.jpg" alt="とんかつ喫茶ブタとエスプレッソと" width="320" height="180" loading="lazy">
+<h3>とんかつ喫茶ブタとエスプレッソと</h3>
+</a>
 
 
 </div>
-
 
 </div>
 
