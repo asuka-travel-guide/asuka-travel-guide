@@ -9,17 +9,87 @@
 
 
     <!-- 1. SEO基本設定 -->
-    <title>飛鳥池｜明日香村観光ガイド</title>
-    <meta name="description" content="飛鳥池の歴史や見どころ、飛鳥池工房遺跡、アクセス、駐車場情報を紹介します。">
+    <title>飛鳥池工房遺跡｜明日香村観光ガイド</title>
+    <meta name="description" content="飛鳥池工房遺跡の歴史や見どころ、アクセス、駐車場情報を紹介します。">
     <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asukaike.html">
 
+
+<!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+<meta property="og:title" content="飛鳥池工房遺跡｜明日香村観光ガイド">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asukaike.html">
+<meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asukaike/asukaike.jpg">
+<meta property="og:description" content="飛鳥池工房遺跡の歴史や見どころ、アクセス、駐車場情報を紹介します。">
+<meta property="og:site_name" content="明日香村観光ガイド">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="飛鳥池工房遺跡｜明日香村観光ガイド">
+<meta name="twitter:description" content="飛鳥池の歴史や見どころ、飛鳥池工房遺跡、アクセス、駐車場情報を紹介します。">
+<meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asukaike/asukaike.jpg">
+
+
+<!-- favicon -->
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asukaike.html#spot",
+      "name": "飛鳥池工房遺跡",
+      "description": "飛鳥池の歴史や見どころ、飛鳥池工房遺跡、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asukaike.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asukaike/asukaike.jpg",
+      "isAccessibleForFree": true,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村",
+        "streetAddress": "飛鳥"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asukaike.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "飛鳥池工房遺跡",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asukaike.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
@@ -54,7 +124,7 @@
               <li><a href="index.html#nature">自然・風景</a></li>
               <li><a href="index.html#museum">博物館</a></li>
               <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -73,9 +143,7 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
 
@@ -98,16 +166,12 @@
 <!-- Hero -->
 
 <section class="spot-hero">
-
-<img src="../images/spots/asukaike/asukaike.jpg"
-alt="飛鳥池工房遺跡">
-
+<img src="../images/spots/asukaike/asukaike.jpg" alt="飛鳥池工房遺跡" fetchpriority="high" decoding="async">
 <div class="spot-title">
 <h1>
 飛鳥池工房遺跡
 </h1>
 </div>
-
 </section>
 
 
@@ -117,15 +181,10 @@ alt="飛鳥池工房遺跡">
 <section class="spot-intro">
 
 <p>
-
 飛鳥池工房遺跡は、飛鳥時代にさまざまな製品が作られた総合工房跡です。
-
 金・銀・銅製品やガラス製品などが作られ、日本最古の貨幣とされる富本銭が鋳造された場所としても知られています。
-
 飛鳥時代の高度な技術や、当時のものづくりの様子を知ることができる貴重な遺跡です。
-
 </p>
-
 </section>
 
 
@@ -142,13 +201,13 @@ alt="飛鳥池工房遺跡">
 
 <tr>
 <th>見学時間</th>
-<td>自由見学</td>
+<td>10:00〜17:30（入館は17:00まで）</td>
 </tr>
 
 
 <tr>
 <th>定休日</th>
-<td>なし</td>
+<td>月曜日（月曜日が祝日の場合は翌平日）、年末年始、展示替期間</td>
 </tr>
 
 
@@ -186,11 +245,9 @@ alt="飛鳥池工房遺跡">
 <th>アクセス</th>
 
 <td>
-
-近鉄飛鳥駅から徒歩30分。<br>
-
-奈良交通明日香周遊バス「万葉文化館」下車、徒歩すぐ。
-
+奈良県立万葉文化館の館内にあります。
+近鉄飛鳥駅から徒歩40分。<br>
+奈良交通明日香周遊バス「万葉文化館」下車、徒歩1分。
 </td>
 
 </tr>
@@ -223,48 +280,30 @@ alt="飛鳥池工房遺跡">
 <!-- 見どころ -->
 
 <section class="spot-section">
-
 <h2>見どころ</h2>
-
 
 <div class="spot-grid">
 
-
-
 <article class="spot-card">
-
-<img src="../images/spots/asukaike/asukaike-feature01.jpg"
-alt="飛鳥池工房遺跡">
-
+<img src="../images/spots/asukaike/asukaike-feature01.jpg" alt="飛鳥池工房遺跡" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 富本銭が作られた工房跡
 </h3>
-
 <p>
-
 日本最古の貨幣とされる富本銭の鋳造が行われたことで知られる遺跡です。
-
 </p>
-
 </article>
 
 
 
 <article class="spot-card">
-
-<img src="../images/spots/asukaike/asukaike-feature02.jpg"
-alt="飛鳥池工房遺跡">
-
+<img src="../images/spots/asukaike/asukaike-feature02.jpg" alt="飛鳥池工房遺跡" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 古代のものづくり技術
 </h3>
-
 <p>
-
 金属加工やガラス製作など、飛鳥時代の高度な技術を知ることができます。
-
 </p>
-
 </article>
 
 
@@ -287,11 +326,8 @@ alt="飛鳥池工房遺跡">
 
 
 <p>
-
 飛鳥池工房遺跡は、1990年代の発掘調査によって発見された飛鳥時代の工房跡です。
-
 炉跡や木簡、富本銭などが出土し、国家的な生産施設として利用されていたことが分かっています。
-
 </p>
 
 
@@ -317,67 +353,54 @@ alt="飛鳥池工房遺跡">
 
 
 <a href="manyo-museum.html" class="spot-card">
-
-<img src="../images/spots/manyo-museum/manyo-museum.jpg"
-alt="奈良県立万葉文化館">
-
-<h3>
-奈良県立万葉文化館
-</h3>
-
+<img src="../images/spots/manyo-museum/manyo-museum.jpg" alt="奈良県立万葉文化館" width="320" height="180" loading="lazy" decoding="async">
+<h3>奈良県立万葉文化館</h3>
 </a>
-
-
-
-<a href="sakafuneishi.html" class="spot-card">
-
-<img src="../images/spots/sakafuneishi/sakafuneishi.jpg"
-alt="酒船石">
-
-<h3>
-酒船石
-</h3>
-
-</a>
-
 
 
 <a href="kamegata.html" class="spot-card">
-
-<img src="../images/spots/kamegata/kamegata.jpg"
-alt="亀形石造物">
-
+<img src="../images/spots/kamegata/kamegata.jpg" alt="亀形石造物" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 亀形石造物
 </h3>
-
 </a>
 
 
-
-<a href="asukadera.html" class="spot-card">
-
-<img src="../images/spots/asukadera/asukadera.jpg"
-alt="飛鳥寺">
-
-<h3>
-飛鳥寺
-</h3>
-
+<a href="sakafuneishi.html" class="spot-card">
+<img src="../images/spots/sakafuneishi/sakafuneishi.jpg" alt="酒船石" width="320" height="180" loading="lazy" decoding="async">
+<h3>酒船石</h3>
 </a>
-
 
 
 <a href="asukakyu.html" class="spot-card">
-
-<img src="../images/spots/asukakyu/asukakyu.jpg"
-alt="飛鳥宮跡">
-
-<h3>
-飛鳥宮跡
-</h3>
-
+<img src="../images/spots/asukakyu/asukakyu.jpg" alt="飛鳥宮跡" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥宮跡</h3>
 </a>
+
+
+<a href="asukadera.html" class="spot-card">
+<img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥寺</h3>
+</a>
+
+
+<a href="../gourmet/index.html#cafe-section2" class="spot-card">
+<img src="../images/gourmet/cafe-section2.jpg" alt="cafe-section２" width="320" height="180" loading="lazy" decoding="async">
+<h3>cafe-section２</h3>
+</a>
+
+
+<a href="../gourmet/index.html#asuka-pure-farm" class="spot-card">
+<img src="../images/gourmet/asuka-pure-farm.jpg" alt="明日香ピュアファームキッチン" width="320" height="180" loading="lazy" decoding="async">
+<h3>明日香ピュアファームキッチン</h3>
+</a>
+
+
+<a href="../gourmet/index.html#curryon" class="spot-card">
+<img src="../images/gourmet/curryon.jpg" alt="Curryon万葉文化館店" width="320" height="180" loading="lazy" decoding="async">
+<h3>Curryon万葉文化館店</h3>
+</a>
+
 
 
 
@@ -393,8 +416,7 @@ alt="飛鳥宮跡">
 
 <!-- Map -->
 
-<section id="map"
-class="spot-map">
+<section id="map" class="spot-map">
 
 <h2>
 地図
