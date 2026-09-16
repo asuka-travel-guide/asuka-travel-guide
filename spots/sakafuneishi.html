@@ -13,7 +13,26 @@
     <meta name="description" content="明日香村の謎多き石造物・酒船石の歴史や用途、周辺の遺跡、アクセス、駐車場情報を紹介します。">
     <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/sakafuneishi.html">
 
+<!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+<meta property="og:title" content="酒船石｜明日香村観光ガイド">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/sakafuneishi.html">
+<meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/sakafuneishi/sakafuneishi.jpg">
+<meta property="og:description" content="明日香村の謎多き石造物・酒船石の歴史や用途、周辺の遺跡、アクセス、駐車場情報を紹介します。">
+<meta property="og:site_name" content="明日香村観光ガイド">
+<meta property="og:locale" content="ja_JP">
 
+<!-- Twitter Card (X) 設定 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="酒船石｜明日香村観光ガイド">
+<meta name="twitter:description" content="明日香村の謎多き石造物・酒船石の歴史や用途、周辺の遺跡、アクセス、駐車場情報を紹介します。">
+<meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/sakafuneishi/sakafuneishi.jpg">
+
+
+<!-- favicon -->
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
@@ -21,6 +40,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet">
+
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/sakafuneishi.html#spot",
+      "name": "酒船石",
+      "description": "明日香村の謎多き石造物・酒船石の歴史や用途、周辺の遺跡、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/sakafuneishi.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/sakafuneishi/sakafuneishi.jpg",
+      "isAccessibleForFree": true,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村",
+        "streetAddress": "岡"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/sakafuneishi.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "酒船石",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/sakafuneishi.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 
 
 <!-- CSS -->
@@ -54,7 +123,7 @@
               <li><a href="index.html#nature">自然・風景</a></li>
               <li><a href="index.html#museum">博物館</a></li>
               <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -73,9 +142,7 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
 
@@ -98,16 +165,12 @@
 <!-- Hero -->
 
 <section class="spot-hero">
-
-<img src="../images/spots/sakafuneishi/sakafuneishi.jpg"
-alt="酒船石">
-
+<img src="../images/spots/sakafuneishi/sakafuneishi.jpg" alt="酒船石" fetchpriority="high" decoding="async">
 <div class="spot-title">
 <h1>
 酒船石
 </h1>
 </div>
-
 </section>
 
 
@@ -117,13 +180,9 @@ alt="酒船石">
 <section class="spot-intro">
 
 <p>
-
 酒船石は、明日香村岡にある巨大な石造物です。
-
 表面には複数のくぼみや溝が刻まれており、用途については酒造りの台、薬を調合する施設、祭祀に使われた設備など、さまざまな説があります。
-
 飛鳥時代の技術や文化を感じられる、明日香を代表する謎の石造物です。
-
 </p>
 
 </section>
@@ -188,7 +247,7 @@ alt="酒船石">
 
 <td>
 
-近鉄飛鳥駅から徒歩約25分。<br>
+近鉄飛鳥駅から徒歩約45分。<br>
 
 明日香周遊バス「万葉文化館」バス停から徒歩約5分。<br>
 
@@ -235,39 +294,25 @@ alt="酒船石">
 
 
 <article class="spot-card">
-
-<img src="../images/spots/sakafuneishi/sakafuneishi-feature01.jpg"
-alt="酒船石">
-
+<img src="../images/spots/sakafuneishi/sakafuneishi-feature01.jpg" alt="酒船石" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 謎が残る巨大な石造物
 </h3>
-
 <p>
-
 長さ約5メートルの石の表面には複雑な溝やくぼみがあり、古代の用途を想像させます。
-
 </p>
-
 </article>
 
 
 
 <article class="spot-card">
-
-<img src="../images/spots/sakafuneishi/sakafuneishi-feature02.jpg"
-alt="酒船石の溝">
-
+<img src="../images/spots/sakafuneishi/sakafuneishi-feature02.jpg" alt="酒船石の溝" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 飛鳥時代の技術
 </h3>
-
 <p>
-
 精巧に加工された石造物から、飛鳥時代の高度な技術や文化を感じることができます。
-
 </p>
-
 </article>
 
 
@@ -288,17 +333,11 @@ alt="酒船石の溝">
 歴史・由来
 </h2>
 
-
 <p>
-
 酒船石が作られた時期や目的は明らかになっていませんが、飛鳥時代の遺構と考えられています。
-
 江戸時代には酒を造るための道具と考えられたことから「酒船石」と呼ばれるようになりました。
-
 現在では、飛鳥時代の祭祀や宮廷文化を考えるうえで重要な石造物として注目されています。
-
 </p>
-
 
 </section>
 
@@ -322,44 +361,55 @@ alt="酒船石の溝">
 
 
 
-<a href="kamegata.html"
-class="spot-card">
-
-<img src="../images/spots/kamegata/kamegata.jpg"
-alt="亀形石造物">
-
+<a href="kamegata.html" class="spot-card">
+<img src="../images/spots/kamegata/kamegata.jpg" alt="亀形石造物" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 亀形石造物
 </h3>
-
 </a>
 
 
 
-<a href="manyo-museum.html"
-class="spot-card">
+<a href="manyo-museum.html" class="spot-card">
+<img src="../images/spots/manyo-museum/manyo-museum.jpg" alt="奈良県立万葉文化館" width="320" height="180" loading="lazy" decoding="async">
+<h3>奈良県立万葉文化館</h3>
+</a>
 
-<img src="../images/spots/manyo-museum/manyo-museum.jpg"
-alt="奈良県立万葉文化館">
 
-<h3>
-奈良県立万葉文化館
-</h3>
+<a href="asukakyu.html" class="spot-card">
+<img src="../images/spots/asukakyu/asukakyu.jpg" alt="飛鳥宮跡" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥宮跡</h3>
+</a>
 
+
+<a href="asukadera.html" class="spot-card">
+<img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥寺</h3>
+</a>
+
+
+<a href="okadera.html" class="spot-card">
+<img src="../images/spots/okadera/okadera.jpg" alt="岡寺" width="320" height="180" loading="lazy" decoding="async">
+<h3>岡寺</h3>
 </a>
 
 
 
-<a href="asukakyu.html"
-class="spot-card">
+<a href="../gourmet/index.html#cafe-section2" class="spot-card">
+<img src="../images/gourmet/cafe-section2.jpg" alt="cafe-section２" width="320" height="180" loading="lazy" decoding="async">
+<h3>cafe-section２</h3>
+</a>
 
-<img src="../images/spots/asukakyu/asukakyu.jpg"
-alt="飛鳥宮跡">
 
-<h3>
-飛鳥宮跡
-</h3>
+<a href="../gourmet/index.html#asuka-pure-farm" class="spot-card">
+<img src="../images/gourmet/asuka-pure-farm.jpg" alt="明日香ピュアファームキッチン" width="320" height="180" loading="lazy" decoding="async">
+<h3>明日香ピュアファームキッチン</h3>
+</a>
 
+
+<a href="../gourmet/index.html#curryon" class="spot-card">
+<img src="../images/gourmet/curryon.jpg" alt="Curryon万葉文化館店" width="320" height="180" loading="lazy" decoding="async">
+<h3>Curryon万葉文化館店</h3>
 </a>
 
 
@@ -377,14 +427,11 @@ alt="飛鳥宮跡">
 
 <!-- Map -->
 
-<section id="map"
-class="spot-map">
-
+<section id="map" class="spot-map">
 
 <h2>
 地図
 </h2>
-
 
 <iframe
 src="https://www.google.com/maps?q=酒船石%20明日香村&output=embed"
@@ -393,9 +440,7 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
-
 </section>
-
 
 
 </main>
