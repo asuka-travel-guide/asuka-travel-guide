@@ -11,15 +11,85 @@
     <!-- 1. SEO基本設定 -->
     <title>川原寺跡｜明日香村観光ガイド</title>
     <meta name="description" content="川原寺跡の歴史や飛鳥時代の重要寺院としての魅力、見どころ、アクセス、駐車場情報を紹介します。">
+    <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/kawaharadera.html">
 
 
+<!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+<meta property="og:title" content="川原寺跡｜明日香村観光ガイド">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/kawaharadera.html">
+<meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/kawaharadera/kawaharadera.jpg">
+<meta property="og:description" content="川原寺跡の歴史や飛鳥時代の重要寺院としての魅力、見どころ、アクセス、駐車場情報を紹介します。">
+<meta property="og:site_name" content="明日香村観光ガイド">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="川原寺跡｜明日香村観光ガイド">
+<meta name="twitter:description" content="川原寺跡の歴史や飛鳥時代の重要寺院としての魅力、見どころ、アクセス、駐車場情報を紹介します。">
+<meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/kawaharadera/kawaharadera.jpg">
+
+
+<!-- favicon -->
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/kawaharadera.html#spot",
+      "name": "川原寺跡",
+      "description": "川原寺跡の歴史や飛鳥時代の重要寺院としての魅力、見どころ、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/kawaharadera.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/kawaharadera/kawaharadera.jpg",
+      "isAccessibleForFree": true,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村",
+        "streetAddress": "川原"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/kawaharadera.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "川原寺跡",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/kawaharadera.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 
 
 <!-- CSS -->
@@ -53,7 +123,7 @@
               <li><a href="index.html#nature">自然・風景</a></li>
               <li><a href="index.html#museum">博物館</a></li>
               <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -72,13 +142,9 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
-
-
 
 
 
@@ -89,6 +155,7 @@
     </div>
   </header>
 
+
 <!-- メイン -->
 
 <main class="spot-detail">
@@ -98,8 +165,7 @@
 
 <section class="spot-hero">
 
-<img src="../images/spots/kawaharadera/kawaharadera.jpg"
-alt="川原寺跡">
+<img src="../images/spots/kawaharadera/kawaharadera.jpg" alt="川原寺跡" fetchpriority="high" decoding="async">
 
 <div class="spot-title">
 <h1>
@@ -114,17 +180,11 @@ alt="川原寺跡">
 <!-- Overview -->
 
 <section class="spot-intro">
-
 <p>
-
 川原寺跡は、飛鳥時代に建立された四大寺のひとつに数えられる古代寺院跡です。
-
 天智天皇の時代に建立されたとされ、飛鳥寺・薬師寺・大官大寺と並ぶ重要な寺院でした。
-
 現在は塔跡や礎石が残り、飛鳥時代の大寺院の規模を感じることができます。
-
 </p>
-
 </section>
 
 
@@ -185,11 +245,8 @@ alt="川原寺跡">
 <th>アクセス</th>
 
 <td>
-
-近鉄飛鳥駅から徒歩35分。<br>
-
-奈良交通明日香周遊バス「川原」バス停から徒歩すぐ。
-
+近鉄飛鳥駅から徒歩30分。<br>
+奈良交通明日香周遊バス「川原」バス停から徒歩1分。
 </td>
 
 </tr>
@@ -231,39 +288,25 @@ alt="川原寺跡">
 
 
 <article class="spot-card">
-
-<img src="../images/spots/kawaharadera/kawaharadera-feature01.jpg"
-alt="川原寺跡">
-
+<img src="../images/spots/kawaharadera/kawaharadera-feature01.jpg" alt="川原寺跡" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 飛鳥四大寺のひとつ
 </h3>
-
 <p>
-
 飛鳥時代を代表する大寺院のひとつで、当時の繁栄を感じられる史跡です。
-
 </p>
-
 </article>
 
 
 
 <article class="spot-card">
-
-<img src="../images/spots/kawaharadera/kawaharadera-feature02.jpg"
-alt="川原寺跡">
-
+<img src="../images/spots/kawaharadera/kawaharadera-feature02.jpg" alt="川原寺跡" width="320" height="180" loading="lazy" decoding="async">
 <h3>
 塔跡と礎石
 </h3>
-
 <p>
-
 現在も残る礎石から、かつての大規模な伽藍配置を想像できます。
-
 </p>
-
 </article>
 
 
@@ -284,17 +327,11 @@ alt="川原寺跡">
 歴史・由来
 </h2>
 
-
 <p>
-
 川原寺は、7世紀後半に建立されたと考えられる古代寺院です。
-
 創建時には大規模な伽藍を備え、飛鳥時代の政治や仏教文化を支える重要な役割を果たしました。
-
 平安時代以降に衰退しましたが、発掘調査によって当時の寺院配置や建物跡が明らかになっています。
-
 </p>
-
 
 </section>
 
@@ -305,11 +342,9 @@ alt="川原寺跡">
 <!-- Nearby -->
 
 <section class="spot-section related">
-
 <h2>
 周辺のおすすめ
 </h2>
-
 
 <div class="related-scroll">
 
@@ -318,66 +353,41 @@ alt="川原寺跡">
 
 
 <a href="tachibanadera.html" class="spot-card">
-
-<img src="../images/spots/tachibanadera/tachibanadera.jpg"
-alt="橘寺">
-
-<h3>
-橘寺
-</h3>
-
+<img src="../images/spots/tachibanadera/tachibanadera.jpg" alt="橘寺" width="320" height="180" loading="lazy" decoding="async">
+<h3>橘寺</h3>
 </a>
 
 
 
 <a href="asukakyu.html" class="spot-card">
-
-<img src="../images/spots/asukakyu/asukakyu.jpg"
-alt="飛鳥宮跡">
-
-<h3>
-飛鳥宮跡
-</h3>
-
+<img src="../images/spots/asukakyu/asukakyu.jpg" alt="飛鳥宮跡" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥宮跡</h3>
 </a>
 
 
 
-<a href="kamegata.html" class="spot-card">
-
-<img src="../images/spots/kamegata/kamegata.jpg"
-alt="亀形石造物">
-
-<h3>
-亀形石造物
-</h3>
-
+<a href="kameishi.html" class="spot-card">
+<img src="../images/spots/kameishi/kameishi.jpg" alt="亀石" width="320" height="180" loading="lazy" decoding="async">
+<h3>亀石</h3>
 </a>
 
 
 
-<a href="ishibutai.html" class="spot-card">
-
-<img src="../images/spots/ishibutai/ishibutai.jpg"
-alt="石舞台古墳">
-
-<h3>
-石舞台古墳
-</h3>
-
+<a href="../gourmet/index.html#da-terra" class="spot-card">
+<img src="../images/gourmet/da-terra.jpg" alt="ダ テッラ (Da terra)" width="320" height="180" loading="lazy" decoding="async">
+<h3>ダ テッラ (Da terra)</h3>
 </a>
 
 
+<a href="../gourmet/index.html#meguru" class="spot-card">
+<img src="../images/gourmet/meguru.jpg" alt="マクロビオティックごはんcafeめぐる" width="320" height="180" loading="lazy" decoding="async">
+<h3>マクロビオティックごはんcafeめぐる</h3>
+</a>
 
-<a href="okadera.html" class="spot-card">
 
-<img src="../images/spots/okadera/okadera.jpg"
-alt="岡寺">
-
-<h3>
-岡寺
-</h3>
-
+<a href="../gourmet/index.html#sampo" class="spot-card">
+<img src="../images/gourmet/sampo.jpg" alt="さんぽ" width="320" height="180" loading="lazy" decoding="async">
+<h3>さんぽ</h3>
 </a>
 
 
@@ -390,12 +400,9 @@ alt="岡寺">
 
 
 
-
-
 <!-- Map -->
 
-<section id="map"
-class="spot-map">
+<section id="map" class="spot-map">
 
 <h2>
 地図
