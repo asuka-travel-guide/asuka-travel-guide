@@ -831,15 +831,26 @@ nav a:hover {
   7. Spot Detail Page（詳細ページ）
 ==========================================*/
 .spot-detail {
-  width: 92%;
-  max-width: 1020px;
-  margin: 100px auto 80px;
+  max-width: 1440px;
+  margin: 100px 20px 80px;
   padding: 0;
 }
 
+
+
+.detail-box {
+  max-width:720px;
+  margin: 0 auto; 
+  padding: 0;
+}
+
+
+
+
+
 .spot-hero {
   position: relative;
-  max-width: 720px;
+  max-width: 640px;
   margin: 0 auto 50px;
 }
 
@@ -928,11 +939,13 @@ nav a:hover {
 }
 
 .spot-map iframe {
-  width: 100%;
+  max-width: 1020px;
+width: 100%;
   height: 500px;
   border: 1px solid var(--border-main);
   border-radius: var(--radius-md);
   display: block;
+  margin: 0 auto;
 }
 
 
