@@ -8,26 +8,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <!-- 1. SEO基本設定 -->
-    <title>石舞台古墳｜明日香村観光ガイド</title>
-    <meta name="description" content="明日香村を代表する石舞台古墳の歴史や見どころ、料金、営業時間、アクセス、駐車場情報を詳しく紹介します。">
-    <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html">
+<!-- SEO基本設定 -->
+ <title>石舞台古墳｜明日香村観光ガイド</title>
+ <meta name="description" content="明日香村を代表する石舞台古墳の歴史や見どころ、料金、営業時間、アクセス、駐車場情報を詳しく紹介します。">
+ <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html">
 
 
+<!-- OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+ <meta property="og:title" content="石舞台古墳｜明日香村観光ガイド">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html">
+ <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/ishibutai/ishibutai.jpg">
+ <meta property="og:description" content="明日香村を代表する石舞台古墳の歴史や見どころ、料金、営業時間、アクセス、駐車場情報を詳しく紹介します。">
+ <meta property="og:site_name" content="明日香村観光ガイド">
+ <meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="石舞台古墳｜明日香村観光ガイド">
+ <meta name="twitter:description" content="明日香村を代表する石舞台古墳の歴史や見どころ、料金、営業時間、アクセス、駐車場情報を詳しく紹介します。">
+ <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/ishibutai/ishibutai.jpg">
+
+
+<!-- favicon -->
+ <link rel="icon" href="../images/favicon.ico" sizes="any">
+ <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html#spot",
+      "name": "石舞台古墳",
+      "description": "明日香村を代表する石舞台古墳の歴史や見どころ、料金、営業時間、アクセス、駐車場情報を詳しく紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/ishibutai/ishibutai.jpg",
+      "isAccessibleForFree": false,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "石舞台古墳",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
  <link rel="stylesheet" href="../css/style.css">
 
+
 <!-- Java script -->
- <script src="../js/related-slider.js"></script>
+ <script src="../js/related-slider.js" defer></script>
 
 </head>
 
@@ -39,12 +108,14 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+
+<!-- ロゴ -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
       <!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
             <a href="index.html">観光する</a>
@@ -54,7 +125,7 @@
               <li><a href="index.html#nature">自然・風景</a></li>
               <li><a href="index.html#museum">博物館</a></li>
               <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -73,9 +144,7 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
 
@@ -90,387 +159,257 @@
     </div>
   </header>
 
+
 <!-- メイン -->
-
-
 <main class="spot-detail">
 
-
-
-
+   
 <!-- Hero -->
-<section class="spot-hero">
-<img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳">
-
-<div class="spot-title">
-<h1>
-石舞台古墳
-</h1>
-</div>
-
-</section>
-
-
+    <section class="spot-hero">
+        <img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳" width="320" height="180" fetchpriority="high" decoding="async">
+        <div class="spot-title">
+            <h1>石舞台古墳</h1>
+        </div>
+    </section>
 
 
 
 <!-- Overview -->
+    <section class="spot-intro">
+    <div class="detail-box">
+        <p>
+            明日香村を代表する観光スポットのひとつで、
+            巨大な石を積み上げて造られた石室が特徴の古墳です。
 
-<section class="spot-intro">
-
-
-<p>
-明日香村を代表する観光スポットのひとつで、
-巨大な石を積み上げて造られた石室が特徴の古墳です。
-
-蘇我馬子の墓とする説が有力ですが、
-現在も多くの謎が残されています。
-</p>
-
-
-</section>
-
-
+            蘇我馬子の墓とする説が有力ですが、
+            現在も多くの謎が残されています。
+        </p>
+    </div>
+    </section>
 
 
 
 <!-- Basic Information -->
+    <section class="spot-info">
+        <h2>基本情報</h2>
 
-<section class="spot-info">
+        <table>
 
-<h2>基本情報</h2>
+            <tr>
+                <th>営業時間</th>
+                <td>8:30〜17:00（受付16:45まで）</td>
+            </tr>
 
-<table>
+            <tr>
+                <th>定休日</th>
+                <td>年中無休</td>
+            </tr>
 
-<tr>
+            <tr>
+                <th>料金</th>
+                <td>
+                    大人300円<br>
+                    中学生以下100円
+                </td>
+            </tr>
 
-<th>
-営業時間
-</th>
+            <tr>
+                <th>所要時間</th>
+                <td>30分</td>
+            </tr>
 
-<td>
-8:30〜17:00（受付16:45まで）
-</td>
+            <tr>
+                <th>駐車場</th>
+                <td>
+                    <a href="parking.html#ishibutai-parking">
+                        飛鳥観光協会 石舞台駐車場
+                    </a>
+                    （徒歩約1分・有料）
+                    <br>
+                    <a href="parking.html#ishibutai-free-parking">
+                        国営飛鳥歴史公園 石舞台地区駐車場
+                    </a>
+                    （徒歩約1分・無料）
+                </td>
+            </tr>
 
-</tr>
+            <tr>
+                <th>アクセス</th>
+                <td>
+                    近鉄飛鳥駅から歩約50分<br>
+                    近鉄飛鳥駅から奈良交通バス「石舞台」下車徒歩約3分<br>
+                    周辺は坂道があります。歩きやすい靴がおすすめです。<br>
+                    石室内部は段差があります。
+                </td>
+            </tr>
 
+            <tr>
+                <th>地図</th>
+                <td>
+                    <a href="#map">地図はこちら</a>
+                </td>
+            </tr>
 
+        </table>
 
-<tr>
-
-<th>
-定休日
-</th>
-
-<td>
-年中無休
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-料金
-</th>
-
-<td>
-大人300円<br>
-中学生以下100円
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-所要時間
-</th>
-
-<td>
-30分
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>駐車場</th>
-    <td>
-        <a href="parking.html#ishibutai-parking">
-            飛鳥観光協会 石舞台駐車場
-        </a>
-        （徒歩約1分・有料）
-        <br>
-        <a href="parking.html#ishibutai-free-parking">
-            国営飛鳥歴史公園 石舞台地区駐車場
-        </a>
-        （徒歩約1分・無料）
-    </td>
-</tr>
-
-
-
-<tr>
-
-<th>
-アクセス
-</th>
-
-<td>
-近鉄飛鳥駅から奈良交通バス「石舞台」下車徒歩約3分<br>
-周辺は坂道があります。歩きやすい靴がおすすめです。<br>
-石室内部は段差があります。
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-地図
-</th>
-
-<td>
-
-<a href="#map">地図はこちら</a>
-
-</td>
-
-</tr>
-
-
-
-</table>
-
-
-</section>
-
-
-
-
-
-
-<!-- Adsense -->
-
-<!-- =====================
-     公開まで非表示
-======================
-
-<section class="spot-adspace">
-
-<p>
-広告スペース
-</p>
-
-</section>
-=====================
-     公開まで非表示
-====================== -->
-
-
-
-
+    </section>
 
 
 
 <!-- 見どころ -->
-
-<section class="spot-section">
-
-    <h2>見どころ</h2>
-
-    <div class="spot-grid">
-
-        <article class="spot-card">
-            <img src="../images/spots/ishibutai/ishibutai-feature01.jpg" 
-　　　　　　alt="石舞台古墳の石室入口">
-            <h3>巨大な石室</h3>
-            <p>
-            約30個の花崗岩で築かれた日本最大級の横穴式石室です。
-            </p>
-        </article>
+ <section class="spot-section">
+  <div class="detail-box">
+   <h2>見どころ</h2>
+  </div> 
 
 
-        <article class="spot-card">
-            <img src="../images/spots/ishibutai/ishibutai-feature02.jpg" alt="石舞台古墳の天井石">
 
-            <h3>圧倒的な天井石</h3>
-            <p>
-            最大約77トンの天井石は、石舞台古墳を象徴する見どころです。
-            </p>
-        </article>
+  <div class="spot-grid">
 
-        <article class="spot-card">
-            <img src="../images/spots/ishibutai/ishibutai-feature03.jpg" alt="菜の花が咲く春の石舞台古墳">
-            <h3>四季の景色</h3>
-            <p>
-            春の桜や菜の花、秋の紅葉など、季節ごとに異なる景観を楽しめます。
-            </p>
-        </article>
+            
+
+       <article class="spot-card">
+       <img src="../images/spots/ishibutai/ishibutai-feature01.jpg" alt="石舞台古墳の石室入口" width="320" height="180" loading="lazy" decoding="async">
+       <h3>巨大な石室</h3>
+       <p>
+       約30個の花崗岩で築かれた日本最大級の横穴式石室です。
+       </p>  
+       </article>
+
+
+
+       <article class="spot-card">
+       <img src="../images/spots/ishibutai/ishibutai-feature02.jpg" alt="石舞台古墳の天井石" width="320" height="180" loading="lazy" decoding="async">
+       <h3>圧倒的な天井石</h3>
+       <p>
+       最大約77トンの天井石は、石舞台古墳を象徴する見どころです。
+       </p>
+       </article>
+
+
+
+       <article class="spot-card">
+       <img src="../images/spots/ishibutai/ishibutai-feature03.jpg" alt="菜の花が咲く春の石舞台古墳" width="320" height="180" loading="lazy" decoding="async">
+       <h3>四季の景色</h3>
+       <p>
+       春の桜や菜の花、秋の紅葉など、季節ごとに異なる景観を楽しめます。
+       </p>
+       </article>
+
+
+   </div>
+
+ </section>
+
+
+
+<!-- 歴史・由来 -->
+    <section class="spot-section">
+    <div class="detail-box">
+        <h2>歴史・由来</h2>
+        <p>
+            石舞台古墳は7世紀初頭に築造されたと考えられる古墳です。
+            墳丘の土が失われ、現在のように巨大な石室が露出した姿になりました。
+            被葬者については、飛鳥時代の有力者である蘇我馬子の墓とする説がありますが、確定はしていません。
+        </p>
+    </div> 
+    </section>
+
+
+<!-- 周辺のおすすめ -->
+ <section class="spot-section related">
+   <h2>周辺のおすすめ</h2>
+
+   <div class="related-scroll">
+
+    <div class="related-slider">
+
+
+       <a href="fuguriyama.html" class="spot-card">
+       <img src="../images/spots/fuguriyama/fuguriyama.jpg" alt="フグリ山" width="320" height="180" loading="lazy" decoding="async">
+       <h3>フグリ山</h3>
+       </a>
+
+
+       <a href="inabuchi-tanada.html" class="spot-card">
+       <img src="../images/spots/inabuchi-tanada/inabuchi-tanada.jpg" alt="稲渕の棚田" width="320" height="180" loading="lazy" decoding="async">
+       <h3>稲渕の棚田</h3>
+       </a>
+
+
+       <a href="okadera.html" class="spot-card">
+       <img src="../images/spots/okadera/okadera.jpg" alt="岡寺" width="320" height="180" loading="lazy" decoding="async">
+       <h3>岡寺</h3>
+       </a>
+
+
+       <a href="tachibanadera.html" class="spot-card">
+       <img src="../images/spots/tachibanadera/tachibanadera.jpg" alt="橘寺" width="320" height="180" loading="lazy" decoding="async">
+       <h3>橘寺</h3>
+       </a>
+
+
+       <a href="asuka-yumeichi.html" class="spot-card">
+       <img src="../images/spots/asuka-yumeichi/asuka-yumeichi.jpg" alt="明日香の夢市" width="320" height="180" loading="lazy" decoding="async">
+       <h3>明日香の夢市</h3>
+       </a>
+
+
+       <a href="../gourmet/index.html#yumeichi-chaya" class="spot-card">
+       <img src="../images/gourmet/yumeichi-chaya.jpg" alt="農村レストラン 夢市茶屋" width="320" height="180" loading="lazy" decoding="async">
+       <h3>農村レストラン 夢市茶屋</h3>
+       </a>
+
+
+       <a href="../gourmet/index.html#branchera-ishibutai-terrace" class="spot-card">
+       <img src="../images/gourmet/branchera-ishibutai-terrace.jpg" alt="ブランシエラ 石舞台テラス" width="320" height="180" loading="lazy" decoding="async">
+       <h3>ブランシエラ 石舞台テラス</h3>
+       </a>
+
+
+
+
+
+
+     </div>
 
     </div>
 
-</section>
+ </section>
 
 
 
+<!-- 地図 -->
+ <section id="map" class="spot-map">
+        <h2>地図</h2>
 
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31293.605392337715!2d135.8134599356778!3d34.46902311006185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6006cc7787ee33d1%3A0xf4590df74f4fb763!2z55-z6Iie5Y-w5Y-k5aKz!5e0!3m2!1sja!2sjp!4v1784896980847!5m2!1sja!2sjp"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
 
-<!-- History -->
-
-<section class="spot-section">
-<h2>
-歴史・由来
-</h2>
-<p>
-石舞台古墳は7世紀初頭に築造されたと考えられる古墳です。
-墳丘の土が失われ、現在のように巨大な石室が露出した姿になりました。
-被葬者については、飛鳥時代の有力者である蘇我馬子の墓とする説がありますが、確定はしていません。
-</p>
-
-</section>
-
-
-
-
-
-
-
-<!-- Nearby  周辺 -->
-<section class="spot-section related">
-
-<h2>
-周辺のおすすめ
-</h2>
-
-<div class="related-scroll">
-<div class="related-slider">
-
-<a href="asuka-yumeichi.html" class="spot-card">
-<img src="../images/spots/asuka-yumeichi/asuka-yumeichi.jpg" alt="明日香の夢市">
-<h3>明日香の夢市</h3>
-</a>
-
-
-<a href="fuguriyama.html" class="spot-card">
-<img src="../images/spots/fuguriyama/fuguriyama.jpg" alt="フグリ山">
-<h3>フグリ山</h3>
-</a>
-
-
-<a href="inabuchi-tanada.html" class="spot-card">
-<img src="../images/spots/inabuchi-tanada/inabuchi-tanada.jpg" alt="稲渕の棚田">
-<h3>稲渕の棚田</h3>
-</a>
-
-
-<a href="okadera.html" class="spot-card">
-<img src="../images/spots/okadera/okadera.jpg" alt="岡寺">
-<h3>岡寺</h3>
-</a>
-
-
-<a href="tachibanadera.html" class="spot-card">
-<img src="../images/spots/tachibanadera/tachibanadera.jpg" alt="橘寺">
-<h3>橘寺</h3>
-</a>
-
-
-
-
-</div>
-</div>
-
-</section>
-
-
-
-
-
-
-
-
-<!-- Map -->
-
-<section id="map"
-class="spot-map">
-
-
-<h2>地図</h2>
-
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31293.605392337715!2d135.8134599356778!3d34.46902311006185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6006cc7787ee33d1%3A0xf4590df74f4fb763!2z55-z6Iie5Y-w5Y-k5aKz!5e0!3m2!1sja!2sjp!4v1784896980847!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
-</iframe>
-
-
-
-</section>
-
-
-
-
-<!-- Adsense -->
-
-<!-- =====================
-     公開まで非表示
-======================
-
-<section class="ad-space">
-
-<p>
-広告スペース
-</p>
-
-</section>
-=====================
-     公開まで非表示
-====================== -->
-
-
-
+ </section>
 
 
 </main>
 
 
-
-
 <!-- フッター -->
-
 <footer>
-
 <nav>
-
 <a href="../sitemap.html">サイトマップ</a>
-
 <span class="separator">｜</span>
-
 <a href="../privacy.html">プライバシーポリシー</a>
-
 <span class="separator">｜</span>
-
 <a href="../contact.html">お問い合わせ</a>
-
 </nav>
-
-<p>
-© 2026 Asuka Travel Guide. All Rights Reserved.
-</p>
-
-
+<p>© 2026 Asuka Travel Guide. All Rights Reserved.</p>
 </footer>
-
-
-
 
 </body>
 
