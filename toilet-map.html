@@ -7,7 +7,7 @@
 
 <!-- SEO基本設定 -->
 <title>トイレ案内マップ｜明日香村観光ガイド</title>
-<meta name="description" content="明日香村内の屋外トイレ・多機能トイレの場所や設備（バリアフリー対応など）を網羅したマップガイドです。">
+<meta name="description" content="明日香村内の屋外トイレ・多機能トイレの場所や設備（バリアフリー、オストメイト対応など）を網羅したマップガイドです。">
 <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/toilet-map.html">
 
 
@@ -19,7 +19,7 @@
 
 <!-- OGP基本設定 -->
 <meta property="og:title" content="トイレ案内マップ｜明日香村観光ガイド">
-<meta property="og:description" content="明日香村内の屋外トイレ・多機能トイレの場所や設備（バリアフリー対応など）を網羅したマップガイドです。">
+<meta property="og:description" content="明日香村内の屋外トイレ・多機能トイレの場所や設備（バリアフリー、オストメイト対応など）を網羅したマップガイドです。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/toilet-map.html">
 <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.svg">
@@ -30,7 +30,7 @@
 <!-- Twitter Card設定 -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="トイレ案内マップ｜明日香村観光ガイド">
-<meta name="twitter:description" content="明日香村内の屋外トイレ・多機能トイレの場所や設備（バリアフリー対応など）を網羅したマップガイドです。">
+<meta name="twitter:description" content="明日香村内の屋外トイレ・多機能トイレの場所や設備（バリアフリー、オストメイト対応など）を網羅したマップガイドです。">
 <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.svg">
 
 
@@ -391,7 +391,28 @@
             },
             "wheelchairAccessibleEntrance": true
           }
+        },
+
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "PublicToilet",
+            "name": "奥山久米寺跡トイレ",
+            "description": "奥山久米寺跡に設置されているトイレです。男性は和式トイレです。",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 34.48534,
+              "longitude": 135.82113
+            },
+            "wheelchairAccessibleEntrance": false
+          }
         }
+
+
+
+
+
       ]
     }
   ]
@@ -429,8 +450,8 @@
               <li><a href="spots/index.html#course">モデルコース</a></li>
  -->
               <li><a href="spots/index.html#souvenir">おみやげ</a></li>
-              <li><a href="spots/parking.html#parking">駐車場</a></li>
-              <li><a href="toilet-map.html">トイレ</a></li>
+              <li><a href="spots/parking.html#parking-map">駐車場</a></li>
+              <li><a href="toilet-map.html#toilet-map">トイレ</a></li>
             </ul>
           </li>
 
@@ -445,15 +466,12 @@
 
 
 <!-- 泊まる -->
-
           <li class="dropdown">
             <a href="stay/index.html">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
               <li><a href="stay/index.html#bath">お風呂</a></li>
- -->
-            </ul>
+             </ul>
           </li>
 
 
@@ -473,15 +491,22 @@
     </div>
   </header>
 
-  <!-- メイン -->
+
+
+<!-- メイン -->
   <main class="toilet-main">
 
+
+  <section class="toilet-section">
+    <div class="toilet-container">
     <h1 class="section-title">明日香村 トイレ案内マップ</h1>
+    </div>
+  </div>
 
     <!-- Google My Maps -->
-    <section class="parking-map" id="parking-map">
+    <section class="toilet-map" id="toilet-map">
       <div class="map">
-        <iframe id="main-map" src="https://www.google.com/maps/d/u/0/embed?mid=1K6uQnyY4clm16jLgEbc5Sbao5OF1r7w&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+        <iframe id="main-map" src="https://www.google.com/maps/d/u/0/embed?mid=1iUXX-_-fImd0AIF-IEbTQ32tF_sHX1U&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
       </div>
     </section>
 
@@ -493,15 +518,17 @@
     </section>
 
     <!-- トイレ一覧 -->
-    <section class="parking-section">
-
+    <section class="toilet-section">
+    <div class="toilet-container">
       <h2 class="section-title">トイレ一覧</h2>
+    </div>
+
 
       <div class="parking-list">
 
 
        <!-- 1 -->
-        <a href="#parking-map" class="link-card" id="toilet-michinoeki-asuka" data-lat="34.4644087" data-lng="135.7981822">
+        <a href="#toilet-map" class="link-card" id="toilet-michinoeki-asuka" data-lat="34.4644087" data-lng="135.7981822">
           <h3><span class="number toilet">1</span> 道の駅飛鳥トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -512,7 +539,7 @@
 
 
       <!-- 2 -->
-        <a href="#parking-map" class="link-card" id="toilet-kitora-kofun-dai1-parking" data-lat="34.4519670" data-lng="135.8036388">
+        <a href="#toilet-map" class="link-card" id="toilet-kitora-kofun-dai1-parking" data-lat="34.4519670" data-lng="135.8036388">
           <h3><span class="number toilet">2</span> キトラ古墳第1駐車場前トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -523,7 +550,7 @@
 
 
         <!-- 3 -->
-        <a href="#parking-map" class="link-card" id="toilet-kitora-kofun-dai2-parking" data-lat="34.4576409" data-lng="135.8026285">
+        <a href="#toilet-map" class="link-card" id="toilet-kitora-kofun-dai2-parking" data-lat="34.4576409" data-lng="135.8026285">
           <h3><span class="number toilet">3</span> キトラ古墳第2駐車場前トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -534,7 +561,7 @@
 
 
        <!-- 4 -->
-        <a href="#parking-map" class="link-card" id="toilet-kitora-kofun-koen" data-lat="34.4547120" data-lng="135.8036464">
+        <a href="#toilet-map" class="link-card" id="toilet-kitora-kofun-koen" data-lat="34.4547120" data-lng="135.8036464">
           <h3><span class="number toilet">4</span> キトラ古墳公園内トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -545,7 +572,7 @@
 
 
         <!-- 5 -->
-        <a href="#parking-map" class="link-card" id="toilet-marukoyama-kofun" data-lat="34.46105" data-lng="135.7908">
+        <a href="#toilet-map" class="link-card" id="toilet-marukoyama-kofun" data-lat="34.46105" data-lng="135.7908">
           <h3><span class="number toilet">5</span> マルコ山古墳トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>なし</td></tr>
@@ -557,7 +584,7 @@
 
 
         <!-- 6 -->
-        <a href="#parking-map" class="link-card" id="toilet-takamatsuzuka1-parking" data-lat="34.4651789" data-lng="135.8037520">
+        <a href="#toilet-map" class="link-card" id="toilet-takamatsuzuka1-parking" data-lat="34.4651789" data-lng="135.8037520">
           <h3><span class="number toilet">6</span> 高松塚第1駐車場内トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -568,7 +595,7 @@
 
 
         <!-- 7 -->
-        <a href="#parking-map" class="link-card" id="toilet-takamatsuzuka-hekigakan" data-lat="34.4629772" data-lng="135.8060658">
+        <a href="#toilet-map" class="link-card" id="toilet-takamatsuzuka-hekigakan" data-lat="34.4629772" data-lng="135.8060658">
           <h3><span class="number toilet">7</span> 高松塚壁画館前トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -579,7 +606,7 @@
 
 
         <!-- 8 -->
-        <a href="#parking-map" class="link-card" id="toilet-takamatsuzuka-east" data-lat="34.4611097" data-lng="135.8070397">
+        <a href="#toilet-map" class="link-card" id="toilet-takamatsuzuka-east" data-lat="34.4611097" data-lng="135.8070397">
           <h3><span class="number toilet">8</span> 高松塚東側トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -589,7 +616,7 @@
         </a>
 
        <!-- 9 -->
-        <a href="#parking-map" class="link-card" id="toilet-noguchi-parking" data-lat="34.4712454" data-lng="135.8089637">
+        <a href="#toilet-map" class="link-card" id="toilet-noguchi-parking" data-lat="34.4712454" data-lng="135.8089637">
           <h3><span class="number toilet">9</span> 野口駐車場内トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -599,7 +626,7 @@
         </a>
 
         <!-- 10 -->
-        <a href="#parking-map" class="link-card" id="toilet-kawahara-pocket-park" data-lat="34.4712647" data-lng="135.8164742">
+        <a href="#toilet-map" class="link-card" id="toilet-kawahara-pocket-park" data-lat="34.4712647" data-lng="135.8164742">
           <h3><span class="number toilet">10</span> 川原ポケットパーク内トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -609,7 +636,7 @@
         </a>
 
         <!-- 11 -->
-        <a href="#parking-map" class="link-card" id="toilet-asukakyo-ato-enchi" data-lat="34.4735332" data-lng="135.8191535">
+        <a href="#toilet-map" class="link-card" id="toilet-asukakyo-ato-enchi" data-lat="34.4735332" data-lng="135.8191535">
           <h3><span class="number toilet">11</span> 飛鳥京跡苑池遺跡トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -619,7 +646,7 @@
         </a>
 
        <!-- 12 -->
-        <a href="#parking-map" class="link-card" id="toilet-ishibutai-parking" data-lat="34.46724" data-lng="135.82355">
+        <a href="#toilet-map" class="link-card" id="toilet-ishibutai-parking" data-lat="34.46724" data-lng="135.82355">
           <h3><span class="number toilet">12</span> 石舞台駐車場トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -631,7 +658,7 @@
 
 
         <!-- 13 -->
-        <a href="#parking-map" class="link-card" id="toilet-ishibutai-kyukeisho" data-lat="34.4675086" data-lng="135.8260248">
+        <a href="#toilet-map" class="link-card" id="toilet-ishibutai-kyukeisho" data-lat="34.4675086" data-lng="135.8260248">
           <h3><span class="number toilet">13</span> 石舞台休憩所トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -641,7 +668,7 @@
         </a>
 
         <!-- 14 -->
-        <a href="#parking-map" class="link-card" id="toilet-ishibutai-iwaido-iriguchi" data-lat="34.4654829" data-lng="135.8259430">
+        <a href="#toilet-map" class="link-card" id="toilet-ishibutai-iwaido-iriguchi" data-lat="34.4654829" data-lng="135.8259430">
           <h3><span class="number toilet">14</span> 石舞台祝戸地区入口トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -652,7 +679,7 @@
 
 
      <!-- 15 -->
-        <a href="#parking-map" class="link-card" id="toilet-iwaido-shibafu-hiroba" data-lat="34.4636665" data-lng="135.8204765">
+        <a href="#toilet-map" class="link-card" id="toilet-iwaido-shibafu-hiroba" data-lat="34.4636665" data-lng="135.8204765">
           <h3><span class="number toilet">15</span> 祝戸芝生広場内トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -663,7 +690,7 @@
 
 
         <!-- 16 -->
-        <a href="#parking-map" class="link-card" id="toilet-inabuchi-tanada" data-lat="34.45763" data-lng="135.8206">
+        <a href="#toilet-map" class="link-card" id="toilet-inabuchi-tanada" data-lat="34.45763" data-lng="135.8206">
           <h3><span class="number toilet">16</span> 稲渕棚田トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -674,7 +701,7 @@
 
 
         <!-- 17 -->
-        <a href="#parking-map" class="link-card" id="toilet-manyo-bunkakan-parking" data-lat="34.4770000" data-lng="135.8236000">
+        <a href="#toilet-map" class="link-card" id="toilet-manyo-bunkakan-parking" data-lat="34.4770000" data-lng="135.8236000">
           <h3><span class="number toilet">17</span> 万葉文化館駐車場トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -685,7 +712,7 @@
 
 
          <!-- 18 -->
-        <a href="#parking-map" class="link-card" id="toilet-asukaniimasu-jinja" data-lat="34.4795238" data-lng="135.8222229">
+        <a href="#toilet-map" class="link-card" id="toilet-asukaniimasu-jinja" data-lat="34.4795238" data-lng="135.8222229">
           <h3><span class="number toilet">18</span> 飛鳥坐神社前トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -695,7 +722,7 @@
         </a>
  
        <!-- 19 -->
-        <a href="#parking-map" class="link-card" id="toilet-yumenorakuichi" data-lat="34.4813756" data-lng="135.8176991">
+        <a href="#toilet-map" class="link-card" id="toilet-yumenorakuichi" data-lat="34.4813756" data-lng="135.8176991">
           <h3><span class="number toilet">19</span> あすか夢の楽市トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>なし</td></tr>
@@ -705,7 +732,7 @@
         </a>
 
         <!-- 20 -->
-        <a href="#parking-map" class="link-card" id="toilet-amagashioka-toyoura" data-lat="34.4812189" data-lng="135.8149748">
+        <a href="#toilet-map" class="link-card" id="toilet-amagashioka-toyoura" data-lat="34.4812189" data-lng="135.8149748">
           <h3><span class="number toilet">20</span> 甘樫丘豊浦トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -716,7 +743,7 @@
 
 
         <!-- 21 -->
-        <a href="#parking-map" class="link-card" id="toilet-amagashioka-kawahara-parking" data-lat="34.4755635" data-lng="135.8141246">
+        <a href="#toilet-map" class="link-card" id="toilet-amagashioka-kawahara-parking" data-lat="34.4755635" data-lng="135.8141246">
           <h3><span class="number toilet">21</span> 甘樫丘川原駐車場内トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
@@ -726,13 +753,24 @@
         </a>
 
         <!-- 22 -->
-        <a href="#parking-map" class="link-card" id="toilet-amagashioka-kawahara-sansakuro" data-lat="34.4752891" data-lng="135.8129859">
+        <a href="#toilet-map" class="link-card" id="toilet-amagashioka-kawahara-sansakuro" data-lat="34.4752891" data-lng="135.8129859">
           <h3><span class="number toilet">22</span> 甘樫丘川原散策路トイレ</h3>
           <table class="parking-table">
             <tr><th>多目的トイレ</th><td>あり</td></tr>
             <tr><th>バリアフリー</th><td>対応</td></tr>
           </table>
           <p class="parking-comment">甘樫丘の散策ルート沿いに設置されているトイレです。オストメイトあり。</p>
+        </a>
+
+
+        <!-- 23 -->
+        <a href="#toilet-map" class="link-card" id="toilet-okuyama-kumedera-ato" data-lat="34.48534" data-lng="135.82113">
+          <h3><span class="number toilet">23</span> 奥山久米寺跡トイレ</h3>
+          <table class="parking-table">
+            <tr><th>多目的トイレ</th><td>なし</td></tr>
+            <tr><th>バリアフリー</th><td>非対応</td></tr>
+          </table>
+          <p class="parking-comment">奥山久米寺跡に設置されているトイレです。男性は和式トイレです。</p>
         </a>
 
 
@@ -763,7 +801,7 @@
     const mapIframe = document.getElementById('main-map');
 
     // 新しいマイマップの ID（mid）
-    const NEW_MID = '1K6uQnyY4clm16jLgEbc5Sbao5OF1r7w';
+    const NEW_MID = '1iUXX-_-fImd0AIF-IEbTQ32tF_sHX1U';
 
     document.querySelectorAll('.link-card').forEach(card => {
       card.addEventListener('click', function(e) {
