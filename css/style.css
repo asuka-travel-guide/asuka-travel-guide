@@ -599,7 +599,7 @@ nav a:hover {
 
 .news li {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   align-items: flex-start;
   padding: 18px 0;
   border-bottom: 1px solid var(--border-light);
@@ -613,15 +613,21 @@ nav a:hover {
 }
 
 
+/* 新着情報のスクロール枠 */
+.news-box {
+  max-height: 120px; /* 約3件分の高さ */
+  overflow-y: auto;  /* 溢れたら縦スクロール */
+  border: 1px solid #aaaaaa;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
 
 
 
 /*==========================================
   5. Spots一覧
 ==========================================*/
-
-
-
 
 
 
@@ -706,11 +712,25 @@ nav a:hover {
 ==========================================*/
 .toilet-main,
 .parking-main {
-  max-width: 1500px;
-  margin: 100px auto 80px;
-  padding: 0 20px;
+  max-width: 1440px;
+  margin: 100px 20px 80px;
+  padding: 0px;
 }
 
+
+.toilet-container{
+  max-width:1020px;
+  margin: 0 auto; 
+  padding: 0;
+}
+
+
+
+
+
+
+
+.toilet-map,
 .parking-map {
   margin-bottom: 50px;
   justify-content: center;
@@ -838,6 +858,7 @@ nav a:hover {
 
 
 
+.spot-detail-container,
 .detail-box {
   max-width:720px;
   margin: 0 auto; 
@@ -1183,6 +1204,7 @@ header .container {
 
   .spot-category,
   .parking-map,
+  .toilet-map,
   .link-card {
     scroll-margin-top: 130px;
   }
