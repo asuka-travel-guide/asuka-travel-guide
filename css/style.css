@@ -708,8 +708,9 @@ nav a:hover {
 
 
 /*==========================================
-  6. 駐車場・トイレ　ページ
+  6. 駐車場・トイレ・グルメ　ページ共通
 ==========================================*/
+.gourmet-main,
 .toilet-main,
 .parking-main {
   max-width: 1440px;
@@ -718,6 +719,7 @@ nav a:hover {
 }
 
 
+.gourmet-container,
 .toilet-container{
   max-width:1020px;
   margin: 0 auto; 
@@ -725,17 +727,44 @@ nav a:hover {
 }
 
 
-
-
-
-
-
+.gourmet-map,
 .toilet-map,
 .parking-map {
   margin-bottom: 50px;
   justify-content: center;
   scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
+
+
+.gourmet-list,
+.parking-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  
+}
+
+
+
+.parking-category,
+.toilet-category,
+.gourmet-category {
+  margin-bottom: 50px;
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
+}
+
+
+
+
+
+
+
+
+
+/*==========================================
+  6. 駐車場・トイレ　ページ
+==========================================*/
 
 .map {
   max-width: 1020px;
@@ -774,13 +803,6 @@ nav a:hover {
   margin-bottom: 0;
 }
 
-.parking-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 70px;
-}
 
 
 
@@ -1041,6 +1063,8 @@ width: 100%;
  
 
 
+
+
 /*==========================================
   9. Footer
 ==========================================*/
@@ -1087,7 +1111,6 @@ footer p {
 @media (max-width: 768px) {
   
 
-  
 
   .map iframe {
     height: 60vh;
@@ -1095,11 +1118,6 @@ footer p {
   }
 
 
-
-
-  
-
- 
 
   
 
@@ -1202,6 +1220,9 @@ header .container {
 
 
 
+  .parking-category,
+  .toilet-category,
+  .gourmet-category
   .spot-category,
   .parking-map,
   .toilet-map,
