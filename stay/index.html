@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO基本設定 -->
+
+<!-- SEO基本設定 -->
   <title>泊まるマップ｜明日香村観光ガイド</title>
   <meta name="description" content="明日香村内の宿泊施設を紹介するマップガイドです。古民家宿、民宿、ペンションなど、明日香での滞在先を探せます。">
   <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/stay/stay-index.html">
@@ -29,13 +30,13 @@
 
 
 
-  <!-- favicon -->
+<!-- favicon -->
   <link rel="icon" href="../images/favicon.ico" sizes="any">
   <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
-  <!-- Google Fonts -->
+<!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -53,6 +54,23 @@
       "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/stay/stay-index.html",
       "name": "泊まるマップ｜明日香村観光ガイド",
       "description": "明日香村内の宿泊施設を紹介するマップガイドです。古民家宿、民宿、ペンションなど、明日香での滞在先を探せます。"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "明日香村観光ガイド",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "泊まるマップ",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/stay/stay-index.html"
+        }
+      ]
     },
     {
       "@type": "ItemList",
@@ -394,14 +412,16 @@
 
 
 
-
-  <!-- CSS -->
+<!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
-  
+
 </head>
+
 
 <body>
 
+
+<!-- ヘッダー -->
   <header>
     <div class="container">
       <!-- Logo -->
@@ -409,10 +429,11 @@
         明日香村観光ガイド
       </a>
 
-      <!-- Navigation -->
+<!-- Navigation -->
       <nav>
         <ul>
-          <!-- 観光する -->
+
+<!-- 観光する -->
           <li class="dropdown">
             <a href="../spots/index.html">観光する</a>
             <ul class="dropdown-menu">
@@ -421,8 +442,8 @@
               <li><a href="../spots/index.html#nature">自然・風景</a></li>
               <li><a href="../spots/index.html#museum">博物館</a></li>
               <li><a href="../spots/index.html#souvenir">おみやげ</a></li>
-              <li><a href="../spots/parking.html">駐車場</a></li>
-              <li><a href="../toilet-map.html">トイレ</a></li>
+              <li><a href="../spots/parking.html#parking-map">駐車場</a></li>
+              <li><a href="../toilet-map.html#toilet-map">トイレ</a></li>
             </ul>
           </li>
 
@@ -459,11 +480,6 @@
  -->
 
 
-<!-- 公開まで非表示
- -->
-
-
-
 
         </ul>
     
@@ -472,92 +488,97 @@
     </div>
   </header>
 
-  <!-- メイン -->
-  <main class="parking-main">
 
+<!-- メイン -->
+  <main class="stay-main">
+
+   <div class="stay-container">
     <h1 class="section-title">明日香村 泊まるマップ</h1>
-
-    <!-- Google Maps -->
-    <section class="parking-map" id="parking-map">
-      <div class="map">
-      
-<iframe id="main-map" src="https://www.google.com/maps/d/u/0/embed?mid=1jB2oFCS8B3oxfiJ8prV3TaMDjANPekM&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
-
- </div>
+   </div>
 
 
-    </section>
 
-    <!-- ご利用案内 -->
-    <section class="notice">
+<!-- Google Maps -->
+   <section class="stay-map" id="stay-map">
+    <div class="map">
+     <iframe id="main-map" src="https://www.google.com/maps/d/u/0/embed?mid=1jB2oFCS8B3oxfiJ8prV3TaMDjANPekM&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+    </div>
+   </section>
+
+
+
+<!-- ご利用案内 -->
+  <section class="notice">
       <h2>ご利用案内</h2>
       <p>明日香村内の宿泊施設の一覧です。古民家宿、民宿、ペンションなど、明日香での滞在先探しにご利用ください。</p>
       <p>※各カードをクリックすると、上のマップが該当施設の位置に移動します。最新の宿泊情報は各施設にご確認ください。</p>
-    </section>
+  </section>
+
+
 
 <!-- 宿泊施設一覧 -->
-    <section class="spot-category" id="inn">
-
+  <section class="stay-category" id="inn">
+    <div class="stay-container">
       <h2 class="section-title">宿泊施設</h2>
-
-      <div class="parking-list">
-
-       
+    </div>
 
 
-        <!-- 1 -->
-        <a href="#parking-map" class="link-photo-card" id="cafe-and-pension-asuka" data-lat="34.463518" data-lng="135.7979255">
+    <div class="stay-list">
+
+
+<!-- 1 -->
+        <a href="#stay-map" class="link-photo-card" id="cafe-and-pension-asuka" data-lat="34.463518" data-lng="135.7979255">
           <img src="../images/stay/cafe-and-pension-asuka.jpg" alt="カフェ＆ペンション飛鳥">
           <h3><span class="number stay">1</span> カフェ＆ペンション飛鳥</h3>
           <p class="parking-comment">明日香村の自然に囲まれた小さな宿。旬の食材を使った料理と、緑を望む客室でゆったり過ごせます。</p>
 
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://pension-asuka.com/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
         <!-- 2 -->
-        <a href="#parking-map" class="link-photo-card" id="kotorian" data-lat="34.4616541" data-lng="135.7956146">
+        <a href="#stay-map" class="link-photo-card" id="kotorian" data-lat="34.4616541" data-lng="135.7956146">
           <img src="../images/stay/kotorian.jpg" alt="古都里庵">
           <h3><span class="number stay">2</span> 古都里庵</h3>
           <p class="parking-comment">一日一組限定の貸切古民家宿。広々とした一軒家と檜風呂で、明日香村の静かな時間を楽しめます。</p>
 
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://kotorian.jp/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
       <!-- 3 -->
-        <a href="#parking-map" class="link-photo-card" id="marukoyama-house" data-lat="34.4609" data-lng="135.78891">
+        <a href="#stay-map" class="link-photo-card" id="marukoyama-house" data-lat="34.4609" data-lng="135.78891">
           <img src="../images/stay/marukoyama-house.jpg" alt="明日香マルコ山ハウス">
           <h3><span class="number stay">3</span> 明日香マルコ山ハウス</h3>
           <p class="parking-comment">明日香村の自然を身近に感じながら過ごせる一棟貸しの宿。家族やグループでの滞在にもおすすめです。</p>
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://www.instagram.com/marukoyama.house/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
         <!-- 4 -->
-        <a href="#parking-map" class="link-photo-card" id="asuka-oyado-kitora" data-lat="34.44979" data-lng="135.80552">
-          <img src="../images/stay/asuka-oyado-kitora.jpg" alt="明日香のお宿キトラ">
+        <a href="#stay-map" class="link-photo-card" id="asuka-oyado-kitora" data-lat="34.44979" data-lng="135.80552">
+          <img src="../images/stay/asuka-oyado-kitora.jpg" alt="明日香のお宿キトラ" loading="lazy">
           <h3><span class="number stay">4</span> 明日香のお宿キトラ</h3>
           <p class="parking-comment">キトラ古墳のすぐそばにある一日一組限定の宿。専用庭と露天風呂を備え、静かな滞在を楽しめます。</p>
 
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://asuka-kitora.com/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
         <!-- 5 -->
-        <a href="#parking-map" class="link-photo-card" id="minshuku-wakimoto" data-lat="34.469468" data-lng="135.8098925">
-          <img src="../images/stay/minshuku-wakimoto.jpg" alt="民宿脇本利夫">
+        <a href="#stay-map" class="link-photo-card" id="minshuku-wakimoto" data-lat="34.469468" data-lng="135.8098925">
+          <img src="../images/stay/minshuku-wakimoto.jpg" alt="民宿脇本利夫" loading="lazy">
           <h3><span class="number stay">5</span> 民宿脇本利夫</h3>
           <p class="parking-comment">天武・持統天皇陵を望む歴史ある民宿。築250年以上ともいわれる古民家で、明日香の歴史を感じられます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://r.goope.jp/wakimoto-asuka/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
@@ -565,66 +586,66 @@
 
 
         <!-- 6 -->
-        <a href="#parking-map" class="link-photo-card" id="mahoro-no-yado" data-lat="34.4724074" data-lng="135.8139339">
-          <img src="../images/stay/mahoro-no-yado.jpg" alt="まほろの宿">
+        <a href="#stay-map" class="link-photo-card" id="mahoro-no-yado" data-lat="34.4724074" data-lng="135.8139339">
+          <img src="../images/stay/mahoro-no-yado.jpg" alt="まほろの宿" loading="lazy">
           <h3><span class="number stay">6</span> まほろの宿</h3>
           <p class="parking-comment">古民家の趣を残して改修した一日一組限定の一棟貸し宿。明日香で暮らすように過ごせます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://yado.sangimi.com/mahoro/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
         <!-- 7 -->
-        <a href="#parking-map" class="link-photo-card" id="bb-asuka" data-lat="34.4721875" data-lng="135.815016">
-          <img src="../images/stay/bb-asuka.jpg" alt="Ｂ＆Ｂ Ａｓｕｋａ">
+        <a href="#stay-map" class="link-photo-card" id="bb-asuka" data-lat="34.4721875" data-lng="135.815016">
+          <img src="../images/stay/bb-asuka.jpg" alt="Ｂ＆Ｂ Ａｓｕｋａ" loading="lazy">
           <h3><span class="number stay">7</span> Ｂ＆Ｂ Ａｓｕｋａ</h3>
           <p class="parking-comment">明日香の中心にあるB&amp;B。和の外観と英国アンティーク家具の洋風空間で、朝食とともにゆったり過ごせます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://bb-asuka.jp/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
         <!-- 8 -->
-        <a href="#parking-map" class="link-photo-card" id="minshuku-yonekawa" data-lat="34.4728267" data-lng="135.8226082">
-          <img src="../images/stay/minshuku-yonekawa.jpg" alt="民宿米川久義">
+        <a href="#stay-map" class="link-photo-card" id="minshuku-yonekawa" data-lat="34.4728267" data-lng="135.8226082">
+          <img src="../images/stay/minshuku-yonekawa.jpg" alt="民宿米川久義" loading="lazy">
           <h3><span class="number stay">8</span> 民宿米川久義</h3>
           <p class="parking-comment">飛鳥宮跡近くの趣ある日本家屋の民宿。昔ながらの家庭的な雰囲気と、明日香らしい田園風景を楽しめます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://r.goope.jp/minshukuyonekawa/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
         <!-- 9 -->
-        <a href="#parking-map" class="link-photo-card" id="minshuku-yoshii-yasuyuki" data-lat="34.4715414" data-lng="135.8221445">
-          <img src="../images/stay/minshuku-yoshii-yasuyuki.jpg" alt="民宿吉井靖亨">
+        <a href="#stay-map" class="link-photo-card" id="minshuku-yoshii-yasuyuki" data-lat="34.4715414" data-lng="135.8221445">
+          <img src="../images/stay/minshuku-yoshii-yasuyuki.jpg" alt="民宿吉井靖亨" loading="lazy">
           <h3><span class="number stay">9</span> 民宿吉井靖亨</h3>
           <p class="parking-comment">明日香村の中心部に位置する家庭的な民宿。観光地へのアクセスにも便利で、ゆっくり滞在できます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://r.goope.jp/minshuku-yoshi/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
         <!-- 10 -->
-        <a href="#parking-map" class="link-photo-card" id="asuka-no-yado" data-lat="34.470508" data-lng="135.8214382">
-          <img src="../images/stay/asuka-no-yado.jpg" alt="Asuka no yado -明日香の宿-">
+        <a href="#stay-map" class="link-photo-card" id="asuka-no-yado" data-lat="34.470508" data-lng="135.8214382">
+          <img src="../images/stay/asuka-no-yado.jpg" alt="Asuka no yado -明日香の宿-" loading="lazy">
           <h3><span class="number stay">10</span> 明日香の宿</h3>
           <p class="parking-comment">和モダンな一軒家を利用した隠れ家的な宿。庭と縁側のある空間で、明日香の一日をゆっくり楽しめます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://yado.sangimi.com/asuka/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
         <!-- 11 -->
-        <a href="#parking-map" class="link-photo-card" id="minshuku-wakaba" data-lat="34.4711108" data-lng="135.8262559">
-          <img src="../images/stay/minshuku-wakaba.jpg" alt="民宿 若葉">
+        <a href="#stay-map" class="link-photo-card" id="minshuku-wakaba" data-lat="34.4711108" data-lng="135.8262559">
+          <img src="../images/stay/minshuku-wakaba.jpg" alt="民宿 若葉" loading="lazy">
           <h3><span class="number stay">11</span> 民宿 若葉</h3>
           <p class="parking-comment">岡寺参道沿いに建つ静かな民宿。名物料理と温かな宿主のおもてなしで、明日香らしい滞在を楽しめます。</p>
         
@@ -633,12 +654,12 @@
  
 
         <!-- 12 -->
-        <a href="#parking-map" class="link-photo-card" id="branchera-ishibutai-terrace" data-lat="34.4678295" data-lng="135.8246306">
-          <img src="../images/stay/branchera-ishibutai-terrace.jpg" alt="BRANCHERA 石舞台TERRACE -ブランシエラ 石舞台テラス-">
+        <a href="#stay-map" class="link-photo-card" id="branchera-ishibutai-terrace" data-lat="34.4678295" data-lng="135.8246306">
+          <img src="../images/stay/branchera-ishibutai-terrace.jpg" alt="BRANCHERA 石舞台TERRACE -ブランシエラ 石舞台テラス-" loading="lazy">
           <h3><span class="number stay">12</span> ブランシエラ 石舞台テラス</h3>
           <p class="parking-comment">石舞台古墳を間近に望む全5室の宿。テラス付きの客室と地元食材の料理で、明日香を五感で楽しめます。</p>
 
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://www.haseko-stay.jp/ishibutai/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
@@ -647,11 +668,11 @@
 
 
         <!-- 13 -->
-        <a href="#parking-map" class="link-photo-card" id="tsukifunean" data-lat="34.4650077" data-lng="135.8265988">
-          <img src="../images/stay/tsukifunean.jpg" alt="女性専用ゲストハウス月舟庵 Female-only Guest House, Tsukifunean">
+        <a href="#stay-map" class="link-photo-card" id="tsukifunean" data-lat="34.4650077" data-lng="135.8265988">
+          <img src="../images/stay/tsukifunean.jpg" alt="女性専用ゲストハウス月舟庵 Female-only Guest House, Tsukifunean" loading="lazy">
           <h3><span class="number stay">13</span> 女性専用ゲストハウス月舟庵</h3>
           <p class="parking-comment">一組貸切の女性専用ゲストハウス。木のぬくもりある空間と充実した設備で、最大8名まで宿泊できます。</p>
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://www.tsukifune.com/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
@@ -660,8 +681,8 @@
 
         
        <!-- 14 -->
-        <a href="#parking-map" class="link-photo-card" id="suzukazean" data-lat="34.4424965" data-lng="135.8307824">
-          <img src="../images/stay/suzukazean.jpg" alt="清々風庵 Suzukazean">
+        <a href="#stay-map" class="link-photo-card" id="suzukazean" data-lat="34.4424965" data-lng="135.8307824">
+          <img src="../images/stay/suzukazean.jpg" alt="清々風庵 Suzukazean" loading="lazy">
           <h3><span class="number stay">14</span> 清々風庵 Suzukazean</h3>
           <p class="parking-comment">奥明日香の自然に囲まれた一棟貸しの宿。静かな環境で、都会の喧騒を離れてゆっくり過ごせます。</p>
          </a>
@@ -669,23 +690,23 @@
 
 
         <!-- 15 -->
-        <a href="#parking-map" class="link-photo-card" id="yasaka" data-lat="34.4423997" data-lng="135.8317369">
-          <img src="../images/stay/yasaka.jpg" alt="奥明日香古民家一棟貸し宿 弥栄">
+        <a href="#stay-map" class="link-photo-card" id="yasaka" data-lat="34.4423997" data-lng="135.8317369">
+          <img src="../images/stay/yasaka.jpg" alt="奥明日香古民家一棟貸し宿 弥栄" loading="lazy">
           <h3><span class="number stay">15</span> 奥明日香古民家一棟貸し宿 弥栄</h3>
           <p class="parking-comment">築250年以上の古民家を改修した一棟貸し宿。自然に囲まれ、川のせせらぎなど奥明日香を満喫できます。</p>
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://yasaka-asuka.com/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
  <!-- 16 -->
-        <a href="#parking-map" class="link-photo-card" id="minshuku-yoshida" data-lat="34.4787738" data-lng="135.8204869">
-          <img src="../images/stay/minshuku-yoshida.jpg" alt="民宿吉田">
+        <a href="#stay-map" class="link-photo-card" id="minshuku-yoshida" data-lat="34.4787738" data-lng="135.8204869">
+          <img src="../images/stay/minshuku-yoshida.jpg" alt="民宿吉田" loading="lazy">
           <h3><span class="number stay">16</span> 民宿吉田</h3>
           <p class="parking-comment">明日香村ののどかな環境にある家庭的な民宿。村の自然や史跡を巡る旅の宿として、ゆっくり過ごせます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://minshukuyoshida.r-cms.jp/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
@@ -693,55 +714,55 @@
 
 
         <!-- 17 -->
-        <a href="#parking-map" class="link-photo-card" id="en-asuka" data-lat="34.4797723" data-lng="135.8216216">
-          <img src="../images/stay/en-asuka.jpg" alt="えん飛鳥">
+        <a href="#stay-map" class="link-photo-card" id="en-asuka" data-lat="34.4797723" data-lng="135.8216216">
+          <img src="../images/stay/en-asuka.jpg" alt="えん飛鳥" loading="lazy">
           <h3><span class="number stay">17</span> えん飛鳥</h3>
           <p class="parking-comment">明日香村の自然と歴史に囲まれて過ごせる宿。観光で訪れた村を、ゆっくりと身近に感じられる滞在が楽しめます。</p>
         
         </a>
 
         <!-- 18 -->
-        <a href="#parking-map" class="link-photo-card" id="branchera-villa-asuka" data-lat="34.4795782" data-lng="135.8199139">
-          <img src="../images/stay/branchera-villa-asuka.jpg" alt="BRANCHERA VILLA ASUKA ブランシエラ ヴィラ明日香">
+        <a href="#stay-map" class="link-photo-card" id="branchera-villa-asuka" data-lat="34.4795782" data-lng="135.8199139">
+          <img src="../images/stay/branchera-villa-asuka.jpg" alt="BRANCHERA VILLA ASUKA ブランシエラ ヴィラ明日香" loading="lazy">
           <h3><span class="number stay">18</span> ブランシエラ ヴィラ明日香</h3>
           <p class="parking-comment">築150年以上の古民家を活用した登録有形文化財の宿。広々とした客室と庭で、歴史ある明日香を満喫できます。</p>
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://www.haseko-stay.jp/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
 <!-- 19 -->
-        <a href="#parking-map" class="link-photo-card" id="minshuku-yoshida-heijiro" data-lat="34.4814197" data-lng="135.8167587">
-          <img src="../images/stay/minshuku-yoshida-heijiro.jpg" alt="民宿吉田平次郎">
+        <a href="#stay-map" class="link-photo-card" id="minshuku-yoshida-heijiro" data-lat="34.4814197" data-lng="135.8167587">
+          <img src="../images/stay/minshuku-yoshida-heijiro.jpg" alt="民宿吉田平次郎" loading="lazy">
           <h3><span class="number stay">19</span> 民宿吉田平次郎</h3>
           <p class="parking-comment">甘樫丘の近くにある民宿。大和三山を望む環境と、家庭的な雰囲気の中でゆっくり過ごせます。</p>
         
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://yoshida-heijiro.com/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
  <!-- 20 -->
-        <a href="#parking-map" class="link-photo-card" id="minshuku-kitamura" data-lat="34.4833825" data-lng="135.8123825">
-          <img src="../images/stay/minshuku-kitamura.jpg" alt="飛鳥民宿北村">
+        <a href="#stay-map" class="link-photo-card" id="minshuku-kitamura" data-lat="34.4833825" data-lng="135.8123825">
+          <img src="../images/stay/minshuku-kitamura.jpg" alt="飛鳥民宿北村" loading="lazy">
           <h3><span class="number stay">20</span> 飛鳥民宿北村</h3>
           <p class="parking-comment">歴史を巡り、絶景に触れ、温かい手料理に癒やされる宿。田舎の実家に帰ったような滞在を楽しめます。</p>
 
-          <div class="gourmet-link">
+          <div class="stay-link">
             <object><a href="https://northvillage.jp/asuka/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
 
 
         <!-- 21 -->
-        <a href="#parking-map" class="link-photo-card" id="shinraku" data-lat="34.4838172" data-lng="135.8148262">
-          <img src="../images/stay/shinraku.jpg" alt="あすか癒俚の里 森羅塾">
+        <a href="#stay-map" class="link-photo-card" id="shinraku" data-lat="34.4838172" data-lng="135.8148262">
+          <img src="../images/stay/shinraku.jpg" alt="あすか癒俚の里 森羅塾" loading="lazy">
           <h3><span class="number stay">21</span> あすか癒俚の里 森羅塾</h3>
    <p class="parking-comment">雷丘の麓に佇む一日一組限定の古民家宿。歴史ある日本家屋を活かした空間で、明日香の風景を楽しめます。</p>
 
- <div class="gourmet-link">
+ <div class="stay-link">
             <object><a href="http://asuka-yuri.jp/" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
           </div>
         </a>
@@ -755,15 +776,19 @@
 
 <!-- お風呂 -->
 
-  <section class="spot-category" id="bath">
-    <h2 class="section-title">お風呂</h2>
+  <section class="stay-category" id="bath">
+    <div class="stay-container">
+     <h2 class="section-title">お風呂</h2>
+    </div>
 
-    <div class="parking-list">
-      <a href="#parking-map" class="link-photo-card" id="bath-taishinoyu" data-lat="34.46768" data-lng="135.81411">
-        <img src="../images/stay/bath-taishinoyu.jpg" alt="太子の湯">
+    <div class="stay-list">
+
+
+      <a href="#stay-map" class="link-photo-card" id="bath-taishinoyu" data-lat="34.46768" data-lng="135.81411">
+        <img src="../images/stay/bath-taishinoyu.jpg" alt="太子の湯" loading="lazy">
         <h3><span class="number bath">1</span> 太子の湯</h3>
         <p class="parking-comment">明日香村健康福祉センター「たちばな」にある入浴施設。観光の後にゆったりと汗を流せる、明日香村唯一の公衆浴場です。温泉ではありません。</p>
-        <div class="gourmet-link">
+        <div class="stay-link">
           <object><a href="https://www.asukamura.jp/info_shisetsu_taishi_about.html" target="_blank" rel="noopener noreferrer">公式ページ</a></object>
         </div>
       </a>
@@ -807,7 +832,7 @@
     });
 
     // 公式ページのリンククリック時にカード全体のクリック処理が発動しないように制御
-    document.querySelectorAll('.gourmet-link a').forEach(link => {
+    document.querySelectorAll('.stay-link a').forEach(link => {
       link.addEventListener('click', function(e) {
         e.stopPropagation();
       });
