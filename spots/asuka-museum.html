@@ -8,27 +8,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <!-- 1. SEO基本設定 -->
-    <title>飛鳥資料館｜明日香村観光ガイド</title>
-    <meta name="description" content="飛鳥資料館の展示内容や見どころ、開館時間、料金、アクセス、駐車場情報を紹介します。">
-    <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-museum.html">
+<!-- SEO基本設定 -->
+ <title>飛鳥資料館｜明日香村観光ガイド</title>
+ <meta name="description" content="飛鳥資料館の展示内容や見どころ、開館時間、料金、アクセス、駐車場情報を紹介します。">
+ <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-museum.html">
 
 
+<!-- OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+ <meta property="og:title" content="飛鳥資料館｜明日香村観光ガイド">
+ <meta property="og:type" content="article">
+ <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-museum.html">
+ <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-museum/asuka-museum.jpg">
+ <meta property="og:description" content="飛鳥資料館の展示内容や見どころ、開館時間、料金、アクセス、駐車場情報を紹介します。">
+ <meta property="og:site_name" content="明日香村観光ガイド">
+ <meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="飛鳥資料館｜明日香村観光ガイド">
+ <meta name="twitter:description" content="飛鳥資料館の展示内容や見どころ、開館時間、料金、アクセス、駐車場情報を紹介します。">
+ <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-museum/asuka-museum.jpg">
+
+
+<!-- favicon -->
+ <link rel="icon" href="../images/favicon.ico" sizes="any">
+ <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "Museum"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-museum.html#spot",
+      "name": "飛鳥資料館",
+      "description": "飛鳥資料館の展示内容や見どころ、開館時間、料金、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-museum.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-museum/asuka-museum.jpg",
+      "isAccessibleForFree": false,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-museum.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "飛鳥資料館",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-museum.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
  <link rel="stylesheet" href="../css/style.css">
 
-<!-- Java script -->
- <script src="../js/related-slider.js"></script>
 
+<!-- Java script -->
+ <script src="../js/related-slider.js" defer></script>
 
 </head>
 
@@ -40,12 +108,14 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+
+<!-- ロゴ -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
       <!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
             <a href="index.html">観光する</a>
@@ -55,8 +125,8 @@
               <li><a href="index.html#nature">自然・風景</a></li>
               <li><a href="index.html#museum">博物館</a></li>
               <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
-              <li><a href="../toilet-map.html">トイレ</a></li>
+              <li><a href="parking.html#parking-map">駐車場</a></li>
+              <li><a href="../toilet-map.html#toilet-map">トイレ</a></li>
             </ul>
           </li>
 
@@ -74,9 +144,7 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
 
@@ -91,401 +159,226 @@
     </div>
   </header>
 
+
+<!-- メイン -->
 <main class="spot-detail">
 
-
-
+   
 <!-- Hero -->
-
-<section class="spot-hero">
-
-<img src="../images/spots/asuka-museum/asuka-museum.jpg"
-alt="飛鳥資料館">
-
-<div class="spot-title">
-
-<h1>
-飛鳥資料館
-</h1>
-
-</div>
-
-</section>
-
-
+    <section class="spot-hero">
+        <img src="../images/spots/asuka-museum/asuka-museum.jpg" alt="飛鳥資料館" width="320" height="180" fetchpriority="high" decoding="async">
+        <div class="spot-title">
+            <h1>飛鳥資料館</h1>
+        </div>
+    </section>
 
 
 
 <!-- Overview -->
+    <section class="spot-intro">
+    <div class="spot-detail-container">
+        <p>
+            飛鳥資料館は、飛鳥時代の歴史や文化を紹介する国立の博物館です。
 
-<section class="spot-intro">
+            飛鳥地方から出土した石造物や瓦、古代寺院に関する資料などを展示し、飛鳥の歴史を分かりやすく学ぶことができます。
 
-<p>
-
-飛鳥資料館は、飛鳥時代の歴史や文化を紹介する国立の博物館です。
-
-飛鳥地方から出土した石造物や瓦、古代寺院に関する資料などを展示し、飛鳥の歴史を分かりやすく学ぶことができます。
-
-飛鳥寺や飛鳥水落遺跡など周辺の歴史スポットと合わせて訪れたい施設です。
-
-</p>
-
-</section>
-
-
-
+            飛鳥寺や飛鳥水落遺跡など周辺の歴史スポットと合わせて訪れたい施設です。
+        </p>
+    </div>
+    </section>
 
 
 
 <!-- Basic Information -->
+    <section class="spot-info">
+        <h2>基本情報</h2>
 
-<section class="spot-info">
+        <table>
 
-<h2>
-基本情報
-</h2>
+            <tr>
+                <th>営業時間</th>
+                <td>9:00〜16:30（入館は16:00まで）</td>
+            </tr>
 
+            <tr>
+                <th>定休日</th>
+                <td>月曜日（月曜日が祝日の場合は翌平日）、年末年始</td>
+            </tr>
 
-<table>
+            <tr>
+                <th>料金</th>
+                <td>
+                    一般350円、大学生200円、高校生以下無料
+                </td>
+            </tr>
 
+            <tr>
+                <th>所要時間</th>
+                <td>45分〜1時間</td>
+            </tr>
 
-<tr>
+            <tr>
+                <th>駐車場</th>
+                <td>
+                    <a href="parking.html#asuka-museum-parking">
+                        飛鳥資料館駐車場
+                    </a>（徒歩すぐ・無料）<br>
+                    <a href="parking.html#tengyokudou-parking">
+                        天極堂テラス駐車場
+                    </a>（徒歩1分・普通車500円）
 
-<th>
-営業時間
-</th>
+                </td>
+            </tr>
 
-<td>
-9:00〜16:30（入館は16:00まで）
-</td>
+            <tr>
+                <th>アクセス</th>
+                <td>
+                    近鉄橿原神宮前駅から徒歩43分<br>
+                    近鉄飛鳥駅から徒歩55分<br>
+                    明日香周遊バス「飛鳥資料館」下車すぐ
+                </td>
+            </tr>
 
-</tr>
+            <tr>
+                <th>地図</th>
+                <td>
+                    <a href="#map">地図はこちら</a>
+                </td>
+            </tr>
 
+        </table>
 
-
-<tr>
-
-<th>
-定休日
-</th>
-
-<td>
-月曜日（月曜日が祝日の場合は翌平日）、年末年始
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-料金
-</th>
-
-<td>
-一般350円、大学生200円、高校生以下無料
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-所要時間
-</th>
-
-<td>
-45分〜1時間
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-駐車場
-</th>
-
-<td>
-
-<a href="parking.html#asuka-museum-parking">
-飛鳥資料館 駐車場
-</a>
-
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-アクセス
-</th>
-
-<td>
-
-近鉄飛鳥駅から明日香周遊バス「飛鳥資料館」下車すぐ
-
-</td>
-
-</tr>
-
-
-
-<tr>
-
-<th>
-地図
-</th>
-
-<td>
-
-<a href="#map">
-地図はこちら
-</a>
-
-</td>
-
-</tr>
-
-
-
-</table>
-
-</section>
-
-
-
-
-
+    </section>
 
 
 
 <!-- 見どころ -->
+ <section class="spot-section">
+  <div class="spot-detail-container">
+   <h2>見どころ</h2>
+  </div> 
 
-<section class="spot-section">
 
 
-<h2>
-見どころ
-</h2>
+  <div class="spot-grid">
 
+            
 
-<div class="spot-grid">
+       <article class="spot-card">
+       <img src="../images/spots/asuka-museum/asuka-museum-feature01.jpg" alt="飛鳥資料館の展示" width="320" height="180" loading="lazy" decoding="async">
+       <h3>飛鳥時代の貴重な資料</h3>
+       <p>
+       飛鳥地方で発掘された文化財や古代寺院に関する資料を見ることができます。
+       </p>  
+       </article>
 
 
-<article class="spot-card">
-<img src="../images/spots/asuka-museum/asuka-museum-feature01.jpg"
-alt="飛鳥資料館の展示">
-<h3>
-飛鳥時代の貴重な資料
-</h3>
-<p>
-飛鳥地方で発掘された文化財や古代寺院に関する資料を見ることができます。
-</p>
-</article>
 
+       <article class="spot-card">
+       <img src="../images/spots/asuka-museum/asuka-museum-feature02.jpg" alt="飛鳥資料館の館内展示" width="320" height="180" loading="lazy" decoding="async">
+       <h3>美しい庭園に石造物が集合</h3>
+       <p>
+       庭園には飛鳥を代表する石造物のレプリカが数多く配置されており、実物の雰囲気を感じながら見学できます。
+       </p>
+       </article>
 
 
+   </div>
 
-<article class="spot-card">
-<img src="../images/spots/asuka-museum/asuka-museum-feature02.jpg"
-alt="飛鳥資料館の館内展示">
-<h3>
-美しい庭園に石造物が集合
-</h3>
-<p>
-庭園には飛鳥を代表する石造物のレプリカが配置されており、実物の雰囲気を感じながら見学できます。
-</p>
-</article>
+ </section>
 
 
 
-</div>
+<!-- 歴史・由来 -->
+    <section class="spot-section">
+    <div class="spot-detail-container">
+        <h2>歴史・由来</h2>
+        <p>
+            飛鳥資料館は、飛鳥地域の歴史や文化を保存・紹介するために設立された博物館です。
+            飛鳥時代の宮殿跡や寺院跡から出土した資料を中心に展示し、日本の古代史を学べる施設として多くの人が訪れています。
+        </p>
+    </div> 
+    </section>
 
 
-</section>
+<!-- 周辺のおすすめ -->
+ <section class="spot-section related">
+   <h2>周辺のおすすめ</h2>
 
+   <div class="related-scroll">
 
+    <div class="related-slider">
 
 
+       <a href="asukadera.html" class="spot-card">
+       <img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺" width="320" height="180" loading="lazy" decoding="async">
+       <h3>飛鳥寺</h3>
+       </a>
 
 
+       <a href="asukaniimasu-jinja.html" class="spot-card">
+       <img src="../images/spots/asukaniimasu-jinja/asukaniimasu-jinja.jpg" alt="飛鳥坐神社" width="320" height="180" loading="lazy" decoding="async">
+       <h3>飛鳥坐神社</h3>
+       </a>
 
 
-<!-- History -->
+       <a href="mizuochi.html" class="spot-card">
+       <img src="../images/spots/mizuochi/mizuochi.jpg" alt="飛鳥水落遺跡" width="320" height="180" loading="lazy" decoding="async">
+       <h3>飛鳥水落遺跡</h3>
+       </a>
 
-<section class="spot-section">
 
+       <a href="amakashinooka.html" class="spot-card">
+       <img src="../images/spots/amakashinooka/amakashinooka.jpg" alt="甘樫丘" width="320" height="180" loading="lazy" decoding="async">
+       <h3>甘樫丘</h3>
+       </a>
 
-<h2>
-歴史・由来
-</h2>
 
+       <a href="../gourmet/index.html#tengyokudo" class="spot-card">
+       <img src="../images/gourmet/tengyokudo.jpg" alt="飛鳥彩瑠璃の丘 天極堂テラス" width="320" height="180" loading="lazy" decoding="async">
+       <h3>飛鳥彩瑠璃の丘 天極堂テラス</h3>
+       </a>
 
-<p>
-飛鳥資料館は、飛鳥地域の歴史や文化を保存・紹介するために設立された博物館です。
-飛鳥時代の宮殿跡や寺院跡から出土した資料を中心に展示し、日本の古代史を学べる施設として多くの人が訪れています。
-</p>
 
+       <a href="../gourmet/index.html#mori-no-cafe" class="spot-card">
+       <img src="../images/gourmet/mori-no-cafe.jpg" alt="森のカフェ" width="320" height="180" loading="lazy" decoding="async">
+       <h3>森のカフェ</h3>
+       </a>
 
-</section>
 
+       <a href="../gourmet/index.html#adele" class="spot-card">
+       <img src="../images/gourmet/adele.jpg" alt="Adele アデル" width="320" height="180" loading="lazy" decoding="async">
+       <h3>Adele アデル</h3>
+       </a>
 
 
 
 
 
 
+     </div>
 
-<!-- Nearby -->
+    </div>
 
-<section class="spot-section related">
+ </section>
 
 
-<h2>
-周辺のおすすめ
-</h2>
 
+<!-- 地図 -->
+ <section id="map" class="spot-map">
+        <h2>地図</h2>
 
+        <iframe
+            src="https://www.google.com/maps?q=飛鳥資料館%20明日香村&output=embed"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
 
-<div class="related-scroll">
-
-
-<div class="related-slider">
-
-
-
-
-
-<a href="asukadera.html"
-class="spot-card">
-
-
-<img src="../images/spots/asukadera/asukadera.jpg"
-alt="飛鳥寺">
-
-
-<h3>
-飛鳥寺
-</h3>
-
-
-</a>
-
-
-
-
-
-
-<a href="asukaniimasu-jinja.html"
-class="spot-card">
-
-
-<img src="../images/spots/asukaniimasu-jinja/asukaniimasu-jinja.jpg"
-alt="飛鳥坐神社">
-
-
-<h3>
-飛鳥坐神社
-</h3>
-
-
-</a>
-
-
-
-
-
-
-<a href="mizuochi.html"
-class="spot-card">
-
-
-<img src="../images/spots/mizuochi/mizuochi.jpg"
-alt="飛鳥水落遺跡">
-
-
-<h3>
-飛鳥水落遺跡
-</h3>
-
-
-</a>
-
-
-
-
-
-
-<a href="amakashinooka.html"
-class="spot-card">
-
-
-<img src="../images/spots/amakashinooka/amakashinooka.jpg"
-alt="甘樫丘">
-
-
-<h3>
-甘樫丘
-</h3>
-
-
-</a>
-
-
-
-
-</div>
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- Map -->
-
-<section id="map" class="spot-map">
-
-
-<h2>
-地図
-</h2>
-
-
-
-<iframe
-
-src="https://www.google.com/maps?q=飛鳥資料館%20明日香村&output=embed"
-
-loading="lazy"
-
-allowfullscreen
-
-referrerpolicy="strict-origin-when-cross-origin">
-
-</iframe>
-
-
-
-</section>
-
-
-
+ </section>
 
 
 </main>
