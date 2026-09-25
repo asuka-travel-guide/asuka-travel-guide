@@ -630,7 +630,6 @@ nav a:hover {
 ==========================================*/
 
 
-
 .spot-category {
   max-width: 1200px;
   margin: 0 auto;
@@ -685,33 +684,15 @@ nav a:hover {
 
 
 
-/*==========================================
-  6. Spots詳細 & カード設定
-==========================================*/
-
-
-
-
-/* --- 見どころカード専用：マウスオン（フローティング）無効化 --- */
-.spot-section .spot-grid .spot-card {
-  transition: none;
-}
-
-.spot-section .spot-grid .spot-card:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-
-
 
 
 
 /*==========================================
-  6. 駐車場・トイレ・グルメ　ページ共通
+  9. 駐車場・トイレ・食べる・泊まる　ページ共通
 ==========================================*/
 .gourmet-main,
 .toilet-main,
+.stay-main,
 .parking-main {
   max-width: 1440px;
   margin: 100px 20px 80px;
@@ -719,6 +700,7 @@ nav a:hover {
 }
 
 
+.stay-container,
 .gourmet-container,
 .toilet-container{
   max-width:1020px;
@@ -727,6 +709,7 @@ nav a:hover {
 }
 
 
+.stay-map,
 .gourmet-map,
 .toilet-map,
 .parking-map {
@@ -736,35 +719,30 @@ nav a:hover {
 }
 
 
-.gourmet-list,
-.parking-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  
-}
-
-
 
 .parking-category,
 .toilet-category,
-.gourmet-category {
+.gourmet-category,
+.stay-category {
   margin-bottom: 50px;
   scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
 
 
 
+.parking-list,
+.toilet-list,
+.gourmet-list,
+.stay-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
 
 
 
 
-
-
-/*==========================================
-  6. 駐車場・トイレ　ページ
-==========================================*/
 
 .map {
   max-width: 1020px;
@@ -793,6 +771,11 @@ nav a:hover {
   margin: 0 auto 50px;
 }
 
+
+
+/*==========================================
+  10. 駐車場・トイレ　共通
+==========================================*/
 .parking-notice p {
   line-height: 1.9;
   color: #444;
@@ -804,41 +787,6 @@ nav a:hover {
 }
 
 
-
-
-.number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  margin-right: 10px;
-}
-
-.number.paid {
-  background: #e66a00;
-}
-
-.number.free {
-  background: #0f9d58;
-}
-
-.number.toilet {
-  background: #0288D1;
-}
-
-.number.stay {
-  background: #C2185B;
-}
-
-.number.bath {
-  background: #0097A7;
-}
 
 .parking-table {
   width: 100%;
@@ -869,8 +817,84 @@ nav a:hover {
 }
 
 
+
+
+
 /*==========================================
-  7. Spot Detail Page（詳細ページ）
+  8. ナンバー
+==========================================*/
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.number.paid {
+  background: #e66a00;
+}
+
+.number.free {
+  background: #0f9d58;
+}
+
+.number.toilet {
+  background: #0288D1;
+}
+
+.number.lunch {
+  background: #f57c00;
+}
+
+.number.cafe {
+  background: #795548;
+}
+
+
+.number.stay {
+  background: #C2185B;
+}
+
+.number.bath {
+  background: #0097A7;
+}
+
+
+
+/*==========================================
+  11. 食べる・泊まる　共通
+==========================================*/
+
+.gourmet-link,
+.stay-link {
+ margin-top: 0px;
+ padding: 0 20px 22px;
+}
+
+.gourmet-link a,
+.stay-link a {
+ font-size: 14px;
+ color: var(--text-sub);
+ text-decoration: underline;
+ font-weight: normal;
+}
+
+.gourmet-link a:hover,
+.stay-link a:hover {
+ color: var(--primary-hover);
+}
+ 
+
+
+/*==========================================
+  12. スポット詳細
 ==========================================*/
 .spot-detail {
   max-width: 1440px;
@@ -886,9 +910,6 @@ nav a:hover {
   margin: 0 auto; 
   padding: 0;
 }
-
-
-
 
 
 .spot-hero {
@@ -1030,43 +1051,26 @@ width: 100%;
 
 
 
-/*==========================================
-  8. 食べるマップ
-==========================================*/
 
-.number.lunch {
-  background: #f57c00;
+/* --- 見どころカード専用：フローティング無効化 --- */
+.spot-section .spot-grid .spot-card {
+  transition: none;
 }
 
-.number.cafe {
-  background: #795548;
+.spot-section .spot-grid .spot-card:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 
 
 
-
-/* リンク文字列の見た目を調整 */
-    .gourmet-link {
-      margin-top: 0px;
-      padding: 0 20px 22px;
-}
-    .gourmet-link a {
-      font-size: 14px;
-      color: var(--text-sub);
-      text-decoration: underline;
-      font-weight: normal;
-    }
-    .gourmet-link a:hover {
-      color: var(--primary-hover);
-    }
- 
 
 
 
 
 /*==========================================
-  9. Footer
+  13. Footer
 ==========================================*/
 footer {
   border-top: 1px solid var(--border-light);
@@ -1103,23 +1107,18 @@ footer p {
 
 
 /*==========================================
-  10. Responsive (Media Queries 一元管理)
+  14. Responsive (Media Queries 一元管理)
 ==========================================*/
 
 
 /* --- 768px 以下 (ipad縦画面) --- */
 @media (max-width: 768px) {
-  
-
 
   .map iframe {
     height: 60vh;
     min-height: 420px;
   }
 
-
-
-  
 
   .about,
   .top-map,
@@ -1148,9 +1147,10 @@ footer p {
   }
 
  
-
  
 }
+
+
 
 
 /* --- 400px 以下 (スマートフォン) --- */
@@ -1212,6 +1212,7 @@ header .container {
 
 
 
+  .gourmet-main,
   .toilet-main,
   .parking-main,
   .spot-detail {
@@ -1222,7 +1223,8 @@ header .container {
 
   .parking-category,
   .toilet-category,
-  .gourmet-category
+  .gourmet-category.
+  .stay-category.
   .spot-category,
   .parking-map,
   .toilet-map,
