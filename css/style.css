@@ -787,13 +787,15 @@ nav a:hover {
 }
 
 
-
+.toilet-table,
 .parking-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 18px;
 }
 
+
+.toilet-table th,
 .parking-table th {
   width: 110px;
   text-align: left;
@@ -803,12 +805,16 @@ nav a:hover {
   border-bottom: 1px solid var(--border-light);
 }
 
+
+.toilet-table td,
 .parking-table td {
   padding: 10px 0;
   color: var(--text-sub);
   border-bottom: 1px solid var(--border-light);
 }
 
+
+.toilet-comment,
 .parking-comment {
   margin-top: 18px;
   line-height: 1.8;
@@ -1258,6 +1264,8 @@ header .container {
     padding: 18px;
   }
 
+
+  .toilet-table th,
   .parking-table th,
   .spot-info th {
     width: 90px;
