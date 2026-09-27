@@ -72,7 +72,7 @@
         "@type": "ItemList",
         "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/parking.html#parking-list",
         "name": "明日香村 駐車場一覧",
-        "numberOfItems": 31,
+        "numberOfItems": 32,
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -350,7 +350,7 @@
               "name": "豊浦駐車場",
               "priceRange": "500円",
               "isAccessibleForFree": false,
-              "description": "大官大寺周辺を散策される方に便利な駐車場です。藤原京方面に向かうのもに便利です。",
+              "description": "大官大寺周辺を散策される方に便利な駐車場です。藤原京方面に向かうのにも便利です。",
               "geo": {
                 "@type": "GeoCoordinates",
                 "latitude": 34.4834,
@@ -373,7 +373,7 @@
               "priceRange": "500円",
               "isAccessibleForFree": false,
               "openingHours": "Mo-Su 10:00-17:00",
-              "description": "飛鳥資料館周辺を散策される方に便利な駐車場です。山田寺跡に向かうのもに便利です。天極堂のみ利用される方は無料です。",
+              "description": "飛鳥資料館周辺を散策される方に便利な駐車場です。山田寺跡に向かうのにも便利です。天極堂のみ利用される方は無料です。",
               "geo": {
                 "@type": "GeoCoordinates",
                 "latitude": 34.48332,
@@ -608,6 +608,33 @@
             "position": 23,
             "item": {
               "@type": "ParkingFacility",
+              "name": "天武・持統天皇陵駐車場",
+              "priceRange": "0円",
+              "isAccessibleForFree": true,
+              "description": "天武・持統天皇陵をご参拝の方の駐車場です。",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "JPY"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 34.46734,
+                "longitude": 135.808
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "明日香村",
+                "addressRegion": "奈良県",
+                "addressCountry": "JP"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 24,
+            "item": {
+              "@type": "ParkingFacility",
               "name": "橘寺参拝者駐車場",
               "priceRange": "0円",
               "isAccessibleForFree": true,
@@ -632,7 +659,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 24,
+            "position": 25,
             "item": {
               "@type": "ParkingFacility",
               "name": "橘寺東駐車場",
@@ -659,7 +686,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 25,
+            "position": 26,
             "item": {
               "@type": "ParkingFacility",
               "name": "岡寺無料駐車場",
@@ -686,7 +713,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 26,
+            "position": 27,
             "item": {
               "@type": "ParkingFacility",
               "name": "石舞台地区駐車場",
@@ -713,7 +740,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 27,
+            "position": 28,
             "item": {
               "@type": "ParkingFacility",
               "name": "入谷地区駐車スペース",
@@ -740,7 +767,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 28,
+            "position": 29,
             "item": {
               "@type": "ParkingFacility",
               "name": "飛鳥坐神社 参拝者専用駐車場",
@@ -767,7 +794,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 29,
+            "position": 30,
             "item": {
               "@type": "ParkingFacility",
               "name": "川原ポケットパーク",
@@ -794,7 +821,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 30,
+            "position": 31,
             "item": {
               "@type": "ParkingFacility",
               "name": "甘樫丘地区川原駐車場",
@@ -821,13 +848,13 @@
           },
           {
             "@type": "ListItem",
-            "position": 31,
+            "position": 32,
             "item": {
               "@type": "ParkingFacility",
               "name": "飛鳥資料館駐車場",
               "priceRange": "0円",
               "isAccessibleForFree": true,
-              "description": "飛鳥資料館をご利用の方の駐車場です。",
+              "description": "飛鳥資料館をご利用の方の駐車場です。トイレ設置。",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
@@ -945,18 +972,20 @@
 
 <main class="parking-main">
 
-    <h1 class="section-title">明日香村 駐車場案内</h1>
+
+    <div class="parking-container">
+     <h1 class="section-title">明日香村 駐車場案内</h1>
          <p>
             明日香村での観光・ドライブに便利な駐車場情報をまとめました。石舞台古墳や高松塚古墳などの主要な観光スポットに近い有料駐車場や、各施設利用時の無料駐車場まで、料金や収容台数、アクセス情報を詳しくご紹介します。
         </p>
-
+    </div>
 
 
     <!-- Google My Maps -->
     <section class="parking-map" id="parking-map">
         <div class="map">
             <!-- Googleマイマップ埋め込み -->
-           <iframe id="main-map" src="https://www.google.com/maps/d/embed?mid=1-SN5cgc6mjuJKDv2YlxHcol9ysjwNzk&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+           <iframe id="main-map" title="明日香村 駐車場マップ" src="https://www.google.com/maps/d/embed?mid=1pL7mSdaizAeAAFZQpqpJOHCEXvk-Dok&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
 
         </div>
     </section>
@@ -979,8 +1008,12 @@
     <!-- 有料駐車場 -->
 
     <section class="parking-category" id="paid-parking">
-
+    <div class="parking-container">
         <h2 class="section-title">有料駐車場</h2>
+    </div>
+
+
+
 
         <div class="parking-list">
 
@@ -1153,7 +1186,7 @@
                     <tr><th>収容台数</th><td>大型10台・普通30台</td></tr>
                 </table>
                 <p class="parking-comment">
-                    大官大寺周辺を散策される方に便利な駐車場です。藤原京方面に向かうのもに便利です。
+                    大官大寺周辺を散策される方に便利な駐車場です。藤原京方面に向かうのにも便利です。
                 </p>
             </a>
 
@@ -1166,7 +1199,7 @@
                     <tr><th>収容台数</th><td>要確認</td></tr>
                 </table>
                 <p class="parking-comment">
-                    飛鳥資料館周辺を散策される方に便利な駐車場です。山田寺跡に向かうのもに便利です。天極堂のみ利用される方は無料です。
+                    飛鳥資料館周辺を散策される方に便利な駐車場です。山田寺跡に向かうのにも便利です。天極堂のみ利用される方は無料です。
                 </p>
             </a>
 
@@ -1182,12 +1215,16 @@
 <!-- 無料駐車場 -->
 
     <section class="parking-category" id="free-parking">
-        <h2 class="section-title">無料駐車場</h2>
+    <div class="parking-container">
+      <h2 class="section-title">無料駐車場</h2>
+    </div>
+
+
         <div class="parking-list">
 
 
 
-            <!-- 1 -->
+<!-- 1 -->
             <a href="#parking-map" class="link-card" id="agristation-parking" data-lat="34.4662505" data-lng="135.7876676">
                 <h3><span class="number free">1</span> アグリステーション飛鳥 駐車場</h3>
                 <table class="parking-table">
@@ -1200,7 +1237,7 @@
             </a>
 
 
-            <!-- 2 -->
+<!-- 2 -->
             <a href="#parking-map" class="link-card" id="kengoshizuka-rinji-parking" data-lat="34.4638849" data-lng="135.7956736">
                 <h3><span class="number free">2</span> 牽牛子塚古墳 臨時駐車場</h3>
                 <table class="parking-table">
@@ -1213,7 +1250,7 @@
             </a>
 
 
-           <!-- 3 -->
+<!-- 3 -->
             <a href="#parking-map" class="link-card" id="michinoeki-parking" data-lat="34.46387" data-lng="135.79819">
                 <h3><span class="number free">3</span> 道の駅「飛鳥」</h3>
                 <table class="parking-table">
@@ -1227,8 +1264,8 @@
 
 
 
-           <!-- 4 -->
-<a href="#parking-map" class="link-card" id="kitora1-parking" data-lat="34.45170" data-lng="135.80380">
+<!-- 4 -->
+  <a href="#parking-map" class="link-card" id="kitora1-parking" data-lat="34.45170" data-lng="135.80380">
                 <h3><span class="number free">4</span> キトラ古墳周辺地区 第1駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
@@ -1241,8 +1278,8 @@
             </a>
 
 
-           <!-- 5 -->
-<a href="#parking-map" class="link-card" id="kitora2-parking" data-lat="34.45763" data-lng="135.80215">
+<!-- 5 -->
+  <a href="#parking-map" class="link-card" id="kitora2-parking" data-lat="34.45763" data-lng="135.80215">
                 <h3><span class="number free">5</span> キトラ古墳周辺地区 第2駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
@@ -1256,8 +1293,8 @@
 
 
 
-           <!-- 6 -->
-<a href="#parking-map" class="link-card" id="takamatsuzuka1-parking" data-lat="34.46535" data-lng="135.80434">
+<!-- 6 -->
+  <a href="#parking-map" class="link-card" id="takamatsuzuka1-parking" data-lat="34.46535" data-lng="135.80434">
                 <h3><span class="number free">6</span> 高松塚周辺地区第1駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
@@ -1271,31 +1308,27 @@
             </a>
 
 
-           <!-- 7 -->
-<a href="#parking-map" class="link-card" id="takamatsuzuka2-parking" data-lat="34.46507" data-lng="135.80473">
-
+<!-- 7 -->
+  <a href="#parking-map" class="link-card" id="takamatsuzuka2-parking" data-lat="34.46507" data-lng="135.80473">
                 <h3><span class="number free">7</span> 高松塚周辺地区第2駐車場</h3>
 
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通15台</td></tr>
                 </table>
-
                 <p class="parking-comment">
                     国営飛鳥歴史公園をご利用の方の駐車場です。
                 </p>
             </a>
 
-           <!-- 8 -->
-<a href="#parking-map" class="link-card" id="kinmei-parking" data-lat="34.46831" data-lng="135.79994">
 
+<!-- 8 -->
+  <a href="#parking-map" class="link-card" id="kinmei-parking" data-lat="34.46831" data-lng="135.79994">
                 <h3><span class="number free">8</span> 欽明天皇陵駐車場</h3>
-
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通2台</td></tr>
                 </table>
-
                 <p class="parking-comment">
                     欽明天皇陵、吉備姫王墓（猿石）をご参拝の方の駐車場です。入口の柵が狭いため、進入に注意が必要です。
                 </p>
@@ -1303,11 +1336,29 @@
 
 
 
-           <!-- 9 -->
+<!-- 9 -->
+<a href="#parking-map" class="link-card" id="tenmu-parking" data-lat="34.46734" data-lng="135.808">
+
+                <h3><span class="number free">9</span> 天武・持統天皇陵駐車場</h3>
+
+                <table class="parking-table">
+                    <tr><th>料金</th><td>無料</td></tr>
+                    <tr><th>収容台数</th><td>普通5台</td></tr>
+                </table>
+
+                <p class="parking-comment">
+                    天武・持統天皇陵をご参拝の方の駐車場です。
+                </p>
+            </a>
+
+
+
+
+<!-- 10 -->
 <a href="#parking-map" class="link-card" id="tachibanadera-parking" data-lat="34.47009" data-lng="135.817137">
 
 
-                <h3><span class="number free">9</span> 橘寺参拝者駐車場</h3>
+                <h3><span class="number free">10</span> 橘寺参拝者駐車場</h3>
 
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
@@ -1321,9 +1372,9 @@
             </a>
 
 
-            <!-- 10 -->
+<!-- 11 -->
             <a href="#parking-map" class="link-card" id="tachibanadera-east-parking" data-lat="34.4703125" data-lng="135.8186679">
-                <h3><span class="number free">10</span> 橘寺東駐車場</h3>
+                <h3><span class="number free">11</span> 橘寺東駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>要確認</td></tr>
@@ -1335,9 +1386,9 @@
 
 
 
-           <!-- 11 -->
+<!-- 12 -->
 <a href="#parking-map" class="link-card" id="okadera-free-parking" data-lat="34.47141" data-lng="135.82710">
-                <h3><span class="number free">11</span> 岡寺無料駐車場</h3>
+                <h3><span class="number free">12</span> 岡寺無料駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>要確認</td></tr>
@@ -1347,9 +1398,10 @@
                 </p>
             </a>
 
-           <!-- 12 -->
+
+<!-- 13 -->
 <a href="#parking-map" class="link-card" id="ishibutai-free-parking" data-lat="34.46766" data-lng="135.82516">
-                <h3><span class="number free">12</span> 石舞台地区駐車場</h3>
+                <h3><span class="number free">13</span> 石舞台地区駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通14台・身障者2台</td></tr>
@@ -1364,9 +1416,9 @@
 
 
 
-           <!-- 13 -->
+<!-- 14 -->
             <a href="#parking-map" class="link-card" id="nyuudani-parkingarea" data-lat="34.4426422" data-lng="135.8418485">
-                <h3><span class="number free">13</span> 入谷地区駐車スペース</h3>
+                <h3><span class="number free">14</span> 入谷地区駐車スペース</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通7台</td></tr>
@@ -1378,9 +1430,9 @@
 
 
 
-           <!-- 14 -->
+<!-- 15 -->
             <a href="#parking-map" class="link-card" id="asukaniimasujinja-parking" data-lat="34.4798362" data-lng="135.8221655">
-                <h3><span class="number free">14</span> 飛鳥坐神社 参拝者専用駐車場</h3>
+                <h3><span class="number free">15</span> 飛鳥坐神社 参拝者専用駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通10台</td></tr>
@@ -1393,9 +1445,9 @@
 
 
 
-           <!-- 15 -->
+<!-- 16 -->
             <a href="#parking-map" class="link-card" id="kawahara-pocket-parking" data-lat="34.4741929" data-lng="135.8129159">
-                <h3><span class="number free">15</span> 川原ポケットパーク</h3>
+                <h3><span class="number free">16</span> 川原ポケットパーク</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通6台</td></tr>
@@ -1406,9 +1458,9 @@
             </a>
 
 
-           <!-- 16 -->
+<!-- 17 -->
 <a href="#parking-map" class="link-card" id="amakashi-kawahara-parking" data-lat="34.47568" data-lng="135.81430">
-                <h3><span class="number free">16</span> 甘樫丘地区川原駐車場</h3>
+                <h3><span class="number free">17</span> 甘樫丘地区川原駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通27台</td></tr>
@@ -1421,15 +1473,15 @@
 
 
 
-           <!-- 17 -->
+<!-- 18 -->
 <a href="#parking-map" class="link-card" id="asuka-museum-parking" data-lat="34.48360" data-lng="135.82592">
-                <h3><span class="number free">17</span> 飛鳥資料館駐車場</h3>
+                <h3><span class="number free">18</span> 飛鳥資料館駐車場</h3>
                 <table class="parking-table">
                     <tr><th>料金</th><td>無料</td></tr>
                     <tr><th>収容台数</th><td>普通10台</td></tr>
                 </table>
                 <p class="parking-comment">
-                    飛鳥資料館をご利用の方の駐車場です。
+                    飛鳥資料館をご利用の方の駐車場です。<br>🚻 トイレ
                 </p>
             </a>
 
@@ -1486,7 +1538,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (lat && lng && mapIframe) {
         // 2. 地図を新しい緯度・経度に切り替える
-        mapIframe.src = `https://www.google.com/maps/d/embed?mid=1-SN5cgc6mjuJKDv2YlxHcol9ysjwNzk&ehbc=2E312F&noprof=1&ll=${lat}%2C${lng}&z=18`;
+        mapIframe.src = `https://www.google.com/maps/d/embed?mid=1pL7mSdaizAeAAFZQpqpJOHCEXvk-Dok&ehbc=2E312F&noprof=1&ll=${lat}%2C${lng}&z=18`;
       }
 
       // 3. 地図の位置（#parking-map）へスムーズにスクロール（ジャンプ）させる
