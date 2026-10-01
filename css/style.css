@@ -71,10 +71,6 @@ ul {
   list-style: none;
 }
 
-/* ヘッダー固定による高さ調整 */
-.padding-main {
-  padding-top: 64px;
-}
 
 /* キーボード操作でフォーカスが当たった際のアクセシビリティ */
 a:focus-visible {
@@ -99,46 +95,54 @@ h1 {
   font-weight: 400;
   letter-spacing: 0.05em;
   color: var(--text-main);
+  margin-bottom: 5px;
 }
 
-h2,
-.section-title {
-  font-size: 22px;
+h2 {
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.05em;
   color: var(--text-main);
   margin-bottom: 5px;
 }
 
+
+
+h2,
+.section-title {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  margin-bottom: 5px;
+}
+
+
 .lead{
+  text-indent: 1em;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-sub);
+
   margin: 0 auto  20px;
   padding: 0px 20px 0px;
   border-bottom: 1px solid var(--border-main);
 }
 
 
-
-
-/* 共通テキストスタイル */
-.section-text {
-  color: var(--text-muted);
-  margin-bottom: 35px;
-}
-
-.intro p {
-  text-indent: 1em;
-  line-height: 2.1;
-}
-
-.intro p:last-child {
+.lead p:last-child {
   margin-bottom: 0;
 }
+
+
+
+
+
 
 
 /*==========================================
   カード統一指定
 ==========================================*/
-
 
 .nolink-photo-card,
 .link-card,
@@ -486,7 +490,7 @@ nav a:hover {
 
 .hero-overlay {
   position: absolute;
-  right: 18px;
+  right: 20px;
   bottom: 18px;
   z-index: 2;
 }
@@ -497,6 +501,7 @@ nav a:hover {
   font-weight: 400;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
 }
+
 
 /* Catch Copy */
 .catch {
@@ -516,26 +521,37 @@ nav a:hover {
   margin: 0;
 }
 
+
 /* Top Sections */
 .about,
 .top-map,
 .news,
 .site-about {
-  padding: 90px 20px;
+  padding: 50px 20px;
 }
 
-.about .container,
-.top-map .container,
-.news .container,
-.site-about .container {
-  max-width: 1000px;
+
+
+.top-container{
+  max-width:1020px;
+  margin: 0 auto; 
+  padding: 0;
 }
+
+
 
 .about p,
 .site-about p {
-  font-size: 17px;
+  text-indent: 1em;
+  font-size: 16px;
   line-height: 2.1;
   color: var(--text-sub);
+}
+
+
+.site-about p:last-child,
+.about p:last-child {
+  margin-bottom: 0;
 }
 
 
@@ -547,6 +563,7 @@ nav a:hover {
   grid-template-columns: repeat(auto-fill, 140px);
   gap: 20px;
 }
+
 
 .map-card {
   display: flex;
@@ -592,7 +609,8 @@ nav a:hover {
   margin-top: 4px;
 }
 
-/* News List */
+
+/* 最新情報 */
 .news ul {
   border-top: 1px solid var(--border-main);
 }
@@ -630,29 +648,12 @@ nav a:hover {
 ==========================================*/
 
 
-.spot-category {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 20px 90px;
-  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
-}
-
-.spot-category h1 {
-  margin-bottom: 45px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid var(--border-dark);
-}
-
 .spot-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
 }
-
-
-
-
 
 
 
@@ -664,7 +665,6 @@ nav a:hover {
   flex-wrap: wrap;        /* 画面幅が狭まると自動で折り返して縦並びに */
   justify-content: center;
   gap: 40px;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px 50px;
 }
@@ -688,25 +688,27 @@ nav a:hover {
 
 
 /*==========================================
-  9. 駐車場・トイレ・食べる・泊まる　ページ共通
+  9. スポット・駐車場・トイレ・食べる・泊まる　ページ共通
 ==========================================*/
+.spot-main,
 .gourmet-main,
 .toilet-main,
 .stay-main,
 .parking-main {
   max-width: 1440px;
-  margin: 100px 20px 80px;
+  margin: 100px 10px 80px;
   padding: 0px;
 }
 
 
+.spot-container,
 .stay-container,
 .gourmet-container,
 .parking-container,
 .toilet-container{
   max-width:1020px;
   margin: 0 auto; 
-  padding: 0;
+  padding: 0 20px;
 }
 
 
@@ -721,11 +723,12 @@ nav a:hover {
 
 
 
+.spot-category,
 .parking-category,
 .toilet-category,
 .gourmet-category,
 .stay-category {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
 
@@ -1011,7 +1014,7 @@ nav a:hover {
 
 .spot-map iframe {
   max-width: 1020px;
-width: 100%;
+  width: 100%;
   height: 500px;
   border: 1px solid var(--border-main);
   border-radius: var(--radius-md);
@@ -1073,9 +1076,6 @@ width: 100%;
 
 
 
-
-
-
 /*==========================================
   13. Footer
 ==========================================*/
@@ -1083,7 +1083,7 @@ footer {
   border-top: 1px solid var(--border-light);
   background: #fff;
   text-align: center;
-  padding: 24px 0;
+  padding: 22px 0;
 }
 
 footer nav {
@@ -1121,39 +1121,24 @@ footer p {
 /* --- 768px 以下 (ipad縦画面) --- */
 @media (max-width: 768px) {
 
-  .map iframe {
-    height: 60vh;
-    min-height: 420px;
+ .map iframe {
+   height: 60vh;
+   min-height: 420px;
   }
 
 
-  .about,
-  .top-map,
-  .news,
-  .site-about {
-    padding: 70px 20px;
+
+/* --- トップページ --- */
+ .news li {
+   display: block;
+  }
+
+ .news time {
+   display: block;
+   margin-bottom: 8px;
   }
 
 
-  .about p,
-  .site-about p {
-    font-size: 16px;
-  }
-
-  .news li {
-    display: block;
-  }
-
-  .news time {
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .spot-category {
-    padding: 10px 20px 70px;
-  }
-
- 
  
 }
 
@@ -1176,6 +1161,11 @@ header .container {
     height: auto;
   }
 
+.logo {
+  margin-bottom: 8px;
+  }
+
+
 
 /* ドロップダウンリスト */
  
@@ -1196,42 +1186,43 @@ header .container {
 
 
 
+/* --- トップページ --- */
 .hero {
     margin-top: 100px;
-    height: 35vh;
+    height: 30vh;
   }
 
-  .hero-overlay {
-    right: 20px;
-    bottom: 20px;
+ 
+.catch {
+  padding: 50px 20px 40px;
+  height: auto;
   }
 
-
-  .catch {
-    padding: 50px 20px 40px;
-    height: auto;
-  }
-
-  .catch p {
-    font-size: 20px;
-    letter-spacing: 0.08em;
+.catch p {
+  font-size: 20px;
+  letter-spacing: 0.08em;
   }
 
 
 
-  .gourmet-main,
-  .toilet-main,
-  .parking-main,
-  .spot-detail {
-    margin-top: 130px;
-  }
+
+.spot-main,
+.spot-detail,
+.parking-main,
+.toilet-main,
+.gourmet-main,
+.stay-main {
+  margin: 130px 15px 80px;
+}
+
+
 
 
 
   .parking-category,
   .toilet-category,
-  .gourmet-category.
-  .stay-category.
+  .gourmet-category,
+  .stay-category,
   .spot-category,
   .parking-map,
   .toilet-map,
@@ -1243,18 +1234,6 @@ header .container {
  
 
   
-
-  .logo {
-    margin-bottom: 8px;
-  }
-
-
-
-
-
-
-
-
 
 .map iframe {
     height: 50vh;
@@ -1306,13 +1285,7 @@ header .container {
 
 
 
-  footer {
-    padding: 20px 0;
-  }
-
-  footer nav a {
-    font-size: 12px;
-  }
+  
 
 
 
