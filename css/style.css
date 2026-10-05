@@ -82,12 +82,6 @@ a:focus-visible {
 /*==========================================
   2. Common Typography & Layout Components
 ==========================================*/
-/* 共通コンテナ */
-.container {
-  width: 92%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
 
 /* 共通見出し設定 */
 h1 {
@@ -98,6 +92,7 @@ h1 {
   margin-bottom: 5px;
 }
 
+
 h2 {
   font-size: 20px;
   font-weight: 400;
@@ -106,16 +101,6 @@ h2 {
   margin-bottom: 5px;
 }
 
-
-
-h2,
-.section-title {
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  color: var(--text-main);
-  margin-bottom: 5px;
-}
 
 
 .lead{
@@ -129,12 +114,72 @@ h2,
   border-bottom: 1px solid var(--border-main);
 }
 
-
-.lead p:last-child {
+.lead:last-child {
   margin-bottom: 0;
 }
 
 
+
+.explain{
+  text-indent: 1em;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-sub);
+  margin: 0 auto  20px;
+}
+
+.explain:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 配置設定用コンテナ */
+
+.spot-main,
+.spot-detail-main,
+.gourmet-main,
+.toilet-main,
+.stay-main,
+.parking-main {
+  max-width: 1440px;
+  margin: 74px 0px 80px;
+  padding: 0px;
+}
+
+
+.spot-detail {
+  max-width: 1440px;
+  margin: 64px 20px 80px;
+  padding: 0;
+}
+
+
+
+.spot-container,
+.stay-container,
+.gourmet-container,
+.parking-container,
+.toilet-container{
+  max-width:1020px;
+  margin: 0 auto 10px; 
+  width: calc(100% - 40px); /* 幅いっぱいでも、左右に最低20px（計40px）の余白を残す */
+  padding: 0;
+}
+
+
+.top-container{
+  max-width:1020px;
+  margin: 0 auto; 
+  padding: 0;
+}
+
+.spot-detail-container,
+.detail-box {       /* ←詳細ページ整理後削除 */
+  max-width:720px;
+  margin: 0 auto; 
+  width: calc(100% - 40px); /* 幅いっぱいでも、左右に最低20px（計40px）の余白を残す */
+  padding: 0;
+}
 
 
 
@@ -369,12 +414,22 @@ header {
   z-index: 999;
 }
 
-header .container {
+
+.header-container,
+.container {      /* ←ページ整理後削除 */
   height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width:1020px;
+  margin: 0 auto; 
+  padding: 0 20px;
 }
+
+
+
+
+
 
 .logo {
   font-size: 18px;
@@ -383,20 +438,24 @@ header .container {
   letter-spacing: 0.02em;
 }
 
+
 nav > ul {
   display: flex;
   gap: 42px;
 }
 
+
 nav li {
   position: relative;
 }
+
 
 nav a {
   font-size: 16px;
   font-weight: 500;
   transition: var(--transition-fast);
 }
+
 
 nav a:hover {
   color: var(--primary-hover);
@@ -413,7 +472,7 @@ nav a:hover {
   top: 100%;
   left: 0;
   transform: translateX(-50%);
-  width: 190px;
+  width: 150px;
   background: #fff;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-md);
@@ -533,11 +592,6 @@ nav a:hover {
 
 
 
-.top-container{
-  max-width:1020px;
-  margin: 0 auto; 
-  padding: 0;
-}
 
 
 
@@ -549,11 +603,6 @@ nav a:hover {
   color: var(--text-sub);
 }
 
-
-.site-about p:last-child,
-.about p:last-child {
-  margin-bottom: 0;
-}
 
 
 
@@ -691,28 +740,10 @@ nav a:hover {
 /*==========================================
   9. スポット・駐車場・トイレ・食べる・泊まる　ページ共通
 ==========================================*/
-.spot-main,
-.gourmet-main,
-.toilet-main,
-.stay-main,
-.parking-main {
-  max-width: 1440px;
-  margin: 100px 10px 80px;
-  padding: 0px;
-}
 
 
-.spot-container,
-.stay-container,
-.gourmet-container,
-.parking-container,
-.toilet-container{
-  max-width:1020px;
-  margin: 0 auto; 
-  padding: 0 20px;
-}
 
-
+.spot-map,
 .stay-map,
 .gourmet-map,
 .toilet-map,
@@ -724,12 +755,15 @@ nav a:hover {
 
 
 
+
+.spot-section, /* ←詳細ページ整理後削除 */
 .spot-category,
+.spot-detail-category,
 .parking-category,
 .toilet-category,
 .gourmet-category,
 .stay-category {
-  margin-bottom: 80px;
+  margin-bottom: 90px;
   scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
 }
 
@@ -752,6 +786,7 @@ nav a:hover {
 .map {
   max-width: 1020px;
   margin: 0 auto;
+  width: calc(100% - 40px); /* 幅いっぱいでも、左右に最低20px（計40px）の余白を残す */
   border-radius: var(--radius-md);
   overflow: hidden;
 }
@@ -774,6 +809,7 @@ nav a:hover {
   border-radius: var(--radius-md);
   padding: 18px 28px;
   margin: 0 auto 50px;
+  width: calc(100% - 40px); /* 幅いっぱいでも、左右に最低20px（計40px）の余白を残す */
 }
 
 
@@ -883,10 +919,20 @@ nav a:hover {
   11. 食べる・泊まる　共通
 ==========================================*/
 
+.link-photo-card .gourmet-comment,
+.link-photo-card .stay-comment {
+  padding: 5px 20px 5px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+
+
 .gourmet-link,
 .stay-link {
  margin-top: 0px;
- padding: 0 20px 22px;
+ padding: 0 20px 20px;
 }
 
 .gourmet-link a,
@@ -907,68 +953,53 @@ nav a:hover {
 /*==========================================
   12. スポット詳細
 ==========================================*/
-.spot-detail {
-  max-width: 1440px;
-  margin: 100px 20px 80px;
-  padding: 0;
-}
-
-
-
-.spot-detail-container,
-.detail-box {
-  max-width:720px;
-  margin: 0 auto; 
-  padding: 0;
-}
 
 
 .spot-hero {
   position: relative;
-  max-width: 640px;
-  margin: 0 auto 50px;
+  max-width: 540px;
+  width: calc(100% - 40px); /* 幅いっぱいでも、左右に最低20px（計40px）の余白を残す */
+  margin: 0 auto 30px;
 }
+
+
 
 .spot-hero img {
   width: 100%;
-  max-width: 720px;
-  height: clamp(280px, 45vh, 360px);
+  max-width: 540px;
+  height: clamp(230px, 40vh, 360px);
   object-fit: cover;
   border-radius: var(--radius-md);
   display: block;
 }
 
+
 .spot-title {
   position: absolute;
-  left: 30px;
-  bottom: 25px;
+  left: 20px;
+  bottom: 15px;
 }
+
 
 .spot-title h1 {
   color: #fff;
   font-size: 24px;
   font-weight: 500;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.90),0 0 4px rgba(0, 0, 0, 0.60);
   border: none;
   margin: 0;
   padding: 0;
 }
 
-.spot-intro {
-  font-size: 18px;
-  line-height: 2;
-  color: var(--text-sub);
-  margin-bottom: 50px;
-}
 
-.spot-section,
-.spot-map {
-  margin-bottom: 70px;
-}
+
+
+
 
 .spot-info {
   max-width: 720px;
   margin: 0 auto 70px;
+  width: calc(100% - 40px); /* 幅いっぱいでも、左右に最低20px（計40px）の余白を残す */
   background: #fff;
   border: 1px solid var(--border-main);
   border-radius: var(--radius-md);
@@ -1048,7 +1079,7 @@ nav a:hover {
   will-change: transform;
 }
 
-.related-slider .spot-card img {
+.related-slider img {
   display: block;
   width: 100%;
   height: auto;
@@ -1063,7 +1094,7 @@ nav a:hover {
 
 
 
-/* --- 見どころカード専用：フローティング無効化 --- */
+/* --- 見どころカード専用：フローティング無効化 --- */  /* ←詳細ページ整理後削除 */
 .spot-section .spot-grid .spot-card {
   transition: none;
 }
@@ -1146,38 +1177,68 @@ footer p {
 
 
 
-/* --- 400px 以下 (スマートフォン) --- */
-@media (max-width: 400px) {
-  
+/* --- 500px 以下 (スマートフォン) --- */
+@media (max-width: 500px) {
 
+
+ h1,
+ h2 {
+  font-size: 18px;
+   }
+
+
+.lead,
+.explain{
+  font-size: 14px;
+}
+
+
+
+/* ヘッダー */
  header {
-    height: auto;
+    height: 64px;
   }
 
 
 header .container {
     flex-direction: column;
     justify-content: center;
-    padding: 16px 0;
-    height: auto;
+    padding: 10px 0;
   }
 
-.logo {
-  margin-bottom: 8px;
+.header-container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0;
   }
+
+
+
+
+
+.logo {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  margin-bottom: 0px;
+}
+
+
+
+
 
 
 
 /* ドロップダウンリスト */
  
   nav > ul {
-    gap: 14px;
+    gap: 18px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   nav a {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .dropdown-menu {
@@ -1189,8 +1250,9 @@ header .container {
 
 /* --- トップページ --- */
 .hero {
-    margin-top: 100px;
+    margin-top: 64px;
     height: 30vh;
+    min-height: 150px;
   }
 
  
@@ -1200,7 +1262,7 @@ header .container {
   }
 
 .catch p {
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 0.08em;
   }
 
@@ -1208,12 +1270,13 @@ header .container {
 
 
 .spot-main,
+.spot-detail-main,
 .spot-detail,
 .parking-main,
 .toilet-main,
 .gourmet-main,
 .stay-main {
-  margin: 130px 15px 80px;
+  margin: 64px 5px 40px;
 }
 
 
@@ -1228,63 +1291,36 @@ header .container {
   .parking-map,
   .toilet-map,
   .link-card {
-    scroll-margin-top: 130px;
+    scroll-margin-top: 64px;
   }
 
 
- 
+
 
   
 
-.map iframe {
+  .spot-info th {
+    width: 80px;
+  }
+
+  
+  .spot-info th,
+  .spot-info td {
+    padding: 5px 5px;
+  }
+
+  
+  .map iframe,
+  .spot-map iframe {
     height: 50vh;
     min-height: 320px;
   }
 
-  .parking-notice {
-    padding: 18px;
-  }
 
-
-  .toilet-table th,
-  .parking-table th,
-  .spot-info th {
-    width: 90px;
-  }
-
-  .spot-hero img {
-    height: 240px;
-  }
-
-  .spot-title {
-    left: 20px;
-    bottom: 15px;
-  }
-
-  .spot-title h1 {
-    font-size: 24px;
-  }
-
-  .spot-intro {
-    font-size: 16px;
-  }
-
-  .spot-info th,
-  .spot-info td {
-    padding: 12px 5px;
-  }
-
-  .spot-info h2,
-  .spot-section h2,
-  .spot-map h2 {
-    font-size: 24px;
-  }
-
-  .spot-map iframe {
-    height: 350px;
-  }
-
-
+.map {
+  width: calc(100% - 4px); /* 幅いっぱいでも、左右に最低2px（計4px）の余白を残す */
+  border-radius: var(--radius-md);
+}
 
   
 
