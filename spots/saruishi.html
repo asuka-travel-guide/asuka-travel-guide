@@ -12,7 +12,27 @@
     <title>猿石｜明日香村観光ガイド</title>
     <meta name="description" content="明日香村の不思議な石造物・猿石の歴史や特徴、見どころ、アクセス、駐車場情報を紹介します。">
     <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/saruishi.html">
+    <!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+    <meta property="og:title" content="猿石｜明日香村観光ガイド">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/saruishi.html">
+    <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/saruishi/saruishi.jpg">
+    <meta property="og:description" content="明日香村の不思議な石造物・猿石の歴史や特徴、見どころ、アクセス、駐車場情報を紹介します。">
+    <meta property="og:site_name" content="明日香村観光ガイド">
+    <meta property="og:locale" content="ja_JP">
 
+<!-- Twitter Card (X) 設定 -->
+ <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="猿石｜明日香村観光ガイド">
+    <meta name="twitter:description" content="明日香村の不思議な石造物・猿石の歴史や特徴、見どころ、アクセス、駐車場情報を紹介します。">
+    <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/saruishi/saruishi.jpg">
+
+
+
+<!-- favicon -->
+ <link rel="icon" href="../images/favicon.ico" sizes="any">
+ <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
@@ -20,6 +40,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet">
+
+
+<!-- 3. 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/saruishi.html#spot",
+      "name": "猿石",
+      "description": "明日香村の不思議な石造物・猿石の歴史や特徴、見どころ、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/saruishi.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/saruishi/saruishi.jpg",
+      "isAccessibleForFree": true,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/saruishi.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "猿石",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/saruishi.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
@@ -38,22 +107,23 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+<!-- Logo -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
-      <!-- Navigation -->
+<!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
-            <a href="index.html">観光する</a>
+            <a href="../spots/index.html#ruins">観光する</a>
             <ul class="dropdown-menu">
-              <li><a href="index.html#ruins">古墳・遺跡</a></li>
-              <li><a href="index.html#temple">神社・寺院</a></li>
-              <li><a href="index.html#nature">自然・風景</a></li>
-              <li><a href="index.html#museum">博物館</a></li>
-              <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="../spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="../spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="../spots/index.html#nature">自然・風景</a></li>
+              <li><a href="../spots/index.html#museum">博物館</a></li>
+              <li><a href="../spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="../spots/parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -72,14 +142,9 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
-
-
-
 
 
 
@@ -87,44 +152,34 @@
       </nav>
 
     </div>
-  </header>
+ </header>
 
 <!-- メイン -->
-<main class="spot-detail">
+<main class="spot-detail-main">
 
 
 <!-- Hero -->
-
 <section class="spot-hero">
-
-<img src="../images/spots/saruishi/saruishi.jpg"
-alt="猿石">
-
-<div class="spot-title">
-<h1>
-猿石
-</h1>
-</div>
-
+    <img src="../images/spots/saruishi/saruishi.jpg" alt="猿石" width="320" height="180" fetchpriority="high" decoding="async">
+    <div class="spot-title">
+    <h1>猿石</h1>
+    </div>
 </section>
+
 
 
 
 <!-- Overview -->
-
-<section class="spot-intro">
-
-<p>
-
-猿石は、明日香村平田にある江戸時代に発見された石造物です。
-
-人や動物のような独特な表情が刻まれており、飛鳥を代表する謎の石造物のひとつとして知られています。
-
-現在は吉備姫王墓の敷地内に4体が安置され、飛鳥の歴史散策で人気のスポットになっています。
-
-</p>
-
+<section class="spot-detail-category">
+ <div class="spot-detail-container">
+    <p class="explain">
+        猿石は、明日香村平田にある江戸時代に発見された石造物です。
+        人や動物のような独特な表情が刻まれており、飛鳥を代表する謎の石造物のひとつとして知られています。
+        現在は吉備姫王墓の敷地内に4体が安置され、飛鳥の歴史散策で人気のスポットになっています。
+    </p>
+ </div>
 </section>
+
 
 
 
@@ -132,7 +187,6 @@ alt="猿石">
 <!-- Basic Information -->
 
 <section class="spot-info">
-
 <h2>基本情報</h2>
 
 <table>
@@ -169,7 +223,7 @@ alt="猿石">
 
 <td>
 
-<a href="parking.html#noguchi-parking">
+<a href="../spots/parking.html#noguchi-parking">
 野口駐車場
 </a>
 （徒歩約10分・有料）
@@ -212,58 +266,39 @@ alt="猿石">
 
 
 </table>
-
 </section>
-
 
 
 
 
 <!-- 見どころ -->
 
-<section class="spot-section">
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>見どころ</h2>
+</div>
 
 
 <div class="spot-grid">
 
 
-
-<article class="spot-card">
-
-<img src="../images/spots/saruishi/saruishi-feature01.jpg"
-alt="猿石">
-
-<h3>
-個性的な石造物
-</h3>
-
+<article class="nolink-photo-card">
+<img src="../images/spots/saruishi/saruishi-feature01.jpg" alt="猿石" width="320" height="180" loading="lazy" decoding="async">
+<h3>個性的な石造物</h3>
 <p>
-
 猿のようにも人のようにも見える独特な姿が特徴で、飛鳥らしい謎めいた魅力があります。
-
 </p>
-
 </article>
 
 
 
-<article class="spot-card">
 
-<img src="../images/spots/saruishi/saruishi-feature02.jpg"
-alt="猿石の表情">
-
-<h3>
-謎が残る飛鳥の文化財
-</h3>
-
+<article class="nolink-photo-card">
+<img src="../images/spots/saruishi/saruishi-feature02.jpg" alt="猿石の表情" width="320" height="180" loading="lazy" decoding="async">
+<h3>謎が残る飛鳥の文化財</h3>
 <p>
-
 制作された時代や目的には諸説があり、古代飛鳥の文化を想像させる貴重な石造物です。
-
 </p>
-
 </article>
 
 
@@ -275,42 +310,31 @@ alt="猿石の表情">
 
 
 
-
 <!-- History -->
 
-<section class="spot-section">
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>
 歴史・由来
 </h2>
-
-
-<p>
-
+<p class="explain">
 猿石は、明日香村平田にある吉備姫王墓の敷地内に置かれている4体の石造物です。
-
 江戸時代に欽明天皇陵の南側から掘り出されたと伝えられています。
-
 人物や動物を表現したような姿をしていますが、誰が何の目的で作ったものかは明らかになっておらず、飛鳥時代の謎のひとつとして注目されています。
-
 </p>
-
-
+</div>
 </section>
 
 
 
 
-
 <!-- Nearby -->
-
 <section class="spot-section related">
-
-
+<div class="spot-detail-container">
 <h2>
 周辺のおすすめ
 </h2>
-
+</div>
 
 <div class="related-scroll">
 
@@ -318,44 +342,21 @@ alt="猿石の表情">
 
 
 
-<a href="takamatsuzuka.html"
-class="spot-card">
-
-<img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg"
-alt="高松塚古墳">
-
-<h3>
-高松塚古墳
-</h3>
-
+<a href="../spots/takamatsuzuka.html" class="link-photo-card">
+<img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg" alt="高松塚古墳" width="320" height="180" loading="lazy" decoding="async">
+<h3>高松塚古墳</h3>
 </a>
 
 
-
-<a href="kengoshizuka.html"
-class="spot-card">
-
-<img src="../images/spots/kengoshizuka/kengoshizuka.jpg"
-alt="牽牛子塚古墳">
-
-<h3>
-牽牛子塚古墳
-</h3>
-
+<a href="../spots/kengoshizuka.html" class="link-photo-card">
+<img src="../images/spots/kengoshizuka/kengoshizuka.jpg" alt="牽牛子塚古墳" width="320" height="180" loading="lazy" decoding="async">
+<h3>牽牛子塚古墳</h3>
 </a>
 
 
-
-<a href="onino-manaita.html"
-class="spot-card">
-
-<img src="../images/spots/onino-manaita/onino-manaita.jpg"
-alt="鬼の俎・鬼の雪隠">
-
-<h3>
-鬼の俎・鬼の雪隠
-</h3>
-
+<a href="../spots/onino-manaita.html" class="link-photo-card">
+<img src="../images/spots/onino-manaita/onino-manaita.jpg" alt="鬼の俎・鬼の雪隠" width="320" height="180" loading="lazy" decoding="async">
+<h3>鬼の俎・鬼の雪隠</h3>
 </a>
 
 
@@ -363,24 +364,16 @@ alt="鬼の俎・鬼の雪隠">
 </div>
 
 </div>
-
 
 </section>
 
 
 
 
-
 <!-- Map -->
-
-<section id="map"
-class="spot-map">
-
-
-<h2>
-地図
-</h2>
-
+<section id="map" class="spot-map">
+<div class="map">
+<h2>地図</h2>
 
 <iframe
 src="https://www.google.com/maps?q=猿石%20明日香村&output=embed"
@@ -388,8 +381,7 @@ loading="lazy"
 allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
-
-
+</div>
 </section>
 
 
