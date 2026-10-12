@@ -12,8 +12,28 @@
     <title>あすか夢の楽市｜明日香村観光ガイド</title>
     <meta name="description" content="あすか夢の楽市の特産品やおみやげ、営業時間、アクセス、駐車場情報を紹介します。">
     <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-yumenorakuichi.html">
+    <!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+    <meta property="og:title" content="あすか夢の楽市｜明日香村観光ガイド">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-yumenorakuichi.html">
+    <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi.jpg">
+    <meta property="og:description" content="あすか夢の楽市の特産品やおみやげ、営業時間、アクセス、駐車場情報を紹介します。">
+    <meta property="og:site_name" content="明日香村観光ガイド">
+    <meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+ <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="あすか夢の楽市｜明日香村観光ガイド">
+    <meta name="twitter:description" content="あすか夢の楽市の特産品やおみやげ、営業時間、アクセス、駐車場情報を紹介します。">
+    <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi.jpg">
 
 
+
+
+<!-- favicon -->
+ <link rel="icon" href="../images/favicon.ico" sizes="any">
+ <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
@@ -21,6 +41,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet">
+
+
+<!-- 3. 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TouristAttraction",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-yumenorakuichi.html#spot",
+      "name": "あすか夢の楽市",
+      "description": "あすか夢の楽市の特産品やおみやげ、営業時間、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-yumenorakuichi.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-yumenorakuichi.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "あすか夢の楽市",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-yumenorakuichi.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
@@ -39,22 +107,23 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+<!-- Logo -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
-      <!-- Navigation -->
+<!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
-            <a href="index.html">観光する</a>
+            <a href="../spots/index.html#ruins">観光する</a>
             <ul class="dropdown-menu">
-              <li><a href="index.html#ruins">古墳・遺跡</a></li>
-              <li><a href="index.html#temple">神社・寺院</a></li>
-              <li><a href="index.html#nature">自然・風景</a></li>
-              <li><a href="index.html#museum">博物館</a></li>
-              <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="../spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="../spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="../spots/index.html#nature">自然・風景</a></li>
+              <li><a href="../spots/index.html#museum">博物館</a></li>
+              <li><a href="../spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="../spots/parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -73,14 +142,9 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
-
-
-
 
 
 
@@ -88,51 +152,33 @@
       </nav>
 
     </div>
-  </header>
+ </header>
 
 <!-- メイン -->
-
-<main class="spot-detail">
+<main class="spot-detail-main">
 
 
 <!-- Hero -->
-
 <section class="spot-hero">
-
-<img src="../images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi.jpg"
-alt="あすか夢の楽市">
-
-<div class="spot-title">
-
-<h1>
-あすか夢の楽市
-</h1>
-
-</div>
-
+    <img src="../images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi.jpg" alt="あすか夢の楽市" width="320" height="180" fetchpriority="high" decoding="async">
+    <div class="spot-title">
+    <h1>あすか夢の楽市</h1>
+    </div>
 </section>
-
-
 
 
 
 
 <!-- Overview -->
-
-<section class="spot-intro">
-
-<p>
-
-あすか夢の楽市は、明日香村の農産物や特産品を販売する地域密着型の直売施設です。
-
-地元で採れた新鮮な野菜や果物、加工品などが並び、明日香ならではのお土産探しにもおすすめです。
-
-観光の途中に立ち寄り、季節の味や地域の魅力を感じられるスポットです。
-
-</p>
-
+<section class="spot-detail-category">
+ <div class="spot-detail-container">
+    <p class="explain">
+        あすか夢の楽市は、明日香村の農産物や特産品を販売する地域密着型の直売施設です。
+        地元で採れた新鮮な野菜や果物、加工品などが並び、明日香ならではのお土産探しにもおすすめです。
+        観光の途中に立ち寄り、季節の味や地域の魅力を感じられるスポットです。
+    </p>
+ </div>
 </section>
-
 
 
 
@@ -141,7 +187,6 @@ alt="あすか夢の楽市">
 <!-- Basic Information -->
 
 <section class="spot-info">
-
 <h2>
 基本情報
 </h2>
@@ -255,244 +300,119 @@ alt="あすか夢の楽市">
 
 
 </table>
-
 </section>
-
-
-
-
 
 
 
 
 <!-- 見どころ -->
 
-<section class="spot-section">
-
-
-<h2>
-見どころ
-</h2>
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
+<h2>見どころ</h2>
+</div>
 
 
 <div class="spot-grid">
 
 
-
-<article class="spot-card">
-
-
-<img src="../images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi-feature01.jpg"
-alt="あすか夢の楽市の商品">
-
-
-<h3>
-地元の新鮮な農産物
-</h3>
-
-
+<article class="nolink-photo-card">
+<img src="../images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi-feature01.jpg" alt="あすか夢の楽市の商品" width="320" height="180" loading="lazy" decoding="async">
+<h3>地元の新鮮な農産物</h3>
 <p>
-
 明日香村で育った野菜や果物など、旬の農産物を購入できます。
-
 </p>
-
-
 </article>
 
 
 
 
-
-
-
-<article class="spot-card">
-
-
-<img src="../images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi-feature02.jpg"
-alt="あすか夢の楽市店内">
-
-
-<h3>
-明日香のお土産探し
-</h3>
-
-
+<article class="nolink-photo-card">
+<img src="../images/spots/asuka-yumenorakuichi/asuka-yumenorakuichi-feature02.jpg" alt="あすか夢の楽市店内" width="320" height="180" loading="lazy" decoding="async">
+<h3>明日香のお土産探し</h3>
 <p>
-
 地元ならではの加工品や特産品が揃い、旅の思い出選びにも便利です。
-
 </p>
-
-
 </article>
 
 
 
 </div>
 
-
 </section>
-
-
-
-
 
 
 
 
 <!-- History -->
 
-<section class="spot-section">
-
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>
 歴史・由来
 </h2>
-
-
-<p>
-
+<p class="explain">
 あすか夢の楽市は、明日香村の農産物や特産品を販売し、地域の魅力を発信する直売施設です。
-
 地元の生産者と観光客をつなぐ場所として、多くの人に利用されています。
-
 </p>
-
-
+</div>
 </section>
-
-
-
-
 
 
 
 
 <!-- Nearby -->
-
 <section class="spot-section related">
-
-
+<div class="spot-detail-container">
 <h2>
 周辺のおすすめ
 </h2>
-
-
+</div>
 
 <div class="related-scroll">
-
 
 <div class="related-slider">
 
 
 
-
-
-<a href="asukadera.html"
-class="spot-card">
-
-
-<img src="../images/spots/asukadera/asukadera.jpg"
-alt="飛鳥寺">
-
-
-<h3>
-飛鳥寺
-</h3>
-
-
+<a href="../spots/asukadera.html" class="link-photo-card">
+<img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥寺</h3>
 </a>
 
 
-
-
-
-
-<a href="manyo-museum.html"
-class="spot-card">
-
-
-<img src="../images/spots/manyo-museum/manyo-museum.jpg"
-alt="奈良県立万葉文化館">
-
-
-<h3>
-奈良県立万葉文化館
-</h3>
-
-
+<a href="../spots/manyo-museum.html" class="link-photo-card">
+<img src="../images/spots/manyo-museum/manyo-museum.jpg" alt="奈良県立万葉文化館" width="320" height="180" loading="lazy" decoding="async">
+<h3>奈良県立万葉文化館</h3>
 </a>
 
 
-
-
-
-
-<a href="mizuochi.html"
-class="spot-card">
-
-
-<img src="../images/spots/mizuochi/mizuochi.jpg"
-alt="飛鳥水落遺跡">
-
-
-<h3>
-飛鳥水落遺跡
-</h3>
-
-
+<a href="../spots/mizuochi.html" class="link-photo-card">
+<img src="../images/spots/mizuochi/mizuochi.jpg" alt="飛鳥水落遺跡" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥水落遺跡</h3>
 </a>
 
 
-
-
-
-
-<a href="amakashinooka.html"
-class="spot-card">
-
-
-<img src="../images/spots/amakashinooka/amakashinooka.jpg"
-alt="甘樫丘">
-
-
-<h3>
-甘樫丘
-</h3>
-
-
+<a href="../spots/amakashinooka.html" class="link-photo-card">
+<img src="../images/spots/amakashinooka/amakashinooka.jpg" alt="甘樫丘" width="320" height="180" loading="lazy" decoding="async">
+<h3>甘樫丘</h3>
 </a>
-
-
 
 
 
 </div>
 
 </div>
-
 
 </section>
 
 
 
 
-
-
-
-
 <!-- Map -->
-
 <section id="map" class="spot-map">
-
-
-<h2>
-地図
-</h2>
-
-
+<div class="map">
+<h2>地図</h2>
 
 <iframe
 
@@ -505,16 +425,14 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 
 </iframe>
-
-
-
+</div>
 </section>
 
 
 
-
-
 </main>
+
+
 <!-- フッター -->
 <footer>
 <nav>

@@ -12,6 +12,26 @@
     <title>国営飛鳥歴史公園｜明日香村観光ガイド</title>
     <meta name="description" content="国営飛鳥歴史公園の見どころや各地区の魅力、散策コース、アクセス、駐車場情報を紹介します。">
     <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-historic-park.html">
+    <!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+    <meta property="og:title" content="国営飛鳥歴史公園｜明日香村観光ガイド">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-historic-park.html">
+    <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-historic-park/asuka-historic-park.jpg">
+    <meta property="og:description" content="国営飛鳥歴史公園の見どころや各地区の魅力、散策コース、アクセス、駐車場情報を紹介します。">
+    <meta property="og:site_name" content="明日香村観光ガイド">
+    <meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+ <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="国営飛鳥歴史公園｜明日香村観光ガイド">
+    <meta name="twitter:description" content="国営飛鳥歴史公園の見どころや各地区の魅力、散策コース、アクセス、駐車場情報を紹介します。">
+    <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-historic-park/asuka-historic-park.jpg">
+
+
+<!-- favicon -->
+ <link rel="icon" href="../images/favicon.ico" sizes="any">
+ <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
@@ -19,6 +39,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet">
+
+
+<!-- 3. 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "Park"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-historic-park.html#spot",
+      "name": "国営飛鳥歴史公園",
+      "description": "国営飛鳥歴史公園の見どころや各地区の魅力、散策コース、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-historic-park.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/asuka-historic-park/asuka-historic-park.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-historic-park.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "国営飛鳥歴史公園",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asuka-historic-park.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
@@ -37,22 +105,23 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+<!-- Logo -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
-      <!-- Navigation -->
+<!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
-            <a href="index.html">観光する</a>
+            <a href="../spots/index.html#ruins">観光する</a>
             <ul class="dropdown-menu">
-              <li><a href="index.html#ruins">古墳・遺跡</a></li>
-              <li><a href="index.html#temple">神社・寺院</a></li>
-              <li><a href="index.html#nature">自然・風景</a></li>
-              <li><a href="index.html#museum">博物館</a></li>
-              <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="../spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="../spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="../spots/index.html#nature">自然・風景</a></li>
+              <li><a href="../spots/index.html#museum">博物館</a></li>
+              <li><a href="../spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="../spots/parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -71,14 +140,9 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
-
-
-
 
 
 
@@ -86,53 +150,33 @@
       </nav>
 
     </div>
-  </header>
+ </header>
 
 <!-- メイン -->
-
-<main class="spot-detail">
-
-
+<main class="spot-detail-main">
 
 
 <!-- Hero -->
-
 <section class="spot-hero">
-
-<img src="../images/spots/asuka-historic-park/asuka-historic-park.jpg"
-alt="国営飛鳥歴史公園">
-
-<div class="spot-title">
-
-<h1>
-国営飛鳥歴史公園
-</h1>
-
-</div>
-
+    <img src="../images/spots/asuka-historic-park/asuka-historic-park.jpg" alt="国営飛鳥歴史公園" width="320" height="180" fetchpriority="high" decoding="async">
+    <div class="spot-title">
+    <h1>国営飛鳥歴史公園</h1>
+    </div>
 </section>
-
-
 
 
 
 
 <!-- Overview -->
-
-<section class="spot-intro">
-
-<p>
-
-国営飛鳥歴史公園は、飛鳥時代の歴史遺産と豊かな自然を楽しめる広大な国営公園です。
-
-高松塚周辺地区、キトラ古墳周辺地区、甘樫丘地区、石舞台地区、祝戸地区の5地区からなり、古墳や遺跡、展望スポットなどを巡ることができます。
-
-歴史散策や自然散歩を楽しむ、明日香観光の中心となるスポットです。
-
-</p>
-
+<section class="spot-detail-category">
+ <div class="spot-detail-container">
+    <p class="explain">
+        国営飛鳥歴史公園は、飛鳥時代の歴史遺産と豊かな自然を楽しめる広大な国営公園です。
+        高松塚周辺地区、キトラ古墳周辺地区、甘樫丘地区、石舞台地区、祝戸地区の5地区からなり、古墳や遺跡、展望スポットなどを巡ることができます。
+        歴史散策や自然散歩を楽しむ、明日香観光の中心となるスポットです。
+    </p>
+ </div>
 </section>
-
 
 
 
@@ -141,7 +185,6 @@ alt="国営飛鳥歴史公園">
 <!-- Basic Information -->
 
 <section class="spot-info">
-
 <h2>
 基本情報
 </h2>
@@ -218,7 +261,7 @@ alt="国営飛鳥歴史公園">
 <td>
 
 
-<a href="parking.html#ishibutai-parking">
+<a href="../spots/parking.html#ishibutai-parking">
 国営飛鳥歴史公園 石舞台地区駐車場
 </a>
 
@@ -226,7 +269,7 @@ alt="国営飛鳥歴史公園">
 <br>
 
 
-<a href="parking.html#amakashi-kawahara-parking">
+<a href="../spots/parking.html#amakashi-kawahara-parking">
 甘樫丘地区川原駐車場
 </a>
 
@@ -234,7 +277,7 @@ alt="国営飛鳥歴史公園">
 <br>
 
 
-<a href="parking.html#takamatsuzuka-parking">
+<a href="../spots/parking.html#takamatsuzuka-parking">
 高松塚周辺地区駐車場
 </a>
 
@@ -242,7 +285,7 @@ alt="国営飛鳥歴史公園">
 <br>
 
 
-<a href="parking.html#kitora1-parking">
+<a href="../spots/parking.html#kitora1-parking">
 キトラ古墳周辺地区 第一駐車場
 </a>
 
@@ -286,244 +329,119 @@ alt="国営飛鳥歴史公園">
 
 
 </table>
-
 </section>
-
-
-
-
 
 
 
 
 <!-- 見どころ -->
 
-<section class="spot-section">
-
-
-<h2>
-見どころ
-</h2>
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
+<h2>見どころ</h2>
+</div>
 
 
 <div class="spot-grid">
 
 
-
-<article class="spot-card">
-
-
-<img src="../images/spots/asuka-historic-park/asuka-historic-park-feature01.jpg"
-alt="国営飛鳥歴史公園 石舞台地区">
-
-
-<h3>
-歴史遺産を巡る公園
-</h3>
-
-
+<article class="nolink-photo-card">
+<img src="../images/spots/asuka-historic-park/asuka-historic-park-feature01.jpg" alt="国営飛鳥歴史公園 石舞台地区" width="320" height="180" loading="lazy" decoding="async">
+<h3>歴史遺産を巡る公園</h3>
 <p>
-
 石舞台古墳や高松塚古墳など、飛鳥を代表する歴史スポットを楽しめます。
-
 </p>
-
-
 </article>
 
 
 
 
-
-
-
-<article class="spot-card">
-
-
-<img src="../images/spots/asuka-historic-park/asuka-historic-park-feature02.jpg"
-alt="国営飛鳥歴史公園の風景">
-
-
-<h3>
-自然豊かな散策コース
-</h3>
-
-
+<article class="nolink-photo-card">
+<img src="../images/spots/asuka-historic-park/asuka-historic-park-feature02.jpg" alt="国営飛鳥歴史公園の風景" width="320" height="180" loading="lazy" decoding="async">
+<h3>自然豊かな散策コース</h3>
 <p>
-
 四季折々の自然を感じながら、ゆっくりと飛鳥の風景を楽しめます。
-
 </p>
-
-
 </article>
 
 
 
 </div>
 
-
 </section>
-
-
-
-
 
 
 
 
 <!-- History -->
 
-<section class="spot-section">
-
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>
 歴史・由来
 </h2>
-
-
-<p>
-
+<p class="explain">
 国営飛鳥歴史公園は、飛鳥地域に残る歴史的風土を守り、文化遺産を活用するために整備された公園です。
-
 古代国家の中心地であった飛鳥の歴史を感じながら、遺跡や自然を楽しめる場所として親しまれています。
-
 </p>
-
-
+</div>
 </section>
-
-
-
-
 
 
 
 
 <!-- Nearby -->
-
 <section class="spot-section related">
-
-
+<div class="spot-detail-container">
 <h2>
 周辺のおすすめ
 </h2>
-
-
+</div>
 
 <div class="related-scroll">
-
 
 <div class="related-slider">
 
 
 
-
-
-<a href="ishibutai.html"
-class="spot-card">
-
-
-<img src="../images/spots/ishibutai/ishibutai.jpg"
-alt="石舞台古墳">
-
-
-<h3>
-石舞台古墳
-</h3>
-
-
+<a href="../spots/ishibutai.html" class="link-photo-card">
+<img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳" width="320" height="180" loading="lazy" decoding="async">
+<h3>石舞台古墳</h3>
 </a>
 
 
-
-
-
-
-<a href="takamatsuzuka.html"
-class="spot-card">
-
-
-<img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg"
-alt="高松塚古墳">
-
-
-<h3>
-高松塚古墳
-</h3>
-
-
+<a href="../spots/takamatsuzuka.html" class="link-photo-card">
+<img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg" alt="高松塚古墳" width="320" height="180" loading="lazy" decoding="async">
+<h3>高松塚古墳</h3>
 </a>
 
 
-
-
-
-
-<a href="kitora.html"
-class="spot-card">
-
-
-<img src="../images/spots/kitora/kitora.jpg"
-alt="キトラ古墳">
-
-
-<h3>
-キトラ古墳
-</h3>
-
-
+<a href="../spots/kitora.html" class="link-photo-card">
+<img src="../images/spots/kitora/kitora.jpg" alt="キトラ古墳" width="320" height="180" loading="lazy" decoding="async">
+<h3>キトラ古墳</h3>
 </a>
 
 
-
-
-
-
-<a href="amakashinooka.html"
-class="spot-card">
-
-
-<img src="../images/spots/amakashinooka/amakashinooka.jpg"
-alt="甘樫丘">
-
-
-<h3>
-甘樫丘
-</h3>
-
-
+<a href="../spots/amakashinooka.html" class="link-photo-card">
+<img src="../images/spots/amakashinooka/amakashinooka.jpg" alt="甘樫丘" width="320" height="180" loading="lazy" decoding="async">
+<h3>甘樫丘</h3>
 </a>
-
-
 
 
 
 </div>
 
 </div>
-
 
 </section>
 
 
 
 
-
-
-
-
 <!-- Map -->
-
 <section id="map" class="spot-map">
-
-
-<h2>
-地図
-</h2>
-
-
+<div class="map">
+<h2>地図</h2>
 
 <iframe
 
@@ -536,15 +454,13 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 
 </iframe>
-
-
+</div>
 </section>
 
 
 
-
-
 </main>
+
 
 <!-- フッター -->
 <footer>
