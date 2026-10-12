@@ -12,8 +12,28 @@
     <title>奈良県立万葉文化館｜明日香村観光ガイド</title>
     <meta name="description" content="奈良県立万葉文化館の展示内容や万葉集の魅力、見どころ、開館時間、アクセス、駐車場情報を紹介します。">
     <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/manyo-museum.html">
+    <!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+    <meta property="og:title" content="奈良県立万葉文化館｜明日香村観光ガイド">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/manyo-museum.html">
+    <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/manyo-museum/manyo-museum.jpg">
+    <meta property="og:description" content="奈良県立万葉文化館の展示内容や万葉集の魅力、見どころ、開館時間、アクセス、駐車場情報を紹介します。">
+    <meta property="og:site_name" content="明日香村観光ガイド">
+    <meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+ <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="奈良県立万葉文化館｜明日香村観光ガイド">
+    <meta name="twitter:description" content="奈良県立万葉文化館の展示内容や万葉集の魅力、見どころ、開館時間、アクセス、駐車場情報を紹介します。">
+    <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/manyo-museum/manyo-museum.jpg">
 
 
+
+
+<!-- favicon -->
+ <link rel="icon" href="../images/favicon.ico" sizes="any">
+ <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
@@ -21,6 +41,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet">
+
+
+<!-- 3. 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "Museum"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/manyo-museum.html#spot",
+      "name": "奈良県立万葉文化館",
+      "description": "奈良県立万葉文化館の展示内容や万葉集の魅力、見どころ、開館時間、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/manyo-museum.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/manyo-museum/manyo-museum.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/manyo-museum.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "奈良県立万葉文化館",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/manyo-museum.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
@@ -39,22 +107,23 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+<!-- Logo -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
-      <!-- Navigation -->
+<!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
-            <a href="index.html">観光する</a>
+            <a href="../spots/index.html#ruins">観光する</a>
             <ul class="dropdown-menu">
-              <li><a href="index.html#ruins">古墳・遺跡</a></li>
-              <li><a href="index.html#temple">神社・寺院</a></li>
-              <li><a href="index.html#nature">自然・風景</a></li>
-              <li><a href="index.html#museum">博物館</a></li>
-              <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="../spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="../spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="../spots/index.html#nature">自然・風景</a></li>
+              <li><a href="../spots/index.html#museum">博物館</a></li>
+              <li><a href="../spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="../spots/parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -73,14 +142,9 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
-
-
-
 
 
 
@@ -88,52 +152,35 @@
       </nav>
 
     </div>
-  </header>
+ </header>
 
 <!-- メイン -->
-
-<main class="spot-detail">
-
+<main class="spot-detail-main">
 
 
 <!-- Hero -->
-
 <section class="spot-hero">
-
-<img src="../images/spots/manyo-museum/manyo-museum.jpg"
-alt="奈良県立万葉文化館">
-
-<div class="spot-title">
-
-<h1>
-奈良県立万葉文化館
-</h1>
-
-</div>
-
+    <img src="../images/spots/manyo-museum/manyo-museum.jpg" alt="奈良県立万葉文化館" width="320" height="180" fetchpriority="high" decoding="async">
+    <div class="spot-title">
+    <h1>奈良県立万葉文化館</h1>
+    </div>
 </section>
-
 
 
 
 
 <!-- Overview -->
-
-<section class="spot-intro">
-
-<p>
-奈良県立万葉文化館は、万葉集を中心に古代文化や飛鳥の歴史を学べる博物館です。
-
-万葉の時代を紹介する展示や映像、体験型の展示を通して、飛鳥時代の文化に触れることができます。
-
-明日香観光の拠点のひとつとして、歴史散策の途中にも立ち寄りやすい施設です。
-
-施設の中に飛鳥池工房遺跡があり、また、亀形石造物や酒船石もすぐ近くにありセットで見学できます。
-館内、敷地内には、レストラン、お土産屋も充実しています。
-</p>
-
+<section class="spot-detail-category">
+ <div class="spot-detail-container">
+    <p class="explain">
+        奈良県立万葉文化館は、万葉集を中心に古代文化や飛鳥の歴史を学べる博物館です。
+        万葉の時代を紹介する展示や映像、体験型の展示を通して、飛鳥時代の文化に触れることができます。
+        明日香観光の拠点のひとつとして、歴史散策の途中にも立ち寄りやすい施設です。
+        施設の中に飛鳥池工房遺跡があり、また、亀形石造物や酒船石もすぐ近くにありセットで見学できます。
+        館内、敷地内には、レストラン、お土産屋も充実しています。
+    </p>
+ </div>
 </section>
-
 
 
 
@@ -142,7 +189,6 @@ alt="奈良県立万葉文化館">
 <!-- Basic Information -->
 
 <section class="spot-info">
-
 <h2>
 基本情報
 </h2>
@@ -215,7 +261,7 @@ alt="奈良県立万葉文化館">
 
 <td>
 
-<a href="parking.html#manyo-parking">
+<a href="../spots/parking.html#manyo-parking">
 万葉文化館駐車場
 </a>
 普通車500円
@@ -261,37 +307,25 @@ alt="奈良県立万葉文化館">
 
 
 </table>
-
 </section>
-
-
-
-
 
 
 
 
 <!-- 見どころ -->
 
-<section class="spot-section">
-
-
-<h2>
-見どころ
-</h2>
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
+<h2>見どころ</h2>
+</div>
 
 
 <div class="spot-grid">
 
 
-
-<article class="spot-card">
-<img src="../images/spots/manyo-museum/manyo-museum-feature01.jpg"
-alt="奈良県立万葉文化館の展示">
-<h3>
-万葉集と古代文化の展示
-</h3>
+<article class="nolink-photo-card">
+<img src="../images/spots/manyo-museum/manyo-museum-feature01.jpg" alt="奈良県立万葉文化館の展示" width="320" height="180" loading="lazy" decoding="async">
+<h3>万葉集と古代文化の展示</h3>
 <p>
 万葉集や古代の暮らしについて、資料や映像を通して分かりやすく学べます。
 </p>
@@ -300,12 +334,9 @@ alt="奈良県立万葉文化館の展示">
 
 
 
-<article class="spot-card">
-<img src="../images/spots/manyo-museum/manyo-museum-feature02.jpg"
-alt="奈良県立万葉文化館の館内映像シアタールーム">
-<h3>
-体験しながら学べる博物館
-</h3>
+<article class="nolink-photo-card">
+<img src="../images/spots/manyo-museum/manyo-museum-feature02.jpg" alt="奈良県立万葉文化館の館内映像シアタールーム" width="320" height="180" loading="lazy" decoding="async">
+<h3>体験しながら学べる博物館</h3>
 <p>
 展示だけでなく、映像や体験型の設備で飛鳥時代の文化を楽しめます。
 </p>
@@ -315,144 +346,86 @@ alt="奈良県立万葉文化館の館内映像シアタールーム">
 
 </div>
 
-
 </section>
-
-
-
-
 
 
 
 
 <!-- History -->
 
-<section class="spot-section">
-
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>
 歴史・由来
 </h2>
-
-
-<p>
-
+<p class="explain">
 奈良県立万葉文化館は、万葉集が成立した時代の文化や歴史を紹介するために整備された施設です。
-
 飛鳥の地に残る歴史遺産と合わせて楽しめる、明日香観光を代表する文化施設のひとつです。
-
 </p>
-
-
+</div>
 </section>
-
-
-
-
 
 
 
 
 <!-- Nearby -->
-
 <section class="spot-section related">
-
-
+<div class="spot-detail-container">
 <h2>
 周辺のおすすめ
 </h2>
-
-
+</div>
 
 <div class="related-scroll">
-
 
 <div class="related-slider">
 
 
-<a href="asukaike.html"
-class="spot-card">
-<img src="../images/spots/asukaike/asukaike.jpg"
-alt="飛鳥池工房遺跡">
-<h3>
-飛鳥池工房遺跡
-</h3>
+
+<a href="../spots/asukaike.html" class="link-photo-card">
+<img src="../images/spots/asukaike/asukaike.jpg" alt="飛鳥池工房遺跡" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥池工房遺跡</h3>
 </a>
 
 
-
-<a href="kamegata.html"
-class="spot-card">
-<img src="../images/spots/kamegata/kamegata.jpg"
-alt="亀形石造物">
-<h3>
-亀形石造物
-</h3>
+<a href="../spots/kamegata.html" class="link-photo-card">
+<img src="../images/spots/kamegata/kamegata.jpg" alt="亀形石造物" width="320" height="180" loading="lazy" decoding="async">
+<h3>亀形石造物</h3>
 </a>
 
 
-
-<a href="sakafuneishi.html"
-class="spot-card">
-<img src="../images/spots/sakafuneishi/sakafuneishi.jpg"
-alt="酒船石">
-<h3>
-酒船石
-</h3>
+<a href="../spots/sakafuneishi.html" class="link-photo-card">
+<img src="../images/spots/sakafuneishi/sakafuneishi.jpg" alt="酒船石" width="320" height="180" loading="lazy" decoding="async">
+<h3>酒船石</h3>
 </a>
 
 
-
-
-<a href="asukadera.html"
-class="spot-card">
-<img src="../images/spots/asukadera/asukadera.jpg"
-alt="飛鳥寺">
-<h3>
-飛鳥寺
-</h3>
+<a href="../spots/asukadera.html" class="link-photo-card">
+<img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥寺</h3>
 </a>
 
 
-
-
-
-<a href="asukaniimasu-jinja.html"
-class="spot-card">
-<img src="../images/spots/asukaniimasu-jinja/asukaniimasu-jinja.jpg"
-alt="飛鳥坐神社">
-<h3>
-飛鳥坐神社
-</h3>
+<a href="../spots/asukaniimasu-jinja.html" class="link-photo-card">
+<img src="../images/spots/asukaniimasu-jinja/asukaniimasu-jinja.jpg" alt="飛鳥坐神社" width="320" height="180" loading="lazy" decoding="async">
+<h3>飛鳥坐神社</h3>
 </a>
-
 
 
 
 </div>
 
 </div>
-
 
 </section>
 
 
 
 
-
-
-
-
 <!-- Map -->
-
 <section id="map" class="spot-map">
-
-
-<h2>
-地図
-</h2>
-
-
+<div class="map">
+<h2>地図</h2>
 
 <iframe
 
@@ -465,16 +438,13 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 
 </iframe>
-
-
-
+</div>
 </section>
 
 
 
-
-
 </main>
+
 
 <!-- フッター -->
 <footer>

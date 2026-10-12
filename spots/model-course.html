@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 1. SEO基本設定 -->
+  <title>おすすめモデルコース | 明日香村観光ガイド</title>
+  <meta name="description" content="明日香村を巡る「歩く」「サイクリング」「ドライブ」の半日・1日モデルコース計6種類をご紹介。移動時間、見学の所要時間、おすすめの昼食スポットやレンタサイクル情報も掲載しています。">
+  <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/model-course.html">
+
+  <!-- 2. OGP設定 -->
+  <meta property="og:title" content="おすすめモデルコース｜明日香村観光ガイド">
+  <meta property="og:description" content="明日香村を巡る「歩く」「サイクリング」「ドライブ」の半日・1日モデルコース計6種類をご紹介。移動時間、見学の所要時間、おすすめの昼食スポットやレンタサイクル情報も掲載しています。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/model-course.html">
+  <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp-course.jpg">
+  <meta property="og:site_name" content="明日香村観光ガイド">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 3. favicon (石舞台古墳モチーフSVG) -->
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+  <!-- 4. フォント最適化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- 5. 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "明日香村おすすめモデルコース",
+    "description": "歩く、サイクリング、ドライブで巡る明日香村の半日・1日モデルコース",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "歩く × 半日コース" },
+      { "@type": "ListItem", "position": 2, "name": "歩く × 1日コース" },
+      { "@type": "ListItem", "position": 3, "name": "サイクリング × 半日コース" },
+      { "@type": "ListItem", "position": 4, "name": "サイクリング × 1日コース" },
+      { "@type": "ListItem", "position": 5, "name": "ドライブ × 半日コース" },
+      { "@type": "ListItem", "position": 6, "name": "ドライブ × 1日コース" }
+    ]
+  }
+  </script>
+
+  <!-- 6. CSS読み込み -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- モデルコース用追加CSS -->
+  <style>
+    /* コースナビゲーション */
+    .course-nav {
+      max-width: 1020px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .course-nav a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #fff;
+      border: 1px solid var(--border-dark);
+      border-radius: 30px;
+      color: var(--text-main);
+      font-size: 14px;
+      font-weight: 500;
+      transition: var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+    }
+    .course-nav a:hover {
+      background: var(--bg-light-green);
+      border-color: var(--primary-hover);
+      color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    /* タイムラインレイアウト */
+    .course-section {
+      margin-bottom: 100px;
+      scroll-margin-top: 80px;
+    }
+    .route-timeline {
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+    .route-step {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .single-card {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 20px;
+    }
+
+    /* カードの基本設定 (16:9比) */
+    .link-photo-card, .nolink-photo-card {
+      display: block;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      padding-bottom: 14px;
+      transition: transform 0.2s;
+    }
+    .link-photo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .link-photo-card img, .nolink-photo-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .link-photo-card h3, .nolink-photo-card h3 {
+      margin: 12px 12px 8px;
+      font-size: 16px;
+    }
+    .link-photo-card p, .nolink-photo-card p {
+      margin: 0 12px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* 矢印と移動時間 */
+    .route-arrow {
+      text-align: center;
+      padding: 18px 0;
+      color: #666;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .route-arrow::after {
+      content: "▼";
+      display: block;
+      color: #bbb;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    /* 強調カード */
+    .lunch-card { border: 2px solid #f57c00; }
+    .parking-card { border: 2px solid #1976d2; }
+
+    /* 横スライダー（タッチ・スワイプ対応） */
+    .slider-hint {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+      text-align: center;
+      width: 100%;
+    }
+    .horizontal-slider {
+      display: flex;
+      width: 100%;
+      max-width: 600px; /* PCなどでの最大幅 */
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding: 10px 20px 20px;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox用 */
+    }
+    .horizontal-slider::-webkit-scrollbar {
+      display: none; /* Chrome/Safari用 */
+    }
+    .slider-item {
+      flex: 0 0 260px;
+      scroll-snap-align: center;
+    }
+
+    /* 所要時間バッジ */
+    .duration-badge {
+      display: inline-block;
+      background: #f0f4f8;
+      color: #334e68;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin: 10px 12px 0;
+      font-weight: 500;
+    }
+    .lunch-card .duration-badge {
+      background: #fff3e0;
+      color: #e65100;
+    }
+    .parking-card .duration-badge {
+      background: #e3f2fd;
+      color: #0d47a1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-container">
+      <a href="../index.html" class="logo">明日香村観光ガイド</a>
+      <nav>
+        <ul>
+          <li class="dropdown">
+            <a href="index.html">観光する</a>
+            <ul class="dropdown-menu">
+              <li><a href="index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="index.html#temple">神社・寺院</a></li>
+              <li><a href="index.html#nature">自然・風景</a></li>
+              <li><a href="index.html#museum">博物館</a></li>
+              <li><a href="index.html#souvenir">おみやげ</a></li>
+              <li><a href="parking.html#parking-map">駐車場</a></li>
+              <li><a href="../toilet-map.html">トイレ</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="../gourmet/index.html#lunch">食べる</a>
+            <ul class="dropdown-menu">
+              <li><a href="../gourmet/index.html#lunch">ランチ・ディナー</a></li>
+              <li><a href="../gourmet/index.html#cafe">カフェ・スイーツ</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="../stay/index.html#inn">泊まる</a>
+            <ul class="dropdown-menu">
+              <li><a href="../stay/index.html#inn">お宿</a></li>
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="spot-main">
+    <div class="spot-container">
+      <h1>明日香村モデルコース</h1>
+      <p class="lead">
+        明日香村の魅力を存分に味わえるおすすめのモデルコースをご紹介します。「歩く」「サイクリング」「ドライブ」の3つの移動手段と、「半日」「1日」の所要時間に合わせて計6種類のルートを厳選しました。各施設間の移動時間や、見学の所要時間、おすすめの昼食スポットも掲載しています。
+      </p>
+    </div>
+
+    <!-- コースナビゲーション -->
+    <div class="course-nav">
+      <a href="#walk-half">🚶 歩く × 半日</a>
+      <a href="#walk-full">🚶 歩く × 1日</a>
+      <a href="#cycle-half">🚲 サイクリング × 半日</a>
+      <a href="#cycle-full">🚲 サイクリング × 1日</a>
+      <a href="#drive-half">🚗 ドライブ × 半日</a>
+      <a href="#drive-full">🚗 ドライブ × 1日</a>
+    </div>
+
+    <!-- ==========================================
+         共通パーツ：昼食スライダー (各コースで使い回せるように構築)
+    ========================================== -->
+    <!-- 昼食店舗は各コース内で展開 -->
+
+    <!-- ==========================================
+         1. 歩く × 半日
+    ========================================== -->
+    <section class="course-section" id="walk-half">
+      <div class="spot-container">
+        <h2 class="section-title">🚶 歩く × 半日コース（約4時間）</h2>
+        <p class="explain">飛鳥駅から出発し、周辺の主要な史跡や寺院を歩いてコンパクトに巡るコースです。起伏が少なく、初めての方でも散策を楽しめます。</p>
+      </div>
+
+      <div class="route-timeline">
+        <div class="route-step">
+          <div class="nolink-photo-card single-card">
+            <img src="../images/spots/station/asuka-station.jpg" alt="飛鳥駅">
+            <h3>近鉄 飛鳥駅</h3>
+            <p>旅のスタート地点。駅前の観光案内所でマップをもらいましょう。</p>
+            <span class="duration-badge">出発準備: 約10分</span>
+          </div>
+        </div>
+        
+        <div class="route-arrow">徒歩 約15分</div>
+
+        <div class="route-step">
+          <a href="../spots/kameishi.html" class="link-photo-card single-card">
+            <img src="../images/spots/kameishi/kameishi.jpg" alt="亀石">
+            <h3>亀石</h3>
+            <p>飛鳥ののどかな風景の中に佇む、愛嬌のある謎の石造物。</p>
+            <span class="duration-badge">見学: 約10分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩 約15分</div>
+
+        <div class="route-step">
+          <a href="../spots/tachibanadera.html" class="link-photo-card single-card">
+            <img src="../images/spots/tachibanadera/tachibanadera.jpg" alt="橘寺">
+            <h3>橘寺</h3>
+            <p>聖徳太子誕生の地とされる名刹。美しい境内と二面石が見どころ。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩 約10分</div>
+
+        <div class="slider-hint">← スワイプしてお店を選ぶ →</div>
+        <div class="route-step">
+          <div class="horizontal-slider">
+            <!-- 昼食スライダー -->
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/kotodama.jpg" alt="cafe ことだま">
+                <h3>cafe ことだま</h3>
+                <p>築170年の元酒蔵を改装。明日香野菜たっぷりの人気ランチ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/sanpo.jpg" alt="珈琲 さんぽ">
+                <h3>珈琲 さんぽ</h3>
+                <p>岡エリア。自家焙煎珈琲と海南鶏飯・チキンカレーが絶品。</p>
+                <span class="duration-badge">滞在: 約50分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/rakuichi.jpg" alt="あすか夢の楽市">
+                <h3>あすか夢の楽市</h3>
+                <p>飛鳥歴史公園館横。地元の新鮮野菜や手作りお弁当を販売。</p>
+                <span class="duration-badge">滞在: 約40分</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-arrow">徒歩 約15分</div>
+
+        <div class="route-step">
+          <a href="../spots/takamatsuzuka.html" class="link-photo-card single-card">
+            <img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg" alt="高松塚古墳">
+            <h3>高松塚古墳・壁画館</h3>
+            <p>極彩色壁画で知られる古墳。壁画館で精巧な模写を見学できます。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩 約15分</div>
+
+        <div class="route-step">
+          <div class="nolink-photo-card single-card">
+            <img src="../images/spots/station/asuka-station.jpg" alt="飛鳥駅">
+            <h3>近鉄 飛鳥駅</h3>
+            <p>お疲れ様でした。駅前でお土産を買って帰路につきます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         2. 歩く × 1日
+    ========================================== -->
+    <section class="course-section" id="walk-full">
+      <div class="spot-container">
+        <h2 class="section-title">🚶 歩く × 1日コース（約6〜7時間）</h2>
+        <p class="explain">飛鳥駅からキトラ古墳、石舞台古墳まで、飛鳥の歴史を1日かけてじっくりと歩き尽くす健脚向けの充実コースです。</p>
+      </div>
+
+      <div class="route-timeline">
+        <div class="route-step">
+          <div class="nolink-photo-card single-card">
+            <img src="../images/spots/station/asuka-station.jpg" alt="飛鳥駅">
+            <h3>近鉄 飛鳥駅</h3>
+            <p>1日の始まり。水分補給の準備をして出発しましょう。</p>
+            <span class="duration-badge">出発準備: 約10分</span>
+          </div>
+        </div>
+        
+        <div class="route-arrow">徒歩 約15分</div>
+
+        <div class="route-step">
+          <a href="../spots/takamatsuzuka.html" class="link-photo-card single-card">
+            <img src="../images/spots/takamatsuzuka/takamatsuzuka.jpg" alt="高松塚古墳">
+            <h3>高松塚古墳</h3>
+            <p>まずは飛鳥歴史公園内の美しい古墳を見学。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩 約25分 (歴史的風土保存地区の遊歩道)</div>
+
+        <div class="route-step">
+          <a href="../spots/kitora.html" class="link-photo-card single-card">
+            <img src="../images/spots/kitora/kitora.jpg" alt="キトラ古墳">
+            <h3>キトラ古墳・四神の館</h3>
+            <p>四神壁画の神秘に触れ、体験館で歴史を深く学びます。</p>
+            <span class="duration-badge">見学: 約50分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩 約40分 (または周遊バス利用)</div>
+
+        <div class="slider-hint">← スワイプしてお店を選ぶ →</div>
+        <div class="route-step">
+          <div class="horizontal-slider">
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/yumeichi.jpg" alt="夢市茶屋">
+                <h3>農村レストラン 夢市茶屋</h3>
+                <p>石舞台古墳のすぐ隣。古代米と地元野菜の農村料理ランチ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/kotodama.jpg" alt="cafe ことだま">
+                <h3>cafe ことだま</h3>
+                <p>大和野菜を使ったことだまランチ。予約推奨の人気店。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/coccolo.jpg" alt="コッコロ カフェ">
+                <h3>コッコロ カフェ</h3>
+                <p>飛鳥駅エリアに戻る手前で、アンティーク調の店内で一息。</p>
+                <span class="duration-badge">滞在: 約50分</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-arrow">徒歩 すぐ</div>
+
+        <div class="route-step">
+          <a href="../spots/ishibutai.html" class="link-photo-card single-card">
+            <img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳">
+            <h3>石舞台古墳</h3>
+            <p>飛鳥観光のハイライト。巨大な石室の中に入って大きさを体感。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+        
+        <div class="route-arrow">徒歩 約20分</div>
+
+        <div class="route-step">
+          <a href="../spots/asukadera.html" class="link-photo-card single-card">
+            <img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺">
+            <h3>飛鳥寺</h3>
+            <p>日本最古の本格的仏教寺院。飛鳥大仏にお参りします。</p>
+            <span class="duration-badge">見学: 約30分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">バス または 徒歩約40分</div>
+
+        <div class="route-step">
+          <div class="nolink-photo-card single-card">
+            <img src="../images/spots/station/asuka-station.jpg" alt="飛鳥駅">
+            <h3>近鉄 飛鳥駅</h3>
+            <p>充実した飛鳥巡りのゴールです。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. サイクリング × 半日
+    ========================================== -->
+    <section class="course-section" id="cycle-half">
+      <div class="spot-container">
+        <h2 class="section-title">🚲 サイクリング × 半日コース（約3時間）</h2>
+        <p class="explain">飛鳥駅周辺のレンタサイクルを利用し、風を感じながら効率よく有名スポットを巡ります。電動アシスト自転車がおすすめです。</p>
+      </div>
+
+      <div class="route-timeline">
+        <div class="slider-hint">← スワイプしてレンタサイクル店舗を選ぶ →</div>
+        <div class="route-step">
+          <div class="horizontal-slider">
+            <div class="slider-item">
+              <a href="http://r-himawari.shop/" target="_blank" class="link-photo-card">
+                <img src="../images/spots/station/himawari.jpg" alt="レンタサイクルひまわり">
+                <h3>レンタサイクルひまわり</h3>
+                <p>飛鳥駅から徒歩30秒。ネット予約不要で電動アシストも充実。</p>
+                <span class="duration-badge">手続き: 約10分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="https://www.asuka-park.jp/infomation/rent_cycle/" target="_blank" class="link-photo-card">
+                <img src="../images/spots/station/asuka-rent.jpg" alt="明日香レンタサイクル">
+                <h3>明日香レンタサイクル</h3>
+                <p>駅前すぐ。村内に複数営業所があり乗り捨ても可能。</p>
+                <span class="duration-badge">手続き: 約10分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="https://www.pref.nara.lg.jp/site/cycling/omotenashi/rental-bicycle/1153.html" target="_blank" class="link-photo-card">
+                <img src="../images/spots/station/manyo-rent.jpg" alt="レンタサイクル万葉">
+                <h3>レンタサイクル万葉</h3>
+                <p>駅前ロータリー内。豊富な台数で安心のレンタサイクル店。</p>
+                <span class="duration-badge">手続き: 約10分</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="route-arrow">自転車 約15分</div>
+
+        <div class="route-step">
+          <a href="../spots/ishibutai.html" class="link-photo-card single-card">
+            <img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳">
+            <h3>石舞台古墳</h3>
+            <p>自転車ならスイスイ到着。迫力の巨石を見上げます。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">自転車 約5分</div>
+
+        <div class="slider-hint">← スワイプしてお店を選ぶ →</div>
+        <div class="route-step">
+          <div class="horizontal-slider">
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/yumeichi.jpg" alt="夢市茶屋">
+                <h3>農村レストラン 夢市茶屋</h3>
+                <p>石舞台のすぐ近く。駐輪場完備でアクセス抜群。</p>
+                <span class="duration-badge">滞在: 約50分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/kotodama.jpg" alt="cafe ことだま">
+                <h3>cafe ことだま</h3>
+                <p>自転車ならすぐ。野菜たっぷりのヘルシーランチ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/sanpo.jpg" alt="珈琲 さんぽ">
+                <h3>珈琲 さんぽ</h3>
+                <p>岡エリアでチキンカレーと自家焙煎珈琲を満喫。</p>
+                <span class="duration-badge">滞在: 約50分</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-arrow">自転車 約10分</div>
+
+        <div class="route-step">
+          <a href="../spots/asukadera.html" class="link-photo-card single-card">
+            <img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺">
+            <h3>飛鳥寺</h3>
+            <p>のどかな田園風景を走り抜け、日本最古の寺院へ。</p>
+            <span class="duration-badge">見学: 約30分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">自転車 約15分</div>
+
+        <div class="route-step">
+          <div class="nolink-photo-card single-card">
+            <img src="../images/spots/station/rental-cycle.jpg" alt="レンタサイクル">
+            <h3>飛鳥駅前 レンタサイクル</h3>
+            <p>自転車を返却してゴール。半日でも十分に楽しめます。</p>
+            <span class="duration-badge">返却手続き: 約5分</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. サイクリング × 1日
+    ========================================== -->
+    <section class="course-section" id="cycle-full">
+      <div class="spot-container">
+        <h2 class="section-title">🚲 サイクリング × 1日コース（約6時間）</h2>
+        <p class="explain">機動力抜群の自転車で、明日香村全域をくまなく巡る王道コース。棚田の絶景から博物館まで、飛鳥のすべてを満喫できます。</p>
+      </div>
+
+      <div class="route-timeline">
+        <div class="route-step">
+          <div class="nolink-photo-card single-card">
+            <img src="../images/spots/station/rental-cycle.jpg" alt="レンタサイクル">
+            <h3>飛鳥駅前 レンタサイクル</h3>
+            <p>1日借りて、広大な飛鳥の里を制覇しましょう。（※飛鳥駅前の3店舗から選べます）</p>
+            <span class="duration-badge">手続き: 約10分</span>
+          </div>
+        </div>
+        
+        <div class="route-arrow">自転車 約15分</div>
+
+        <div class="route-step">
+          <a href="../spots/mizuochi.html" class="link-photo-card single-card">
+            <img src="../images/spots/mizuochi/mizuochi.jpg" alt="飛鳥水落遺跡">
+            <h3>飛鳥水落遺跡</h3>
+            <p>中大兄皇子が造った日本最古級の水時計の跡を見学。</p>
+            <span class="duration-badge">見学: 約15分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">自転車 約5分</div>
+
+        <div class="route-step">
+          <a href="../spots/manyo-museum.html" class="link-photo-card single-card">
+            <img src="../images/spots/manyo-museum/manyo-museum.jpg" alt="万葉文化館">
+            <h3>万葉文化館</h3>
+            <p>万葉集の世界を映像と展示で体感するミュージアム。</p>
+            <span class="duration-badge">見学: 約60分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">自転車 約5分</div>
+
+        <div class="slider-hint">← スワイプしてお店を選ぶ →</div>
+        <div class="route-step">
+          <div class="horizontal-slider">
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/sanpo.jpg" alt="珈琲 さんぽ">
+                <h3>珈琲 さんぽ</h3>
+                <p>万葉文化館からほど近いカフェで自家焙煎珈琲とランチ。</p>
+                <span class="duration-badge">滞在: 約50分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/kotodama.jpg" alt="cafe ことだま">
+                <h3>cafe ことだま</h3>
+                <p>飛鳥寺周辺の散策ついでに、こだわりの大和野菜ランチを。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/yumeichi.jpg" alt="夢市茶屋">
+                <h3>農村レストラン 夢市茶屋</h3>
+                <p>午後の石舞台に向けて、古代米の農村料理で腹ごしらえ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-arrow">自転車 約10分</div>
+
+        <div class="route-step">
+          <a href="../spots/ishibutai.html" class="link-photo-card single-card">
+            <img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳">
+            <h3>石舞台古墳</h3>
+            <p>午後は飛鳥のシンボルへ。大迫力の石室を堪能。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">自転車 約15分 (上り坂)</div>
+
+        <div class="route-step">
+          <a href="../spots/inabuchi-tanada.html" class="link-photo-card single-card">
+            <img src="../images/spots/inabuchi-tanada/inabuchi-tanada.jpg" alt="稲渕の棚田">
+            <h3>稲渕の棚田</h3>
+            <p>自転車を停めて、日本の原風景が広がる美しい棚田を撮影。</p>
+            <span class="duration-badge">見学: 約20分</span>
+          </a>
+        </div>
+        
+        <div class="route-arrow">自転車 約25分</div>
+
+        <div class="route-step">
+          <div class="nolink-photo-card single-card">
+            <img src="../images/spots/station/rental-cycle.jpg" alt="レンタサイクル">
+            <h3>飛鳥駅前 レンタサイクル</h3>
+            <p>夕焼けの飛鳥を走り抜け、駅前に戻ります。</p>
+            <span class="duration-badge">返却手続き: 約5分</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. ドライブ × 半日
+    ========================================== -->
+    <section class="course-section" id="drive-half">
+      <div class="spot-container">
+        <h2 class="section-title">🚗 ドライブ × 半日コース（約4時間）</h2>
+        <p class="explain">車でのアクセスを活かし、広範囲に点在するスポットをスムーズに回るコース。各施設の駐車場情報を確認しながら進みましょう。</p>
+      </div>
+
+      <div class="route-timeline">
+        <!-- 駐車場カード -->
+        <div class="route-step">
+          <a href="parking.html" class="link-photo-card parking-card single-card">
+            <img src="../images/spots/parking/kitora-park.jpg" alt="キトラ古墳周辺駐車場">
+            <h3>🅿️ キトラ古墳周辺駐車場</h3>
+            <p>大型の無料駐車場。まずはここに車を停めて公園内へ。</p>
+            <span class="duration-badge">駐車料金: 無料</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩すぐ</div>
+
+        <div class="route-step">
+          <a href="../spots/kitora.html" class="link-photo-card single-card">
+            <img src="../images/spots/kitora/kitora.jpg" alt="キトラ古墳">
+            <h3>キトラ古墳・四神の館</h3>
+            <p>最新の壁画体験館で飛鳥の歴史を深く学びます。</p>
+            <span class="duration-badge">見学: 約50分</span>
+          </a>
+        </div>
+        
+        <div class="route-arrow">車 約10分</div>
+
+        <!-- 駐車場カード -->
+        <div class="route-step">
+          <a href="parking.html" class="link-photo-card parking-card single-card">
+            <img src="../images/spots/parking/ishibutai-park.jpg" alt="石舞台古墳駐車場">
+            <h3>🅿️ 石舞台古墳駐車場</h3>
+            <p>石舞台古墳と周辺での昼食に便利な大型駐車場。</p>
+            <span class="duration-badge">駐車料金: 普通車500円</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩すぐ</div>
+
+        <div class="route-step">
+          <a href="../spots/ishibutai.html" class="link-photo-card single-card">
+            <img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳">
+            <h3>石舞台古墳</h3>
+            <p>国営公園に停め、飛鳥最大の古墳を見学。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩すぐ</div>
+
+        <div class="slider-hint">← スワイプしてお店を選ぶ →</div>
+        <div class="route-step">
+          <div class="horizontal-slider">
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/yumeichi.jpg" alt="夢市茶屋">
+                <h3>農村レストラン 夢市茶屋</h3>
+                <p>車を置いたまま、石舞台周辺のお店でゆっくりランチ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/kotodama.jpg" alt="cafe ことだま">
+                <h3>cafe ことだま</h3>
+                <p>車を少し移動させて、大和野菜たっぷりのランチを楽しむのもおすすめ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-arrow">車 約5分</div>
+
+        <!-- 駐車場カード -->
+        <div class="route-step">
+          <a href="parking.html" class="link-photo-card parking-card single-card">
+            <img src="../images/spots/parking/okadera-park.jpg" alt="岡寺 民間駐車場">
+            <h3>🅿️ 岡寺 民間駐車場</h3>
+            <p>参道付近の民間駐車場（有料）。ここから坂道を登ります。</p>
+            <span class="duration-badge">駐車料金: 約500円</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩 約10分</div>
+
+        <div class="route-step">
+          <a href="../spots/okadera.html" class="link-photo-card single-card">
+            <img src="../images/spots/okadera/okadera.jpg" alt="岡寺">
+            <h3>岡寺</h3>
+            <p>日本最初の厄除け霊場。四季折々の花手水が美しいお寺です。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">車で帰路へ</div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         6. ドライブ × 1日
+    ========================================== -->
+    <section class="course-section" id="drive-full">
+      <div class="spot-container">
+        <h2 class="section-title">🚗 ドライブ × 1日コース（約7時間）</h2>
+        <p class="explain">車ならではの自由度で、博物館、寺院、古墳と明日香村のあらゆる見どころを一日で制覇するコンプリートコースです。</p>
+      </div>
+
+      <div class="route-timeline">
+        <!-- 駐車場カード -->
+        <div class="route-step">
+          <a href="parking.html" class="link-photo-card parking-card single-card">
+            <img src="../images/spots/parking/manyo-park.jpg" alt="万葉文化館駐車場">
+            <h3>🅿️ 万葉文化館駐車場</h3>
+            <p>無料の大型駐車場。飛鳥寺周辺の散策にも便利です。</p>
+            <span class="duration-badge">駐車料金: 無料</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩すぐ</div>
+
+        <div class="route-step">
+          <a href="../spots/manyo-museum.html" class="link-photo-card single-card">
+            <img src="../images/spots/manyo-museum/manyo-museum.jpg" alt="万葉文化館">
+            <h3>万葉文化館</h3>
+            <p>まずは映像展示で飛鳥時代の予備知識を入れましょう。</p>
+            <span class="duration-badge">見学: 約60分</span>
+          </a>
+        </div>
+        
+        <div class="route-arrow">徒歩 約5分</div>
+
+        <div class="route-step">
+          <a href="../spots/asukadera.html" class="link-photo-card single-card">
+            <img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺">
+            <h3>飛鳥寺</h3>
+            <p>日本最古の大仏に拝観します。</p>
+            <span class="duration-badge">見学: 約30分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">車 約5分</div>
+
+        <!-- 駐車場カード -->
+        <div class="route-step">
+          <a href="parking.html" class="link-photo-card parking-card single-card">
+            <img src="../images/spots/parking/ishibutai-park.jpg" alt="石舞台古墳駐車場">
+            <h3>🅿️ 石舞台古墳駐車場</h3>
+            <p>石舞台の巨大石室と昼食のために車を移動させます。</p>
+            <span class="duration-badge">駐車料金: 普通車500円</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩すぐ</div>
+
+        <div class="route-step">
+          <a href="../spots/ishibutai.html" class="link-photo-card single-card">
+            <img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳">
+            <h3>石舞台古墳</h3>
+            <p>食前または食後に、飛鳥の代名詞とも言える古墳を見学。</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩すぐ</div>
+
+        <div class="slider-hint">← スワイプしてお店を選ぶ →</div>
+        <div class="route-step">
+          <div class="horizontal-slider">
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/yumeichi.jpg" alt="夢市茶屋">
+                <h3>農村レストラン 夢市茶屋</h3>
+                <p>石舞台駐車場から徒歩すぐ。古代米ランチがおすすめ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/kotodama.jpg" alt="cafe ことだま">
+                <h3>cafe ことだま</h3>
+                <p>車で数分移動して、人気の古民家カフェでランチ。</p>
+                <span class="duration-badge">滞在: 約60分</span>
+              </a>
+            </div>
+            <div class="slider-item">
+              <a href="../gourmet/index.html#lunch" class="link-photo-card lunch-card">
+                <img src="../images/spots/gourmet/sanpo.jpg" alt="珈琲 さんぽ">
+                <h3>珈琲 さんぽ</h3>
+                <p>岡エリア。自家焙煎珈琲とチキンカレーが絶品。</p>
+                <span class="duration-badge">滞在: 約50分</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-arrow">車 約5分</div>
+
+        <div class="route-step">
+          <a href="../spots/okadera.html" class="link-photo-card single-card">
+            <img src="../images/spots/okadera/okadera.jpg" alt="岡寺">
+            <h3>岡寺</h3>
+            <p>厄除け参りで心を落ち着かせます。（※付近の民間駐車場を利用）</p>
+            <span class="duration-badge">見学: 約40分</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">車 約10分</div>
+
+        <!-- 駐車場カード -->
+        <div class="route-step">
+          <a href="parking.html" class="link-photo-card parking-card single-card">
+            <img src="../images/spots/parking/kitora-park.jpg" alt="キトラ古墳周辺駐車場">
+            <h3>🅿️ キトラ古墳周辺駐車場</h3>
+            <p>1日の最後は、南部の広大な無料駐車場へ。</p>
+            <span class="duration-badge">駐車料金: 無料</span>
+          </a>
+        </div>
+
+        <div class="route-arrow">徒歩すぐ</div>
+
+        <div class="route-step">
+          <a href="../spots/kitora.html" class="link-photo-card single-card">
+            <img src="../images/spots/kitora/kitora.jpg" alt="キトラ古墳">
+            <h3>キトラ古墳・四神の館</h3>
+            <p>最後は壁画体験館へ。広々とした公園で旅の余韻に浸りながら帰路へ。</p>
+            <span class="duration-badge">見学: 約50分</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <nav>
+      <a href="../sitemap.html">サイトマップ</a>
+      <span class="separator">｜</span>
+      <a href="../privacy.html">プライバシーポリシー</a>
+      <span class="separator">｜</span>
+      <a href="../contact.html">お問い合わせ</a>
+    </nav>
+    <p>&copy; 2026 Asuka Travel Guide. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

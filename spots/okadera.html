@@ -12,8 +12,28 @@
     <title>岡寺｜明日香村観光ガイド</title>
     <meta name="description" content="日本最初の厄除け霊場として知られる岡寺の歴史や本尊、見どころ、拝観時間、アクセス、駐車場情報を紹介します。">
     <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/okadera.html">
+    <!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+    <meta property="og:title" content="岡寺｜明日香村観光ガイド">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/spots/okadera.html">
+    <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/okadera/okadera.jpg">
+    <meta property="og:description" content="日本最初の厄除け霊場として知られる岡寺の歴史や本尊、見どころ、拝観時間、アクセス、駐車場情報を紹介します。">
+    <meta property="og:site_name" content="明日香村観光ガイド">
+    <meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card (X) 設定 -->
+ <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="岡寺｜明日香村観光ガイド">
+    <meta name="twitter:description" content="日本最初の厄除け霊場として知られる岡寺の歴史や本尊、見どころ、拝観時間、アクセス、駐車場情報を紹介します。">
+    <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/okadera/okadera.jpg">
 
 
+
+
+<!-- favicon -->
+ <link rel="icon" href="../images/favicon.ico" sizes="any">
+ <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+ <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 
 
 <!-- Google Fonts -->
@@ -21,6 +41,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet">
+
+
+<!-- 3. 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/okadera.html#spot",
+      "name": "岡寺",
+      "description": "日本最初の厄除け霊場として知られる岡寺の歴史や本尊、見どころ、拝観時間、アクセス、駐車場情報を紹介します。",
+      "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/okadera.html",
+      "image": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/spots/okadera/okadera.jpg",
+      "isAccessibleForFree": false,
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "奈良県",
+        "addressLocality": "高市郡明日香村"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/okadera.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "観光する",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "岡寺",
+          "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/spots/okadera.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- CSS -->
@@ -39,22 +108,23 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+<!-- Logo -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
-      <!-- Navigation -->
+<!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
-            <a href="index.html">観光する</a>
+            <a href="../spots/index.html#ruins">観光する</a>
             <ul class="dropdown-menu">
-              <li><a href="index.html#ruins">古墳・遺跡</a></li>
-              <li><a href="index.html#temple">神社・寺院</a></li>
-              <li><a href="index.html#nature">自然・風景</a></li>
-              <li><a href="index.html#museum">博物館</a></li>
-              <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking">駐車場</a></li>
+              <li><a href="../spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="../spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="../spots/index.html#nature">自然・風景</a></li>
+              <li><a href="../spots/index.html#museum">博物館</a></li>
+              <li><a href="../spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="../spots/parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -73,14 +143,9 @@
             <a href="../stay/index.html#inn">泊まる</a>
             <ul class="dropdown-menu">
               <li><a href="../stay/index.html#inn">お宿</a></li>
-<!-- 公開まで非表示
-  <li><a href="../stay/index.html#bath">お風呂</a></li>
- -->
+              <li><a href="../stay/index.html#bath">お風呂</a></li>
             </ul>
           </li>
-
-
-
 
 
 
@@ -88,42 +153,41 @@
       </nav>
 
     </div>
-  </header>
-
-
+ </header>
 
 <!-- メイン -->
-  
-<main class="spot-detail">
+<main class="spot-detail-main">
 
 
 <!-- Hero -->
 <section class="spot-hero">
-
-    <img src="../images/spots/okadera/okadera.jpg" alt="岡寺">
-
+    <img src="../images/spots/okadera/okadera.jpg" alt="岡寺" width="320" height="180" fetchpriority="high" decoding="async">
     <div class="spot-title">
-        <h1>岡寺</h1>
+    <h1>岡寺</h1>
     </div>
-
 </section>
 
+
+
+
 <!-- Overview -->
-
-<section class="spot-intro">
-
-    <p>
+<section class="spot-detail-category">
+ <div class="spot-detail-container">
+    <p class="explain">
         岡寺は、日本最初の厄除け霊場として知られる真言宗豊山派の古刹です。
         正式名称は龍蓋寺（りゅうがいじ）で、西国三十三所第七番札所としても多くの参拝者が訪れます。
         春のシャクナゲや初夏の紫陽花、秋の紅葉など四季折々の花も美しく、明日香村を代表する人気スポットです。
     </p>
-
+ </div>
 </section>
+
+
+
+
 
 <!-- Basic Information -->
 
 <section class="spot-info">
-
 <h2>基本情報</h2>
 
 <table>
@@ -158,14 +222,14 @@
 
 <td>
 
-<a href="parking.html#okadera-free-parking">
+<a href="../spots/parking.html#okadera-free-parking">
 岡寺無料駐車場
 </a>
 （徒歩約1分・無料）
 
 <br>
 
-<a href="parking.html#okadera-parking">
+<a href="../spots/parking.html#okadera-parking">
 岡寺門前駐車場
 </a>
 （徒歩約3分・有料）
@@ -200,101 +264,100 @@
 </tr>
 
 </table>
-
 </section>
+
+
+
 
 <!-- 見どころ -->
 
-<section class="spot-section">
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>見どころ</h2>
+</div>
+
 
 <div class="spot-grid">
 
-<article class="spot-card">
 
-<img src="../images/spots/okadera/okadera-feature01.jpg"
-alt="岡寺本堂">
-
+<article class="nolink-photo-card">
+<img src="../images/spots/okadera/okadera-feature01.jpg" alt="岡寺本堂" width="320" height="180" loading="lazy" decoding="async">
 <h3>歴史ある本堂</h3>
-
 <p>
 山腹に建つ本堂は岡寺を代表する景観で、多くの参拝者が訪れる人気スポットです。
 </p>
-
 </article>
 
-<article class="spot-card">
 
-<img src="../images/spots/okadera/okadera-feature02.jpg"
-alt="四季の花">
 
+
+<article class="nolink-photo-card">
+<img src="../images/spots/okadera/okadera-feature02.jpg" alt="四季の花" width="320" height="180" loading="lazy" decoding="async">
 <h3>四季を彩る花々</h3>
-
 <p>
 春のシャクナゲ、初夏の紫陽花、秋の紅葉など、一年を通して美しい景色が楽しめます。
 </p>
-
 </article>
+
+
 
 </div>
 
 </section>
 
+
+
+
 <!-- History -->
 
-<section class="spot-section">
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>
 歴史・由来
 </h2>
-
-<p>
+<p class="explain">
 岡寺は7世紀、義淵僧正によって創建されたと伝わる古刹です。
 正式名称は龍蓋寺で、義淵僧正が悪龍を池に封じ込めたという伝説から寺名が付けられました。
 日本最初の厄除け霊場として古くから信仰を集め、西国三十三所観音霊場第七番札所として現在も多くの参拝者が訪れています。
 </p>
-
+</div>
 </section>
 
+
+
+
 <!-- Nearby -->
-
 <section class="spot-section related">
-
+<div class="spot-detail-container">
 <h2>
 周辺のおすすめ
 </h2>
+</div>
 
 <div class="related-scroll">
 
 <div class="related-slider">
 
-<a href="ishibutai.html" class="spot-card">
 
-<img src="../images/spots/ishibutai/ishibutai.jpg"
-alt="石舞台古墳">
 
+<a href="../spots/ishibutai.html" class="link-photo-card">
+<img src="../images/spots/ishibutai/ishibutai.jpg" alt="石舞台古墳" width="320" height="180" loading="lazy" decoding="async">
 <h3>石舞台古墳</h3>
-
 </a>
 
-<a href="sakafuneishi.html" class="spot-card">
 
-<img src="../images/spots/sakafuneishi/sakafuneishi.jpg"
-alt="酒船石">
-
+<a href="../spots/sakafuneishi.html" class="link-photo-card">
+<img src="../images/spots/sakafuneishi/sakafuneishi.jpg" alt="酒船石" width="320" height="180" loading="lazy" decoding="async">
 <h3>酒船石</h3>
-
 </a>
 
-<a href="kamegata.html" class="spot-card">
 
-<img src="../images/spots/kamegata/kamegata.jpg"
-alt="亀形石造物">
-
+<a href="../spots/kamegata.html" class="link-photo-card">
+<img src="../images/spots/kamegata/kamegata.jpg" alt="亀形石造物" width="320" height="180" loading="lazy" decoding="async">
 <h3>亀形石造物</h3>
-
 </a>
+
+
 
 </div>
 
@@ -302,17 +365,22 @@ alt="亀形石造物">
 
 </section>
 
+
+
+
 <!-- Map -->
-
 <section id="map" class="spot-map">
-
+<div class="map">
 <h2>地図</h2>
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26313.500808117915!2d135.79163005149593!3d34.47276487205451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6006cb8750be2b6f%3A0x83b0257182db3e11!2z5bKh5a-6!5e0!3m2!1sja!2sjp!4v1785069836808!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
+</div>
 </section>
 
+
+
 </main>
+
 
 <!-- フッター -->
 <footer>
