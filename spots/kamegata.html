@@ -110,22 +110,23 @@
   <header>
     <div class="container">
 
-      <!-- Logo -->
+<!-- Logo -->
       <a href="../index.html" class="logo">明日香村観光ガイド</a>
 
-      <!-- Navigation -->
+<!-- Navigation -->
       <nav>
         <ul>
+
 <!-- 観光する -->
           <li class="dropdown">
-            <a href="index.html">観光する</a>
+            <a href="../spots/index.html#ruins">観光する</a>
             <ul class="dropdown-menu">
-              <li><a href="index.html#ruins">古墳・遺跡</a></li>
-              <li><a href="index.html#temple">神社・寺院</a></li>
-              <li><a href="index.html#nature">自然・風景</a></li>
-              <li><a href="index.html#museum">博物館</a></li>
-              <li><a href="index.html#souvenir">おみやげ</a></li>
-              <li><a href="parking.html#parking-map">駐車場</a></li>
+              <li><a href="../spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="../spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="../spots/index.html#nature">自然・風景</a></li>
+              <li><a href="../spots/index.html#museum">博物館</a></li>
+              <li><a href="../spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="../spots/parking.html#parking-map">駐車場</a></li>
               <li><a href="../toilet-map.html">トイレ</a></li>
             </ul>
           </li>
@@ -150,45 +151,38 @@
 
 
 
-
-
-
         </ul>
       </nav>
 
     </div>
-  </header>
+ </header>
 
 <!-- メイン -->
-
-<main class="spot-detail">
+<main class="spot-detail-main">
 
 
 <!-- Hero -->
-
 <section class="spot-hero">
-
-<img src="../images/spots/kamegata/kamegata.jpg" alt="亀形石造物" fetchpriority="high" decoding="async">
-
-<div class="spot-title">
-<h1>
-亀形石造物
-</h1>
-</div>
-
+    <img src="../images/spots/kamegata/kamegata.jpg" alt="亀形石造物" width="320" height="180" fetchpriority="high" decoding="async">
+    <div class="spot-title">
+    <h1>亀形石造物</h1>
+    </div>
 </section>
+
 
 
 
 <!-- Overview -->
-
-<section class="spot-intro">
-<p>
-亀形石造物は、明日香村岡の酒船石遺跡にある飛鳥時代の石造施設です。
-亀の形に加工された石造物で、周囲の石槽や導水施設とともに、古代の祭祀や宮廷行事に関係する施設だったと考えられています。
-飛鳥時代の高度な石加工技術を感じられる、明日香を代表する歴史スポットです。
-</p>
+<section class="spot-detail-category">
+ <div class="spot-detail-container">
+    <p class="explain">
+        亀形石造物は、明日香村岡の酒船石遺跡にある飛鳥時代の石造施設です。
+        亀の形に加工された石造物で、周囲の石槽や導水施設とともに、古代の祭祀や宮廷行事に関係する施設だったと考えられています。
+        飛鳥時代の高度な石加工技術を感じられる、明日香を代表する歴史スポットです。
+    </p>
+ </div>
 </section>
+
 
 
 
@@ -196,7 +190,6 @@
 <!-- Basic Information -->
 
 <section class="spot-info">
-
 <h2>基本情報</h2>
 
 <table>
@@ -236,10 +229,10 @@
 <th>駐車場</th>
 
 <td>
-<a href="parking.html#manyo-parking">
+<a href="../spots/parking.html#manyo-parking">
 奈良県立万葉文化館駐車場
 </a>
-（徒歩約1分・普通車500円）
+（徒歩約2分・普通車500円）
 
 </td>
 
@@ -279,29 +272,25 @@
 
 
 </table>
-
 </section>
-
 
 
 
 
 <!-- 見どころ -->
 
-<section class="spot-section">
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>見どころ</h2>
+</div>
 
 
 <div class="spot-grid">
 
 
-
-<article class="spot-card">
+<article class="nolink-photo-card">
 <img src="../images/spots/kamegata/kamegata-feature01.jpg" alt="亀形石造物" width="320" height="180" loading="lazy" decoding="async">
-<h3>
-亀の形をした石造物
-</h3>
+<h3>亀の形をした石造物</h3>
 <p>
 亀の姿に加工された特徴的な石造物で、飛鳥時代の高度な加工技術を見ることができます。
 </p>
@@ -309,11 +298,10 @@
 
 
 
-<article class="spot-card">
+
+<article class="nolink-photo-card">
 <img src="../images/spots/kamegata/kamegata-feature02.jpg" alt="亀形石造物の導水施設" width="320" height="180" loading="lazy" decoding="async">
-<h3>
-古代の水利用施設
-</h3>
+<h3>古代の水利用施設</h3>
 <p>
 石槽や導水施設と組み合わせた構造から、古代の祭祀や利用方法について研究されています。
 </p>
@@ -328,40 +316,31 @@
 
 
 
-
 <!-- History -->
 
-<section class="spot-section">
-
+<section class="spot-detail-category">
+<div class="spot-detail-container">
 <h2>
 歴史・由来
 </h2>
-
-
-<p>
-
+<p class="explain">
 亀形石造物は、酒船石遺跡で発見された飛鳥時代の石造施設です。
-
 亀の形をした石造物と小判形の石槽が組み合わされ、水を利用した施設として復元されています。
-
 用途については諸説ありますが、古代の宮廷文化や祭祀を考えるうえで重要な遺構です。
-
 </p>
-
-
+</div>
 </section>
-
 
 
 
 
 <!-- Nearby -->
 <section class="spot-section related">
-
+<div class="spot-detail-container">
 <h2>
 周辺のおすすめ
 </h2>
-
+</div>
 
 <div class="related-scroll">
 
@@ -369,74 +348,62 @@
 
 
 
-<a href="sakafuneishi.html" class="spot-card">
+<a href="../spots/sakafuneishi.html" class="link-photo-card">
 <img src="../images/spots/sakafuneishi/sakafuneishi.jpg" alt="酒船石" width="320" height="180" loading="lazy" decoding="async">
 <h3>酒船石</h3>
 </a>
 
 
-
-<a href="manyo-museum.html" class="spot-card">
+<a href="../spots/manyo-museum.html" class="link-photo-card">
 <img src="../images/spots/manyo-museum/manyo-museum.jpg" alt="奈良県立万葉文化館" width="320" height="180" loading="lazy" decoding="async">
 <h3>奈良県立万葉文化館</h3>
 </a>
 
 
-<a href="asukakyu.html" class="spot-card">
+<a href="../spots/asukakyu.html" class="link-photo-card">
 <img src="../images/spots/asukakyu/asukakyu.jpg" alt="飛鳥宮跡" width="320" height="180" loading="lazy" decoding="async">
 <h3>飛鳥宮跡</h3>
 </a>
 
 
-<a href="asukadera.html" class="spot-card">
+<a href="../spots/asukadera.html" class="link-photo-card">
 <img src="../images/spots/asukadera/asukadera.jpg" alt="飛鳥寺" width="320" height="180" loading="lazy" decoding="async">
 <h3>飛鳥寺</h3>
 </a>
 
 
-<a href="../gourmet/index.html#cafe-section2" class="spot-card">
+<a href="../gourmet/index.html#cafe-section2" class="link-photo-card">
 <img src="../images/gourmet/cafe-section2.jpg" alt="cafe-section２" width="320" height="180" loading="lazy" decoding="async">
 <h3>cafe-section２</h3>
 </a>
 
 
-<a href="../gourmet/index.html#asuka-pure-farm" class="spot-card">
+<a href="../gourmet/index.html#asuka-pure-farm" class="link-photo-card">
 <img src="../images/gourmet/asuka-pure-farm.jpg" alt="明日香ピュアファームキッチン" width="320" height="180" loading="lazy" decoding="async">
 <h3>明日香ピュアファームキッチン</h3>
 </a>
 
 
-<a href="../gourmet/index.html#curryon" class="spot-card">
+<a href="../gourmet/index.html#curryon" class="link-photo-card">
 <img src="../images/gourmet/curryon.jpg" alt="Curryon万葉文化館店" width="320" height="180" loading="lazy" decoding="async">
 <h3>Curryon万葉文化館店</h3>
 </a>
 
 
 
-
-
-
 </div>
 
 </div>
-
 
 </section>
 
 
 
 
-
 <!-- Map -->
-
-<section id="map"
-class="spot-map">
-
-
-<h2>
-地図
-</h2>
-
+<section id="map" class="spot-map">
+<div class="map">
+<h2>地図</h2>
 
 <iframe
 src="https://www.google.com/maps?q=亀形石造物%20明日香村&output=embed"
@@ -444,13 +411,13 @@ loading="lazy"
 allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
-
-
+</div>
 </section>
 
 
 
 </main>
+
 
 <!-- フッター -->
 <footer>
