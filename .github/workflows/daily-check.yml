@@ -1,8 +1,14 @@
 name: 公式サイトの毎日チェック
 on:
   schedule:
-    - cron: "0 20 * * *"   # 日本時間の毎朝5時
-  workflow_dispatch:        # 手動でも実行できる
+    - cron: "0 20 * * *"   # 日本時間の毎朝5時(日曜は全体チェック)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "auto=曜日で自動 / daily=毎日 / weekly=全体チェック"
+        default: "auto"
+        type: choice
+        options: [auto, daily, weekly]
 permissions:
   contents: write
 jobs:
@@ -17,6 +23,7 @@ jobs:
       - run: python tools/check_sites.py
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MODE: ${{ inputs.mode }}
       - name: 変更があれば保存
         run: |
           git config user.name "asuka-checker"
