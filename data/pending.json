@@ -1,1 +1,16 @@
-[]
+[
+ {
+  "id": "asukamura.com-bf1e008df159829e-2026-10-18",
+  "url": "https://asukamura.com/contact",
+  "date": "2026-10-18",
+  "kind": "change",
+  "target": "UNKNOWN",
+  "confidence": "低",
+  "reason": "AI判定に失敗したため簡易判定です(HTTP Error 404: Not Found)",
+  "changes": [],
+  "diff": [
+   "-観光",
+   "+飛鳥"
+  ]
+ }
+]
