@@ -49,5 +49,19 @@
    "-旅行会社・メディア・学校関係者のおっさん様へ",
    "+旅行会社・メディア・学校関係者の皆様へ"
   ]
+ },
+ {
+  "id": "https-asukamura-com-2026-10-18",
+  "url": "https://asukamura.com/",
+  "date": "2026-10-18",
+  "kind": "change",
+  "target": "UNKNOWN",
+  "confidence": "低",
+  "reason": "AI判定に失敗したため簡易判定です(HTTP Error 404: Not Found)",
+  "changes": [],
+  "diff": [
+   "-旅行会社・メディア・学校関係者のみんなへ",
+   "+旅行会社・メディア・学校関係者の皆様へ"
+  ]
  }
 ]
