@@ -280,5 +280,109 @@
    }
   ],
   "ai_calls": 30
+ },
+ {
+  "date": "2026-10-18",
+  "sites": [
+   {
+    "url": "https://asukamura.com/",
+    "pages": 334,
+    "max_pages": 1000,
+    "max_depth": 8,
+    "depth_reached": 4,
+    "pages_by_depth": {
+     "0": 1,
+     "1": 42,
+     "2": 185,
+     "3": 85,
+     "4": 21
+    },
+    "hit_page_limit": false,
+    "new_page_detection": false,
+    "changes": 161,
+    "new_pages": 0,
+    "seconds": 1165,
+    "first_run": false
+   },
+   {
+    "url": "https://www.asukadeasobo.jp/visit/yumeichi/",
+    "pages": 138,
+    "max_pages": 500,
+    "max_depth": 4,
+    "depth_reached": 4,
+    "pages_by_depth": {
+     "0": 1,
+     "1": 17,
+     "2": 49,
+     "3": 47,
+     "4": 24
+    },
+    "hit_page_limit": false,
+    "new_page_detection": false,
+    "changes": 0,
+    "new_pages": 0,
+    "seconds": 398,
+    "first_run": false
+   },
+   {
+    "url": "https://www.asuka-park.jp/",
+    "pages": 1000,
+    "max_pages": 1000,
+    "max_depth": 8,
+    "depth_reached": 5,
+    "pages_by_depth": {
+     "0": 1,
+     "1": 55,
+     "2": 62,
+     "3": 297,
+     "4": 480,
+     "5": 105
+    },
+    "hit_page_limit": true,
+    "new_page_detection": false,
+    "changes": 0,
+    "new_pages": 0,
+    "seconds": 3144,
+    "first_run": false
+   },
+   {
+    "url": "https://www.narakotsu.co.jp/temporary/asuka_free/",
+    "pages": 52,
+    "max_pages": 500,
+    "max_depth": 1,
+    "depth_reached": 1,
+    "pages_by_depth": {
+     "0": 1,
+     "1": 51
+    },
+    "hit_page_limit": false,
+    "new_page_detection": false,
+    "changes": 0,
+    "new_pages": 0,
+    "seconds": 162,
+    "first_run": false
+   },
+   {
+    "url": "https://www.asukabito.or.jp/",
+    "pages": 163,
+    "max_pages": 500,
+    "max_depth": 4,
+    "depth_reached": 4,
+    "pages_by_depth": {
+     "0": 1,
+     "1": 38,
+     "2": 98,
+     "3": 23,
+     "4": 3
+    },
+    "hit_page_limit": false,
+    "new_page_detection": false,
+    "changes": 0,
+    "new_pages": 0,
+    "seconds": 456,
+    "first_run": false
+   }
+  ],
+  "ai_calls": 30
  }
 ]
