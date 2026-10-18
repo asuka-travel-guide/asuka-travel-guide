@@ -91,7 +91,7 @@ def robots(start):
 
 def crawl(start, depth, maxp):  # トップから同じサイトの中をたどる(観光に関係しそうなリンクを優先)
     rp, host = robots(start), urllib.parse.urlparse(start).netloc.replace("www.", "")
-    seen, level, pages = {start}, [start], {}
+    seen, level, pages, dep = {start}, [start], {}, {}
     for d in range(depth + 1):
         nxt = []
         for u in level:
@@ -101,14 +101,14 @@ def crawl(start, depth, maxp):  # トップから同じサイトの中をたど�
             except Exception:
                 if d == 0: raise
                 continue
-            pages[u] = lines; time.sleep(2)  # 公式サイトに負担をかけない
+            pages[u] = lines; dep[u] = d; time.sleep(2)  # 公式サイトに負担をかけない
             for href, text in links:
                 v = urllib.parse.urldefrag(urllib.parse.urljoin(u, href))[0]
                 q = urllib.parse.urlparse(v)
                 if q.scheme in ("http", "https") and q.netloc.replace("www.", "") == host and v not in seen and not q.path.lower().endswith(SKIPEXT):
                     seen.add(v); nxt.append((sum(k in text + v for k in KEYS), v))
         level = [v for _, v in sorted(nxt, key=lambda x: -x[0])]
-    return pages
+    return pages, dep
 
 def judge(url, memo, diff, ai_left):  # 更新先のページを判定する
     res, note = None, ""
@@ -126,13 +126,19 @@ idx = build_index()
 pending = json.loads(PENDING.read_text("utf-8")) if PENDING.exists() else []
 today = datetime.date.today().isoformat()
 ai_left = [int(os.environ.get("MAX_AI_CALLS", "30"))]
+LOG = ROOT / "data" / "crawl-log.json"
+runs = json.loads(LOG.read_text("utf-8")) if LOG.exists() else []
+run = {"date": today, "sites": []}
+ai_start = ai_left[0]
 with open(ROOT / "tools" / "sites.csv", encoding="utf-8") as f:
     for row in csv.DictReader(f):
         start, memo = row["url"], row.get("memo") or ""
         host = re.sub(r"[^A-Za-z0-9.]+", "-", urllib.parse.urlparse(start).netloc)
         sd = SNAP / host; first = not sd.exists(); sd.mkdir(parents=True, exist_ok=True)
-        try: pages = crawl(start, int(row.get("depth") or 3), int(row.get("max_pages") or 60))
+        t0 = time.time(); md, mp = int(row.get("depth") or 3), int(row.get("max_pages") or 60); chg = newp = 0
+        try: pages, dep = crawl(start, md, mp)
         except Exception as e:
+            run["sites"].append({"url": start, "error": str(e)}); print(f"{start}: 読み込みエラー {e}")
             pending.append({"id": f"{host}-{today}-error", "url": start, "date": today, "kind": "error", "diff": [f"読み込めませんでした: {e}"]}); continue
         for u, new in pages.items():
             snap = sd / (hashlib.sha1(u.encode()).hexdigest()[:16] + ".txt")
@@ -141,9 +147,17 @@ with open(ROOT / "tools" / "sites.csv", encoding="utf-8") as f:
                 diff = ["+" + l for l in new[:60]] if old is None else [l for l in difflib.unified_diff(old, new, lineterm="", n=0)
                         if l[:1] in "+-" and l[:3] not in ("+++", "---")]
                 if diff:
+                    chg += 1; newp += old is None
                     t, conf, reason, ch = judge(u, memo, diff, ai_left)
                     if t != "NONE":
                         pending.append({"id": f"{host}-{snap.stem}-{today}", "url": u, "date": today, "kind": "change", "target": t,
                                         "confidence": conf, "reason": reason, "changes": ch, "diff": diff[:60]})
             snap.write_text(u + "\n" + "\n".join(new), "utf-8")
+        by = {str(k): sum(1 for v in dep.values() if v == k) for k in range(max(dep.values(), default=0) + 1)}
+        info = {"url": start, "pages": len(pages), "max_pages": mp, "max_depth": md, "depth_reached": max(dep.values(), default=0),
+                "pages_by_depth": by, "hit_page_limit": len(pages) >= mp, "changes": chg, "new_pages": newp, "seconds": round(time.time() - t0), "first_run": first}
+        run["sites"].append(info); print(f"{start}: {len(pages)}ページ(上限{mp}) 深さ別{by} 変更{chg}件 新規{newp}件 {info['seconds']}秒" + (" ★ページ数の上限に達しました" if info["hit_page_limit"] else ""))
+run["ai_calls"] = ai_start - ai_left[0]
+LOG.write_text(json.dumps((runs + [run])[-30:], ensure_ascii=False, indent=1), "utf-8")
+print(f"AI判定 {run['ai_calls']}回")
 PENDING.write_text(json.dumps(pending, ensure_ascii=False, indent=1), "utf-8")
