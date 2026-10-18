@@ -142,10 +142,14 @@ def process(row):  # 1サイト分の処理
     except Exception as e:
         print(f"{start}: 読み込みエラー {e}")
         return {"url": start, "error": str(e)}, [{"id": f"{host}-{today}-error", "url": start, "date": today, "kind": "error", "diff": [f"読み込めませんでした: {e}"]}]
+    hit = len(pages) >= mp
+    base, cfg = sd / "_baseline.json", json.dumps({"depth": md, "max_pages": mp})
+    # 新しいページの検出は、前回と同じ設定で、上限に達していないときだけ(読むページの顔ぶれが変わるだけの場合を避けるため)
+    newok = (not hit) and base.exists() and base.read_text("utf-8") == cfg
     for u, new in pages.items():
         snap = sd / (hashlib.sha1(u.encode()).hexdigest()[:16] + ".txt")
         old = snap.read_text("utf-8").splitlines()[1:] if snap.exists() else None
-        if not first:
+        if not first and (old is not None or newok):
             diff = ["+" + l for l in new[:60]] if old is None else [l for l in difflib.unified_diff(old, new, lineterm="", n=0)
                     if l[:1] in "+-" and l[:3] not in ("+++", "---")]
             if diff:
@@ -155,10 +159,11 @@ def process(row):  # 1サイト分の処理
                     out.append({"id": f"{host}-{snap.stem}-{today}", "url": u, "date": today, "kind": "change", "target": t,
                                 "confidence": conf, "reason": reason, "changes": ch, "diff": diff[:60]})
         snap.write_text(u + "\n" + "\n".join(new), "utf-8")
+    base.write_text(cfg, "utf-8")
     by = {str(k): sum(1 for v in dep.values() if v == k) for k in range(max(dep.values(), default=0) + 1)}
     info = {"url": start, "pages": len(pages), "max_pages": mp, "max_depth": md, "depth_reached": max(dep.values(), default=0),
-            "pages_by_depth": by, "hit_page_limit": len(pages) >= mp, "changes": chg, "new_pages": newp, "seconds": round(time.time() - t0), "first_run": first}
-    print(f"{start}: {len(pages)}ページ(上限{mp}) 深さ別{by} 変更{chg}件 新規{newp}件 {info['seconds']}秒" + (" ★ページ数の上限に達しました" if info["hit_page_limit"] else ""))
+            "pages_by_depth": by, "hit_page_limit": hit, "new_page_detection": newok, "changes": chg, "new_pages": newp, "seconds": round(time.time() - t0), "first_run": first}
+    print(f"{start}: {len(pages)}ページ(上限{mp}) 深さ別{by} 変更{chg}件 新規{newp}件 {info['seconds']}秒" + (" ★ページ数の上限に達しました" if hit else "") + ("" if newok or first else " (新規ページの検出は今回は休止)"))
     return info, out
 
 def safe(row):
