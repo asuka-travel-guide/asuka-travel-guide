@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>明日香村ガイド 管理</title>
+<style>
+:root{--ink:#1F2A24;--sub:#4A554F;--bg:#F4F6F3;--card:#fff;--line:#D5DBD6;--main:#2F6B4F;--warn:#9A4A12}
+body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.6 "Noto Sans JP",sans-serif}
+main{max-width:720px;margin:0 auto;padding:20px}
+h1{font-size:26px;margin:0 0 4px}
+.sum{background:var(--main);color:#fff;border-radius:16px;padding:16px 20px;margin:16px 0;font-size:22px}
+.sum b{font-size:48px;display:block;line-height:1.2}
+.card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.card h2{font-size:24px;margin:0 0 4px}
+.sub{color:var(--sub);font-size:18px;margin:0 0 8px}
+.d{margin:2px 0;padding:6px 10px;border-radius:8px;word-break:break-all;font-size:18px}
+.add{background:#E4F0E8}.del{background:#F6E6DC;text-decoration:line-through}
+button{min-height:52px;padding:0 20px;border:0;border-radius:10px;background:var(--main);color:#fff;font:700 20px inherit;margin:8px 8px 0 0}
+a.btn{display:inline-block;min-height:48px;line-height:48px;padding:0 20px;border:2px solid var(--main);border-radius:10px;color:var(--main);font-weight:700;text-decoration:none;margin-top:8px}
+button:focus-visible,a:focus-visible{outline:3px solid #1F2A24;outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+<h1>明日香村ガイド 管理</h1>
+<p class="sub" id="status">読み込み中…</p>
+<div class="sum">確認待ち<b id="count">0件</b></div>
+<div id="list"></div>
+</main>
+<script>
+const KEY = "asuka-done";
+let done = [];
+try { done = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) {}
+function mk(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+function render(items) {
+  const list = document.getElementById("list"); list.replaceChildren();
+  const todo = items.filter(i => !done.includes(i.id)).reverse();
+  document.getElementById("count").textContent = todo.length + "件";
+  document.getElementById("status").textContent = todo.length ? "公式サイトに変更が見つかりました" : "確認待ちはありません";
+  todo.forEach(i => {
+    const c = mk("div", "card");
+    const t = i.target, label = i.kind === "error" ? "読み込みエラー" : t === "NEW" ? "新しい施設の候補" : t === "UNKNOWN" ? "更新するページを判定できませんでした" : t;
+    c.append(mk("h2", "", label), mk("p", "sub", i.date + " / 参照サイト: " + i.url));
+    if (i.kind === "change") c.append(mk("p", "sub", "判定の確かさ: " + i.confidence + "(" + (i.reason || "") + ")"));
+    (i.changes || []).forEach(x => c.append(mk("div", "d add", x.item + ":" + (x.old || "なし") + " → " + (x.new || ""))));
+    const dt = mk("details"); dt.append(mk("summary", "sub", "公式サイトの変更を見る"));
+    i.diff.forEach(l => dt.append(mk("div", "d " + (l[0] === "+" ? "add" : "del"), l.slice(1))));
+    c.append(dt);
+    const a = mk("a", "btn", "公式サイトを開く"); a.href = i.url; a.target = "_blank"; a.rel = "noopener";
+    const b = mk("button", "", "確認した");
+    b.onclick = () => { done.push(i.id); try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} render(items); };
+    c.append(b, a); list.append(c);
+  });
+}
+fetch("../data/pending.json", {cache: "no-store"}).then(r => r.ok ? r.json() : []).then(render)
+  .catch(() => { document.getElementById("status").textContent = "データを読み込めませんでした"; });
+</script>
+</body>
+</html>
