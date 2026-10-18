@@ -1,7 +1,7 @@
 name: 公式サイトの毎日チェック
 on:
   schedule:
-    - cron: "0 21 * * *"   # 日本時間の毎朝6時
+    - cron: "0 20 * * *"   # 日本時間の毎朝5時
   workflow_dispatch:        # 手動でも実行できる
 permissions:
   contents: write
@@ -23,4 +23,3 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data
           git diff --cached --quiet || (git commit -m "公式サイトの変更を記録" && git push)
-
