@@ -28,6 +28,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #1F2A24;outline-offset:2p
 <p class="sub" id="status">読み込み中…</p>
 <div class="sum">確認待ち<b id="count">0件</b></div>
 <div id="list"></div>
+<details class="card" id="links"><summary>公式ページとガイドの紐づけ</summary></details>
 <details class="card" id="log"><summary>チェックの記録(サイトごと)</summary></details>
 </main>
 <script>
@@ -60,9 +61,18 @@ fetch("../data/pending.json", {cache: "no-store"}).then(r => r.ok ? r.json() : [
 fetch("../data/crawl-log.json", {cache: "no-store"}).then(r => r.ok ? r.json() : []).then(runs => {
   const r = runs[runs.length - 1]; if (!r) return;
   const box = document.getElementById("log");
-  box.append(mk("p", "sub", r.date + " の実行 / AI判定 " + (r.ai_calls || 0) + "回"));
+  box.append(mk("p", "sub", r.date + (r.mode === "weekly" ? "(週1の全体チェック)" : "(毎日チェック)") + " / AI判定 " + (r.ai_calls || 0) + "回"));
   r.sites.forEach(s => box.append(mk("div", "d", s.error ? s.url + ":読み込みエラー" :
     s.url + " ― " + s.pages + "ページ(上限" + s.max_pages + ")、最も深い階層 " + s.depth_reached + "(設定" + s.max_depth + ")、変更 " + s.changes + "件、" + s.seconds + "秒" + (s.hit_page_limit ? " ★上限に達しました" : ""))));
+}).catch(() => {});
+fetch("../data/links.json", {cache: "no-store"}).then(r => r.ok ? r.json() : {}).then(m => {
+  const box = document.getElementById("links"), g = {};
+  Object.keys(m).forEach(u => (g[m[u].target] = g[m[u].target] || []).push(u));
+  box.append(mk("p", "sub", "ガイドのページ " + Object.keys(g).length + "件に紐づけ(手動は tools/links-manual.csv、外すときは tools/links-ignore.txt)"));
+  Object.keys(g).sort().forEach(t => {
+    box.append(mk("div", "d add", t + "(公式ページ " + g[t].length + "件)"));
+    g[t].forEach(u => box.append(mk("div", "d", (m[u].manual ? "[手動] " : "[自動] ") + (m[u].title || "") + " " + u)));
+  });
 }).catch(() => {});
 </script>
 </body>
