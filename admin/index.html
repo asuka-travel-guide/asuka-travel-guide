@@ -28,6 +28,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #1F2A24;outline-offset:2p
 <p class="sub" id="status">読み込み中…</p>
 <div class="sum">確認待ち<b id="count">0件</b></div>
 <div id="list"></div>
+<details class="card" id="log"><summary>チェックの記録(サイトごと)</summary></details>
 </main>
 <script>
 const KEY = "asuka-done";
@@ -56,6 +57,13 @@ function render(items) {
 }
 fetch("../data/pending.json", {cache: "no-store"}).then(r => r.ok ? r.json() : []).then(render)
   .catch(() => { document.getElementById("status").textContent = "データを読み込めませんでした"; });
+fetch("../data/crawl-log.json", {cache: "no-store"}).then(r => r.ok ? r.json() : []).then(runs => {
+  const r = runs[runs.length - 1]; if (!r) return;
+  const box = document.getElementById("log");
+  box.append(mk("p", "sub", r.date + " の実行 / AI判定 " + (r.ai_calls || 0) + "回"));
+  r.sites.forEach(s => box.append(mk("div", "d", s.error ? s.url + ":読み込みエラー" :
+    s.url + " ― " + s.pages + "ページ(上限" + s.max_pages + ")、最も深い階層 " + s.depth_reached + "(設定" + s.max_depth + ")、変更 " + s.changes + "件、" + s.seconds + "秒" + (s.hit_page_limit ? " ★上限に達しました" : ""))));
+}).catch(() => {});
 </script>
 </body>
 </html>
