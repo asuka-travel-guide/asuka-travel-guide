@@ -1,5 +1,5 @@
 """参照サイトを読み、変更を見つけて「どのページを直すか」を自動で判定し、data/pending.json に記録する(標準ライブラリのみ)"""
-import csv, json, os, re, time, difflib, datetime, pathlib, urllib.request, urllib.parse
+import csv, hashlib, json, os, re, time, difflib, datetime, pathlib, urllib.request, urllib.parse, urllib.robotparser
 from html.parser import HTMLParser
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -7,15 +7,18 @@ SNAP = ROOT / "data" / "snapshots"; PENDING = ROOT / "data" / "pending.json"
 SNAP.mkdir(parents=True, exist_ok=True)
 SKIP = {"admin", "data", "tools", ".github"}
 
-class Text(HTMLParser):  # 参照サイトの文字だけを取り出す
-    def __init__(s): super().__init__(); s.out = []; s.skip = 0
+class Text(HTMLParser):  # 参照サイトの文字とリンクを取り出す
+    def __init__(s): super().__init__(); s.out = []; s.skip = 0; s.links = []; s.href = None; s.lt = ""
     def handle_starttag(s, t, a):
         if t in ("script", "style", "noscript"): s.skip += 1
+        if t == "a": s.href = dict(a).get("href"); s.lt = ""
     def handle_endtag(s, t):
         if t in ("script", "style", "noscript") and s.skip: s.skip -= 1
+        if t == "a" and s.href: s.links.append((s.href, s.lt)); s.href = None
         if t in ("p", "li", "tr", "div", "h1", "h2", "h3", "br"): s.out.append("\n")
     def handle_data(s, d):
         if not s.skip: s.out.append(d)
+        if s.href is not None: s.lt += d
 
 class Page(HTMLParser):  # 自分のサイトのページ索引用
     def __init__(s): super().__init__(); s.title = s.h1 = ""; s.doms = set(); s.sec = []; s.cur = None; s.id = None
@@ -71,31 +74,76 @@ def ask_ai(url, diff, idx):  # 無料のGemini APIを使う(GEMINI_API_KEY が�
     time.sleep(5)
     return json.loads(r["candidates"][0]["content"]["parts"][0]["text"])
 
+UA = "AsukaGuideChecker/1.0 (personal site maintenance)"
+KEYS = ["営業", "開館", "開園", "料金", "入場", "入館", "拝観", "アクセス", "交通", "駐車", "イベント", "お知らせ", "新着", "ニュース",
+        "休館", "休業", "臨時", "施設", "見どころ", "案内", "観光", "スポット", "利用", "営業時間", "料金", "info", "news", "access", "event"]
+SKIPEXT = (".pdf", ".jpg", ".jpeg", ".png", ".gif", ".zip", ".mp4", ".doc", ".docx", ".xls", ".xlsx", ".webp", ".svg")
+
+def parse(html):
+    p = Text(); p.feed(html)
+    return [l.strip() for l in "".join(p.out).splitlines() if l.strip()], p.links
+
+def robots(start):
+    rp = urllib.robotparser.RobotFileParser()
+    try: rp.parse(fetch(urllib.parse.urljoin(start, "/robots.txt")).splitlines())
+    except Exception: rp.parse([])
+    return rp
+
+def crawl(start, depth, maxp):  # トップから同じサイトの中をたどる(観光に関係しそうなリンクを優先)
+    rp, host = robots(start), urllib.parse.urlparse(start).netloc.replace("www.", "")
+    seen, level, pages = {start}, [start], {}
+    for d in range(depth + 1):
+        nxt = []
+        for u in level:
+            if len(pages) >= maxp: break
+            if not rp.can_fetch(UA, u): continue
+            try: lines, links = parse(fetch(u))
+            except Exception:
+                if d == 0: raise
+                continue
+            pages[u] = lines; time.sleep(2)  # 公式サイトに負担をかけない
+            for href, text in links:
+                v = urllib.parse.urldefrag(urllib.parse.urljoin(u, href))[0]
+                q = urllib.parse.urlparse(v)
+                if q.scheme in ("http", "https") and q.netloc.replace("www.", "") == host and v not in seen and not q.path.lower().endswith(SKIPEXT):
+                    seen.add(v); nxt.append((sum(k in text + v for k in KEYS), v))
+        level = [v for _, v in sorted(nxt, key=lambda x: -x[0])]
+    return pages
+
+def judge(url, memo, diff, ai_left):  # 更新先のページを判定する
+    res, note = None, ""
+    if ai_left[0] > 0:
+        ai_left[0] -= 1
+        try: res = ask_ai(url, diff, idx)
+        except Exception as e: note = f"AI判定に失敗したため簡易判定です({e})"
+    else: note = "AIの1回あたりの上限に達したため簡易判定です"
+    if res: return res.get("target", "UNKNOWN"), res.get("confidence", "低"), res.get("reason", ""), res.get("changes", [])
+    c = rank(idx, url, memo + " ".join(diff))
+    t, conf = (c[0][1]["path"], "中" if c[0][0] >= 70 else "低") if c else ("UNKNOWN", "低")
+    return t, conf, note or "サイト名やリンクが似ているページです(AI未使用)", []
+
 idx = build_index()
 pending = json.loads(PENDING.read_text("utf-8")) if PENDING.exists() else []
 today = datetime.date.today().isoformat()
+ai_left = [int(os.environ.get("MAX_AI_CALLS", "30"))]
 with open(ROOT / "tools" / "sites.csv", encoding="utf-8") as f:
     for row in csv.DictReader(f):
-        url = row["url"]; name = re.sub(r"[^A-Za-z0-9]+", "-", url).strip("-")[:80]; snap = SNAP / (name + ".txt")
-        try:
-            p = Text(); p.feed(fetch(url)); new = [l.strip() for l in "".join(p.out).splitlines() if l.strip()]
+        start, memo = row["url"], row.get("memo") or ""
+        host = re.sub(r"[^A-Za-z0-9.]+", "-", urllib.parse.urlparse(start).netloc)
+        sd = SNAP / host; first = not sd.exists(); sd.mkdir(parents=True, exist_ok=True)
+        try: pages = crawl(start, int(row.get("depth") or 3), int(row.get("max_pages") or 60))
         except Exception as e:
-            pending.append({"id": f"{name}-{today}-error", "url": url, "date": today, "kind": "error", "diff": [f"読み込めませんでした: {e}"]}); continue
-        if snap.exists():
-            diff = [l for l in difflib.unified_diff(snap.read_text("utf-8").splitlines(), new, lineterm="", n=0)
-                    if l[:1] in "+-" and l[:3] not in ("+++", "---")]
-            if diff:
-                res, note = None, ""
-                try: res = ask_ai(url, diff, idx)
-                except Exception as e: note = f"AI判定に失敗したため簡易判定です({e})"
-                if res:
-                    target, conf, reason, changes = res.get("target", "UNKNOWN"), res.get("confidence", "低"), res.get("reason", ""), res.get("changes", [])
-                else:
-                    c = rank(idx, url, row.get("memo", "") + " ".join(diff))
-                    target, conf, changes = (c[0][1]["path"], "中" if c[0][0] >= 70 else "低", []) if c else ("UNKNOWN", "低", [])
-                    reason = note or "サイト名やリンクが似ているページです(AI未使用)"
-                if target != "NONE":
-                    pending.append({"id": f"{name}-{today}", "url": url, "date": today, "kind": "change", "target": target,
-                                    "confidence": conf, "reason": reason, "changes": changes, "diff": diff[:60]})
-        snap.write_text("\n".join(new), "utf-8"); time.sleep(3)  # 公式サイトに負担をかけない
+            pending.append({"id": f"{host}-{today}-error", "url": start, "date": today, "kind": "error", "diff": [f"読み込めませんでした: {e}"]}); continue
+        for u, new in pages.items():
+            snap = sd / (hashlib.sha1(u.encode()).hexdigest()[:16] + ".txt")
+            old = snap.read_text("utf-8").splitlines()[1:] if snap.exists() else None
+            if not first:
+                diff = ["+" + l for l in new[:60]] if old is None else [l for l in difflib.unified_diff(old, new, lineterm="", n=0)
+                        if l[:1] in "+-" and l[:3] not in ("+++", "---")]
+                if diff:
+                    t, conf, reason, ch = judge(u, memo, diff, ai_left)
+                    if t != "NONE":
+                        pending.append({"id": f"{host}-{snap.stem}-{today}", "url": u, "date": today, "kind": "change", "target": t,
+                                        "confidence": conf, "reason": reason, "changes": ch, "diff": diff[:60]})
+            snap.write_text(u + "\n" + "\n".join(new), "utf-8")
 PENDING.write_text(json.dumps(pending, ensure_ascii=False, indent=1), "utf-8")
