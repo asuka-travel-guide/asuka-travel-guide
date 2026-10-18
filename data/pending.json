@@ -1,1 +1,11 @@
-[]
+[
+ {
+  "id": "https-www-asukabito-or-jp-2026-10-18-error",
+  "url": "https://www.asukabito.or.jp/",
+  "date": "2026-10-18",
+  "kind": "error",
+  "diff": [
+   "読み込めませんでした: <urlopen error [Errno -3] Temporary failure in name resolution>"
+  ]
+ }
+]
