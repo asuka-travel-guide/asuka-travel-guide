@@ -63,7 +63,7 @@ fetch("../data/crawl-log.json", {cache: "no-store"}).then(r => r.ok ? r.json() :
   const box = document.getElementById("log");
   box.append(mk("p", "sub", r.date + (r.mode === "weekly" ? "(週1の全体チェック)" : "(毎日チェック)") + " / AI判定 " + (r.ai_calls || 0) + "回"));
   r.sites.forEach(s => box.append(mk("div", "d", s.error ? s.url + ":読み込みエラー" :
-    s.url + " ― " + s.pages + "ページ(上限" + s.max_pages + ")、最も深い階層 " + s.depth_reached + "(設定" + s.max_depth + ")、変更 " + s.changes + "件、" + s.seconds + "秒" + (s.hit_page_limit ? " ★上限に達しました" : ""))));
+    s.url + " ― " + s.pages + "ページ(上限" + s.max_pages + ")、最も深い階層 " + s.depth_reached + "(設定" + s.max_depth + ")、変更 " + s.changes + "件" + (s.filtered ? "(共通・頻繁に変わる部分として除外 " + s.filtered + "件)" : "") + (s.mass_guard ? " ★一斉変更" : "") + "、" + s.seconds + "秒" + (s.hit_page_limit ? " ★上限に達しました" : ""))));
 }).catch(() => {});
 fetch("../data/links.json", {cache: "no-store"}).then(r => r.ok ? r.json() : {}).then(m => {
   const box = document.getElementById("links"), g = {};
