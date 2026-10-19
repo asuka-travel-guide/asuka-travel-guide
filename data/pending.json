@@ -1,1 +1,48 @@
-[]
+[
+ {
+  "id": "asukamura.com-bf1e008df159829e-2026-10-19",
+  "url": "https://asukamura.com/contact",
+  "date": "2026-10-19",
+  "kind": "change",
+  "target": "UNKNOWN",
+  "confidence": "低",
+  "reason": "AI判定に失敗したため簡易判定です(HTTP Error 404: Not Found)",
+  "changes": [],
+  "diff": [
+   "-飛鳥",
+   "+観光"
+  ]
+ },
+ {
+  "id": "asukamura.com-db7a5a0ac9df0f13-2026-10-19",
+  "url": "https://asukamura.com/japanese-pro-guide-contact",
+  "date": "2026-10-19",
+  "kind": "change",
+  "target": "UNKNOWN",
+  "confidence": "低",
+  "reason": "AI判定に失敗したため簡易判定です(HTTP Error 404: Not Found)",
+  "changes": [],
+  "diff": [
+   "-奈良",
+   "+飛鳥"
+  ]
+ },
+ {
+  "id": "www.asukadeasobo.jp-2026-10-19-error",
+  "url": "https://www.asukadeasobo.jp/visit/yumeichi/",
+  "date": "2026-10-19",
+  "kind": "error",
+  "diff": [
+   "読み込めませんでした: <urlopen error timed out>"
+  ]
+ },
+ {
+  "id": "www.asukabito.or.jp-2026-10-19-error",
+  "url": "https://www.asukabito.or.jp/",
+  "date": "2026-10-19",
+  "kind": "error",
+  "diff": [
+   "読み込めませんでした: <urlopen error timed out>"
+  ]
+ }
+]

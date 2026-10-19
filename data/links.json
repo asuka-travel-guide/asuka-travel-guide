@@ -1,1 +1,202 @@
-{}
+{
+ "https://asukamura.com/sightseeing/takamatsuzuka-kofun/": {
+  "target": "spots/takamatsuzuka.html",
+  "title": "高松塚古墳 | 明日香村観光サイト あすか時間 高松塚古墳"
+ },
+ "https://asukamura.com/sightseeing/takamatsuzuka-kofun": {
+  "target": "spots/takamatsuzuka.html",
+  "title": "高松塚古墳 | 明日香村観光サイト あすか時間 高松塚古墳"
+ },
+ "https://asukamura.com/sightseeing/area/takamatuzuka/": {
+  "target": "spots/takamatsuzuka.html",
+  "title": "高松塚古墳エリア｜明日香村観光サイト あすか時間 高松塚エリア"
+ },
+ "https://asukamura.com/sightseeing/sakafune-ishi-iseki/": {
+  "target": "spots/sakafuneishi.html",
+  "title": "酒船石遺跡 | 明日香村観光サイト あすか時間 酒船石遺跡"
+ },
+ "https://asukamura.com/sightseeing/sakafune-ishi-iseki": {
+  "target": "spots/sakafuneishi.html",
+  "title": "酒船石遺跡 | 明日香村観光サイト あすか時間 酒船石遺跡"
+ },
+ "https://asukamura.com/sightseeing/ishibutai-kofun/": {
+  "target": "spots/ishibutai.html",
+  "title": "石舞台古墳 | 明日香村観光サイト あすか時間 石舞台古墳"
+ },
+ "https://asukamura.com/sightseeing/ishibutai-kofun": {
+  "target": "spots/ishibutai.html",
+  "title": "石舞台古墳 | 明日香村観光サイト あすか時間 石舞台古墳"
+ },
+ "http://asukamura.com/sightseeing/ishibutai-kofun/": {
+  "target": "spots/ishibutai.html",
+  "title": "石舞台古墳 | 明日香村観光サイト あすか時間 石舞台古墳"
+ },
+ "https://asukamura.com/sightseeing/area/ishibutai/": {
+  "target": "spots/ishibutai.html",
+  "title": "石舞台古墳エリア｜明日香村観光サイト あすか時間 石舞台エリア"
+ },
+ "https://asukamura.com/sightseeing/kitora-kofun/": {
+  "target": "spots/kitora.html",
+  "title": "キトラ古墳 | 明日香村観光サイト あすか時間 キトラ古墳"
+ },
+ "https://asukamura.com/sightseeing/kitora-kofun": {
+  "target": "spots/kitora.html",
+  "title": "キトラ古墳 | 明日香村観光サイト あすか時間 キトラ古墳"
+ },
+ "https://asukamura.com/sightseeing/amakashi-no-oka/": {
+  "target": "spots/amakashinooka.html",
+  "title": "甘樫丘 | 明日香村観光サイト あすか時間 甘樫丘"
+ },
+ "https://asukamura.com/sightseeing/amakashi-no-oka": {
+  "target": "spots/amakashinooka.html",
+  "title": "甘樫丘 | 明日香村観光サイト あすか時間 甘樫丘"
+ },
+ "https://asukamura.com/sightseeing/daikandai-ji-ato/": {
+  "target": "spots/daikandaiji.html",
+  "title": "大官大寺跡 | 明日香村観光サイト あすか時間 大官大寺跡"
+ },
+ "https://asukamura.com/sightseeing/daikandai-ji-ato": {
+  "target": "spots/daikandaiji.html",
+  "title": "大官大寺跡 | 明日香村観光サイト あすか時間 大官大寺跡"
+ },
+ "https://asukamura.com/sightseeing/asuka-mizuochi-iseki/": {
+  "target": "spots/mizuochi.html",
+  "title": "飛鳥水落遺跡 | 明日香村観光サイト あすか時間 飛鳥水落遺跡"
+ },
+ "https://asukamura.com/sightseeing/asuka-mizuochi-iseki": {
+  "target": "spots/mizuochi.html",
+  "title": "飛鳥水落遺跡 | 明日香村観光サイト あすか時間 飛鳥水落遺跡"
+ },
+ "https://asukamura.com/sightseeing/asuka-dera/": {
+  "target": "spots/asukadera.html",
+  "title": "飛鳥寺 | 明日香村観光サイト あすか時間 飛鳥寺"
+ },
+ "https://asukamura.com/sightseeing/asuka-dera": {
+  "target": "spots/asukadera.html",
+  "title": "飛鳥寺 | 明日香村観光サイト あすか時間 飛鳥寺"
+ },
+ "https://asukamura.com/sightseeing/asuka-kyo-ato-enchi/": {
+  "target": "spots/asukakyou-enchi.html",
+  "title": "飛鳥京跡苑池 | 明日香村観光サイト あすか時間 飛鳥京跡苑池"
+ },
+ "https://asukamura.com/sightseeing/asuka-kyo-ato-enchi": {
+  "target": "spots/asukakyou-enchi.html",
+  "title": "飛鳥京跡苑池 | 明日香村観光サイト あすか時間 飛鳥京跡苑池"
+ },
+ "https://asukamura.com/sightseeing/tenmu-jito-tenno-ryo/": {
+  "target": "spots/tenmu.html",
+  "title": "天武・持統天皇陵 | 明日香村観光サイト あすか時間 天武・持統天皇陵"
+ },
+ "https://asukamura.com/sightseeing/tenmu-jito-tenno-ryo": {
+  "target": "spots/tenmu.html",
+  "title": "天武・持統天皇陵 | 明日香村観光サイト あすか時間 天武・持統天皇陵"
+ },
+ "https://asukamura.com/sightseeing/kawahara-dera/": {
+  "target": "spots/kawaharadera.html",
+  "title": "川原寺跡 弘福寺 | 明日香村観光サイト あすか時間 川原寺跡 弘福寺"
+ },
+ "https://asukamura.com/sightseeing/kawahara-dera": {
+  "target": "spots/kawaharadera.html",
+  "title": "川原寺跡 弘福寺 | 明日香村観光サイト あすか時間 川原寺跡 弘福寺"
+ },
+ "https://asukamura.com/sightseeing/asuka-kyu-ato/": {
+  "target": "spots/asukakyu.html",
+  "title": "飛鳥宮跡 | 明日香村観光サイト あすか時間 飛鳥宮跡"
+ },
+ "https://asukamura.com/sightseeing/asuka-kyu-ato": {
+  "target": "spots/asukakyu.html",
+  "title": "飛鳥宮跡 | 明日香村観光サイト あすか時間 飛鳥宮跡"
+ },
+ "https://asukamura.com/sightseeing/nakao-yama-kofun/": {
+  "target": "spots/nakaoyama.html",
+  "title": "中尾山古墳 | 明日香村観光サイト あすか時間 中尾山古墳"
+ },
+ "https://asukamura.com/sightseeing/nakao-yama-kofun": {
+  "target": "spots/nakaoyama.html",
+  "title": "中尾山古墳 | 明日香村観光サイト あすか時間 中尾山古墳"
+ },
+ "https://asukamura.com/sightseeing/hinokuma-dera-ato/": {
+  "target": "spots/hinokumadera.html",
+  "title": "檜隈寺跡（於美阿志神社） | 明日香村観光サイト あすか時間 檜隈寺跡（於美阿志神社）"
+ },
+ "https://asukamura.com/sightseeing/hinokuma-dera-ato": {
+  "target": "spots/hinokumadera.html",
+  "title": "檜隈寺跡（於美阿志神社） | 明日香村観光サイト あすか時間 檜隈寺跡（於美阿志神社）"
+ },
+ "https://asukamura.com/sightseeing/asukanoyume-hanbaijyo/": {
+  "target": "spots/asuka-yumehanbai.html",
+  "title": "あすか夢販売所 | 明日香村観光サイト あすか時間 あすか夢販売所"
+ },
+ "https://asukamura.com/sightseeing/takamatsuzuka-mural-hall/": {
+  "target": "spots/takamatsuzuka-wall.html",
+  "title": "高松塚壁画館 | 明日香村観光サイト あすか時間 高松塚壁画館"
+ },
+ "https://asukamura.com/sightseeing/iwaya-yama-kofun/": {
+  "target": "spots/iwayayama.html",
+  "title": "岩屋山古墳 | 明日香村観光サイト あすか時間 岩屋山古墳"
+ },
+ "https://asukamura.com/sightseeing/maruko-yama-kofun/": {
+  "target": "spots/marukoyama.html",
+  "title": "マルコ山古墳 | 明日香村観光サイト あすか時間 マルコ山古墳"
+ },
+ "https://asukamura.com/sightseeing/inukai-manyo-memorial-hall/": {
+  "target": "spots/inukai-museum.html",
+  "title": "犬養万葉記念館 | 明日香村観光サイト あすか時間 犬養万葉記念館"
+ },
+ "https://asukamura.com/sightseeing/asuka-archaeological-exhibition/": {
+  "target": "spots/maizobunkazai.html",
+  "title": "明日香村埋蔵文化財展示室 | 明日香村観光サイト あすか時間 明日香村埋蔵文化財展示室"
+ },
+ "https://asukamura.com/sightseeing/asuka-nimasu-jinja/": {
+  "target": "spots/asukaniimasu-jinja.html",
+  "title": "飛鳥坐神社 | 明日香村観光サイト あすか時間 飛鳥坐神社"
+ },
+ "https://asukamura.com/sightseeing/asuka-nimasu-jinja": {
+  "target": "spots/asukaniimasu-jinja.html",
+  "title": "飛鳥坐神社 | 明日香村観光サイト あすか時間 飛鳥坐神社"
+ },
+ "https://asukamura.com/sightseeing/asuka-gawa/": {
+  "target": "spots/asukagawa.html",
+  "title": "飛鳥川 | 明日香村観光サイト あすか時間 飛鳥川"
+ },
+ "https://asukamura.com/sightseeing/asuka-yume-no-rakuichi/": {
+  "target": "spots/asuka-yumenorakuichi.html",
+  "title": "あすか夢の楽市 | 明日香村観光サイト あすか時間 あすか夢の楽市"
+ },
+ "https://asukamura.com/sightseeing/asuka-no-yumeichi/": {
+  "target": "spots/asuka-yumeichi.html",
+  "title": "明日香の夢市 | 明日香村観光サイト あすか時間 明日香の夢市"
+ },
+ "https://asukamura.com/sightseeing/kokuei-asuka-rekishi-koen-taiken-program/": {
+  "target": "spots/asuka-historic-park.html",
+  "title": "国営飛鳥歴史公園体験プログラム | 明日香村観光サイト あすか時間 国営飛鳥歴史公園体験プログラム"
+ },
+ "https://asukamura.com/sightseeing/asuka-ike-kobo-iseki/": {
+  "target": "spots/asukaike.html",
+  "title": "飛鳥池工房遺跡 | 明日香村観光サイト あすか時間 飛鳥池工房遺跡"
+ },
+ "https://asukamura.com/sightseeing/manyo-culture-museum/": {
+  "target": "spots/manyo-museum.html",
+  "title": "奈良県立万葉文化館 | 明日香村観光サイト あすか時間 奈良県立万葉文化館"
+ },
+ "https://www.asuka-park.jp/": {
+  "target": "spots/asuka-historic-park.html",
+  "title": "国営飛鳥歴史公園"
+ },
+ "https://www.asuka-park.jp/area/takamatsuzuka/tumulus/": {
+  "target": "spots/takamatsuzuka.html",
+  "title": "高松塚古墳 | 国営飛鳥歴史公園 高松塚古墳"
+ },
+ "https://www.asuka-park.jp/area/kitora/tumulus/": {
+  "target": "spots/kitora.html",
+  "title": "キトラ古墳 | 国営飛鳥歴史公園 キトラ古墳"
+ },
+ "https://www.asuka-park.jp/area/kitora/": {
+  "target": "spots/kitora.html",
+  "title": "キトラ古墳周辺地区 | 国営飛鳥歴史公園 キトラ古墳周辺地区"
+ },
+ "https://www.asuka-park.jp/area/amakashinooka/": {
+  "target": "spots/amakashinooka.html",
+  "title": "甘樫丘地区 | 国営飛鳥歴史公園 甘樫丘地区"
+ }
+}
