@@ -1,6 +1,6 @@
 """参照サイトを読み、変更を見つけて「どのページを直すか」を判定し data/pending.json に記録する(標準ライブラリのみ)
 毎日: お知らせ・サイトマップの更新・紐づけ済みの公式ページだけ読む / 週1(日曜): サイト全体を読み、紐づけを更新する"""
-import concurrent.futures, csv, datetime, difflib, hashlib, heapq, json, os, pathlib, re, threading, time
+import collections, concurrent.futures, csv, datetime, difflib, hashlib, heapq, json, os, pathlib, re, threading, time
 import urllib.parse, urllib.request, urllib.robotparser
 from html.parser import HTMLParser
 
@@ -176,14 +176,24 @@ def judge(url, memo, diff, ai_left):  # 更新先のページを判定する
     t, conf = (c[0][1]["path"], "低") if c else ("UNKNOWN", "低")
     return t, conf, note or "ガイドのページ名が出ているページです(AI未使用)", []
 
-def match_links(titles):  # 公式ページの題名に、ガイドのページ名があれば紐づける(週1)
+SEP = re.compile(r"\s*[｜|]\s*|\s+[-–—]\s+")
+
+def match_links(titles, start, dom):  # 公式ページの題名の先頭が、ガイドのページ名とほぼ同じなら紐づける(週1)
     names = [(e["name"], e["path"]) for e in idx if len(e["name"]) >= 3 and e["name"] not in GENERIC and not e["path"].endswith("index.html")]
+    total = len(titles)  # ほとんどのページの題名に出る名前は「サイト名」なので、トップページにだけ紐づける
+    brand = {nm for nm, _ in names if total >= 10 and sum(nm in t for t in titles.values()) / total >= 0.3}
+    found = {}
+    for u, t in titles.items():
+        if u in LINKS_DB or u in IGN: continue
+        lead = SEP.split(t.strip())[0]
+        c = [(len(nm) / max(len(lead), 1), p) for nm, p in names if nm in lead and (nm not in brand or u == start)]
+        c = [x for x in c if x[0] >= 0.5]
+        if c: sc, pth = max(c); found.setdefault(pth, []).append((sc, u, t))
     n = 0
     with LINK_LOCK:
-        for u, t in titles.items():
-            if u in LINKS_DB or u in IGN: continue
-            best = max(((len(nm), p) for nm, p in names if nm in t), default=None)
-            if best: AUTO[u] = LINKS_DB[u] = {"target": best[1], "title": t.strip()[:80]}; n += 1
+        for pth, lst in found.items():
+            for sc, u, t in sorted(lst, reverse=True)[:5]:  # 1つのガイドのページに、自動で紐づけるのは最大5件
+                AUTO[u] = LINKS_DB[u] = {"target": pth, "title": t.strip()[:80]}; n += 1
     return n
 
 idx = build_index()
@@ -198,8 +208,13 @@ if mf.exists():
             if not g or g.startswith("#") or not u: continue
             if g not in {e["path"] for e in idx}: print(f"紐づけ先のページが見つかりません(無視します): {g}"); continue
             MANUAL[u] = {"target": g, "title": (r.get("memo") or "").strip() or u, "manual": True}
+if MODE == "weekly": AUTO.clear()  # 週1は、自動の紐づけを作り直す
 LINKS_DB = {**AUTO, **MANUAL}
 ign = ROOT / "tools" / "links-ignore.txt"
+HIST_F = ROOT / "data" / "changes-history.json"
+HIST = json.loads(HIST_F.read_text("utf-8")) if HIST_F.exists() else {}
+nz = ROOT / "tools" / "ignore-text.txt"
+NOISE = [l.strip() for l in nz.read_text("utf-8").splitlines() if l.strip() and not l.startswith("#")] if nz.exists() else []
 IGN = {l.strip() for l in ign.read_text("utf-8").splitlines() if l.strip() and not l.startswith("#")} if ign.exists() else set()
 today = datetime.date.today().isoformat()
 ai_left = [int(os.environ.get("MAX_AI_CALLS", "30"))]; ai_start = ai_left[0]
@@ -221,22 +236,43 @@ def process(row):  # 1サイト分の処理
     base, cfg = sd / "_baseline.json", json.dumps({"depth": md, "max_pages": mp})
     # 新しいページの検出は、週1では「前回と同じ設定で上限に達していない」とき、毎日では「全体の記録がある」ときだけ
     newok = base.exists() and (MODE == "daily" or (not hit and base.read_text("utf-8") == cfg))
+    cand = []
     for u, new in pages.items():
         snap = spath(sd, u); old = snap.read_text("utf-8").splitlines()[1:] if snap.exists() else None
         if not first and (old is not None or (newok and u not in LINKS_DB)):  # 紐づけ済みで初めて読むページは、記録だけ
             diff = ["+" + l for l in new[:60]] if old is None else [l for l in difflib.unified_diff(old, new, lineterm="", n=0)
                     if l[:1] in "+-" and l[:3] not in ("+++", "---")]
-            if diff:
-                chg += 1; newp += old is None
-                t, conf, reason, ch = judge(u, memo, diff, ai_left)
-                if t != "NONE":
-                    out.append({"id": f"{host}-{snap.stem}-{today}", "url": u, "date": today, "kind": "change", "target": t,
-                                "confidence": conf, "reason": reason, "changes": ch, "diff": diff[:60]})
+            diff = [l for l in diff if not any(w in l for w in NOISE)]  # 手動の無視ワード
+            if diff: cand.append((u, snap, diff, old is None))
         snap.write_text(u + "\n" + "\n".join(new), "utf-8")
+    cnt = collections.Counter()
+    for _, _, d, _ in cand: cnt.update({l[1:] for l in d})
+    common = {t for t, c in cnt.items() if c >= 3}  # 3ページ以上に同じ行が出る変更は、サイト共通の部分(自動で入れ替わる欄など)
+    cutoff = (datetime.date.today() - datetime.timedelta(days=14)).isoformat(); hist = HIST.setdefault(host, {}); res = []
+    for u, snap, d, isnew in cand:
+        recent = [x for x in hist.get(snap.stem, []) if x >= cutoff]; hist[snap.stem] = recent + [today]
+        d2 = [l for l in d if l[1:] not in common]
+        if len(recent) >= 3 and not isnew: d2 = [l for l in d2 if any(k in l for k in KEYS)]  # 頻繁に変わるページは、重要そうな言葉を含む行だけ
+        if d2: res.append((u, snap, d2, isnew))
+    filt = len(cand) - len(res); chg = len(res); newp = sum(r[3] for r in res)
+    guard = len(res) > max(25, len(pages) // 10)  # 一度に大量のページが変わったら、サイト全体の変更とみなして1件にまとめる
+    ck = [t for t in common if any(k in t for k in KEYS)]
+    if ck: out.append({"id": f"{host}-common-{today}", "url": start, "date": today, "kind": "change", "target": "UNKNOWN", "confidence": "低",
+                       "reason": "サイト共通の部分で、重要そうな言葉を含む変更です(複数のページに出ています)", "changes": [], "diff": ["+" + t for t in ck[:20]]})
+    if guard:
+        out.append({"id": f"{host}-mass-{today}", "url": start, "date": today, "kind": "change", "target": "UNKNOWN", "confidence": "低",
+                    "reason": f"{len(res)}ページが一斉に変わりました。模様替えや、自動で入れ替わる欄の可能性があるので、1件にまとめました。", "changes": [],
+                    "diff": ["+" + r[0] for r in res[:30]]})
+    else:
+        for u, snap, d2, isnew in res:
+            t, conf, reason, ch = judge(u, memo, d2, ai_left)
+            if t != "NONE":
+                out.append({"id": f"{host}-{snap.stem}-{today}", "url": u, "date": today, "kind": "change", "target": t,
+                            "confidence": conf, "reason": reason, "changes": ch, "diff": d2[:60]})
     nl = 0
-    if MODE == "weekly": base.write_text(cfg, "utf-8"); nl = match_links(titles)
+    if MODE == "weekly": base.write_text(cfg, "utf-8"); nl = match_links(titles, start, dom)
     info = {"url": start, "pages": len(pages), "max_pages": mp, "max_depth": md, "depth_reached": max(dep.values(), default=0), "hit_page_limit": hit,
-            "new_page_detection": newok, "changes": chg, "new_pages": newp, "new_links": nl, "seconds": round(time.time() - t0), "first_run": first}
+            "new_page_detection": newok, "filtered": filt, "common_lines": len(common), "mass_guard": guard, "changes": chg, "new_pages": newp, "new_links": nl, "seconds": round(time.time() - t0), "first_run": first}
     print(f"[{MODE}] {start}: {len(pages)}ページ 変更{chg}件 新規{newp}件 新しい紐づけ{nl}件 {info['seconds']}秒" + (" ★上限に達しました" if hit else ""))
     return info, out
 
@@ -257,4 +293,5 @@ run["ai_calls"] = ai_start - ai_left[0]
 LOG.write_text(json.dumps((runs + [run])[-30:], ensure_ascii=False, indent=1), "utf-8")
 LINKS.write_text(json.dumps({**AUTO, **MANUAL}, ensure_ascii=False, indent=1), "utf-8")
 print(f"AI判定 {run['ai_calls']}回")
+HIST_F.write_text(json.dumps(HIST, ensure_ascii=False), "utf-8")
 PENDING.write_text(json.dumps(pending, ensure_ascii=False, indent=1), "utf-8")
