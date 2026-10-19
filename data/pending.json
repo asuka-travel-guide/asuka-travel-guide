@@ -44,5 +44,21 @@
   "diff": [
    "読み込めませんでした: <urlopen error timed out>"
   ]
+ },
+ {
+  "id": "www.narakotsu.co.jp-bcd2b7f216aa74a3-2026-10-19",
+  "url": "https://www.narakotsu.co.jp/bonnetbus-anniversary60th/",
+  "date": "2026-10-19",
+  "kind": "change",
+  "target": "gourmet/index.html#mendoya",
+  "confidence": "低",
+  "reason": "AI判定に失敗したため簡易判定です(HTTP Error 404: Not Found)",
+  "changes": [],
+  "diff": [
+   "+◆ 10月31日（土）・11月1日（日） 近鉄鉄道まつり＠五位堂検修車庫",
+   "-◆ 10月31日（土）・11月1日（日） 近鉄鉄道まつり＠五位堂検修車庫",
+   "-◆ 10月11日（日）・12日（月・祝） くるま博　in　馬見丘陵公園北駐車場エリア",
+   "+◆ 10月11日（日）・12日（月・祝） くるま博 in 馬見丘陵公園北駐車場エリア"
+  ]
  }
 ]
