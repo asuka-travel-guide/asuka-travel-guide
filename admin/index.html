@@ -28,6 +28,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #1F2A24;outline-offset:2p
 <p class="sub" id="status">読み込み中…</p>
 <div class="sum">確認待ち<b id="count">0件</b></div>
 <div id="list"></div>
+<details class="card" id="unlinked"><summary>紐づいていないガイドのページ</summary></details>
 <details class="card" id="links"><summary>公式ページとガイドの紐づけ</summary></details>
 <details class="card" id="log"><summary>チェックの記録(サイトごと)</summary></details>
 </main>
@@ -74,6 +75,25 @@ fetch("../data/links.json", {cache: "no-store"}).then(r => r.ok ? r.json() : {})
     g[t].forEach(u => box.append(mk("div", "d", (m[u].manual ? "[手動] " : "[自動] ") + (m[u].title || "") + " " + u)));
   });
 }).catch(() => {});
+Promise.all(["unlinked", "official-pages"].map(n => fetch("../data/" + n + ".json", {cache: "no-store"}).then(r => r.ok ? r.json() : null).catch(() => null))).then(([un, off]) => {
+  const box = document.getElementById("unlinked"); if (!un) return; off = off || {};
+  box.firstChild.textContent = "紐づいていないガイドのページ(" + un.length + "件)";
+  un.forEach(e => {
+    const row = mk("div", "d"), out = mk("div"), b = mk("button", "", "公式ページの候補を探す");
+    row.append(mk("div", "", e.name + "  " + e.path));
+    b.onclick = () => {
+      out.replaceChildren();
+      const toks = e.name.split(/[\s・（）()｜]+/).filter(t => t.length >= 3), ks = toks.length ? toks : [e.name];
+      const hits = Object.keys(off).filter(u => ks.some(t => off[u].includes(t))).slice(0, 8);
+      if (!hits.length) out.append(mk("div", "sub", "候補が見つかりませんでした"));
+      hits.forEach(u => {
+        const line = e.path + "," + u + "," + e.name, d = mk("div", "d add", off[u] + "  " + u), c = mk("button", "", "CSVの1行をコピー");
+        c.onclick = () => navigator.clipboard.writeText(line).then(() => { c.textContent = "コピーしました"; }); d.append(c); out.append(d);
+      });
+    };
+    row.append(b, out); box.append(row);
+  });
+});
 </script>
 </body>
 </html>
