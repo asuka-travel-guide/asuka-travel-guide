@@ -79,9 +79,12 @@ def robots(start):
 def dom_of(u): return urllib.parse.urlparse(u).netloc.replace("www.", "")
 def spath(sd, u): return sd / (hashlib.sha1(u.encode()).hexdigest()[:16] + ".txt")
 
-def clean(u, href, dom):  # 同じサイトの、読んでよいリンクだけ返す
+def clean(u, href, dom):  # 同じサイトの、読んでよいリンクだけ返す(末尾の「/」や http/https の違いは同じページとして扱う)
     v = urllib.parse.urldefrag(urllib.parse.urljoin(u, href))[0]; q = urllib.parse.urlparse(v)
-    return v if q.scheme in ("http", "https") and dom_of(v) == dom and not q.path.lower().endswith(SKIPEXT) else None
+    if not (q.scheme in ("http", "https") and dom_of(v) == dom and not q.path.lower().endswith(SKIPEXT)): return None
+    if u.startswith("https") and q.scheme == "http": q = q._replace(scheme="https")
+    if not q.query and "." not in q.path.rsplit("/", 1)[-1] and not q.path.endswith("/"): q = q._replace(path=q.path + "/")
+    return q.geturl()
 
 def crawl(start, depth, maxp, dom):  # 週1: 関係の深いページを優先して全体を読む
     rp = robots(start); seen, heap, pages, dep, titles, n = {start}, [(0, 0, start, 0)], {}, {}, {}, 0
@@ -213,6 +216,8 @@ LINKS_DB = {**AUTO, **MANUAL}
 ign = ROOT / "tools" / "links-ignore.txt"
 HIST_F = ROOT / "data" / "changes-history.json"
 HIST = json.loads(HIST_F.read_text("utf-8")) if HIST_F.exists() else {}
+OFF_F, UNL_F = ROOT / "data" / "official-pages.json", ROOT / "data" / "unlinked.json"
+OFFICIAL = json.loads(OFF_F.read_text("utf-8")) if OFF_F.exists() else {}  # 公式ページの題名の一覧(紐づけを探すため)
 nz = ROOT / "tools" / "ignore-text.txt"
 NOISE = [l.strip() for l in nz.read_text("utf-8").splitlines() if l.strip() and not l.startswith("#")] if nz.exists() else []
 IGN = {l.strip() for l in ign.read_text("utf-8").splitlines() if l.strip() and not l.startswith("#")} if ign.exists() else set()
@@ -270,7 +275,9 @@ def process(row):  # 1サイト分の処理
                 out.append({"id": f"{host}-{snap.stem}-{today}", "url": u, "date": today, "kind": "change", "target": t,
                             "confidence": conf, "reason": reason, "changes": ch, "diff": d2[:60]})
     nl = 0
-    if MODE == "weekly": base.write_text(cfg, "utf-8"); nl = match_links(titles, start, dom)
+    if MODE == "weekly":
+        base.write_text(cfg, "utf-8"); nl = match_links(titles, start, dom)
+        with LINK_LOCK: OFFICIAL.update({u: t.strip()[:80] for u, t in titles.items()})
     info = {"url": start, "pages": len(pages), "max_pages": mp, "max_depth": md, "depth_reached": max(dep.values(), default=0), "hit_page_limit": hit,
             "new_page_detection": newok, "filtered": filt, "common_lines": len(common), "mass_guard": guard, "changes": chg, "new_pages": newp, "new_links": nl, "seconds": round(time.time() - t0), "first_run": first}
     print(f"[{MODE}] {start}: {len(pages)}ページ 変更{chg}件 新規{newp}件 新しい紐づけ{nl}件 {info['seconds']}秒" + (" ★上限に達しました" if hit else ""))
@@ -294,4 +301,10 @@ LOG.write_text(json.dumps((runs + [run])[-30:], ensure_ascii=False, indent=1), "
 LINKS.write_text(json.dumps({**AUTO, **MANUAL}, ensure_ascii=False, indent=1), "utf-8")
 print(f"AI判定 {run['ai_calls']}回")
 HIST_F.write_text(json.dumps(HIST, ensure_ascii=False), "utf-8")
+if MODE == "weekly": OFF_F.write_text(json.dumps(OFFICIAL, ensure_ascii=False), "utf-8")
+SKIPF = {"404.html", "privacy.html", "contact.html", "sitemap.html", "toilet-map.html"}  # 紐づけ先にならないページ
+linked = {v["target"] for v in {**AUTO, **MANUAL}.values()}
+UNL_F.write_text(json.dumps([e for e in idx if e["path"] not in linked and len(e["name"]) >= 2 and e["name"] not in GENERIC
+    and (("#" not in e["path"] and not e["path"].endswith("index.html") and e["path"].split("/")[-1] not in SKIPF)
+         or ("#" in e["path"] and e["path"].split("/")[0] in ("gourmet", "stay")))], ensure_ascii=False, indent=1), "utf-8")
 PENDING.write_text(json.dumps(pending, ensure_ascii=False, indent=1), "utf-8")
