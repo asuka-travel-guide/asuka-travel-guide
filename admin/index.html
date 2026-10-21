@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex, nofollow">
 <title>明日香村ガイド 管理</title>
 <style>
 :root{--ink:#1F2A24;--sub:#4A554F;--bg:#F4F6F3;--card:#fff;--line:#D5DBD6;--main:#2F6B4F;--warn:#9A4A12}
@@ -15,36 +15,100 @@ h1{font-size:26px;margin:0 0 4px}
 .card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
 .card h2{font-size:24px;margin:0 0 4px}
 .sub{color:var(--sub);font-size:18px;margin:0 0 8px}
+.err{color:var(--warn);font-weight:700}
 .d{margin:2px 0;padding:6px 10px;border-radius:8px;word-break:break-all;font-size:18px}
 .add{background:#E4F0E8}.del{background:#F6E6DC;text-decoration:line-through}
+label{display:block;font-weight:700;margin-top:12px}
+input{font:inherit;min-height:52px;width:100%;box-sizing:border-box;margin:6px 0;padding:0 12px;border:2px solid var(--line);border-radius:10px}
 button{min-height:52px;padding:0 20px;border:0;border-radius:10px;background:var(--main);color:#fff;font:700 20px inherit;margin:8px 8px 0 0}
+button.sec{background:#fff;color:var(--main);border:2px solid var(--main)}
 a.btn{display:inline-block;min-height:48px;line-height:48px;padding:0 20px;border:2px solid var(--main);border-radius:10px;color:var(--main);font-weight:700;text-decoration:none;margin-top:8px}
-button:focus-visible,a:focus-visible{outline:3px solid #1F2A24;outline-offset:2px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #1F2A24;outline-offset:2px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
 <main>
 <h1>明日香村ガイド 管理</h1>
+
+<section id="login" class="card" hidden>
+<h2>はじめてのログイン</h2>
+<p class="sub">この画面の情報は、あなたの鍵(アクセストークン)でだけ読めます。鍵は、この端末の中に、4桁の数字で守って保存されます。</p>
+<label for="repo">管理用リポジトリ(例: ユーザー名/asuka-admin)</label>
+<input id="repo" autocomplete="off" autocapitalize="off">
+<label for="token">鍵(アクセストークン)</label>
+<input id="token" type="password" autocomplete="off">
+<label for="pin">この端末で使う4桁の数字</label>
+<input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
+<button id="saveBtn">保存して開く</button>
+<p id="loginMsg" class="err"></p>
+</section>
+
+<section id="unlock" class="card" hidden>
+<h2>4桁の数字を入れてください</h2>
+<input id="pin2" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
+<button id="openBtn">開く</button>
+<button id="resetBtn" class="sec">保存した鍵を消す</button>
+<p id="unlockMsg" class="err"></p>
+</section>
+
+<section id="app" hidden>
 <p class="sub" id="status">読み込み中…</p>
 <div class="sum">確認待ち<b id="count">0件</b></div>
 <div id="list"></div>
 <details class="card" id="unlinked"><summary>紐づいていないガイドのページ</summary></details>
 <details class="card" id="links"><summary>公式ページとガイドの紐づけ</summary></details>
 <details class="card" id="log"><summary>チェックの記録(サイトごと)</summary></details>
+<button id="logoutBtn" class="sec">ログアウト(保存した鍵を消す)</button>
+</section>
 </main>
 <script>
-const KEY = "asuka-done";
-let done = [];
-try { done = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) {}
+const enc = new TextEncoder(), dec = new TextDecoder(), AUTH = "asuka-auth", DONE = "asuka-done";
+const b64 = a => btoa(String.fromCharCode(...new Uint8Array(a)));
+const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function deriveKey(pin, salt) {
+  const m = await crypto.subtle.importKey("raw", enc.encode(pin), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey({name: "PBKDF2", salt, iterations: 200000, hash: "SHA-256"}, m, {name: "AES-GCM", length: 256}, false, ["encrypt", "decrypt"]);
+}
+async function saveAuth(repo, token, pin) {
+  const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = await crypto.subtle.encrypt({name: "AES-GCM", iv}, await deriveKey(pin, salt), enc.encode(JSON.stringify({repo, token})));
+  localStorage.setItem(AUTH, JSON.stringify({salt: b64(salt), iv: b64(iv), ct: b64(ct), fails: 0}));
+}
+async function openAuth(pin) {  // 数字が違うと null。5回間違えると、保存した鍵を消す
+  const o = JSON.parse(localStorage.getItem(AUTH));
+  try {
+    const pt = await crypto.subtle.decrypt({name: "AES-GCM", iv: unb64(o.iv)}, await deriveKey(pin, unb64(o.salt)), unb64(o.ct));
+    return JSON.parse(dec.decode(pt));
+  } catch (e) {
+    o.fails = (o.fails || 0) + 1;
+    if (o.fails >= 5) localStorage.removeItem(AUTH); else localStorage.setItem(AUTH, JSON.stringify(o));
+    return null;
+  }
+}
+const $ = id => document.getElementById(id);
 function mk(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
-function render(items) {
-  const list = document.getElementById("list"); list.replaceChildren();
+let auth = null, done = [];
+try { done = JSON.parse(localStorage.getItem(DONE) || "[]"); } catch (e) {}
+
+async function get(name) {  // 非公開リポジトリのファイルを、鍵を使って読む
+  const r = await fetch("https://api.github.com/repos/" + auth.repo + "/contents/data/" + name + ".json",
+    {headers: {Authorization: "Bearer " + auth.token, Accept: "application/vnd.github.raw+json"}, cache: "no-store"});
+  if (r.status === 401 || r.status === 403) throw new Error("鍵が使えません。期限切れか、権限が足りない可能性があります。");
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error("読み込めませんでした(" + r.status + ")");
+  return r.json();
+}
+function show(id) { ["login", "unlock", "app"].forEach(x => $(x).hidden = x !== id); }
+
+function renderPending(items) {
+  const list = $("list"); list.replaceChildren();
   const todo = items.filter(i => !done.includes(i.id)).reverse();
-  document.getElementById("count").textContent = todo.length + "件";
-  document.getElementById("status").textContent = todo.length ? "公式サイトに変更が見つかりました" : "確認待ちはありません";
+  $("count").textContent = todo.length + "件";
+  $("status").textContent = todo.length ? "公式サイトに変更が見つかりました" : "確認待ちはありません";
   todo.forEach(i => {
-    const c = mk("div", "card");
     const t = i.target, label = i.kind === "error" ? "読み込みエラー" : t === "NEW" ? "新しい施設の候補" : t === "UNKNOWN" ? "更新するページを判定できませんでした" : t;
+    const c = mk("div", "card");
     c.append(mk("h2", "", label), mk("p", "sub", i.date + " / 参照サイト: " + i.url));
     if (i.kind === "change") c.append(mk("p", "sub", "判定の確かさ: " + i.confidence + "(" + (i.reason || "") + ")"));
     (i.changes || []).forEach(x => c.append(mk("div", "d add", x.item + ":" + (x.old || "なし") + " → " + (x.new || ""))));
@@ -53,30 +117,29 @@ function render(items) {
     c.append(dt);
     const a = mk("a", "btn", "公式サイトを開く"); a.href = i.url; a.target = "_blank"; a.rel = "noopener";
     const b = mk("button", "", "確認した");
-    b.onclick = () => { done.push(i.id); try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} render(items); };
+    b.onclick = () => { done.push(i.id); try { localStorage.setItem(DONE, JSON.stringify(done)); } catch (e) {} renderPending(items); };
     c.append(b, a); list.append(c);
   });
 }
-fetch("../data/pending.json", {cache: "no-store"}).then(r => r.ok ? r.json() : []).then(render)
-  .catch(() => { document.getElementById("status").textContent = "データを読み込めませんでした"; });
-fetch("../data/crawl-log.json", {cache: "no-store"}).then(r => r.ok ? r.json() : []).then(runs => {
-  const r = runs[runs.length - 1]; if (!r) return;
-  const box = document.getElementById("log");
+function renderLog(runs) {
+  const r = runs && runs[runs.length - 1]; if (!r) return;
+  const box = $("log");
   box.append(mk("p", "sub", r.date + (r.mode === "weekly" ? "(週1の全体チェック)" : "(毎日チェック)") + " / AI判定 " + (r.ai_calls || 0) + "回"));
   r.sites.forEach(s => box.append(mk("div", "d", s.error ? s.url + ":読み込みエラー" :
-    s.url + " ― " + s.pages + "ページ(上限" + s.max_pages + ")、最も深い階層 " + s.depth_reached + "(設定" + s.max_depth + ")、変更 " + s.changes + "件" + (s.filtered ? "(共通・頻繁に変わる部分として除外 " + s.filtered + "件)" : "") + (s.mass_guard ? " ★一斉変更" : "") + "、" + s.seconds + "秒" + (s.hit_page_limit ? " ★上限に達しました" : ""))));
-}).catch(() => {});
-fetch("../data/links.json", {cache: "no-store"}).then(r => r.ok ? r.json() : {}).then(m => {
-  const box = document.getElementById("links"), g = {};
+    s.url + " ― " + s.pages + "ページ(上限" + s.max_pages + ")、最も深い階層 " + s.depth_reached + "、変更 " + s.changes + "件" +
+    (s.filtered ? "(共通・頻繁に変わる部分として除外 " + s.filtered + "件)" : "") + (s.mass_guard ? " ★一斉変更" : "") + "、" + s.seconds + "秒" + (s.hit_page_limit ? " ★上限に達しました" : ""))));
+}
+function renderLinks(m) {
+  if (!m) return; const box = $("links"), g = {};
   Object.keys(m).forEach(u => (g[m[u].target] = g[m[u].target] || []).push(u));
   box.append(mk("p", "sub", "ガイドのページ " + Object.keys(g).length + "件に紐づけ(手動は tools/links-manual.csv、外すときは tools/links-ignore.txt)"));
   Object.keys(g).sort().forEach(t => {
     box.append(mk("div", "d add", t + "(公式ページ " + g[t].length + "件)"));
     g[t].forEach(u => box.append(mk("div", "d", (m[u].manual ? "[手動] " : "[自動] ") + (m[u].title || "") + " " + u)));
   });
-}).catch(() => {});
-Promise.all(["unlinked", "official-pages"].map(n => fetch("../data/" + n + ".json", {cache: "no-store"}).then(r => r.ok ? r.json() : null).catch(() => null))).then(([un, off]) => {
-  const box = document.getElementById("unlinked"); if (!un) return; off = off || {};
+}
+function renderUnlinked(un, off) {
+  if (!un) return; off = off || {}; const box = $("unlinked");
   box.firstChild.textContent = "紐づいていないガイドのページ(" + un.length + "件)";
   un.forEach(e => {
     const row = mk("div", "d"), out = mk("div"), b = mk("button", "", "公式ページの候補を探す");
@@ -93,7 +156,31 @@ Promise.all(["unlinked", "official-pages"].map(n => fetch("../data/" + n + ".jso
     };
     row.append(b, out); box.append(row);
   });
-});
+}
+async function start() {
+  show("app");
+  try {
+    const [pend, log, links, unl, off] = await Promise.all(["pending", "crawl-log", "links", "unlinked", "official-pages"].map(get));
+    if (pend === null) { $("status").textContent = "データが見つかりません。リポジトリ名と、最初の実行が済んでいるかを確認してください。"; return; }
+    renderPending(pend); renderLog(log); renderLinks(links); renderUnlinked(unl, off);
+  } catch (e) { $("status").textContent = e.message; $("status").className = "err"; }
+}
+$("saveBtn").onclick = async () => {
+  const repo = $("repo").value.trim(), token = $("token").value.trim(), pin = $("pin").value;
+  if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) { $("loginMsg").textContent = "リポジトリは「ユーザー名/名前」の形で入れてください。"; return; }
+  if (!token) { $("loginMsg").textContent = "鍵(アクセストークン)を入れてください。"; return; }
+  if (!/^\d{4}$/.test(pin)) { $("loginMsg").textContent = "4桁の数字を入れてください。"; return; }
+  await saveAuth(repo, token, pin); auth = {repo, token}; $("token").value = ""; start();
+};
+$("openBtn").onclick = async () => {
+  const a = await openAuth($("pin2").value);
+  if (a) { auth = a; $("pin2").value = ""; start(); return; }
+  if (localStorage.getItem(AUTH)) $("unlockMsg").textContent = "数字が違います(5回間違えると、保存した鍵が消えます)。";
+  else { $("unlockMsg").textContent = ""; show("login"); $("loginMsg").textContent = "5回間違えたので、保存した鍵を消しました。もう一度入れてください。"; }
+};
+function wipe() { localStorage.removeItem(AUTH); auth = null; show("login"); }
+$("resetBtn").onclick = wipe; $("logoutBtn").onclick = wipe;
+show(localStorage.getItem(AUTH) ? "unlock" : "login");
 </script>
 </body>
 </html>
