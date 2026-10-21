@@ -957,5 +957,84 @@
    }
   ],
   "ai_calls": 30
+ },
+ {
+  "date": "2026-10-21",
+  "mode": "daily",
+  "sites": [
+   {
+    "url": "https://asukamura.com/",
+    "pages": 34,
+    "max_pages": 1000,
+    "max_depth": 8,
+    "depth_reached": 1,
+    "hit_page_limit": false,
+    "new_page_detection": true,
+    "filtered": 22,
+    "common_lines": 28,
+    "mass_guard": false,
+    "changes": 0,
+    "new_pages": 0,
+    "new_links": 0,
+    "seconds": 119,
+    "first_run": false
+   },
+   {
+    "url": "https://www.asukadeasobo.jp/visit/yumeichi/",
+    "pages": 2,
+    "max_pages": 500,
+    "max_depth": 4,
+    "depth_reached": 1,
+    "hit_page_limit": false,
+    "new_page_detection": true,
+    "filtered": 0,
+    "common_lines": 0,
+    "mass_guard": false,
+    "changes": 2,
+    "new_pages": 0,
+    "new_links": 0,
+    "seconds": 11,
+    "first_run": false
+   },
+   {
+    "url": "https://www.asuka-park.jp/",
+    "pages": 7,
+    "max_pages": 1000,
+    "max_depth": 8,
+    "depth_reached": 2,
+    "hit_page_limit": false,
+    "new_page_detection": true,
+    "filtered": 0,
+    "common_lines": 0,
+    "mass_guard": false,
+    "changes": 2,
+    "new_pages": 1,
+    "new_links": 0,
+    "seconds": 21,
+    "first_run": false
+   },
+   {
+    "url": "https://www.narakotsu.co.jp/temporary/asuka_free/",
+    "error": "HTTP Error 502: Bad Gateway"
+   },
+   {
+    "url": "https://www.asukabito.or.jp/",
+    "pages": 19,
+    "max_pages": 500,
+    "max_depth": 4,
+    "depth_reached": 1,
+    "hit_page_limit": false,
+    "new_page_detection": true,
+    "filtered": 0,
+    "common_lines": 0,
+    "mass_guard": false,
+    "changes": 0,
+    "new_pages": 0,
+    "new_links": 0,
+    "seconds": 52,
+    "first_run": false
+   }
+  ],
+  "ai_calls": 4
  }
 ]
