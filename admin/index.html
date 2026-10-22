@@ -66,6 +66,19 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #1F2A
 const enc = new TextEncoder(), dec = new TextDecoder(), AUTH = "asuka-auth", DONE = "asuka-done";
 const b64 = a => btoa(String.fromCharCode(...new Uint8Array(a)));
 const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+function mark(n) {  // 変わった文字だけに色をつける(タグの中の文字がはっきりしているときだけ)
+  const m = n.match(/^((?:<[^>]+>\s*)*)([^<]+?)((?:\s*<\/[^>]+>)*)$/);
+  return m ? m[1] + '<mark style="background:#ffe08a">' + m[2] + "</mark>" + m[3] : n;
+}
+function plain(h) { return h.replace(/<[^>]*>/g, "").trim(); }
+function applyReps(before, reps, hl) {  // 書き換え案を当てはめる。1か所に合わなければ null
+  let after = before;
+  for (const x of reps) {
+    if (before.split(x.old).length !== 2 || after.split(x.old).length !== 2) return null;
+    after = after.replace(x.old, () => hl ? mark(x.new) : x.new);
+  }
+  return after;
+}
 async function deriveKey(pin, salt) {
   const m = await crypto.subtle.importKey("raw", enc.encode(pin), "PBKDF2", false, ["deriveKey"]);
   return crypto.subtle.deriveKey({name: "PBKDF2", salt, iterations: 200000, hash: "SHA-256"}, m, {name: "AES-GCM", length: 256}, false, ["encrypt", "decrypt"]);
@@ -91,14 +104,15 @@ function mk(tag, cls, text) { const e = document.createElement(tag); if (cls) e.
 let auth = null, done = [];
 try { done = JSON.parse(localStorage.getItem(DONE) || "[]"); } catch (e) {}
 
-async function get(name) {  // 非公開リポジトリのファイルを、鍵を使って読む
-  const r = await fetch("https://api.github.com/repos/" + auth.repo + "/contents/data/" + name + ".json",
+async function gh(path) {  // 非公開リポジトリのファイルを、鍵を使って読む
+  const r = await fetch("https://api.github.com/repos/" + auth.repo + "/contents/" + path,
     {headers: {Authorization: "Bearer " + auth.token, Accept: "application/vnd.github.raw+json"}, cache: "no-store"});
   if (r.status === 401 || r.status === 403) throw new Error("鍵が使えません。期限切れか、権限が足りない可能性があります。");
   if (r.status === 404) return null;
   if (!r.ok) throw new Error("読み込めませんでした(" + r.status + ")");
   return r.json();
 }
+const get = name => gh("data/" + name + ".json");
 function show(id) { ["login", "unlock", "app"].forEach(x => $(x).hidden = x !== id); }
 
 function renderPending(items) {
@@ -118,8 +132,40 @@ function renderPending(items) {
     const a = mk("a", "btn", "公式サイトを開く"); a.href = i.url; a.target = "_blank"; a.rel = "noopener";
     const b = mk("button", "", "確認した");
     b.onclick = () => { done.push(i.id); try { localStorage.setItem(DONE, JSON.stringify(done)); } catch (e) {} renderPending(items); };
+    if (i.proposal) { const pb = mk("button", "", "書き換え案とプレビューを見る"); pb.onclick = () => openPreview(i, c); c.append(pb); }
     c.append(b, a); list.append(c);
   });
+}
+async function openPreview(i, card) {  // 書き換え案を、変更前・変更後の見た目で確認する
+  let box = card.querySelector(".pv");
+  if (box) { box.hidden = !box.hidden; return; }
+  box = mk("div", "pv"); card.append(box); box.append(mk("p", "sub", "読み込み中…"));
+  try {
+    const p = await gh("data/proposals/" + i.id + ".json");
+    if (!p) throw new Error("書き換え案が見つかりません。");
+    const file = p.target.split("#")[0], url = new URL("../" + file, location.href).href;
+    const r = await fetch(url, {cache: "no-store"});
+    if (!r.ok) throw new Error("ガイドのページを読めませんでした(" + file + ")");
+    const before = await r.text(), after = applyReps(before, p.replacements, false), shown = applyReps(before, p.replacements, true);
+    box.replaceChildren();
+    if (!after) { box.append(mk("p", "err", "ガイドのページが、書き換え案を作ったときから変わっています。次の実行で、作り直されます。")); return; }
+    box.append(mk("h3", "", "書き換え案(" + file + ")"));
+    p.replacements.forEach(x => box.append(mk("div", "d del", "変更前:" + plain(x.old)), mk("div", "d add", "変更後:" + plain(x.new))));
+    const wrap = mk("div"), view = {side: "after", w: 390};
+    wrap.style.cssText = "overflow-x:auto;margin-top:8px";
+    const draw = () => {
+      const f = document.createElement("iframe"), src = view.side === "after" ? shown : before, base = '<base href="' + url + '">';
+      f.setAttribute("sandbox", "");  // 中のプログラムは動かさない
+      f.srcdoc = /<head[^>]*>/i.test(src) ? src.replace(/<head[^>]*>/i, m => m + base) : base + src;
+      f.style.cssText = "width:" + view.w + "px;height:480px;border:2px solid var(--line);border-radius:10px;background:#fff";
+      wrap.replaceChildren(f);
+    };
+    const btn = (t, fn) => { const b = mk("button", "sec", t); b.onclick = () => { fn(); draw(); }; return b; };
+    box.append(btn("変更前を見る", () => view.side = "before"), btn("変更後を見る", () => view.side = "after"),
+               btn("スマホ表示", () => view.w = 390), btn("パソコン表示", () => view.w = 980), wrap);
+    draw();
+    const ap = mk("button", "", "承認して公開する(次の段階で使えます)"); ap.disabled = true; ap.style.opacity = ".5"; box.append(mk("div"), ap);
+  } catch (e) { box.replaceChildren(mk("p", "err", e.message)); }
 }
 function renderLog(runs) {
   const r = runs && runs[runs.length - 1]; if (!r) return;
