@@ -1,232 +1,298 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<title>明日香村ガイド 管理</title>
-<style>
-:root{--ink:#1F2A24;--sub:#4A554F;--bg:#F4F6F3;--card:#fff;--line:#D5DBD6;--main:#2F6B4F;--warn:#9A4A12}
-body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.6 "Noto Sans JP",sans-serif}
-main{max-width:720px;margin:0 auto;padding:20px}
-h1{font-size:26px;margin:0 0 4px}
-.sum{background:var(--main);color:#fff;border-radius:16px;padding:16px 20px;margin:16px 0;font-size:22px}
-.sum b{font-size:48px;display:block;line-height:1.2}
-.card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
-.card h2{font-size:24px;margin:0 0 4px}
-.sub{color:var(--sub);font-size:18px;margin:0 0 8px}
-.err{color:var(--warn);font-weight:700}
-.d{margin:2px 0;padding:6px 10px;border-radius:8px;word-break:break-all;font-size:18px}
-.add{background:#E4F0E8}.del{background:#F6E6DC;text-decoration:line-through}
-label{display:block;font-weight:700;margin-top:12px}
-input{font:inherit;min-height:52px;width:100%;box-sizing:border-box;margin:6px 0;padding:0 12px;border:2px solid var(--line);border-radius:10px}
-button{min-height:52px;padding:0 20px;border:0;border-radius:10px;background:var(--main);color:#fff;font:700 20px inherit;margin:8px 8px 0 0}
-button.sec{background:#fff;color:var(--main);border:2px solid var(--main)}
-a.btn{display:inline-block;min-height:48px;line-height:48px;padding:0 20px;border:2px solid var(--main);border-radius:10px;color:var(--main);font-weight:700;text-decoration:none;margin-top:8px}
-button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #1F2A24;outline-offset:2px}
-[hidden]{display:none!important}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 1. SEO基本設定 -->
+  <title>明日香村観光ガイド｜おすすめスポット・ランチ・駐車場情報</title>
+  <meta name="description" content="明日香村観光ガイドは、石舞台古墳や飛鳥寺、岡寺、高松塚古墳、キトラ古墳など、明日香村の観光スポットを紹介する観光情報サイトです。観光・食事・体験・駐車場情報まで旅行に役立つ情報を掲載しています。">
+  <link rel="canonical" href="https://asuka-travel-guide.github.io/asuka-travel-guide/">
+
+  <!-- 2. OGP設定 (Open Graph Protocol / SNS共有用メタタグ) -->
+  <meta property="og:title" content="明日香村観光ガイド｜おすすめスポット・ランチ・駐車場情報">
+  <meta property="og:description" content="石舞台古墳や飛鳥寺、岡寺など明日香村の観光史跡をはじめ、ランチ・カフェ、駐車場・トイレ情報まで網羅した観光情報ガイドです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asuka-travel-guide.github.io/asuka-travel-guide/">
+  <meta property="og:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="明日香村観光ガイド">
+  <meta property="og:site_name" content="明日香村観光ガイド">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X (旧Twitter) Card 設定 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="明日香村観光ガイド｜おすすめスポット・ランチ・駐車場情報">
+  <meta name="twitter:description" content="石舞台古墳や飛鳥寺、岡寺など明日香村の観光史跡をはじめ、ランチ・カフェ、駐車場・トイレ情報まで網羅した観光情報ガイドです。">
+  <meta name="twitter:image" content="https://asuka-travel-guide.github.io/asuka-travel-guide/images/ogp.jpg">
+
+
+
+  <!-- 3. 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#website",
+        "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
+        "name": "明日香村観光ガイド",
+        "alternateName": "Asuka Travel Guide",
+        "description": "石舞台古墳や飛鳥寺、岡寺、高松塚古墳、キトラ古墳など明日香村の観光スポットや駐車場・グルメ情報を紹介する観光情報サイト。",
+        "inLanguage": "ja",
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#organization",
+          "name": "明日香村観光ガイド",
+          "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/images/apple-touch-icon.png"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "ホーム",
+            "item": "https://asuka-travel-guide.github.io/asuka-travel-guide/"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#webpage",
+        "url": "https://asuka-travel-guide.github.io/asuka-travel-guide/",
+        "name": "明日香村観光ガイド｜おすすめスポット・ランチ・駐車場情報",
+        "description": "明日香村の歴史ある観光スポットや食事、体験、駐車場情報を紹介する観光ガイドです。",
+        "isPartOf": {
+          "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://asuka-travel-guide.github.io/asuka-travel-guide/#breadcrumb"
+        },
+        "about": {
+          "@type": "TouristDestination",
+          "name": "明日香村",
+          "description": "奈良県高市郡明日香村。石舞台古墳や高松塚古墳、キトラ古墳など飛鳥時代の史跡が数多く残る歴史豊かな観光地。",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "奈良県",
+            "addressLocality": "高市郡明日香村",
+            "addressCountry": "JP"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- favicon -->
+  <link rel="icon" href="./images/favicon.ico" sizes="any">
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
+<!-- ヘッダー -->
+  <header>
+    <div class="header-container">
+      <!-- Logo -->
+      <h1 class="logo"><a href="index.html">明日香村観光ガイド</a></h1>
+       
+
+      <!-- Navigation -->
+      <nav>
+        <ul>
+          <!-- 観光する -->
+          <li class="dropdown">
+            <a href="spots/index.html">観光する</a>
+            <ul class="dropdown-menu">
+              <li><a href="spots/index.html#ruins">古墳・遺跡</a></li>
+              <li><a href="spots/index.html#temple">神社・寺院</a></li>
+              <li><a href="spots/index.html#nature">自然・風景</a></li>
+              <li><a href="spots/index.html#museum">博物館</a></li>
+<!-- 公開まで非表示
+              <li><a href="spots/index.html#course">モデルコース</a></li>
+ -->
+              <li><a href="spots/index.html#souvenir">おみやげ</a></li>
+              <li><a href="spots/parking.html#parking-map">駐車場</a></li>
+              <li><a href="toilet-map.html#toilet-map">トイレ</a></li>
+            </ul>
+          </li>
+
+<!-- 食べる -->
+          <li class="dropdown">
+            <a href="gourmet/index.html">食べる</a>
+            <ul class="dropdown-menu">
+              <li><a href="gourmet/index.html#lunch">ランチ・ディナー</a></li>
+              <li><a href="gourmet/index.html#cafe">カフェ・スイーツ</a></li>
+            </ul>
+          </li>
+
+
+<!-- 泊まる -->
+
+          <li class="dropdown">
+            <a href="stay/index.html">泊まる</a>
+            <ul class="dropdown-menu">
+              <li><a href="stay/index.html#inn">お宿</a></li>
+              <li><a href="stay/index.html#bath">お風呂</a></li>
+            </ul>
+          </li>
+
+
+          <!-- 体験する -->
+<!-- 公開まで非表示
+          <li class="dropdown">
+            <a href="activity/index.html">体験する</a>
+            <ul class="dropdown-menu">
+              <li><a href="activity/index.html#cycling">レンタサイクル</a></li>
+              <li><a href="activity/index.html#other">祭り</a></li>
+            </ul>
+          </li>
+ -->
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+
+<!-- Main -->
+  
 <main>
-<h1>明日香村ガイド 管理</h1>
 
-<section id="login" class="card" hidden>
-<h2>はじめてのログイン</h2>
-<p class="sub">この画面の情報は、あなたの鍵(アクセストークン)でだけ読めます。鍵は、この端末の中に、4桁の数字で守って保存されます。</p>
-<label for="repo">管理用リポジトリ(例: ユーザー名/asuka-admin)</label>
-<input id="repo" autocomplete="off" autocapitalize="off">
-<label for="token">鍵(アクセストークン)</label>
-<input id="token" type="password" autocomplete="off">
-<label for="pin">この端末で使う4桁の数字</label>
-<input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
-<button id="saveBtn">保存して開く</button>
-<p id="loginMsg" class="err"></p>
-</section>
+<!-- Hero Slideshow -->
+    <section class="hero">
+      <a id="hero-link" href="spots/ishibutai.html">
+        <img id="hero-image" src="images/hero/ishibutai.jpg" alt="石舞台古墳">
+        <div class="hero-overlay">
+          <p id="hero-title">石舞台古墳</p>
+        </div>
+      </a>
+    </section>
 
-<section id="unlock" class="card" hidden>
-<h2>4桁の数字を入れてください</h2>
-<input id="pin2" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
-<button id="openBtn">開く</button>
-<button id="resetBtn" class="sec">保存した鍵を消す</button>
-<p id="unlockMsg" class="err"></p>
-</section>
+    <!-- Catch Copy -->
+    <section class="catch">
+      <p>日本のはじまりを歩く。</p>
+    </section>
 
-<section id="app" hidden>
-<p class="sub" id="status">読み込み中…</p>
-<div class="sum">確認待ち<b id="count">0件</b></div>
-<div id="list"></div>
-<details class="card" id="unlinked"><summary>紐づいていないガイドのページ</summary></details>
-<details class="card" id="links"><summary>公式ページとガイドの紐づけ</summary></details>
-<details class="card" id="log"><summary>チェックの記録(サイトごと)</summary></details>
-<button id="logoutBtn" class="sec">ログアウト(保存した鍵を消す)</button>
-</section>
-</main>
-<script>
-const enc = new TextEncoder(), dec = new TextDecoder(), AUTH = "asuka-auth", DONE = "asuka-done";
-const b64 = a => btoa(String.fromCharCode(...new Uint8Array(a)));
-const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
-function mark(n) {  // 変わった文字だけに色をつける(タグの中の文字がはっきりしているときだけ)
-  const m = n.match(/^((?:<[^>]+>\s*)*)([^<]+?)((?:\s*<\/[^>]+>)*)$/);
-  return m ? m[1] + '<mark style="background:#ffe08a">' + m[2] + "</mark>" + m[3] : n;
-}
-function plain(h) { return h.replace(/<[^>]*>/g, "").trim(); }
-function applyReps(before, reps, hl) {  // 書き換え案を当てはめる。1か所に合わなければ null
-  let after = before;
-  for (const x of reps) {
-    if (before.split(x.old).length !== 2 || after.split(x.old).length !== 2) return null;
-    after = after.replace(x.old, () => hl ? mark(x.new) : x.new);
-  }
-  return after;
-}
-async function deriveKey(pin, salt) {
-  const m = await crypto.subtle.importKey("raw", enc.encode(pin), "PBKDF2", false, ["deriveKey"]);
-  return crypto.subtle.deriveKey({name: "PBKDF2", salt, iterations: 200000, hash: "SHA-256"}, m, {name: "AES-GCM", length: 256}, false, ["encrypt", "decrypt"]);
-}
-async function saveAuth(repo, token, pin) {
-  const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
-  const ct = await crypto.subtle.encrypt({name: "AES-GCM", iv}, await deriveKey(pin, salt), enc.encode(JSON.stringify({repo, token})));
-  localStorage.setItem(AUTH, JSON.stringify({salt: b64(salt), iv: b64(iv), ct: b64(ct), fails: 0}));
-}
-async function openAuth(pin) {  // 数字が違うと null。5回間違えると、保存した鍵を消す
-  const o = JSON.parse(localStorage.getItem(AUTH));
-  try {
-    const pt = await crypto.subtle.decrypt({name: "AES-GCM", iv: unb64(o.iv)}, await deriveKey(pin, unb64(o.salt)), unb64(o.ct));
-    return JSON.parse(dec.decode(pt));
-  } catch (e) {
-    o.fails = (o.fails || 0) + 1;
-    if (o.fails >= 5) localStorage.removeItem(AUTH); else localStorage.setItem(AUTH, JSON.stringify(o));
-    return null;
-  }
-}
-const $ = id => document.getElementById(id);
-function mk(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
-let auth = null, done = [];
-try { done = JSON.parse(localStorage.getItem(DONE) || "[]"); } catch (e) {}
 
-async function gh(path) {  // 非公開リポジトリのファイルを、鍵を使って読む
-  const r = await fetch("https://api.github.com/repos/" + auth.repo + "/contents/" + path,
-    {headers: {Authorization: "Bearer " + auth.token, Accept: "application/vnd.github.raw+json"}, cache: "no-store"});
-  if (r.status === 401 || r.status === 403) throw new Error("鍵が使えません。期限切れか、権限が足りない可能性があります。");
-  if (r.status === 404) return null;
-  if (!r.ok) throw new Error("読み込めませんでした(" + r.status + ")");
-  return r.json();
-}
-const get = name => gh("data/" + name + ".json");
-function show(id) { ["login", "unlock", "app"].forEach(x => $(x).hidden = x !== id); }
+<!-- About -->
+    <section class="about">
+      <div class="top-container">       
+          <p>
+            明日香村は奈良県の中央に位置し、古代国家形成の舞台となった歴史ある村です。
+            石舞台古墳や飛鳥寺、高松塚古墳、キトラ古墳など、日本を代表する史跡が数多く残され、
+            四季折々の自然とともに歴史散策を楽しめます。
+          </p>
+          <p>
+            教科書で見た史跡を実際に歩いて巡る楽しさ、田園風景の中をゆっくり散策する心地よさ、
+            四季折々の花々や夕景を写真に収めるひととき、古民家カフェで地元の味を楽しむ時間など、
+            明日香村には人それぞれの楽しみ方があります。
+          </p>
+          <p>
+            歴史を目的に訪れた人が自然の美しさに魅了されたり、景色を楽しみに訪れた人が古代ロマンに引き込まれたり。
+            そんな思いがけない出会いがあるのも、明日香村ならではの魅力です。
+          </p>       
+      </div>
+    </section>
 
-function renderPending(items) {
-  const list = $("list"); list.replaceChildren();
-  const todo = items.filter(i => !done.includes(i.id)).reverse();
-  $("count").textContent = todo.length + "件";
-  $("status").textContent = todo.length ? "公式サイトに変更が見つかりました" : "確認待ちはありません";
-  todo.forEach(i => {
-    const t = i.target, label = i.kind === "error" ? "読み込みエラー" : t === "NEW" ? "新しい施設の候補" : t === "UNKNOWN" ? "更新するページを判定できませんでした" : t;
-    const c = mk("div", "card");
-    c.append(mk("h2", "", label), mk("p", "sub", i.date + " / 参照サイト: " + i.url));
-    if (i.kind === "change") c.append(mk("p", "sub", "判定の確かさ: " + i.confidence + "(" + (i.reason || "") + ")"));
-    (i.changes || []).forEach(x => c.append(mk("div", "d add", x.item + ":" + (x.old || "なし") + " → " + (x.new || ""))));
-    const dt = mk("details"); dt.append(mk("summary", "sub", "公式サイトの変更を見る"));
-    i.diff.forEach(l => dt.append(mk("div", "d " + (l[0] === "+" ? "add" : "del"), l.slice(1))));
-    c.append(dt);
-    const a = mk("a", "btn", "公式サイトを開く"); a.href = i.url; a.target = "_blank"; a.rel = "noopener";
-    const b = mk("button", "", "確認した");
-    b.onclick = () => { done.push(i.id); try { localStorage.setItem(DONE, JSON.stringify(done)); } catch (e) {} renderPending(items); };
-    if (i.proposal) { const pb = mk("button", "", "書き換え案とプレビューを見る"); pb.onclick = () => openPreview(i, c); c.append(pb); }
-    c.append(b, a); list.append(c);
-  });
-}
-async function openPreview(i, card) {  // 書き換え案を、変更前・変更後の見た目で確認する
-  let box = card.querySelector(".pv");
-  if (box) { box.hidden = !box.hidden; return; }
-  box = mk("div", "pv"); card.append(box); box.append(mk("p", "sub", "読み込み中…"));
-  try {
-    const p = await gh("data/proposals/" + i.id + ".json");
-    if (!p) throw new Error("書き換え案が見つかりません。");
-    const file = p.target.split("#")[0], url = new URL("../" + file, location.href).href;
-    const r = await fetch(url, {cache: "no-store"});
-    if (!r.ok) throw new Error("ガイドのページを読めませんでした(" + file + ")");
-    const before = await r.text(), after = applyReps(before, p.replacements, false), shown = applyReps(before, p.replacements, true);
-    box.replaceChildren();
-    if (!after) { box.append(mk("p", "err", "ガイドのページが、書き換え案を作ったときから変わっています。次の実行で、作り直されます。")); return; }
-    box.append(mk("h3", "", "書き換え案(" + file + ")"));
-    p.replacements.forEach(x => box.append(mk("div", "d del", "変更前:" + plain(x.old)), mk("div", "d add", "変更後:" + plain(x.new))));
-    const wrap = mk("div"), view = {side: "after", w: 390};
-    wrap.style.cssText = "overflow-x:auto;margin-top:8px";
-    const draw = () => {
-      const f = document.createElement("iframe"), src = view.side === "after" ? shown : before, base = '<base href="' + url + '">';
-      f.setAttribute("sandbox", "");  // 中のプログラムは動かさない
-      f.srcdoc = /<head[^>]*>/i.test(src) ? src.replace(/<head[^>]*>/i, m => m + base) : base + src;
-      f.style.cssText = "width:" + view.w + "px;height:480px;border:2px solid var(--line);border-radius:10px;background:#fff";
-      wrap.replaceChildren(f);
-    };
-    const btn = (t, fn) => { const b = mk("button", "sec", t); b.onclick = () => { fn(); draw(); }; return b; };
-    box.append(btn("変更前を見る", () => view.side = "before"), btn("変更後を見る", () => view.side = "after"),
-               btn("スマホ表示", () => view.w = 390), btn("パソコン表示", () => view.w = 980), wrap);
-    draw();
-    const ap = mk("button", "", "承認して公開する(次の段階で使えます)"); ap.disabled = true; ap.style.opacity = ".5"; box.append(mk("div"), ap);
-  } catch (e) { box.replaceChildren(mk("p", "err", e.message)); }
-}
-function renderLog(runs) {
-  const r = runs && runs[runs.length - 1]; if (!r) return;
-  const box = $("log");
-  box.append(mk("p", "sub", r.date + (r.mode === "weekly" ? "(週1の全体チェック)" : "(毎日チェック)") + " / AI判定 " + (r.ai_calls || 0) + "回"));
-  r.sites.forEach(s => box.append(mk("div", "d", s.error ? s.url + ":読み込みエラー" :
-    s.url + " ― " + s.pages + "ページ(上限" + s.max_pages + ")、最も深い階層 " + s.depth_reached + "、変更 " + s.changes + "件" +
-    (s.filtered ? "(共通・頻繁に変わる部分として除外 " + s.filtered + "件)" : "") + (s.mass_guard ? " ★一斉変更" : "") + "、" + s.seconds + "秒" + (s.hit_page_limit ? " ★上限に達しました" : ""))));
-}
-function renderLinks(m) {
-  if (!m) return; const box = $("links"), g = {};
-  Object.keys(m).forEach(u => (g[m[u].target] = g[m[u].target] || []).push(u));
-  box.append(mk("p", "sub", "ガイドのページ " + Object.keys(g).length + "件に紐づけ(手動は tools/links-manual.csv、外すときは tools/links-ignore.txt)"));
-  Object.keys(g).sort().forEach(t => {
-    box.append(mk("div", "d add", t + "(公式ページ " + g[t].length + "件)"));
-    g[t].forEach(u => box.append(mk("div", "d", (m[u].manual ? "[手動] " : "[自動] ") + (m[u].title || "") + " " + u)));
-  });
-}
-function renderUnlinked(un, off) {
-  if (!un) return; off = off || {}; const box = $("unlinked");
-  box.firstChild.textContent = "紐づいていないガイドのページ(" + un.length + "件)";
-  un.forEach(e => {
-    const row = mk("div", "d"), out = mk("div"), b = mk("button", "", "公式ページの候補を探す");
-    row.append(mk("div", "", e.name + "  " + e.path));
-    b.onclick = () => {
-      out.replaceChildren();
-      const toks = e.name.split(/[\s・（）()｜]+/).filter(t => t.length >= 3), ks = toks.length ? toks : [e.name];
-      const hits = Object.keys(off).filter(u => ks.some(t => off[u].includes(t))).slice(0, 8);
-      if (!hits.length) out.append(mk("div", "sub", "候補が見つかりませんでした"));
-      hits.forEach(u => {
-        const line = e.path + "," + u + "," + e.name, d = mk("div", "d add", off[u] + "  " + u), c = mk("button", "", "CSVの1行をコピー");
-        c.onclick = () => navigator.clipboard.writeText(line).then(() => { c.textContent = "コピーしました"; }); d.append(c); out.append(d);
-      });
-    };
-    row.append(b, out); box.append(row);
-  });
-}
-async function start() {
-  show("app");
-  try {
-    const [pend, log, links, unl, off] = await Promise.all(["pending", "crawl-log", "links", "unlinked", "official-pages"].map(get));
-    if (pend === null) { $("status").textContent = "データが見つかりません。リポジトリ名と、最初の実行が済んでいるかを確認してください。"; return; }
-    renderPending(pend); renderLog(log); renderLinks(links); renderUnlinked(unl, off);
-  } catch (e) { $("status").textContent = e.message; $("status").className = "err"; }
-}
-$("saveBtn").onclick = async () => {
-  const repo = $("repo").value.trim(), token = $("token").value.trim(), pin = $("pin").value;
-  if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) { $("loginMsg").textContent = "リポジトリは「ユーザー名/名前」の形で入れてください。"; return; }
-  if (!token) { $("loginMsg").textContent = "鍵(アクセストークン)を入れてください。"; return; }
-  if (!/^\d{4}$/.test(pin)) { $("loginMsg").textContent = "4桁の数字を入れてください。"; return; }
-  await saveAuth(repo, token, pin); auth = {repo, token}; $("token").value = ""; start();
-};
-$("openBtn").onclick = async () => {
-  const a = await openAuth($("pin2").value);
-  if (a) { auth = a; $("pin2").value = ""; start(); return; }
-  if (localStorage.getItem(AUTH)) $("unlockMsg").textContent = "数字が違います(5回間違えると、保存した鍵が消えます)。";
-  else { $("unlockMsg").textContent = ""; show("login"); $("loginMsg").textContent = "5回間違えたので、保存した鍵を消しました。もう一度入れてください。"; }
-};
-function wipe() { localStorage.removeItem(AUTH); auth = null; show("login"); }
-$("resetBtn").onclick = wipe; $("logoutBtn").onclick = wipe;
-show(localStorage.getItem(AUTH) ? "unlock" : "login");
-</script>
+
+
+<!-- Top Map -->
+    <section class="top-map">
+      <div class="top-container">
+        <h2>観光に便利なマップ</h2>
+ 
+       <div class="map-grid">
+
+
+<!-- 公開まで非表示
+          <a class="map-card" href="#"><span>📍 </span><h3>観光スポット</h3></a>
+-->
+          <a class="map-card" href="spots/parking.html"><span>🚗</span><h3>駐車場</h3></a>
+          <a class="map-card" href="toilet-map.html"><span>🚻</span><h3>公衆トイレ</h3></a>
+          <a class="map-card" href="gourmet/index.html"><span>🍴</span><h3>食べる</h3></a>
+          <a class="map-card" href="stay/index.html"><span>🛏️</span><h3>泊まる</h3></a>
+<!-- 公開まで非表示
+          <a class="map-card" href="#"><span>🎁</span><h3>買い物</h3></a>
+-->
+        </div>
+        <p>目的別のマップから必要な情報をすぐ確認</p>
+      </div>
+    </section>
+
+
+<!-- 新着情報 -->
+    <section class="news">
+      <div class="top-container">
+        <h2>新着情報</h2>
+        <div class="news-box">
+        <ul>
+          <li><time datetime="2026-10-10">2026.10.10</time> 飛鳥京跡苑池の情報を追加しました。</li>
+          <li><time datetime="2026-10-06">2026.10.06</time> 犬養万葉記念館の情報を追加しました。</li>
+          <li><time datetime="2026-09-27">2026.09.27</time> トイレ情報を更新しました。</li>
+          <li><time datetime="2026-09-22">2026.09.22</time> トイレ情報を更新しました。</li>
+          <li><time datetime="2026-09-10">2026.09.10</time> トイレ情報を更新しました。</li>
+          <li><time datetime="2026-09-07">2026.09.07</time> 駐車場情報を更新しました。</li>
+          <li><time datetime="2026-09-04">2026.09.04</time> 食べるカテゴリーを更新しました。</li>
+          <li><time datetime="2026-08-22">2026.08.22</time> 泊まるカテゴリーを追加しました。</li>
+          <li><time datetime="2026-08-17">2026.08.17</time> 食べるカテゴリーを追加しました。</li>
+          <li><time datetime="2026-08-08">2026.08.08</time> トップページをリニューアルしました。</li>
+          <li><time datetime="2026-08-05">2026.08.05</time> 駐車場情報を更新しました。</li>
+          <li><time datetime="2026-07-26">2026.07.26</time> サイトを公開しました。</li>
+        </ul>
+       </div>
+      </div>
+    </section>
+
+<!-- Site About -->
+    <section class="site-about">
+      <div class="top-container">
+        <h2>明日香村観光ガイドについて</h2>
+        <p>「明日香村観光で迷わない」をコンセプトに、観光スポットだけでなく、駐車場、公衆トイレ、グルメ、おみやげ、宿泊施設など、現地で本当に役立つ情報を分かりやすく掲載しています。旅行前の計画から現地での散策まで、快適な旅をサポートいたします。</p>
+      </div>
+    </section>
+
+  </main>
+
+
+
+<!-- フッター -->
+  <footer>
+    <nav>
+      <a href="sitemap.html">サイトマップ</a>
+      <span class="separator">｜</span>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <span class="separator">｜</span>
+      <a href="contact.html">お問い合わせ</a>
+    </nav>
+    <p>&copy; 2026 Asuka Travel Guide. All Rights Reserved.</p>
+  </footer>
+
+
+<!-- JavaScript -->
+  <script src="js/script.js"></script>
+
 </body>
+
 </html>
