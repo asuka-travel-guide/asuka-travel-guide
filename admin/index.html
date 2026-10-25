@@ -30,6 +30,9 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #1F2A
 #last{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 16px;margin:12px 0}
 #last b{display:block;font-size:22px}
 #last .kind{display:inline-block;background:#E4F0E8;color:#1F4D38;border-radius:8px;padding:0 10px;font-weight:700}
+.e{background:#F6E6DC;border-left:6px solid var(--warn)}
+.w{background:#FFF6D6;border-left:6px solid #8A6D00}
+.grp{margin:8px 0}.grp summary{font-weight:700}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -63,6 +66,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #1F2A
 <p class="sub" id="status">読み込み中…</p>
 <div class="sum">確認待ち<b id="count">0件</b></div>
 <div id="list"></div>
+<details class="card" id="audit"><summary>ホームページの点検</summary></details>
 <details class="card" id="unlinked"><summary>紐づいていないガイドのページ</summary></details>
 <details class="card" id="links"><summary>公式ページとガイドの紐づけ</summary></details>
 <details class="card" id="log"><summary>チェックの記録(サイトごと)</summary></details>
@@ -186,6 +190,32 @@ function renderLast(runs) {  // 最後のチェックの日時と種類
   else if (Date.now() - new Date(r.finished_at).getTime() > 36 * 3600 * 1000)
     el.append(mk("div", "err", "最後のチェックから36時間以上たっています。自動実行が止まっていないか、Actionsを確認してください。"));
 }
+const GUIDE_REPO = "asuka-travel-guide/asuka-travel-guide";
+function renderAudit(a) {  // ガイドのホームページの点検結果(リンク切れ・コード不備)
+  const box = $("audit");
+  if (!a) { box.firstChild.textContent = "ホームページの点検(まだ実行されていません)"; return; }
+  const ext = a.external_issues || [], all = (a.issues || []).concat(ext);
+  const err = all.filter(i => i.severity === "error").length, warn = all.length - err;
+  const head = all.length ? "エラー " + err + "件・注意 " + warn + "件" : "問題は見つかりませんでした";
+  box.firstChild.textContent = "ホームページの点検:" + head;
+  $("last").append(mk("div", err ? "err" : "sub", "ホームページの点検:" + head + "(" + fmtWhen(a.checked_at) + "、" + a.pages + "ページ)"));
+  box.append(mk("p", "sub", "内部の点検:" + fmtWhen(a.checked_at) + " / 外部リンクの点検:" + (a.external_checked_at ? fmtWhen(a.external_checked_at) + "(週1回)" : "まだ実行されていません")));
+  const by = {}, cnt = (l, s) => l.filter(i => i.severity === s).length;
+  (a.issues || []).forEach(i => (by[i.page] = by[i.page] || []).push(i));
+  Object.keys(by).sort((x, y) => cnt(by[y], "error") - cnt(by[x], "error") || x.localeCompare(y)).forEach(pg => {
+    const list = by[pg].sort((p, q) => (q.severity === "error") - (p.severity === "error") || (p.line || 0) - (q.line || 0)), dt = mk("details", "grp");  // エラーを先に
+    dt.append(mk("summary", "", pg + "(エラー " + cnt(list, "error") + "・注意 " + cnt(list, "warn") + ")"));
+    list.forEach(i => dt.append(mk("div", "d " + (i.severity === "error" ? "e" : "w"), (i.severity === "error" ? "エラー:" : "注意:") + i.message + (i.line ? "(" + i.line + "行目)" : ""))));
+    const l = mk("a", "btn", "GitHubで開く"); l.href = "https://github.com/" + GUIDE_REPO + "/blob/main/" + pg; l.target = "_blank"; l.rel = "noopener";
+    dt.append(l); box.append(dt);
+  });
+  if (ext.length) {
+    const dt = mk("details", "grp"); dt.append(mk("summary", "", "外部サイトへのリンク(" + ext.length + "件)"));
+    ext.forEach(i => dt.append(mk("div", "d " + (i.severity === "error" ? "e" : "w"), (i.severity === "error" ? "エラー:" : "注意:") + i.message + " " + i.url + "(使っているページ:" + i.pages.join("、") + ")")));
+    box.append(dt);
+  }
+  if (a.external_skipped) box.append(mk("p", "sub", "外部リンクが多いため、" + a.external_skipped + "件は、今回は確認していません。"));
+}
 function renderLog(runs) {
   const r = runs && runs[runs.length - 1]; if (!r) return;
   const box = $("log");
@@ -225,8 +255,8 @@ function renderUnlinked(un, off) {
 async function start() {
   show("app");
   try {
-    const [pend, log, links, unl, off] = await Promise.all(["pending", "crawl-log", "links", "unlinked", "official-pages"].map(get));
-    renderLast(log);
+    const [pend, log, links, unl, off, aud] = await Promise.all(["pending", "crawl-log", "links", "unlinked", "official-pages", "audit"].map(get));
+    renderLast(log); renderAudit(aud);
     if (pend === null) { $("status").textContent = "データが見つかりません。リポジトリ名と、最初の実行が済んでいるかを確認してください。"; return; }
     renderPending(pend); renderLog(log); renderLinks(links); renderUnlinked(unl, off);
   } catch (e) { $("status").textContent = e.message; $("status").className = "err"; }
