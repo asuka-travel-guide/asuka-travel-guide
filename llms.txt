@@ -1,0 +1,30 @@
+# 明日香村観光ガイド
+
+> 石舞台古墳や飛鳥寺、岡寺、高松塚古墳、キトラ古墳など、明日香村の観光スポットを紹介する観光情報サイトです。観光スポット、モデルコース、駐車場、トイレ、グルメ、宿泊の情報を掲載しています。
+
+## 観光する
+
+- [観光スポット一覧](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/): 古墳・遺跡、神社・寺院、自然、博物館、おみやげなどの観光スポット。詳細ページは44件。
+- [モデルコース](https://asuka-travel-guide.github.io/asuka-travel-guide/model-course.html): 徒歩（半日・1日）、サイクリング（1日）、ドライブの4コース。見学時間と移動時間の目安、昼食候補、駐車場案内つき。
+- [駐車場マップ](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/parking.html): 無料・有料駐車場の料金、営業時間、収容台数。
+- [トイレ案内マップ](https://asuka-travel-guide.github.io/asuka-travel-guide/toilet-map.html): 屋外トイレ・多機能トイレの場所と設備（バリアフリー、オストメイト対応など）。
+
+## 食べる・泊まる
+
+- [食べるマップ](https://asuka-travel-guide.github.io/asuka-travel-guide/gourmet/): ランチ・ディナー、カフェ・スイーツ。
+- [泊まるマップ](https://asuka-travel-guide.github.io/asuka-travel-guide/stay/): 古民家宿、民宿、ペンションなどの宿泊施設。
+
+## 主なスポット
+
+- [石舞台古墳](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/ishibutai.html)
+- [飛鳥寺](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/asukadera.html)
+- [岡寺](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/okadera.html)
+- [高松塚古墳](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/takamatsuzuka.html)
+- [キトラ古墳](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/kitora.html)
+- [万葉文化館](https://asuka-travel-guide.github.io/asuka-travel-guide/spots/manyo-museum.html)
+
+## Optional
+
+- [サイトマップ](https://asuka-travel-guide.github.io/asuka-travel-guide/sitemap.xml)
+- [お問い合わせ](https://asuka-travel-guide.github.io/asuka-travel-guide/contact.html)
+- [プライバシーポリシー](https://asuka-travel-guide.github.io/asuka-travel-guide/privacy.html)
