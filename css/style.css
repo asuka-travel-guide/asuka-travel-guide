@@ -1281,9 +1281,9 @@ footer p {
 .model-course-container h2 {
   margin-bottom: 14px;
   padding-left: 12px;
-  border-left: 5px solid var(--primary-color);
-  font-weight: 500;
-  color: var(--primary-color);
+  border-left: 25px solid var(--primary-color);
+  font-weight: 400;
+  color: var(--text-main);
 }
 
 .model-course-map {
@@ -2107,4 +2107,15 @@ footer p {
   z-index: 2;
   align-self: flex-start;
   margin: auto 12px 0;              /* カードの下端にそろえる */
+}
+
+/* ========================================
+   一覧ページのH2（付箋風）
+   モデルコースのH2に合わせ、左の縦ラインのみ太さ5倍(25px)
+   ======================================== */
+h2.section-title {
+  padding-left: 12px;
+  border-left: 25px solid var(--primary-color);
+  font-weight: 400;
+  color: var(--text-main);
 }
