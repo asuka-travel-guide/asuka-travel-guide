@@ -1232,3 +1232,879 @@ footer p {
 
 
 }
+
+
+/*==========================================
+  16. モデルコースページ専用
+  （旧 model-course.css を統合。共通部分は上記と重複するため省略）
+==========================================*/
+
+
+/*==========================================
+  8. モデルコース：ページ全体のレイアウト
+==========================================*/
+.model-course-main {
+  max-width: 1440px;
+  margin: 74px 0 80px;
+  padding: 0;
+}
+
+.model-course-container {
+  max-width: 1020px;
+  margin: 0 auto 10px;
+  width: calc(100% - 40px);
+  padding: 0;
+}
+
+.model-course-category {
+  padding: 84px 0 64px;    /* 上84px = 区切り線からコース見出し(h2)までの余白 */
+  scroll-margin-top: 64px; /* PCヘッダー高さ(64px)に統一 */
+}
+
+.model-course-category:first-child {
+  padding-top: 0;
+  padding-bottom: 0;   /* h1・説明文とコース一覧ボタンの間隔は、下の #model-course-index の padding-top だけで決める */
+}
+
+/* コース一覧ボタンの区画：h1〜説明文との間には線を引かない */
+#model-course-index {
+  padding-top: 32px;
+  border-top: 0;
+}
+
+/* コースとコースの境目：全幅の細い線で区切る */
+.model-course-category + .model-course-category {
+  border-top: 1px solid var(--text-main);
+}
+
+/* コース見出し：左の太線で「ここから新しいコース」を明示 */
+.model-course-container h2 {
+  margin-bottom: 14px;
+  padding-left: 12px;
+  border-left: 5px solid var(--primary-color);
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.model-course-map {
+  margin-bottom: 5px;
+  justify-content: center;
+  scroll-margin-top: 76px;   /* 固定ヘッダー(64px)＋余白。リンクから地図へ移動したとき、ヘッダーに密着しない */
+}
+
+/* コース一覧へのジャンプボタン */
+.model-course-index {
+  max-width: 1020px;
+  width: calc(100% - 40px);
+  margin: 0 auto 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.model-course-index a {
+  display: block;
+  min-width: 150px;
+  padding: 11px 16px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--text-main);
+  text-align: center;
+  font-size: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.model-course-index a:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-hover);
+  box-shadow: var(--shadow-md);
+}
+
+/* ページ下部の注意書き */
+.model-course-note {
+  max-width: 720px;
+  width: calc(100% - 40px);
+  margin: 0 auto 60px;
+  padding: 18px 22px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  background: #fafafa;
+}
+
+.model-course-note p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.model-course-note p:last-child {
+  margin-bottom: 0;
+}
+
+
+/*==========================================
+  9. モデルコース：スポットカード
+     写真 240×180px（4:3）＋ 文字領域 160px ＝ 横長カード
+==========================================*/
+.model-course-card {
+  display: flex;
+  flex: 0 0 402px;
+  flex-direction: row;
+  align-items: stretch;
+  width: 402px;
+  min-width: 0;
+  height: 180px;
+  min-height: 180px;
+  max-height: 180px;
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
+}
+
+.model-course-card > img {
+  display: block;
+  flex: 0 0 240px;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  height: 180px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.asuka-course-card-body {
+  display: flex;
+  flex: 0 0 160px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  width: 160px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.asuka-course-card-body h3 {
+  margin: 0 0 4px;
+  color: var(--text-main);
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.asuka-course-card-body p {
+  margin: 0 0 5px;
+  color: var(--text-sub);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.asuka-course-card-body .asuka-course-duration {
+  margin-bottom: 5px;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* 説明文は4行まで表示（駐車場カードは対象外） */
+.model-course-card:not(.asuka-course-parking-card) .asuka-course-card-body p:not(.asuka-course-duration) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+/* START / 駐車場 ラベル */
+.asuka-course-stop-label {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 18px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.asuka-course-detail-link {
+  display: inline-block;
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.asuka-course-detail-link:hover {
+  color: var(--primary-hover);
+}
+
+/* 「詳しく見る」「スタート」は全カードでカード下端にそろえる（駐車場カードは中央寄せのまま） */
+.model-course-card:not(.asuka-course-parking-card) .asuka-course-card-body > .asuka-course-detail-link,
+.model-course-card:not(.asuka-course-parking-card) .asuka-course-card-body > .asuka-course-start-label {
+  margin-top: auto;
+}
+
+.asuka-course-stop-label.asuka-course-start-label {
+  margin-bottom: 0;
+}
+
+/* 説明文中のリンク（例：レンタサイクルはこちら） */
+.asuka-course-card-body p a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 見出し前の丸囲みアルファベット（A〜：マイマップの順路と対応） */
+.asuka-course-stop-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: 1px;
+}
+
+/* 駐車場カード（写真なし・同じ高さの情報カード） */
+.asuka-course-parking-card {
+  justify-content: center;
+}
+
+.model-course-card.asuka-course-parking-card {
+  flex: 0 0 360px;
+  width: 360px;
+  min-height: 180px;
+  border-left: 5px solid var(--primary-color);
+}
+
+.asuka-course-parking-card .asuka-course-card-body {
+  flex: 1 1 auto;
+  width: auto;
+  justify-content: center;
+  padding: 12px 14px;
+}
+
+.asuka-course-parking-card h3 {
+  margin: 2px 0 5px;
+  font-size: 15px;
+}
+
+
+/*==========================================
+  10. モデルコース：移動時間の矢印・GOAL
+==========================================*/
+.asuka-course-connector {
+  display: flex;
+  flex: 0 0 68px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 180px;
+  height: 180px;
+  text-align: center;
+}
+
+.asuka-course-connector::before {
+  content: "→";
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.asuka-course-connector-label {
+  display: inline-block;
+  max-width: 68px;
+  padding: 4px 5px;
+  border: 1px solid var(--border-main);
+  border-radius: 20px;
+  background: #fff;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.asuka-course-goal-card {
+  display: flex;
+  flex: 0 0 220px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 12px;
+  width: 220px;
+  height: 180px;
+  min-height: 180px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.asuka-course-goal-card span {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 18px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.asuka-course-goal-card strong {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.asuka-course-goal-card .asuka-course-stop-number {
+  vertical-align: 0;
+}
+
+
+/*==========================================
+  11. モデルコース：昼食候補（脇役なので控えめに）
+      ・枠と背景を無くし、見出しもカードも小さく淡くする
+      ・見出しの左端はコース見出し(h2)と同じ位置にそろえる
+==========================================*/
+.asuka-course-meal-break {
+  width: 100%;
+  min-width: 0;
+  margin-top: 44px;                                   /* スライダーとの間隔 */
+  padding: 0 max(20px, calc((100% - 1020px) / 2));    /* .model-course-container と同じ左右位置 */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.asuka-course-meal-heading h3 {
+  margin: 0 0 12px;
+  padding-left: 14px;
+  border-left: 3px solid var(--border-main);          /* h2(太線5px+余白12px)と文字位置が一致 */
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.asuka-course-meal-break .related-slider {
+  gap: 16px;
+}
+
+.asuka-course-meal-card {
+  display: flex;
+  flex: 0 0 208px;
+  flex-direction: column;
+  width: 208px;
+  padding-bottom: 12px;                               /* line-clamp の p には下余白を付けない（はみ出し防止） */
+  border-color: var(--border-main);
+  box-shadow: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+.asuka-course-meal-card > img {
+  flex: 0 0 auto;
+}
+
+.asuka-course-meal-card h3 {
+  padding: 10px 12px 4px;
+  color: var(--text-sub);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.asuka-course-meal-card p {
+  margin: 0;
+  padding: 0 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;                              /* 説明は2行まで。詳細はリンク先で */
+  overflow: hidden;
+}
+
+
+/* --- モデルコース：600px 以下 --- */
+@media (max-width: 600px) {
+
+  .model-course-index {
+    width: calc(100% - 12px);
+    margin-bottom: 34px;
+    gap: 8px;
+  }
+
+  .model-course-index a {
+    min-width: calc(50% - 4px);
+    padding: 9px 6px;
+    font-size: 12px;
+  }
+
+  /* 駐車場カードの見出し：モバイルでは通常カードと同じ余白に戻る（元CSSの挙動） */
+  .asuka-course-parking-card h3 {
+    margin: 0 0 4px;
+  }
+
+  .asuka-course-goal-card {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .model-course-category {
+    padding: 60px 0 48px;
+  }
+
+  #model-course-index {
+    padding-top: 24px;
+  }
+}
+
+
+/*==========================================
+  ドライブコース：自由周遊・駐車場案内
+==========================================*/
+.drive-course-intro,
+.drive-parking-content {
+  width: min(1020px, calc(100% - 40px));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.drive-course-intro {
+  margin-top: 28px;
+  margin-bottom: 4px;
+}
+
+.drive-course-intro h3,
+.drive-parking-group h3,
+.drive-parking-warning h3 {
+  margin: 0 0 10px;
+  color: var(--text-main);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.drive-course-intro p,
+.drive-parking-group > p,
+.drive-parking-warning p {
+  margin: 0 0 10px;
+  color: var(--text-sub);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.drive-parking-content {
+  margin-top: 34px;
+}
+
+.drive-parking-warning {
+  margin: 0 0 30px;
+  padding: 18px 20px;
+  border: 1px solid var(--border-dark);
+  border-left: 5px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.drive-parking-warning h3 {
+  margin-bottom: 8px;
+}
+
+.drive-parking-warning p:last-child {
+  margin-bottom: 0;
+}
+
+.drive-parking-group {
+  margin: 0 0 34px;
+}
+
+.drive-parking-group h3 {
+  padding-left: 10px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.drive-parking-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 12px 0 8px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  -webkit-overflow-scrolling: touch;
+}
+
+.drive-parking-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: #fff;
+  color: var(--text-sub);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.drive-parking-table-free { min-width: 720px; }
+.drive-parking-table-paid { min-width: 920px; }
+
+.drive-parking-table th,
+.drive-parking-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-main);
+  text-align: left;
+  vertical-align: top;
+}
+
+.drive-parking-table thead th {
+  background: var(--bg-sub, #f5f5f5);
+  color: var(--text-main);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.drive-parking-table tbody th {
+  min-width: 130px;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.drive-parking-table tbody tr:last-child th,
+.drive-parking-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.drive-parking-table a,
+.drive-parking-page-link a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.drive-parking-source-note {
+  color: var(--text-muted) !important;
+  font-size: 11px !important;
+}
+
+.drive-parking-page-link {
+  margin-top: 12px !important;
+}
+
+.drive-parking-recommendations ul {
+  margin: 10px 0 0;
+  padding-left: 1.4em;
+  color: var(--text-sub);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.drive-parking-recommendations li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .drive-course-intro,
+  .drive-parking-content {
+    width: calc(100% - 24px);
+  }
+
+  .drive-course-intro h3,
+  .drive-parking-group h3,
+  .drive-parking-warning h3 {
+    font-size: 15px;
+  }
+
+  .drive-parking-warning {
+    padding: 14px;
+  }
+
+  .drive-parking-table {
+    font-size: 12px;
+  }
+}
+
+/*==========================================
+  ドライブコース：駐車場番号（parking.html と共通）
+==========================================*/
+#drive-full .number {
+  display: inline-flex;
+  flex: 0 0 28px;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  margin-right: 6px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+#drive-full .number.paid { background: #e66a00; }
+#drive-full .number.free { background: #0f9d58; }
+
+.asuka-course-spot-parking {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  margin: 0 0 5px;
+  min-width: 0;
+}
+
+.asuka-course-spot-parking .drive-parking-map-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+  color: var(--primary-color);
+  font-size: 10px;
+  line-height: 1.25;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.asuka-course-spot-parking .drive-parking-map-link .number {
+  margin: 0;
+}
+
+.asuka-course-spot-parking .drive-parking-map-link > span:last-child {
+  min-width: 0;
+}
+
+.drive-parking-content .number {
+  vertical-align: middle;
+}
+
+.drive-parking-subheading {
+  margin: 12px 0 4px !important;
+  color: var(--text-main) !important;
+  font-weight: 600;
+}
+
+.drive-parking-no-lot-list {
+  margin: 4px 0 0;
+  padding-left: 1.4em;
+  color: var(--text-sub);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+
+/*==========================================
+  2026-11-02：モデルコース表示の調整
+==========================================*/
+
+/* 徒歩・サイクリングのスポット番号：Google マイマップのルート番号と同じ青 */
+#walk-half .asuka-course-stop-number,
+#walk-full .asuka-course-stop-number,
+#cycle-full .asuka-course-stop-number {
+  background: #1267ff;
+}
+
+/* START と GOAL のラベルを同じ大きさにし、START はカードの空き部分の中央へ */
+#walk-half .asuka-course-card-body > .asuka-course-start-label,
+#walk-full .asuka-course-card-body > .asuka-course-start-label,
+#cycle-full .asuka-course-card-body > .asuka-course-start-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 80px;
+  min-width: 80px;
+  height: 36px;
+  margin: auto 0 !important;
+  padding: 8px 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+#walk-half .asuka-course-goal-card > span,
+#walk-full .asuka-course-goal-card > span,
+#cycle-full .asuka-course-goal-card > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  min-width: 80px;
+  height: 36px;
+  padding: 8px 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* サイクリングの移動時間ラベルは10分以上でも1行に収める */
+#cycle-full .asuka-course-connector {
+  flex: 0 0 92px;
+  width: 92px;
+}
+
+#cycle-full .asuka-course-connector-label {
+  max-width: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+/* 駐車場番号を駐車場名の文字サイズに合わせる */
+#drive-full .number {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+/* 駐車場名は黒系、下線なし */
+#drive-full .asuka-course-spot-parking .drive-parking-map-link {
+  color: #333;
+  font-size: 11px;
+  text-decoration: none;
+  text-underline-offset: 0;
+}
+
+/* 駐車場リンクのホバー：サイト共通のリンクと同じく、文字色が --primary-hover（緑）に変わる */
+#drive-full .asuka-course-spot-parking .drive-parking-map-link,
+#drive-full .drive-parking-table a {
+  transition: color var(--transition-fast);
+}
+
+#drive-full .asuka-course-spot-parking .drive-parking-map-link:hover,
+#drive-full .drive-parking-table a:hover {
+  color: var(--primary-hover);
+  text-decoration: none;
+}
+
+/* 下線つきのページ内リンクは「詳しく見る」と同じく、下線を残して色だけ変える */
+#drive-full .drive-parking-page-link a {
+  transition: color var(--transition-fast);
+}
+
+#drive-full .drive-parking-page-link a:hover {
+  color: var(--primary-hover);
+}
+
+#drive-full .drive-parking-table a {
+  color: #333;
+  text-decoration: none;
+  text-underline-offset: 0;
+}
+
+/* 駐車場名の列は途中で改行しない（狭い画面では表全体を横スクロール） */
+#drive-full .drive-parking-table tbody td:nth-child(2) {
+  white-space: nowrap;
+}
+
+
+/* 最新の徒歩・1日コース：専用画像のない展示室カード */
+/* 明日香村埋蔵文化財展示室：専用画像がないため写真領域と同寸の案内パネルを表示 */
+.asuka-course-no-image-panel {
+  display: flex;
+  flex: 0 0 240px;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  height: 180px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-right: 1px solid var(--border-light);
+  background: #f3f5f1;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.asuka-course-no-image-panel span {
+  display: inline-block;
+  padding: 12px;
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-md);
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+
+/*==========================================
+  レンタサイクル：昼食候補と同じスライダー・カード
+  ・カード全体を押す → サイクリング・1日コースの地図へ（拡大）
+  ・公式ページへのリンクはカード内に独立して置く
+==========================================*/
+.asuka-course-rental-break {
+  margin-top: 24px;                 /* 説明文との間隔（昼食候補は44px） */
+}
+
+.asuka-course-rental-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.asuka-course-rental-card p {
+  margin-bottom: 8px;
+  -webkit-line-clamp: 3;            /* 営業所の説明は3行まで */
+}
+
+/* カード全体を押せるようにする（見出しのリンクを、カード全面に広げる） */
+.asuka-course-card-main-link {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+.asuka-course-card-main-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-md);
+}
+
+.asuka-course-card-main-link:focus-visible::after {
+  outline: 2px solid var(--primary-hover);
+  outline-offset: -2px;
+}
+
+/* 公式ページへのリンク：カード全面のリンクより手前に置く */
+.asuka-course-rental-card .asuka-course-official-link {
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+  margin: auto 12px 0;              /* カードの下端にそろえる */
+}
