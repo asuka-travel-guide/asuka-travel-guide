@@ -28,3 +28,8 @@
 - [サイトマップ](https://asuka-travel-guide.github.io/asuka-travel-guide/sitemap.xml)
 - [お問い合わせ](https://asuka-travel-guide.github.io/asuka-travel-guide/contact.html)
 - [プライバシーポリシー](https://asuka-travel-guide.github.io/asuka-travel-guide/privacy.html)
+
+## 注意点
+
+- 高松塚第1駐車場内トイレは2026年11月30日から利用休止（高松塚壁画館前トイレと高松塚東側トイレは対象外）。
+- 国営飛鳥歴史公園館はリニューアル工事のため利用休止中。再開は2030年頃の予定。
