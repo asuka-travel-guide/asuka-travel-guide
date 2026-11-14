@@ -1089,6 +1089,72 @@ footer p {
 
 
 
+/* --- 600px 以下 (ヘッダー：ロゴ2行・メニュー横並び／高さ64px固定) --- */
+@media (max-width: 600px) {
+
+ .header-container {
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 10px;
+  }
+
+ /* ロゴ：475px未満は12px固定（475〜600pxは下の専用ブロックで18px）。メニュー間は443px未満で14pxまで狭め、360px未満はメニュー文字を縮める */
+ .logo {
+   flex: 0 1 auto;
+   font-size: 12px;
+   font-weight: 500;
+   line-height: 1.25;
+   letter-spacing: 0.02em;
+  }
+
+ /* ロゴは「明日香村」「観光ガイド」の2行にする（HTML側で .logo-line の span で囲む） */
+ .logo-line {
+   display: block;
+   white-space: nowrap;
+  }
+
+ header nav {
+   flex: 0 0 auto;
+  }
+
+ header nav > ul {
+   gap: clamp(14px, calc((100vw - 318px) / 3), 42px);
+   flex-wrap: nowrap;
+   justify-content: flex-end;
+  }
+
+ header nav a {
+   font-size: clamp(11px, calc((100vw - 132px) / 14.25), 16px);
+   white-space: nowrap;
+  }
+
+ /* ドロップダウン：左端そろえ。右側の最後の2項目は右端そろえにして画面外へはみ出さない */
+ .dropdown-menu {
+   left: 0;
+   transform: none;
+  }
+
+ .dropdown:nth-last-child(-n+2) .dropdown-menu {
+   left: auto;
+   right: 0;
+  }
+
+}
+
+
+
+
+/* --- 475〜600px (ヘッダー：ロゴはPCと同じ18px) --- */
+@media (min-width: 475px) and (max-width: 600px) {
+ .logo {
+   font-size: 18px;
+  }
+}
+
+
+
+
 /* --- 500px 以下 (スマートフォン) --- */
 @media (max-width: 500px) {
 
@@ -1106,51 +1172,7 @@ footer p {
 
 
 
-/* ヘッダー */
- header {
-    height: 64px;
-  }
-
-
-.header-container {
-    flex-direction: column;
-    justify-content: center;
-    padding: 10px 0;
-  }
-
-
-
-
-
-.logo {
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  margin-bottom: 0px;
-}
-
-
-
-
-
-
-
-/* ドロップダウンリスト */
- 
-  nav > ul {
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav a {
-    font-size: 16px;
-  }
-
-  .dropdown-menu {
-    left: 0;
-    transform: none;
-  }
+/* ヘッダー・ドロップダウンは、上の「600px 以下」ブロックに移動 */
 
 
 
